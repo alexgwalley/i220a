@@ -1,0 +1,487 @@
+Script started on 2020-08-27 13:12:27-04:00 [TERM="ansi" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+awalley1@remote01:~/tmp/lab0$ cat lab0.LOG 
+awalley1@remote01:~/tmp/lab0$ ls ./[D[K[D[K!/.[D[K[D[K[D[K~/.shh
+ls: cannot access '/home/awalley1/.shh': No such file or directory
+awalley1@remote01:~/tmp/lab0$ ls ~/.shh[D[K[Dsh[D
+ls: cannot access '/home/awalley1/.ssh': No such file or directory
+awalley1@remote01:~/tmp/lab0$ ls ~/.ssh[D[D[D[D[D[D[D[D[D[Kls ~/.ssh/id[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Kssh_[D[K[D[K[D[K[D[K[D[K[D[Kssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/awalley1/.ssh/id_rsa): 
+Created directory '/home/awalley1/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/awalley1/.ssh/id_rsa.
+Your public key has been saved in /home/awalley1/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Ybn+DlW9/fWDmlHWCBTwIHyuP53JqlCw3AAo0w00QH0 awalley1@remote01
+The key's randomart image is:
++---[RSA 2048]----+
+|o=*+  .. o.o.    |
+|o..ooE ..o+  .   |
+|..  .o  *  o. .  |
+|    . =. + .. oo |
+|     o oS .  +..o|
+|      .o .  o . +|
+|     .  + o.o. .o|
+|      .  = =+   .|
+|       ..o=o     |
++----[SHA256]-----+
+awalley1@remote01:~/tmp/lab0$ ssh-copy-id awll[D[K[D[Kalley1@remote
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/awalley1/.ssh/id_rsa.pub"
+The authenticity of host 'remote (128.226.114.201)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+awalley1@remote's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'awalley1@remote'"
+and check to make sure that only the key(s) you wanted were added.
+
+awalley1@remote01:~/tmp/lab0$ log[D[K[D[K[D[Klogout
+bash: logout: not login shell: use `exit'
+awalley1@remote01:~/tmp/lab0$ exit
+exit
+
+Script done on 2020-08-27 13:19:58-04:00 [COMMAND_EXIT_CODE="1"]
+Script started on 2020-08-27 13:21:30-04:00 [TERM="ansi" TTY="/dev/pts/15" COLUMNS="80" LINES="24"]
+awalley1@remote02:~/tmp/lab0$ cat lab0.LOG 
+Script started on 2020-08-27 13:12:27-04:00 [TERM="ansi" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+awalley1@remote01:~/tmp/lab0$ cat lab0.LOG 
+awalley1@remote01:~/tmp/lab0$ ls ./[D[K[D[K!/.[D[K[D[K[D[K~/.shh
+ls: cannot access '/home/awalley1/.shh': No such file or directory
+awalley1@remote01:~/tmp/lab0$ ls ~/.shh[D[K[Dsh[D
+ls: cannot access '/home/awalley1/.ssh': No such file or directory
+awalley1@remote01:~/tmp/lab0$ ls ~/.ssh[D[D[D[D[D[D[D[D[D[Kls ~/.ssh/id[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Kssh_[D[K[D[K[D[K[D[K[D[K[D[Kssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/awalley1/.ssh/id_rsa): 
+Created directory '/home/awalley1/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/awalley1/.ssh/id_rsa.
+Your public key has been saved in /home/awalley1/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Ybn+DlW9/fWDmlHWCBTwIHyuP53JqlCw3AAo0w00QH0 awalley1@remote01
+The key's randomart image is:
++---[RSA 2048]----+
+|o=*+  .. o.o.    |
+|o..ooE ..o+  .   |
+|..  .o  *  o. .  |
+|    . =. + .. oo |
+|     o oS .  +..o|
+|      .o .  o . +|
+|     .  + o.o. .o|
+|      .  = =+   .|
+|       ..o=o     |
++----[SHA256]-----+
+awalley1@remote01:~/tmp/lab0$ ssh-copy-id awll[D[K[D[Kalley1@remote
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/awalley1/.ssh/id_rsa.pub"
+The authenticity of host 'remote (128.226.114.201)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+awalley1@remote's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'awalley1@remote'"
+and check to make sure that only the key(s) you wanted were added.
+
+awalley1@remote01:~/tmp/lab0$ log[D[K[D[K[D[Klogout
+bash: logout: not login shell: use `exit'
+awalley1@remote01:~/tmp/lab0$ exit
+exit
+
+Script done on 2020-08-27 13:19:58-04:00 [COMMAND_EXIT_CODE="1"]
+awalley1@remote02:~/tmp/lab0$ ssh://awalley1@remote.cs.binghamton.edu/~umrigar/
+git_[D[K-repos-[D[K/cs220.git
+bash: ssh://awalley1@remote.cs.binghamton.edu/~umrigar/git-repos/cs220.git: No such file or directory
+awalley1@remote02:~/tmp/lab0$ ssh://awalley1@remote.cs.binghamton.edu/~umrigar/
+git-repos/cs220.git[A[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh://awalley1@remote.cs.binghamton.edu/~umrigar/
+git-repos/cs220.git[D[C[D[K[A[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmkdir -p ~/projects
+awalley1@remote02:~/tmp/lab0$ cd !/[D[K[D[K~/projects/
+awalley1@remote02:~/projects$ git clone ssh://awalley1@remote.cs.binghamton.edu
+/~umrigar/
+Cloning into '~umrigar'...
+The authenticity of host 'remote.cs.binghamton.edu (128.226.114.202)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'remote.cs.binghamton.edu,128.226.114.202' (ECDSA) to the list of known hosts.
+fatal: '~umrigar/' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+awalley1@remote02:~/projects$ git clone ssh://awalley1@remote.cs.binghamton.edu
+/~umrigar/[D[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/projects/[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D[D[D[D[D[D[D[D[D[D[D[D[D[Dgit clone ssh://awalley1@remote.cs.binghamton.edu
+/~umrigar/git-repos/cs220.git
+Cloning into 'cs220'...
+remote: Enumerating objects: 261, done.[K
+remote: Counting objects:   0% (1/261)   [Kremote: Counting objects:   1% (3/261)   [Kremote: Counting objects:   2% (6/261)   [Kremote: Counting objects:   3% (8/261)   [Kremote: Counting objects:   4% (11/261)   [Kremote: Counting objects:   5% (14/261)   [Kremote: Counting objects:   6% (16/261)   [Kremote: Counting objects:   7% (19/261)   [Kremote: Counting objects:   8% (21/261)   [Kremote: Counting objects:   9% (24/261)   [Kremote: Counting objects:  10% (27/261)   [Kremote: Counting objects:  11% (29/261)   [Kremote: Counting objects:  12% (32/261)   [Kremote: Counting objects:  13% (34/261)   [Kremote: Counting objects:  14% (37/261)   [Kremote: Counting objects:  15% (40/261)   [Kremote: Counting objects:  16% (42/261)   [Kremote: Counting objects:  17% (45/261)   [Kremote: Counting objects:  18% (47/261)   [Kremote: Counting objects:  19% (50/261)   [Kremote: Counting objects:  20% (53/261)   [Kremote: Counting objects:  21% (55/261)   [Kremote: Counting objects:  22% (58/261)   [Kremote: Counting objects:  23% (61/261)   [Kremote: Counting objects:  24% (63/261)   [Kremote: Counting objects:  25% (66/261)   [Kremote: Counting objects:  26% (68/261)   [Kremote: Counting objects:  27% (71/261)   [Kremote: Counting objects:  28% (74/261)   [Kremote: Counting objects:  29% (76/261)   [Kremote: Counting objects:  30% (79/261)   [Kremote: Counting objects:  31% (81/261)   [Kremote: Counting objects:  32% (84/261)   [Kremote: Counting objects:  33% (87/261)   [Kremote: Counting objects:  34% (89/261)   [Kremote: Counting objects:  35% (92/261)   [Kremote: Counting objects:  36% (94/261)   [Kremote: Counting objects:  37% (97/261)   [Kremote: Counting objects:  38% (100/261)   [Kremote: Counting objects:  39% (102/261)   [Kremote: Counting objects:  40% (105/261)   [Kremote: Counting objects:  41% (108/261)   [Kremote: Counting objects:  42% (110/261)   [Kremote: Counting objects:  43% (113/261)   [Kremote: Counting objects:  44% (115/261)   [Kremote: Counting objects:  45% (118/261)   [Kremote: Counting objects:  46% (121/261)   [Kremote: Counting objects:  47% (123/261)   [Kremote: Counting objects:  48% (126/261)   [Kremote: Counting objects:  49% (128/261)   [Kremote: Counting objects:  50% (131/261)   [Kremote: Counting objects:  51% (134/261)   [Kremote: Counting objects:  52% (136/261)   [Kremote: Counting objects:  53% (139/261)   [Kremote: Counting objects:  54% (141/261)   [Kremote: Counting objects:  55% (144/261)   [Kremote: Counting objects:  56% (147/261)   [Kremote: Counting objects:  57% (149/261)   [Kremote: Counting objects:  58% (152/261)   [Kremote: Counting objects:  59% (154/261)   [Kremote: Counting objects:  60% (157/261)   [Kremote: Counting objects:  61% (160/261)   [Kremote: Counting objects:  62% (162/261)   [Kremote: Counting objects:  63% (165/261)   [Kremote: Counting objects:  64% (168/261)   [Kremote: Counting objects:  65% (170/261)   [Kremote: Counting objects:  66% (173/261)   [Kremote: Counting objects:  67% (175/261)   [Kremote: Counting objects:  68% (178/261)   [Kremote: Counting objects:  69% (181/261)   [Kremote: Counting objects:  70% (183/261)   [Kremote: Counting objects:  71% (186/261)   [Kremote: Counting objects:  72% (188/261)   [Kremote: Counting objects:  73% (191/261)   [Kremote: Counting objects:  74% (194/261)   [Kremote: Counting objects:  75% (196/261)   [Kremote: Counting objects:  76% (199/261)   [Kremote: Counting objects:  77% (201/261)   [Kremote: Counting objects:  78% (204/261)   [Kremote: Counting objects:  79% (207/261)   [Kremote: Counting objects:  80% (209/261)   [Kremote: Counting objects:  81% (212/261)   [Kremote: Counting objects:  82% (215/261)   [Kremote: Counting objects:  83% (217/261)   [Kremote: Counting objects:  84% (220/261)   [Kremote: Counting objects:  85% (222/261)   [Kremote: Counting objects:  86% (225/261)   [Kremote: Counting objects:  87% (228/261)   [Kremote: Counting objects:  88% (230/261)   [Kremote: Counting objects:  89% (233/261)   [Kremote: Counting objects:  90% (235/261)   [Kremote: Counting objects:  91% (238/261)   [Kremote: Counting objects:  92% (241/261)   [Kremote: Counting objects:  93% (243/261)   [Kremote: Counting objects:  94% (246/261)   [Kremote: Counting objects:  95% (248/261)   [Kremote: Counting objects:  96% (251/261)   [Kremote: Counting objects:  97% (254/261)   [Kremote: Counting objects:  98% (256/261)   [Kremote: Counting objects:  99% (259/261)   [Kremote: Counting objects: 100% (261/261)   [Kremote: Counting objects: 100% (261/261), done.[K
+remote: Compressing objects:   0% (1/224)   [Kremote: Compressing objects:   1% (3/224)   [Kremote: Compressing objects:   2% (5/224)   [Kremote: Compressing objects:   3% (7/224)   [Kremote: Compressing objects:   4% (9/224)   [Kremote: Compressing objects:   5% (12/224)   [Kremote: Compressing objects:   6% (14/224)   [Kremote: Compressing objects:   7% (16/224)   [Kremote: Compressing objects:   8% (18/224)   [Kremote: Compressing objects:   9% (21/224)   [Kremote: Compressing objects:  10% (23/224)   [Kremote: Compressing objects:  11% (25/224)   [Kremote: Compressing objects:  12% (27/224)   [Kremote: Compressing objects:  13% (30/224)   [Kremote: Compressing objects:  14% (32/224)   [Kremote: Compressing objects:  15% (34/224)   [Kremote: Compressing objects:  16% (36/224)   [Kremote: Compressing objects:  17% (39/224)   [Kremote: Compressing objects:  18% (41/224)   [Kremote: Compressing objects:  19% (43/224)   [Kremote: Compressing objects:  20% (45/224)   [Kremote: Compressing objects:  21% (48/224)   [Kremote: Compressing objects:  22% (50/224)   [Kremote: Compressing objects:  23% (52/224)   [Kremote: Compressing objects:  24% (54/224)   [Kremote: Compressing objects:  25% (56/224)   [Kremote: Compressing objects:  26% (59/224)   [Kremote: Compressing objects:  27% (61/224)   [Kremote: Compressing objects:  28% (63/224)   [Kremote: Compressing objects:  29% (65/224)   [Kremote: Compressing objects:  30% (68/224)   [Kremote: Compressing objects:  31% (70/224)   [Kremote: Compressing objects:  32% (72/224)   [Kremote: Compressing objects:  33% (74/224)   [Kremote: Compressing objects:  34% (77/224)   [Kremote: Compressing objects:  35% (79/224)   [Kremote: Compressing objects:  36% (81/224)   [Kremote: Compressing objects:  37% (83/224)   [Kremote: Compressing objects:  38% (86/224)   [Kremote: Compressing objects:  39% (88/224)   [Kremote: Compressing objects:  40% (90/224)   [Kremote: Compressing objects:  41% (92/224)   [Kremote: Compressing objects:  42% (95/224)   [Kremote: Compressing objects:  43% (97/224)   [Kremote: Compressing objects:  44% (99/224)   [Kremote: Compressing objects:  45% (101/224)   [Kremote: Compressing objects:  46% (104/224)   [Kremote: Compressing objects:  47% (106/224)   [Kremote: Compressing objects:  48% (108/224)   [Kremote: Compressing objects:  49% (110/224)   [Kremote: Compressing objects:  50% (112/224)   [Kremote: Compressing objects:  51% (115/224)   [Kremote: Compressing objects:  52% (117/224)   [Kremote: Compressing objects:  53% (119/224)   [Kremote: Compressing objects:  54% (121/224)   [Kremote: Compressing objects:  55% (124/224)   [Kremote: Compressing objects:  56% (126/224)   [Kremote: Compressing objects:  57% (128/224)   [Kremote: Compressing objects:  58% (130/224)   [Kremote: Compressing objects:  59% (133/224)   [Kremote: Compressing objects:  60% (135/224)   [Kremote: Compressing objects:  61% (137/224)   [Kremote: Compressing objects:  62% (139/224)   [Kremote: Compressing objects:  63% (142/224)   [Kremote: Compressing objects:  64% (144/224)   [Kremote: Compressing objects:  65% (146/224)   [Kremote: Compressing objects:  66% (148/224)   [Kremote: Compressing objects:  67% (151/224)   [Kremote: Compressing objects:  68% (153/224)   [Kremote: Compressing objects:  69% (155/224)   [Kremote: Compressing objects:  70% (157/224)   [Kremote: Compressing objects:  71% (160/224)   [Kremote: Compressing objects:  72% (162/224)   [Kremote: Compressing objects:  73% (164/224)   [Kremote: Compressing objects:  74% (166/224)   [Kremote: Compressing objects:  75% (168/224)   [Kremote: Compressing objects:  76% (171/224)   [Kremote: Compressing objects:  77% (173/224)   [Kremote: Compressing objects:  78% (175/224)   [Kremote: Compressing objects:  79% (177/224)   [Kremote: Compressing objects:  80% (180/224)   [Kremote: Compressing objects:  81% (182/224)   [Kremote: Compressing objects:  82% (184/224)   [Kremote: Compressing objects:  83% (186/224)   [Kremote: Compressing objects:  84% (189/224)   [Kremote: Compressing objects:  85% (191/224)   [Kremote: Compressing objects:  86% (193/224)   [Kremote: Compressing objects:  87% (195/224)   [Kremote: Compressing objects:  88% (198/224)   [Kremote: Compressing objects:  89% (200/224)   [Kremote: Compressing objects:  90% (202/224)   [Kremote: Compressing objects:  91% (204/224)   [Kremote: Compressing objects:  92% (207/224)   [Kremote: Compressing objects:  93% (209/224)   [Kremote: Compressing objects:  94% (211/224)   [Kremote: Compressing objects:  95% (213/224)   [Kremote: Compressing objects:  96% (216/224)   [Kremote: Compressing objects:  97% (218/224)   [Kremote: Compressing objects:  98% (220/224)   [Kremote: Compressing objects:  99% (222/224)   [Kremote: Compressing objects: 100% (224/224)   [Kremote: Compressing objects: 100% (224/224), done.[K
+Receiving objects:   0% (1/261)   Receiving objects:   1% (3/261)   Receiving objects:   2% (6/261)   Receiving objects:   3% (8/261)   Receiving objects:   4% (11/261)   Receiving objects:   5% (14/261)   Receiving objects:   6% (16/261)   Receiving objects:   7% (19/261)   Receiving objects:   8% (21/261)   Receiving objects:   9% (24/261)   Receiving objects:  10% (27/261)   Receiving objects:  11% (29/261)   Receiving objects:  12% (32/261)   Receiving objects:  13% (34/261)   Receiving objects:  14% (37/261)   Receiving objects:  15% (40/261)   Receiving objects:  16% (42/261)   Receiving objects:  17% (45/261)   Receiving objects:  18% (47/261)   Receiving objects:  19% (50/261)   Receiving objects:  20% (53/261)   Receiving objects:  21% (55/261)   Receiving objects:  22% (58/261)   Receiving objects:  23% (61/261)   Receiving objects:  24% (63/261)   Receiving objects:  25% (66/261)   Receiving objects:  26% (68/261)   Receiving objects:  27% (71/261)   Receiving objects:  28% (74/261)   Receiving objects:  29% (76/261)   Receiving objects:  30% (79/261)   Receiving objects:  31% (81/261)   Receiving objects:  32% (84/261)   Receiving objects:  33% (87/261)   Receiving objects:  34% (89/261)   Receiving objects:  35% (92/261)   Receiving objects:  36% (94/261)   Receiving objects:  37% (97/261)   Receiving objects:  38% (100/261)   Receiving objects:  39% (102/261)   Receiving objects:  40% (105/261)   Receiving objects:  41% (108/261)   Receiving objects:  42% (110/261)   Receiving objects:  43% (113/261)   Receiving objects:  44% (115/261)   Receiving objects:  45% (118/261)   Receiving objects:  46% (121/261)   Receiving objects:  47% (123/261)   Receiving objects:  48% (126/261)   Receiving objects:  49% (128/261)   Receiving objects:  50% (131/261)   Receiving objects:  51% (134/261)   Receiving objects:  52% (136/261)   Receiving objects:  53% (139/261)   Receiving objects:  54% (141/261)   Receiving objects:  55% (144/261)   Receiving objects:  56% (147/261)   Receiving objects:  57% (149/261)   Receiving objects:  58% (152/261)   Receiving objects:  59% (154/261)   Receiving objects:  60% (157/261)   Receiving objects:  61% (160/261)   Receiving objects:  62% (162/261)   Receiving objects:  63% (165/261)   Receiving objects:  64% (168/261)   Receiving objects:  65% (170/261)   Receiving objects:  66% (173/261)   Receiving objects:  67% (175/261)   Receiving objects:  68% (178/261)   Receiving objects:  69% (181/261)   Receiving objects:  70% (183/261)   Receiving objects:  71% (186/261)   Receiving objects:  72% (188/261)   Receiving objects:  73% (191/261)   Receiving objects:  74% (194/261)   Receiving objects:  75% (196/261)   Receiving objects:  76% (199/261)   Receiving objects:  77% (201/261)   Receiving objects:  78% (204/261)   Receiving objects:  79% (207/261)   Receiving objects:  80% (209/261)   Receiving objects:  81% (212/261)   Receiving objects:  82% (215/261)   Receiving objects:  83% (217/261)   Receiving objects:  84% (220/261)   Receiving objects:  85% (222/261)   Receiving objects:  86% (225/261)   Receiving objects:  87% (228/261)   Receiving objects:  88% (230/261)   Receiving objects:  89% (233/261)   Receiving objects:  90% (235/261)   Receiving objects:  91% (238/261)   Receiving objects:  92% (241/261)   Receiving objects:  93% (243/261)   Receiving objects:  94% (246/261)   Receiving objects:  95% (248/261)   Receiving objects:  96% (251/261)   remote: Total 261 (delta 70), reused 153 (delta 25)[K
+Receiving objects:  97% (254/261)   Receiving objects:  98% (256/261)   Receiving objects:  99% (259/261)   Receiving objects: 100% (261/261)   Receiving objects: 100% (261/261), 1.62 MiB | 26.36 MiB/s, done.
+Resolving deltas:   0% (0/70)   Resolving deltas:   7% (5/70)   Resolving deltas:  11% (8/70)   Resolving deltas:  12% (9/70)   Resolving deltas:  14% (10/70)   Resolving deltas:  15% (11/70)   Resolving deltas:  18% (13/70)   Resolving deltas:  20% (14/70)   Resolving deltas:  24% (17/70)   Resolving deltas:  25% (18/70)   Resolving deltas:  31% (22/70)   Resolving deltas:  32% (23/70)   Resolving deltas:  37% (26/70)   Resolving deltas:  38% (27/70)   Resolving deltas:  40% (28/70)   Resolving deltas:  41% (29/70)   Resolving deltas:  42% (30/70)   Resolving deltas:  44% (31/70)   Resolving deltas:  45% (32/70)   Resolving deltas:  47% (33/70)   Resolving deltas:  51% (36/70)   Resolving deltas:  52% (37/70)   Resolving deltas:  54% (38/70)   Resolving deltas:  55% (39/70)   Resolving deltas:  61% (43/70)   Resolving deltas:  62% (44/70)   Resolving deltas:  64% (45/70)   Resolving deltas:  72% (51/70)   Resolving deltas:  78% (55/70)   Resolving deltas:  81% (57/70)   Resolving deltas:  82% (58/70)   Resolving deltas:  84% (59/70)   Resolving deltas:  85% (60/70)   Resolving deltas:  90% (63/70)   Resolving deltas:  95% (67/70)   Resolving deltas: 100% (70/70)   Resolving deltas: 100% (70/70), done.
+awalley1@remote02:~/projects$ cd ~
+awalley1@remote02:~$ ln -s projects/cs220 .
+awalley1@remote02:~$ man ln
+LN(1)                            User Commands                           LN(1)[m
+[m
+[1mNAME[0m[m
+       ln - make links between files[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mln[0m [[4mOPTION[m]... [[4m-T[m] [4mTARGET[m [4mLINK_NAME[m[m
+       [1mln[0m [[4mOPTION[m]... [4mTARGET[m[m
+       [1mln[0m [[4mOPTION[m]... [4mTARGET[m... [4mDIRECTORY[m[m
+       [1mln[0m [[4mOPTION[m]... [4m-t[m [4mDIRECTORY[m [4mTARGET[m...[m
+[m
+[1mDESCRIPTION[0m[m
+       In  the  1st form, create a link to TARGET with the name LINK_NAME.  In[m
+       the 2nd form, create a link to TARGET in the current directory.  In the[m
+       3rd  and  4th  forms, create links to each TARGET in DIRECTORY.  Create[m
+       hard links by default, symbolic links  with  [1m--symbolic[0m.   By  default,[m
+       each  destination  (name  of  new link) should not already exist.  When[m
+       creating hard links, each TARGET must exist.  Symbolic links  can  hold[m
+       arbitrary  text;  if  later resolved, a relative link is interpreted in[m
+       relation to its parent directory.[m
+[m
+       Mandatory arguments to long options are  mandatory  for  short  options[m
+       too.[m
+[7m Manual page ln(1) line 1 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 2 (press h for help or q to quit)[m[K[K       [1m--backup[0m[=[4mCONTROL[m][m
+[7m Manual page ln(1) line 3 (press h for help or q to quit)[m[K[K              make a backup of each existing destination file[m
+[7m Manual page ln(1) line 4 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 5 (press h for help or q to quit)[m[K[K       [1m-b[0m     like [1m--backup[0m but does not accept an argument[m
+[7m Manual page ln(1) line 6 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 7 (press h for help or q to quit)[m[K[K       [1m-d[0m, [1m-F[0m, [1m--directory[0m[m
+[7m Manual page ln(1) line 8 (press h for help or q to quit)[m[K[K              allow  the  superuser to attempt to hard link directories (note:[m
+[7m Manual page ln(1) line 9 (press h for help or q to quit)[m[K[K              will probably fail due to system restrictions, even for the  su‐[m
+[7m Manual page ln(1) line 10 (press h for help or q to quit)[m[K[K              peruser)[m
+[7m Manual page ln(1) line 11 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 12 (press h for help or q to quit)[m[K[K       [1m-f[0m, [1m--force[0m[m
+[7m Manual page ln(1) line 13 (press h for help or q to quit)[m[K[K              remove existing destination files[m
+[7m Manual page ln(1) line 14 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 15 (press h for help or q to quit)[m[K[K       [1m-i[0m, [1m--interactive[0m[m
+[7m Manual page ln(1) line 16 (press h for help or q to quit)[m[K[K              prompt whether to remove destinations[m
+[7m Manual page ln(1) line 17 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 18 (press h for help or q to quit)[m[K[K       [1m-L[0m, [1m--logical[0m[m
+[7m Manual page ln(1) line 19 (press h for help or q to quit)[m[K[K              dereference TARGETs that are symbolic links[m
+[7m Manual page ln(1) line 20 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 21 (press h for help or q to quit)[m[K[K       [1m-n[0m, [1m--no-dereference[0m[m
+[7m Manual page ln(1) line 22 (press h for help or q to quit)[m[K[K              treat  LINK_NAME  as a normal file if it is a symbolic link to a[m
+[7m Manual page ln(1) line 23 (press h for help or q to quit)[m[K[K              directory[m
+[7m Manual page ln(1) line 24 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 25 (press h for help or q to quit)[m[K[K       [1m-P[0m, [1m--physical[0m[m
+[7m Manual page ln(1) line 26 (press h for help or q to quit)[m[K[K              make hard links directly to symbolic links[m
+[7m Manual page ln(1) line 27 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 28 (press h for help or q to quit)[m[K[K       [1m-r[0m, [1m--relative[0m[m
+[7m Manual page ln(1) line 29 (press h for help or q to quit)[m[K[K              create symbolic links relative to link location[m
+[7m Manual page ln(1) line 30 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 31 (press h for help or q to quit)[m[K[K       [1m-s[0m, [1m--symbolic[0m[m
+[7m Manual page ln(1) line 32 (press h for help or q to quit)[m[K[K              make symbolic links instead of hard links[m
+[7m Manual page ln(1) line 33 (press h for help or q to quit)[m[K[K[m
+[7m Manual page ln(1) line 34 (press h for help or q to quit)[m[K[K       [1m-S[0m, [1m--suffix[0m=[4mSUFFIX[m[m
+[7m Manual page ln(1) line 35 (press h for help or q to quit)[m[K[Kawalley1@remote02:~$ cd ~/git-pre[D[K[D[K[D[Krepos.[D[K/cs220
+bash: cd: /home/awalley1/git-repos/cs220: No such file or directory
+awalley1@remote02:~$ git [D[K[D[K[D[K[D[K[Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ [Kawalley1@remote02:~$ ls
+ Arduino	    hello.c~	        Pictures
+ cs120		    input	        projects
+ cs220		    input.c	        Public
+ Desktop	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Documents	   'Lab Sept 17.circ'   Templates
+ Downloads	    mult_table	        tmp
+'Half Adder.circ'   mult_table.c        Videos
+ hello		    mult_table.c~
+ hello.c	    Music
+awalley1@remote02:~$ cd projects/
+awalley1@remote02:~/projects$ ls
+cs220
+awalley1@remote02:~/projects$ cd cs220/
+awalley1@remote02:~/projects/cs220$ cd ~
+awalley1@remote02:~$ ln -s projects.[D[K/cs220
+ln: failed to create symbolic link './cs220': File exists
+awalley1@remote02:~$ ln -s projects/cs220 .
+ln: failed to create symbolic link './cs220': File exists
+awalley1@remote02:~$ ./cs220[D[D[D[D[D[D[Dl./cs220[D[D[D[D[D[D[Ds./cs220[D[D[D[D[D[D[D ./cs220[D[D[D[D[D[D[D
+announce.html  bin	  hws	      labs	README.md
+announce.umt   docs	  index.html  misc	slides
+assets	       exercises  index.umt   projects	umt.make
+awalley1@remote02:~$ ls
+ Arduino	    hello.c~	        Pictures
+ cs120		    input	        projects
+ cs220		    input.c	        Public
+ Desktop	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Documents	   'Lab Sept 17.circ'   Templates
+ Downloads	    mult_table	        tmp
+'Half Adder.circ'   mult_table.c        Videos
+ hello		    mult_table.c~
+ hello.c	    Music
+awalley1@remote02:~$ ls projects/
+cs220
+awalley1@remote02:~$ cd ~/r[D[Kprojects/cd22[D[K[D[K[D[Ks220
+awalley1@remote02:~/projects/cs220$ ls
+announce.html  bin	  hws	      labs	README.md
+announce.umt   docs	  index.html  misc	slides
+assets	       exercises  index.umt   projects	umt.make
+awalley1@remote02:~/projects/cs220$ git pull
+Already up to date.
+awalley1@remote02:~/projects/cs220$ git log -5
+[33mcommit 286ad21f5007ce034c6f61a6b63af13208c1df43[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m,[m[33m[m[33m[m[1;36m[m[1;32m[m[33m[m[1;31m[m[33m [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 18:22:09 2020 -0400[m
+[m
+    minor addition[m
+[m
+[33mcommit 31361defeb26a162a674fae11ced0676aa018d2d[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 15:51:33 2020 -0400[m
+[m
+    rm extraneous links[m
+[m
+[33mcommit 453106f62a39ee0ee87fcd2ba0e3c0268facefc5[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 15:45:58 2020 -0400[m
+[m
+    class corrections[m
+[m
+[33mcommit 930607349019be282816dbfaaaa598017763c3b6[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 12:53:25 2020 -0400[m
+[m
+:[K[K    zoom class conduct[m
+:[K[Kawalley1@remote02:~/projects/cs220$ 
+awalley1@remote02:~/projects/cs220$ i[D[Kgit log -3 labs/lab0/[D[K.umt
+fatal: ambiguous argument 'labs/lab0.umt': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+awalley1@remote02:~/projects/cs220$ ls
+announce.html  bin	  hws	      labs	README.md
+announce.umt   docs	  index.html  misc	slides
+assets	       exercises  index.umt   projects	umt.make
+awalley1@remote02:~/projects/cs220$ cd labs/
+awalley1@remote02:~/projects/cs220/labs$ ls
+index.html  index.umt  lab0
+awalley1@remote02:~/projects/cs220/labs$ cd ..
+awalley1@remote02:~/projects/cs220$ git log -3 labs/lab0/
+[33mcommit 453106f62a39ee0ee87fcd2ba0e3c0268facefc5[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 15:45:58 2020 -0400[m
+[m
+    class corrections[m
+[m
+[33mcommit f2c12a4278386c3a0f76882c6866e56ce170ac49[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 02:06:54 2020 -0400[m
+[m
+    course set up?[m
+[m
+[33mcommit ceb395a4f5eeabcb02d537d8aefd88e80f6ed526[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Tue Aug 25 23:07:48 2020 -0400[m
+[m
+    mention login updates course repo[m
+[Kawalley1@remote02:~/projects/cs220$ git log -3 labs/lab0/[D[C[D[K[D[K[D[K[D[K[D[Kindex.umt
+[33mcommit 31361defeb26a162a674fae11ced0676aa018d2d[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 15:51:33 2020 -0400[m
+[m
+    rm extraneous links[m
+[m
+[33mcommit f2c12a4278386c3a0f76882c6866e56ce170ac49[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Aug 26 02:06:54 2020 -0400[m
+[m
+    course set up?[m
+[Kawalley1@remote02:~/projects/cs220$ git diff -r f2c12a4278386c3a0f76882c6866e5
+6ce170ac49 labs/index.ut[D[Kmt
+[1mdiff --git a/labs/index.umt b/labs/index.umt[m[m
+[1mindex 10fabfc..18aab03 100644[m[m
+[1m--- a/labs/index.umt[m[m
+[1m+++ b/labs/index.umt[m[m
+[36m@@ -1,13 +1,11 @@[m[m
+                        L a b s[m[m
+ [m[m
+[31m-.<lab-tips/lab-tips.html> "Lab Tips"[m[m
+[31m-(other formats: .<lab-tips/lab-tips.pdf> PDF,[m[m
+[31m-.<lab-tips/lab-tips.umt> text).[m[m
+ [m[m
+ Tentative schedule:[m[m
+ [m[m
+ :Aug 27:[m[m
+[31m-  .<lab0/lab0.html> "Lab 0: Course setup". ( .- .<lab0/lab0.pdf> PDF).[m[m
+[32m+[m[32m  .<lab0/lab0.html> "Lab 0: Course setup".[m[m
+[32m+[m[32m  ( .- .<lab0/lab0.umt> text, .<lab0/lab0.pdf> PDF).[m[m
+ [m[m
+ %%%[m[m
+ :Sep 3:: .<lab1/lab1.html> "Lab 1":[m[m
+[Kawalley1@remote02:~/projects/cs220$ . ~![D[K~[D[Kumrigar/cs220 [D[K/bin/student.profile
+bash: /home/umrigar/cs220/bin/student.profile: No such file or directory
+awalley1@remote02:~/projects/cs220$ ~/.prof[D[Kfie[D[Kle[D[D[D[D[D[D[D[D[D[Dv~/.profile[D[D[D[D[D[D[D[D[D[Di~/.profile[D[D[D[D[D[D[D[D[D[Dm~/.profile[D[D[D[D[D[D[D[D[D[D ~/.profile[D[D[D[D[D[D[D[D[D[D
+[m[m[0m[H[2J[24;1H"~/.profile" [New File][2;1H▽[6n[2;1H  [1;1H[2;1H[1m[34m~                                                                              [3;1H~                                                                              [4;1H~                                                                              [5;1H~                                                                              [6;1H~                                                                              [7;1H~                                                                              [8;1H~                                                                              [9;1H~                                                                              [10;1H~                                                                              [11;1H~                                                                              [12;1H~                                                                              [13;1H~                                                                              [14;1H~                                                                              [15;1H~                                                                              [16;1H~                                                                              [17;1H~                                                                              [18;1H~                                                                              [19;1H~                                                                              [20;1H~                                                                              [21;1H~                                                                              [22;1H~                                                                              [23;1H~                                                                              [0m[24;62H0,0-1[9CAll[1;1H[24;52H.[1;1H[24;52H [1;1H[24;52Hi[1;1H[24;52H [1;1H[24;1H[1m-- INSERT --[0m[24;14H[K[24;62H0,1[11CAll[1;1H.[24;62H1,2[1;2H[33m. [0m[24;64H3[1;3H~[24;64H4[1;4Hu[24;64H5[1;5Hm[24;64H6[1;6Hr[24;64H7[1;7Hi[24;64H8[1;8Hg[24;64H9[1;9Ha[24;64H10[1;10Hr[24;65H1[1;11H/[24;65H2[1;12Hc[24;65H3[1;13Hs[24;65H4[1;14H2[24;65H5[1;15H2[24;65H6[1;16H0[24;65H7[1;17H/[24;65H8[1;18Hb[24;65H9[1;19Hi[24;64H20[1;20Hn[24;65H1[1;21H/[24;65H2[1;22Hs[24;65H3[1;23Ht[24;65H4[1;24Hu[24;65H5[1;25Hr[24;65H6[1;26Hd[24;65H7[1;27H[1;26H[K[24;65H6[1;26H[1;25H[K[24;65H5[1;25Hd[24;65H6[1;26He[24;65H7[1;27Hn[24;65H8[1;28Ht[24;65H9[1;29H.[24;64H30[1;30Hp[24;65H1[1;31Hr[24;65H2[1;32Ho[24;65H3[1;33Hf[24;65H4[1;34Hi[24;65H5[1;35Hl[24;65H6[1;36He[24;65H7[1;37H[24;1H[K[1;36H[24;52H^[[1;36H[24;52H  [1;37H[24;62H1,36[10CAll[1;36H[24;52H:[1;36H[24;52H[K[24;1H:wq"~/.profile" [New] 1L, 37C written
+awalley1@remote02:~/projects/cs220$ vi ~D[D[K[D[K[D[Km ~?[D[K/.bashrc
+[m[m[0m[H[2J[24;1H"~/.bashrc" [New File][2;1H▽[6n[2;1H  [1;1H[2;1H[1m[34m~                                                                              [3;1H~                                                                              [4;1H~                                                                              [5;1H~                                                                              [6;1H~                                                                              [7;1H~                                                                              [8;1H~                                                                              [9;1H~                                                                              [10;1H~                                                                              [11;1H~                                                                              [12;1H~                                                                              [13;1H~                                                                              [14;1H~                                                                              [15;1H~                                                                              [16;1H~                                                                              [17;1H~                                                                              [18;1H~                                                                              [19;1H~                                                                              [20;1H~                                                                              [21;1H~                                                                              [22;1H~                                                                              [23;1H~                                                                              [0m[24;62H0,0-1[9CAll[1;1H[24;52H.[1;1H[24;52H [1;1H[24;52Hi[1;1H[24;52H [1;1H[24;1H[1m-- INSERT --[0m[24;13H[K[24;62H0,1[11CAll[1;1H.[24;62H1,2[1;2H[33m. [0m[24;64H3[1;3H/[24;64H4[1;4H[1;3H[K[24;64H3[1;3H~[24;64H4[1;4Hu[24;64H5[1;5Hm[24;64H6[1;6Hr[24;64H7[1;7Hi[24;64H8[1;8Hg[24;64H9[1;9Ha[24;64H10[1;10Hr[24;65H1[1;11H/[24;65H2[1;12Hc[24;65H3[1;13Hs[24;65H4[1;14H2[24;65H5[1;15H0[24;65H6[1;16H[1;15H[K[24;65H5[1;15H2[24;65H6[1;16H0[24;65H7[1;17H/[24;65H8[1;18Hi[24;65H9[1;19H[1m[37m[41min[0m[24;64H20[1;20Hi[1;19H[K[24;64H19[1;19H[1;18H[K[24;65H8[1;18Hb[24;65H9[1;19Hi[24;64H20[1;20Hn[24;65H1[1;21H.[24;65H2[1;22H[1;21H[K[24;65H1[1;21H/[24;65H2[1;22Hs[24;65H3[1;23Ht[24;65H4[1;24Hu[24;65H5[1;25Hd[24;65H6[1;26He[24;65H7[1;27Hn[24;65H8[1;28Ht[24;65H9[1;29H.[24;64H30[1;30H[33mr[0m[24;65H1[1;31Hrc[24;65H2[1;32H[24;1H[K[1;31H[24;52H^[[1;31H[24;52H  [1;32H[24;62H1,31[10CAll[1;31H[24;52H:[1;31H[24;52H[K[24;1H:wq"~/.bashrc" [New] 1L, 32C written
+awalley1@remote02:~/projects/cs220$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLbnr4fhMlR3R+C9v8X1kwL8sIar3GeRQ/muzDMWCdDlO5cF6cqQnSND+/YHEgShSd2N2QtX/6JpDgAMSjNzhPpdgLaVHeoBPW18Y7Pm9JFcU53OWL1xfiKTDPYTYmtDBtufccyP0Fe+DttLi3ISIH5pQaH44En3V6H/8fdonzts6CVzB17+rMyqZa1gdBUxmb6VXp9Xd/5idknt7xGsO8LUnctZe+H+3rF3jCy+5NULCmzSUpISas17ynSds3U5xGHwSDWLwp6XMeWDIm2QQ2DHiWfyuFizXW/SjNXD5xqfDu2GcGzpWC/L3IEApDjK90M8gvFNEfwIMiLwWf9FKd awalley1@remote01
+awalley1@remote02:~/projects/cs220$ mkdir -p/[D[K /pro[D[K[D[K[D[K[D[K~/projects
+awalley1@remote02:~/projects/cs220$ cs ~/progr[D[Kjec[D[K[D[K[D[K[D[Kjects
+bash: cs: command not found
+awalley1@remote02:~/projects/cs220$ git clone https://github.com/alexgwalley/i
+220a.git
+Cloning into 'i220a'...
+remote: Enumerating objects: 10, done.[K
+remote: Counting objects:  10% (1/10)[Kremote: Counting objects:  20% (2/10)[Kremote: Counting objects:  30% (3/10)[Kremote: Counting objects:  40% (4/10)[Kremote: Counting objects:  50% (5/10)[Kremote: Counting objects:  60% (6/10)[Kremote: Counting objects:  70% (7/10)[Kremote: Counting objects:  80% (8/10)[Kremote: Counting objects:  90% (9/10)[Kremote: Counting objects: 100% (10/10)[Kremote: Counting objects: 100% (10/10), done.[K
+remote: Compressing objects:  12% (1/8)[Kremote: Compressing objects:  25% (2/8)[Kremote: Compressing objects:  37% (3/8)[Kremote: Compressing objects:  50% (4/8)[Kremote: Compressing objects:  62% (5/8)[Kremote: Compressing objects:  75% (6/8)[Kremote: Compressing objects:  87% (7/8)[Kremote: Compressing objects: 100% (8/8)[Kremote: Compressing objects: 100% (8/8), done.[K
+remote: Total 10 (delta 1), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:  10% (1/10)   Unpacking objects:  20% (2/10)   Unpacking objects:  30% (3/10)   Unpacking objects:  40% (4/10)   Unpacking objects:  50% (5/10)   Unpacking objects:  60% (6/10)   Unpacking objects:  70% (7/10)   Unpacking objects:  80% (8/10)   Unpacking objects:  90% (9/10)   Unpacking objects: 100% (10/10)   Unpacking objects: 100% (10/10), done.
+awalley1@remote02:~/projects/cs220$ ls
+announce.html  assets  docs	  hws	 index.html  labs  projects   slides
+announce.umt   bin     exercises  i220a  index.umt   misc  README.md  umt.make
+awalley1@remote02:~/projects/cs220$ cd i2[D[K220a/
+awalley1@remote02:~/projects/cs220/i220a$ ls
+README.md
+awalley1@remote02:~/projects/cs220/i220a$ git status -a[D[Ks
+awalley1@remote02:~/projects/cs220/i220a$ git com[D[K[D[K[D[K[D[K[D[K[D[K[D[Kls -dl ~/cs220 ~/is[D[K220a
+ls: cannot access '/home/awalley1/i220a': No such file or directory
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+awalley1@remote02:~/projects/cs220/i220a$ cd ..
+awalley1@remote02:~/projects/cs220$ cd ~
+awalley1@remote02:~$ ln 0s[D[K[D[K-s /projecr/[D[K[D[K[D[Kts/[D[K[D[K[D[Kcts/i220a
+awalley1@remote02:~$ ln -s /projects/i220a[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dcd ~[K[D[D[D[Dln -s /projects/i220a[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dcd ~[K[D[D[D[Dln -s /projects/i220a[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Kln -s /projects/i220a[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dcd ~[K[D..[D[D[D[D[Dls -dl ~/cs220 ~/i220a[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[9Pgit status -s[D[D[D[D[D[D[D[D[D[D[D[D[Dls -dl ~/cs220 ~/i220a
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+lrwxrwxrwx 1 awalley1 awalley1 15 Aug 27 13:42 /home/awalley1/i220a -> /projects/i220a
+awalley1@remote02:~$ ls 0s[D[K[D[K-l ~/.sh[D[Ksh ~/cs220
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+
+/home/awalley1/.ssh:
+total 16
+-rw------- 1 awalley1 awalley1  806 Aug 27 13:20 authorized_keys
+-rw------- 1 awalley1 awalley1 1823 Aug 27 13:18 id_rsa
+-rw-r----- 1 awalley1 awalley1  399 Aug 27 13:18 id_rsa.pub
+-rw-r--r-- 1 awalley1 awalley1  888 Aug 27 13:23 known_hosts
+awalley1@remote02:~$ ls -l ~/.ssh ~/cs220 ~/iss[D[K[D[K220x
+ls: cannot access '/home/awalley1/i220x': No such file or directory
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+
+/home/awalley1/.ssh:
+total 16
+-rw------- 1 awalley1 awalley1  806 Aug 27 13:20 authorized_keys
+-rw------- 1 awalley1 awalley1 1823 Aug 27 13:18 id_rsa
+-rw-r----- 1 awalley1 awalley1  399 Aug 27 13:18 id_rsa.pub
+-rw-r--r-- 1 awalley1 awalley1  888 Aug 27 13:23 known_hosts
+awalley1@remote02:~$ ls -l ~/.ssh ~/cs220 ~/i220x[D[D[D[D[D[D[D[D[K ~/i220x[D[Ka
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+lrwxrwxrwx 1 awalley1 awalley1 15 Aug 27 13:42 /home/awalley1/i220a -> /projects/i220a
+
+/home/awalley1/.ssh:
+total 16
+-rw------- 1 awalley1 awalley1  806 Aug 27 13:20 authorized_keys
+-rw------- 1 awalley1 awalley1 1823 Aug 27 13:18 id_rsa
+-rw-r----- 1 awalley1 awalley1  399 Aug 27 13:18 id_rsa.pub
+-rw-r--r-- 1 awalley1 awalley1  888 Aug 27 13:23 known_hosts
+awalley1@remote02:~$ cs ~/i229a[D[K[D[K0a
+bash: cs: command not found
+awalley1@remote02:~$ git[D[K[D[K[D[Kcs ~/i220a[D[D[D[D[D[D[D[D[D[D[1P[C[D[1P ~/i220a[D[D[D[D[D[D[D[Dc ~/i220a[D[D[D[D[D[D[D[Dd ~/i220a[D[D[D[D[D[D[D[D
+bash: cd: /home/awalley1/i220a: No such file or directory
+awalley1@remote02:~$ cd ~/i220a[D[D[D[D[D[D[D[D[D[D[Ks[D[Kls
+ Arduino	    hello.c~	        Music
+ cs120		    i220a	        Pictures
+ cs220		    input	        projects
+ Desktop	    input.c	        Public
+ Documents	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Downloads	   'Lab Sept 17.circ'   Templates
+'Half Adder.circ'   mult_table	        tmp
+ hello		    mult_table.c        Videos
+ hello.c	    mult_table.c~
+awalley1@remote02:~$ ls
+ Arduino	    hello.c~	        Music
+ cs120		    i220a	        Pictures
+ cs220		    input	        projects
+ Desktop	    input.c	        Public
+ Documents	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Downloads	   'Lab Sept 17.circ'   Templates
+'Half Adder.circ'   mult_table	        tmp
+ hello		    mult_table.c        Videos
+ hello.c	    mult_table.c~
+awalley1@remote02:~$ cd i220s[D[Ka
+bash: cd: i220a: No such file or directory
+awalley1@remote02:~$ ls
+ Arduino	    hello.c~	        Music
+ cs120		    i220a	        Pictures
+ cs220		    input	        projects
+ Desktop	    input.c	        Public
+ Documents	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Downloads	   'Lab Sept 17.circ'   Templates
+'Half Adder.circ'   mult_table	        tmp
+ hello		    mult_table.c        Videos
+ hello.c	    mult_table.c~
+awalley1@remote02:~$ cd ~/i220a
+bash: cd: /home/awalley1/i220a: No such file or directory
+awalley1@remote02:~$ cv [D[K[D[Kd projects/i220a
+bash: cd: projects/i220a: No such file or directory
+awalley1@remote02:~$ ls
+ Arduino	    hello.c~	        Music
+ cs120		    i220a	        Pictures
+ cs220		    input	        projects
+ Desktop	    input.c	        Public
+ Documents	   'Lab 5.circ'        'Sum Of Products Lab.circ'
+ Downloads	   'Lab Sept 17.circ'   Templates
+'Half Adder.circ'   mult_table	        tmp
+ hello		    mult_table.c        Videos
+ hello.c	    mult_table.c~
+awalley1@remote02:~$ cd projects/
+awalley1@remote02:~/projects$ ls
+cs220
+awalley1@remote02:~/projects$ git clone https://github.com/alexgwalley/i220a.g
+it
+Cloning into 'i220a'...
+remote: Enumerating objects: 10, done.[K
+remote: Counting objects:  10% (1/10)[Kremote: Counting objects:  20% (2/10)[Kremote: Counting objects:  30% (3/10)[Kremote: Counting objects:  40% (4/10)[Kremote: Counting objects:  50% (5/10)[Kremote: Counting objects:  60% (6/10)[Kremote: Counting objects:  70% (7/10)[Kremote: Counting objects:  80% (8/10)[Kremote: Counting objects:  90% (9/10)[Kremote: Counting objects: 100% (10/10)[Kremote: Counting objects: 100% (10/10), done.[K
+remote: Compressing objects:  12% (1/8)[Kremote: Compressing objects:  25% (2/8)[Kremote: Compressing objects:  37% (3/8)[Kremote: Compressing objects:  50% (4/8)[Kremote: Compressing objects:  62% (5/8)[Kremote: Compressing objects:  75% (6/8)[Kremote: Compressing objects:  87% (7/8)[Kremote: Compressing objects: 100% (8/8)[Kremote: Compressing objects: 100% (8/8), done.[K
+remote: Total 10 (delta 1), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:  10% (1/10)   Unpacking objects:  20% (2/10)   Unpacking objects:  30% (3/10)   Unpacking objects:  40% (4/10)   Unpacking objects:  50% (5/10)   Unpacking objects:  60% (6/10)   Unpacking objects:  70% (7/10)   Unpacking objects:  80% (8/10)   Unpacking objects:  90% (9/10)   Unpacking objects: 100% (10/10)   Unpacking objects: 100% (10/10), done.
+awalley1@remote02:~/projects$ s
+bash: s: command not found
+awalley1@remote02:~/projects$ ls
+cs220  i220a
+awalley1@remote02:~/projects$ cd ~
+awalley1@remote02:~$ ln -s ~/projev[D[Kcts/i220a .
+ln: failed to create symbolic link './i220a': File exists
+awalley1@remote02:~$ rm [D[K -r ./i220a 
+awalley1@remote02:~$ rm -r ./i220a [D[D[D[D[D[D[D[D[D[D[D[D[D[Dln -s ~/projects/i220a .
+awalley1@remote02:~$ cd ~/i20[D[K20a
+awalley1@remote02:~/i220a$ git status -s
+awalley1@remote02:~/i220a$ cd .[D[K[D[K[D[K[D[Kls -sl[D[K[D[Kdl ~.[D[K/cs220 ~/is[D[K220a
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+lrwxrwxrwx 1 awalley1 awalley1 29 Aug 27 13:46 /home/awalley1/i220a -> /home/awalley1/projects/i220a
+awalley1@remote02:~/i220a$ ls -l ![D[K~/.ssh ~/cs22-[D[K0 ~/i220a
+lrwxrwxrwx 1 awalley1 awalley1 14 Aug 27 13:23 /home/awalley1/cs220 -> projects/cs220
+lrwxrwxrwx 1 awalley1 awalley1 29 Aug 27 13:46 /home/awalley1/i220a -> /home/awalley1/projects/i220a
+
+/home/awalley1/.ssh:
+total 16
+-rw------- 1 awalley1 awalley1  806 Aug 27 13:20 authorized_keys
+-rw------- 1 awalley1 awalley1 1823 Aug 27 13:18 id_rsa
+-rw-r----- 1 awalley1 awalley1  399 Aug 27 13:18 id_rsa.pub
+-rw-r--r-- 1 awalley1 awalley1  888 Aug 27 13:23 known_hosts
+awalley1@remote02:~/i220a$ ls -l ~/tmp/lab0/lab0.LOG 
+-rw-r----- 1 awalley1 awalley1 43313 Aug 27 13:43 /home/awalley1/tmp/lab0/lab0.LOG
+awalley1@remote02:~/i220a$ sublie[D[Kme ~/tmp/lab0/lab0.LOG 
+bash: sublime: command not found
+awalley1@remote02:~/i220a$ vim ~/tmp/lab0/lab0.LOG 
+[m[m[0m[H[2J[24;1H"~/tmp/lab0/lab0.LOG" [noeol] 364L, 43313C[2;1H▽[6n[2;1H  [1;1H[1;1HScript started on 2020-08-27 13:12:27-04:00 [TERM="ansi" TTY="/dev/pts/2" COLUM[2;1HNS="80" LINES="24"]
+awalley1@remote01:~/tmp/lab0$ cat lab0.LOG [34m^M[0m
+awalley1@remote01:~/tmp/lab0$ ls ./[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K!/.[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K~[5;1H/.shh[34m^M[0m
+ls: cannot access '/home/awalley1/.shh': No such file or directory[34m^M[0m
+awalley1@remote01:~/tmp/lab0$ ls ~/.shh[34m^[[0m[D[34m^[[0m[K[34m^[[0m[Dsh[34m^[[0m[D[34m^M[0m
+ls: cannot access '/home/awalley1/.ssh': No such file or directory[34m^M[0m
+awalley1@remote01:~/tmp/lab0$ ls ~/.ssh[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[K[10;1Hls ~/.ssh/id[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[[11;1HD[34m^[[0m[K[34m^[[0m[D[34m^[[0m[Kssh_[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^G^G^G^G[0mssh-ke[12;1Hygen[34m^M[0m
+Generating public/private rsa key pair.[34m^M[0m
+Enter file in which to save the key (/home/awalley1/.ssh/id_rsa): [34m^M[0m
+Created directory '/home/awalley
