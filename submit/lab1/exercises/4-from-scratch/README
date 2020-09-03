@@ -1,0 +1,34 @@
+A simple key-value lookup for alphanumeric keys and integer values
+in a fixed-size table.
+
+Insert key/value pair into table by typing a line containing simply
+key=value.
+
+Query the value of a key by typing a line containing simply key?.
+
+Delete a existing key by typing a line containing simply key-.
+
+Example Log:
+
+------------------------------------------------------------------
+$ ./key-value
+a=22
+a?
+22
+b=33
+c=44
+e=55
+f=66
+<stdin>:6: too many key-value pairs
+f?
+<stdin>:7: unknown key
+e?
+55
+e-
+e?
+<stdin>:10: unknown key
+f=66
+f?
+66
+$
+------------------------------------------------------------------

@@ -484,4 +484,157 @@ ls: cannot access '/home/awalley1/.ssh': No such file or directory[34m^M[0m
 awalley1@remote01:~/tmp/lab0$ ls ~/.ssh[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[D[34m^[[0m[K[10;1Hls ~/.ssh/id[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[[11;1HD[34m^[[0m[K[34m^[[0m[D[34m^[[0m[Kssh_[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^[[0m[D[34m^[[0m[K[34m^G^G^G^G[0mssh-ke[12;1Hygen[34m^M[0m
 Generating public/private rsa key pair.[34m^M[0m
 Enter file in which to save the key (/home/awalley1/.ssh/id_rsa): [34m^M[0m
-Created directory '/home/awalley
+Created directory '/home/awalley1/.ssh'.[34m^M[0m
+Enter passphrase (empty for no passphrase): [34m^M[0m
+Enter same passphrase again: [34m^M[0m
+Your identification has been saved in /home/awalley1/.ssh/id_rsa.[34m^M[0m
+Your public key has been saved in /home/awalley1/.ssh/id_rsa.pub.[34m^M[0m
+The key fingerprint is:[34m^M[0m
+SHA256:Ybn+DlW9/fWDmlHWCBTwIHyuP53JqlCw3AAo0w00QH0 awalley1@remote01[34m^M[0m
+The key's randomart image is:[34m^M[0m
++---[RSA 2048]----+[34m^M[0m[24;62H1,1[11CTop[1;1H[24;52H^M[1;1H[24;52H  [3;1H[24;62H2[3;1H[24;52Hq[3;1H[24;53H^M[3;1H[24;52H   [3;1H[24;52H:[3;1H[24;1H[K[24;1H:q[24;1H[K[24;1Hawalley1@remote02:~/i220a$ cd ~/i220a
+awalley1@remote02:~/i220a$ mv ~/tmp/;ab[D[K[D[K[D[Klabh[D[K0 submit
+awalley1@remote02:~/i220a$ cg[D[K[D[Kcd ~/i220s[D[Ka
+awalley1@remote02:~/i220a$ git branch -l
+* [32mmaster[m[m
+[Kawalley1@remote02:~/i220a$ git merge -m 'merged master' master
+Already up to date.
+awalley1@remote02:~/i220a$ git ad[D[K[D[Kadd sumbit.[D[K/lab0
+fatal: pathspec 'sumbit/lab0' did not match any files
+awalley1@remote02:~/i220a$ git add sumbit/lab0[D[D[D[D[D[D[D[D[1Pit/lab0[D[D[D[D[D[D[D[D[1Pit/lab0[D[D[D[D[D[D[Dbit/lab0[D[D[D[D[D[D[Dmit/lab0[D[D[D[D[D[D[D
+fatal: pathspec 'submit/lab0' did not match any files
+awalley1@remote02:~/i220a$ ls
+README.md  submit
+awalley1@remote02:~/i220a$ cd submit/
+awalley1@remote02:~/i220a/submit$ ls
+lab0.LOG
+awalley1@remote02:~/i220a/submit$ cd..
+bash: cd..: command not found
+awalley1@remote02:~/i220a/submit$ cd ..
+awalley1@remote02:~/i220a$ cd[D[K[D[Kgit add sum[D[Kbmit/lab0.LOG 
+awalley1@remote02:~/i220a$ git sya[D[K[D[Ktatus -s
+[32mA[m  submit/lab0.LOG
+awalley1@remote02:~/i220a$ git commit -a -m 'copl[D[K[D[Kmpleting lab0'
+[master 815bc5c] completing lab0
+ Committer: Alexander Walley <awalley1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 487 insertions(+)
+ create mode 100644 submit/lab0.LOG
+awalley1@remote02:~/i220a$ git push -u origin lab0
+error: src refspec lab0 does not match any.
+[31merror: failed to push some refs to 'https://github.com/alexgwalley/i220a.git'
+[mawalley1@remote02:~/i220a$ git check[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Kgit push -u origin lab0[D[C/[D[K.LOG
+error: src refspec lab0.LOG does not match any.
+[31merror: failed to push some refs to 'https://github.com/alexgwalley/i220a.git'
+[mawalley1@remote02:~/i220a$ git push -u origin lab0.LOG[D[D[D[D[K[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dcommit -a -m 'completing lab0'[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dstatus -s[K[D[D[D[D[D[D[D[D[Dadd submit/lab0.LOG [D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dcd ..[K[D[D[D[1P..[D[D[D[D[2Pls[D[Dcd submit/[D[D[D[D[D[D[D[D[D[Dls[K[D[Dgit add submit/lab0[D[D[D[D[D[D[D[D[Dmbit/lab0[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dmerge -m 'merged master' master[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dbranch -l[K[D[D[D[D[D[D[D[D[Dmerge -m 'merged master' master[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[16Padd sumbit/lab0[D[D[D[D[D[D[D[D[Dbmit/lab0[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dls[K[D[Dcd submit/[D[D[D[D[D[D[D[D[D[Dls[K[D[Dcd..[D[D ..[D[D[D[D[Dgit add submit/lab0.LOG [D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[11Pstatus -s[D[D[D[D[D[D[D[D[Dcommit -a -m 'completing lab0'[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[11Ppush -u origin lab0.LOG[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Kcd ![D[K~/i220a
+awalley1@remote02:~/i220a$ s[D[Kls
+README.md  submit
+awalley1@remote02:~/i220a$ git checkout master
+Already on 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+awalley1@remote02:~/i220a$ git merge lab-[D[K0 -m 'merged lab0'
+merge: lab0 - not something we can merge
+awalley1@remote02:~/i220a$ git push -i[D[K [D[Ku origin lab0
+error: src refspec lab0 does not match any.
+[31merror: failed to push some refs to 'https://github.com/alexgwalley/i220a.git'
+[mawalley1@remote02:~/i220a$ git push
+Username for 'https://github.com': alexgwalley
+Password for 'https://alexgwalley@github.com': 
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)   Counting objects:  40% (2/5)   Counting objects:  60% (3/5)   Counting objects:  80% (4/5)   Counting objects: 100% (5/5)   Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects:  33% (1/3)   Compressing objects:  66% (2/3)   Compressing objects: 100% (3/3)   Compressing objects: 100% (3/3), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 8.70 KiB | 2.90 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To https://github.com/alexgwalley/i220a.git
+   125898d..815bc5c  master -> master
+awalley1@remote02:~/i220a$ git push -u r[D[Korigin lab0
+error: src refspec lab0 does not match any.
+[31merror: failed to push some refs to 'https://github.com/alexgwalley/i220a.git'
+[mawalley1@remote02:~/i220a$ git ad [D[Kd submit/lab0
+fatal: pathspec 'submit/lab0' did not match any files
+awalley1@remote02:~/i220a$ cd sum[D[Kbmit/
+awalley1@remote02:~/i220a/submit$ ls
+lab0.LOG
+awalley1@remote02:~/i220a/submit$ mkdir lab0
+awalley1@remote02:~/i220a/submit$ mv lab0.LOG lab0
+awalley1@remote02:~/i220a/submit$ ls
+lab0
+awalley1@remote02:~/i220a/submit$ cd ..
+awalley1@remote02:~/i220a$ git add submit.[D[K/lab0/
+awalley1@remote02:~/i220a$ git stats[D[Kus -s
+ [31mD[m submit/lab0.LOG
+[32mA[m  submit/lab0/lab0.LOG
+awalley1@remote02:~/i220a$ gt[D[Kit cp,[D[K[D[Kommit -a -m 'cpmp[D[K[D[K[D[Kompleting lab0 (with corrce[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Kcorrectly)'[D[D )'[D[Dt)'[D[Dh)'[D[Di)'[D[Ds)'[D[D )
+'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct
+)'i)'[D[Dm)'[D[De)'[D[D[D[1P)'[D[D[D[1P)'[D[D[1P)'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C)
+[1P'[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct
+)'i)'[D[Dm)'[D[De)'[D[D )'[D[Di)'[D[D )'[D[Dt)'[D[Dh)'[D[Di)'[D[Dn)'[D[Dk)'[D[D
+[master f79b78e] completing lab0 (correctly this time i think)
+ Committer: Alexander Walley <awalley1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename submit/{ => lab0}/lab0.LOG (100%)
+awalley1@remote02:~/i220a$ gt [D[K[D[Kit push -u origin lab0
+error: src refspec lab0 does not match any.
+[31merror: failed to push some refs to 'https://github.com/alexgwalley/i220a.git'
+[mawalley1@remote02:~/i220a$ git checkout -b lab0[D[K[D[K[D[K[D[Klab-0[D[K[D[K0
+M	submit/lab0/lab0.LOG
+Switched to a new branch 'lab0'
+awalley1@remote02:~/i220a$ mkdir[D[K[D[K[D[K[D[K[D[Kgit push -i[D[Ku origin lab0
+Username for 'https://github.com': alexgwalley
+Password for 'https://alexgwalley@github.com': 
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)   Counting objects:  40% (2/5)   Counting objects:  60% (3/5)   Counting objects:  80% (4/5)   Counting objects: 100% (5/5)   Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects:  50% (1/2)   Compressing objects: 100% (2/2)   Compressing objects: 100% (2/2), done.
+Writing objects:  33% (1/3)   Writing objects:  66% (2/3)   Writing objects: 100% (3/3)   Writing objects: 100% (3/3), 314 bytes | 314.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+remote: 
+remote: Create a pull request for 'lab0' on GitHub by visiting:[K
+remote:      https://github.com/alexgwalley/i220a/pull/new/lab0[K
+remote: 
+To https://github.com/alexgwalley/i220a.git
+ * [new branch]      lab0 -> lab0
+Branch 'lab0' set up to track remote branch 'lab0' from 'origin'.
+awalley1@remote02:~/i220a$ git checkout master
+M	submit/lab0/lab0.LOG
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+awalley1@remote02:~/i220a$ git er[D[K[D[Kmerge lab0 -m 'M[D[Kmerged lab0'
+Already up to date.
+awalley1@remote02:~/i220a$ git push
+Username for 'https://github.com': alexgwalley
+Password for 'https://alexgwalley@github.com': 
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/alexgwalley/i220a.git
+   815bc5c..f79b78e  master -> master
+awalley1@remote02:~/i220a$ exit
+exit
+
+Script done on 2020-08-27 14:02:23-04:00 [COMMAND_EXIT_CODE="0"]
