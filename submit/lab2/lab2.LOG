@@ -1,0 +1,577 @@
+Script started on 2020-09-10 12:42:45-04:00 [TERM="ansi" TTY="/dev/pts/8" COLUMNS="196" LINES="40"]
+awalley1@remote03:~/i220a/submit/lab2$ cd exercises/1-hello-args/
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ ls -l
+total 12
+-rw-r----- 1 awalley1 awalley1 343 Sep  9 12:14 hello.c
+-rw-r----- 1 awalley1 awalley1  35 Sep  9 12:14 Makefile
+-rw-r----- 1 awalley1 awalley1  61 Sep  9 12:14 README
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ ./hello 
+usage: ./hello NAME...
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ hello bart
+hello: extra operand: bart
+Usage: hello [OPTION]...
+Print a friendly, customizable greeting.
+
+  -h, --help          display this help and exit
+  -v, --version       display version information and exit
+
+  -t, --traditional       use traditional greeting
+  -g, --greeting=TEXT     use TEXT as the greeting message
+
+Report bugs to: bug-hello@gnu.org
+GNU Hello home page: <http://www.gnu.org/software/hello/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ hekk[D[K[D[Kllp[D[Ko bart
+hello: extra operand: bart
+Usage: hello [OPTION]...
+Print a friendly, customizable greeting.
+
+  -h, --help          display this help and exit
+  -v, --version       display version information and exit
+
+  -t, --traditional       use traditional greeting
+  -g, --greeting=TEXT     use TEXT as the greeting message
+
+Report bugs to: bug-hello@gnu.org
+GNU Hello home page: <http://www.gnu.org/software/hello/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ ./ hell[D[K[D[K[D[K[D[K[D[Khellp bart le[D[Kisa
+bash: ./hellp: No such file or directory
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ ./hellp bart lisa[D[D[D[D[D[D[D[D[D[D[D[1P[1@o
+hello bart
+hello lisa
+hello (null)
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ gdb hellp[D[Ko
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start bart lisa
+Temporary breakpoint 1 at 0x118b: file hello.c, line 13.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab2/exercises/1-hello-args/hello bart lisa
+
+Temporary breakpoint 1, main (argc=3, argv=0x7fffffffe828) at hello.c:13
+13	  if (argc == 1) {
+(gdb) 1
+Undefined command: "1".  Try "help".
+(gdb) l
+8	}
+9	
+10	int 
+11	main(int argc, const char *argv[])
+12	{
+13	  if (argc == 1) {
+14	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+15	    exit(1);
+16	  }
+17	  else {
+(gdb) b say_hello
+Breakpoint 2 at 0x555555555161: file hello.c, line 7.
+(gdb) argc
+Undefined command: "argc".  Try "help".
+(gdb) p argc
+$1 = 3
+(gdb) [[D[Kp argv
+$2 = (const char **) 0x7fffffffe828
+(gdb) p argv[0]
+$3 = 0x7fffffffea92 "/import/linux/home1/awalley1/projects/i220a/submit/lab2/exercises/1-hello-args/hello"
+(gdb) n
+18	    for (int i = 1; i <= argc; i++) {
+(gdb) n
+19	      say_hello(argv[i]);
+(gdb) pi[D[K i
+$4 = 1
+(gdb)  c[D[K[D[Kc
+Continuing.
+
+Breakpoint 2, say_hello (name=0x7fffffffeae7 "bart") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) l
+2	#include <stdlib.h>
+3	
+4	static void
+5	say_hello(const char *name)
+6	{
+7	  printf("hello %s\n", name);
+8	}
+9	
+10	int 
+11	main(int argc, const char *argv[])
+(gdb) backtrace
+#0  say_hello (name=0x7fffffffeae7 "bart") at hello.c:7
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffe828) at hello.c:19
+(gdb) p name
+$5 = 0x7fffffffeae7 "bart"
+(gdb) up
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffe828) at hello.c:19
+19	      say_hello(argv[i]);
+(gdb) l
+14	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+15	    exit(1);
+16	  }
+17	  else {
+18	    for (int i = 1; i <= argc; i++) {
+19	      say_hello(argv[i]);
+20	    }
+21	  }
+22	  return 0;
+23	}
+(gdb) down
+#0  say_hello (name=0x7fffffffeae7 "bart") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) c
+Continuing.
+hello bart
+
+Breakpoint 2, say_hello (name=0x7fffffffeaec "lisa") at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p name
+$6 = 0x7fffffffeaec "lisa"
+(gdb) c
+Continuing.
+hello lisa
+
+Breakpoint 2, say_hello (name=0x0) at hello.c:7
+7	  printf("hello %s\n", name);
+(gdb) p nm[D[Kame
+$7 = 0x0
+(gdb) up
+#1  0x00005555555551e5 in main (argc=3, argv=0x7fffffffe828) at hello.c:19
+19	      say_hello(argv[i]);
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2614575] will be killed.
+
+Quit anyway? (y or n) vim hello.c
+Please answer y or n.
+A debugging session is active.
+
+	Inferior 1 [process 2614575] will be killed.
+
+Quit anyway? (y or n) y
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ cim[D[K[D[K[D[Kvim hello.c
+[m[m[0m[H[2J[40;1H"hello.c" 23L, 343C[2;1H▽[6n[2;1H  [1;1H[1;1H#include <stdio.h>
+#include <stdlib.h>
+
+static void
+say_hello(const char *name)
+{
+  printf("hello %s\n", name);
+}
+
+int
+main(int argc, const char *argv[])
+{
+  if (argc == 1) {
+    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+    exit(1);
+  }
+  else {
+    for (int i = 1; i <= argc; i++) {[19;7Hsay_hello(argv[i]);
+    }
+  }
+  return 0;
+}
+[1m[34m~                                                                                                                                                                                                   [25;1H~                                                                                                                                                                                                   [26;1H~                                                                                                                                                                                                   [27;1H~                                                                                                                                                                                                   [28;1H~                                                                                                                                                                                                   [29;1H~                                                                                                                                                                                                   [30;1H~                                                                                                                                                                                                   [31;1H~                                                                                                                                                                                                   [32;1H~                                                                                                                                                                                                   [33;1H~                                                                                                                                                                                                   [34;1H~                                                                                                                                                                                                   [35;1H~                                                                                                                                                                                                   [36;1H~                                                                                                                                                                                                   [37;1H~                                                                                                                                                                                                   [38;1H~                                                                                                                                                                                                   [39;1H~                                                                                                                                                                                                   [0m[40;179H1,1[11CAll[1;1H[40;179H2[2;1H[40;179H3,0-1[3;1H[40;179H4,1  [4;1H[40;179H5[5;1H
+[46m{
+
+}[0m[40;179H6[6;1H{
+
+}[40;179H7[7;1H[6;1H[46m{
+
+}[0m[40;179H8[8;1H[6;1H{
+
+}[40;179H9,0-1[9;1H[40;179H10,1 [10;1H[40;180H1[11;1H
+[46m{[23;1H}[0m[40;180H2[12;1H{[23;1H}[40;180H3[13;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H9[19;1H[40;180H8[18;1H[40;182H2[18;2H[40;182H3[18;3H[40;182H4[18;4H[40;182H5[18;5H[40;182H6[18;6H[40;182H7[18;7H[40;182H8[18;8H [46m([25C)[0m[40;182H9[18;9H([25C)[40;182H10[18;10H[40;183H1[18;11H[40;183H2[18;12H[40;183H3[18;13H[40;183H4[18;14H[40;183H5[18;15H[40;183H6[18;16H[40;183H7[18;17H[12;1H[46m{[23;1H}[0m[40;179H23,1 [23;1H[12;1H{[23;1H}[40;179H1,1 [1;1H[40;179H2[2;1H[40;179H3,0-1[3;1H[40;179H4,1  [4;1H[40;179H5[5;1H
+[46m{
+
+}[0m[40;179H6[6;1H{
+
+}[40;179H7[7;1H[6;1H[46m{
+
+}[0m[40;179H8[8;1H[6;1H{
+
+}[40;179H9,0-1[9;1H[40;179H10,1 [10;1H[40;180H1[11;1H
+[46m{[23;1H}[0m[40;180H2[12;1H{[23;1H}[40;180H3[13;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H9[19;1H[40;182H2[19;2H[40;182H3[19;3H[40;182H4[19;4H[40;182H5[19;5H[40;182H6[19;6H[40;180H8[18;6H[40;182H7[18;7H[40;182H8[18;8H [46m([25C)[0m[40;182H9[18;9H([25C)[40;182H10[18;10H[40;183H1[18;11H[40;183H2[18;12H[40;183H3[18;13H[40;183H4[18;14H[40;183H5[18;15H[40;183H6[18;16H[40;183H7[18;17H[40;183H8[18;18H[40;183H9[18;19H[40;182H20[18;20H[40;183H1[18;21H[40;183H2[18;22H[40;183H3[18;23H[40;183H4[18;24H[40;183H5[18;25H[40;1H[1m-- INSERT --[0m[40;13H[K[40;179H18,25[9CAll[18;25H argc; i++) {[18;37H[K[40;183H4[18;24Hj [40;1H[K[40;179H18,23[9CAll[18;23H[40;179H[K[40;1H:wq"hello.c" 23L, 342C written
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ ./hello bart lia[D[Ksa
+hello bart
+hello lisa
+awalley1@remote03:~/i220a/submit/lab2/exercises/1-hello-args$ cd //
+awalley1@remote03://$ cd ..
+awalley1@remote03://$ cd ~?[D[K/i220a/submit/la2[D[Kb2/exercises//[D[K2-hello-upcase-args/
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ls
+hello.c  Makefile  README
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ./hello lisa bart
+Hello Lisa
+Hello Bart
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ./hello lisa bart
+Hello Lisa
+Hello Bart
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ./hello lisa bart[D[D[D[D[D[D[D[D[D[1@'[C[C[C[C[C bart[D[D[D[Dsbart[D[D[D[Dibart[D[D[D[Dmbart[D[D[D[Dpbart[D[D[D[D'bart[D[D[D[D bart[D[D[D[D
+Hello Lisa  Simp1��U
+Hello Bart  Si)S1��U
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ vim hello.c
+[m[m[0m[H[2J[40;1H"hello.c" 48L, 962C[2;1H▽[6n[2;1H  [1;1H[1;1H#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/** Upcase the initial letter of each word from in, copying the
+ *  results into out.  The caller is responsible to ensure that out
+ *  has enough space for the strlen(in) characters of in.
+ */
+void
+upcase_words(const char in[], char out[])
+{
+  int inWord = 0;
+  int n = strlen(in);
+  for (int i = 0; i < n; i++) {
+    if (!inWord && isalpha(in[i])) {[17;7Hout[i] = toupper(in[i]);
+    }
+    else {[20;7Hout[i] = in[i];
+    }
+    inWord = isalpha(in[i]);
+  }
+}
+
+static void
+say_hello(const char *name)
+{
+  printf("Hello %s\n", name);
+}
+
+int
+main(int argc, const char *argv[])
+{
+  if (argc == 1) {
+    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+    exit(1);
+  }
+  else {[40;179H1,1[11CTop[1;1H[40;179H2[2;1H[40;179H3[3;1H[40;179H4[4;1H[40;179H5,0-1[5;1H[40;179H6,1  [6;1H[40;179H7[7;1H[40;179H8[8;1H[40;179H9[9;1H[40;179H10,1[10;1H[40;180H1[11;1H
+[46m{[24;1H}[0m[40;180H2[12;1H{[24;1H}[40;180H3[13;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H9[19;1H[40;179H20[20;1H[40;180H1[21;1H[40;180H2[22;1H[40;180H3[23;1H[40;1H[1m-- INSERT --[0m[40;13H[K[40;179H24,1[10CTop[39;3H[K[24;1H[L[40;1H[1m-- INSERT --[0m[166C24,1[10CTop[24;1Hi[40;182H2[24;2H[40;182H3-9[24;9H[40;182H2  [24;2H[24;1H[K[40;182H1[24;1H[40;182H2[24;2H[40;182H3[24;3Ho[40;182H4[24;4Hu[40;182H5[24;5Ht[40;182H6[24;6H[[40;182H7[24;7Hs[40;182H8[24;8Ht[40;182H9[24;9Hr[40;182H10[24;10Hl[40;183H1[24;11He[40;183H2[24;12Hn[40;183H3[24;13Hg[40;183H4[24;14H([40;183H5[24;15H[24;14H[K[40;183H4[24;14H[24;13H[K[40;183H3[24;13H([40;183H4[24;14Hi[40;183H5[24;15Hn[40;183H6[24;16H[46m([0min[46m)[0m[40;183H7[24;17H  out[46m[[0mstrlen(in)[46m][0m[40;183H8[24;18H[40;183H7[24;17H  out[strlen[46m([0min[46m)[0m][40;183H6[24;16H  out[46m[[0mstrlen(in)[46m][0m[40;183H7[24;17H  out[strlen[46m([0min[46m)[0m][40;183H6[24;16H  out[46m[[0mstrlen(in)[46m][0m[40;183H7[24;17H[40;183H8[24;18H[40;183H7[24;17H[15;31H[46m{[23;3H}[0m[24;6H[[10C][40;180H3,4 [23;4H[15;31H{[23;3H}[40;180H2,17[22;17H[19;10H[46m{[21;5H}[0m[40;180H1,6 [21;6H[19;10H{[21;5H}[40;180H0,17[20;17H[19;10H[46m{[21;5H}[0m[40;179H19,11[19;11H[16;36H[46m{[18;5H}[0m[19;10H{[21;5H}[40;180H8,6 [18;6H[16;36H{[18;5H}[40;180H7,17[17;17H[40;180H6[16;17H[40;180H5[15;17H[14;17H[46m([0min[46m)[0m[40;180H4[14;17H[40;183H8[14;18H(in)[40;183H9[14;19H[46m([0min[46m)[0m[40;182H20[14;20H+[46m)[0m;[40;183H1[14;21H1[46m)[0m;[40;183H2[14;22H(in+1)[40;180H3,18[13;18H[12;1H[46m{[25;1H}[0m[40;180H2,2 [12;2H{[25;1H}[40;180H1,22[11;22H[40;180H0,5 [10;5H[40;180H1,22[11;22H[40;180H0,5 [10;5H[40;180H1,22[11;22H[40;180H0,5 [10;5H[40;180H1,22[11;22H
+[46m{[25;1H}[0m[40;180H2,2 [12;2H{[25;1H}[40;180H3,18[13;18H[14;17H[46m([0min+1[46m)[0m[40;180H4,22[14;22H(in+1)[40;180H5[15;22H[40;180H6[16;22H[40;180H7[17;22H[16;36H[46m{[18;5H}[0m[40;180H8,6 [18;6H[16;36H{[18;5H}[19;10H[46m{[21;5H}[0m[40;180H9,11[19;11H{[21;5H}[40;179H20,22[20;22H[19;10H[46m{[21;5H}[0m[40;180H1,6 [21;6H[19;10H{[21;5H}[22;21H[46m([0min[i][46m)[0m[40;180H2,22[22;22H[15;31H[46m{[0m[22;21H(in[i])
+  [46m}[0m[40;180H3,4 [23;4H[15;31H{[23;3H}[24;6H[46m[[10C][0m[40;180H4,18[24;18H[12;1H[46m{[0m[24;6H[[10C]
+[46m}[0m[40;180H5,2 [25;2H[12;1H{[24;6H[46m[[10C][0m
+}[40;180H4,18[24;18H[40;183H7[24;17H  out[strlen[46m([0min[46m)[0m][40;183H6[24;16H(in)[40;183H5[24;15H[46m([0min[46m)[0m[40;183H6[24;16H[15;31H[46m{[23;3H}[0m[24;13H(in)[40;180H3,4 [23;4H[15;31H{[23;3H}[40;180H2,16[22;16H[19;10H[46m{[21;5H}[0m[40;180H1,6 [21;6H[19;10H{[21;5H}[40;180H0,16[20;16H[19;10H[46m{[21;5H}[0m[40;179H19,11[19;11H[16;36H[46m{[18;5H}[0m[19;10H{[21;5H}[40;180H8,6 [18;6H[16;36H{[18;5H}[40;180H7,16[17;16H[40;180H6[16;16H[40;180H5[15;16H[40;180H4[14;16Hn[46m([0min+1[46m)[0m[40;183H7[14;17H[40;183H8[14;18H(in+1)[40;183H9[14;19H[40;182H20[14;20H[40;183H1[14;21H[46m([0min+1[46m)[0m[40;183H2[14;22H[46m)[0m;[14;23H[K[40;183H1[14;21H[46m)[0m;[14;22H[K[40;183H0[14;20H(in)[40;180H5[15;20H[40;180H6[16;20H[40;180H7[17;20H[16;36H[46m{[18;5H}[0m[40;180H8,6 [18;6H[16;36H{[18;5H}[19;10H[46m{[21;5H}[0m[40;180H9,11[19;11H{[20;18H[46m[[0mi[46m][0m
+    }[40;179H20,20[20;20H[19;10H[46m{[0m[20;18H[i]
+    [46m}[0m[40;180H1,6 [21;6H[19;10H{[21;5H}[40;180H2,20[22;20H[15;31H[46m{[23;3H}[0m[40;180H3,4 [23;4H[15;31H{[23;3H}[24;6H[46m[[10C][0m[40;180H4,18[24;18H[40;183H7[24;17H  out[strlen[46m([0min[46m)[0m][40;183H6[24;16H+[46m)[0m][40;183H7[24;17H1[46m)[0m][40;183H8[24;18H[46m)[0m][24;19H[K[40;183H7[24;17H[46m)[0m][24;18H[K[40;183H6[24;16H  out[46m[[0mstrlen(in)[46m][0m[40;183H7[24;17H+[46m][0m[40;183H8[24;18H1[46m][0m[40;183H9[24;19H[40;182H20[24;20H  out[[12C][40;183H1[24;21H=[40;183H2[24;22H[40;183H3[24;23H'[40;183H4[24;24H\[40;183H5[24;25H0[40;183H6[24;26H'[40;183H7[24;27H;[40;183H8[24;28Hj [40;1H[K[40;179H24,27[9CTop[24;27H[40;179H[K[40;1H:wq"hello.c" 49L, 990C written
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ vim hello.c[D[D[D[D[D[D[D[D[D[D[D./hello 'lisa  simp' bart
+Hello Lisa  Simp�J�U
+Hello Bart  Si)S�J�U
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ./hello 'lisa  simp' bart[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[14Pvim hello.c
+[m[m[0m[H[2J[40;1H"hello.c" 49L, 990C[2;1H▽[6n[2;1H  [1;1H[1;1H#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/** Upcase the initial letter of each word from in, copying the
+ *  results into out.  The caller is responsible to ensure that out
+ *  has enough space for the strlen(in) characters of in.
+ */
+void
+upcase_words(const char in[], char out[])
+{
+  int inWord = 0;
+  int n = strlen(in);
+  for (int i = 0; i < n; i++) {
+    if (!inWord && isalpha(in[i])) {[17;7Hout[i] = toupper(in[i]);
+    }
+    else {[20;7Hout[i] = in[i];
+    }
+    inWord = isalpha(in[i]);
+  }
+  out[strlen(in)+1] = '\0';
+}
+
+static void
+say_hello(const char *name)
+{
+  printf("Hello %s\n", name);
+}
+
+int
+main(int argc, const char *argv[])
+{
+  if (argc == 1) {
+    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+    exit(1);
+  }[40;179H1,1[11CTop[1;1H[40;179H2[2;1H[40;179H3[3;1H[40;179H4[4;1H[40;179H5,0-1[5;1H[40;179H6,1  [6;1H[40;179H7[7;1H[40;179H8[8;1H[40;179H9[9;1H[40;179H10,1[10;1H[40;180H1[11;1H
+[46m{[25;1H}[0m[40;180H2[12;1H{[25;1H}[40;180H3[13;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H9[19;1H[40;179H20[20;1H[40;180H1[21;1H[40;180H2[22;1H[40;180H3[23;1H[40;180H4[24;1H[12;1H[46m{[25;1H}[0m[40;180H5[25;1H[12;1H{[25;1H}[40;180H6,0-1[26;1H[12;1H[46m{[25;1H}[0m[40;180H5,1  [25;1H[12;1H{[25;1H}[40;180H4[24;1H[40;182H2[24;2H[40;182H3[24;3H[40;182H4[24;4H[40;182H5[24;5Ht[46m[[12C][0m[40;182H6[24;6H[[12C][40;182H7[24;7H[40;182H8[24;8H[40;182H9[24;9H[40;182H10[24;10H[40;183H1[24;11H[40;183H2[24;12Hn[46m([0min[46m)[0m[40;183H3[24;13H(in)[40;183H4[24;14H[40;183H5[24;15H[46m([0min[46m)[0m[40;183H6[24;16H(in)[40;183H7[24;17H[40;1H[1m-- INSERT --[0m[40;13H[K[40;179H24,17[9CTop[24;17H+1] = '\0';[24;27H[K[40;183H6[24;16H+1] = '\0';[24;26H[K[40;183H5[24;15H+1] = '\0';[24;25H[K[40;183H4[24;14H+1] = '\0';[24;24H[K[40;183H3[24;13H+1] = '\0';[24;23H[K[40;183H2[24;12H+1] = '\0';[24;22H[K[40;183H1[24;11H+1] = '\0';[24;21H[K[40;183H0[24;10H+1] = '\0';[24;20H[K[40;182H9 [24;9H+1] = '\0';[24;19H[K[40;182H8[24;8H[46m[[0m+1[46m][0m = '\0';[24;18H[K[40;182H7[24;7H[n+1] = '\0';[40;182H8[24;8Hj+[40;1H[K[40;179H24,7[10CTop[24;7H[40;179H1,1 [1;1H[10M[25;1H[46m{[0m[30;3Helse {[30;179H[K[31;5Hfor (int i = 1; i < argc; i++) {[32;7Hconst char *name = argv[i];[33;7Hchar friendlyName[strlen(name)];[34;7Hupcase_words(name, friendlyName);[35;7Hsay_hello(friendlyName);
+    }
+  }
+  return 0;
+[46m}[0m[40;179H49,1[10CBot[39;1H[25;1H{[39;1H}[40;180H8[38;1H[40;180H7[37;1H[40;180H6[36;1H[40;180H5[35;1H[40;180H4[34;1H[40;180H3[33;1H[40;180H2[32;1H[40;182H2[32;2H[40;182H3[32;3H[40;180H1[31;3H[40;180H2[32;3H[40;180H3[33;3H[40;182H4[33;4H[40;182H5[33;5H[40;182H6[33;6H[40;182H7[33;7H[40;182H8[33;8H[40;182H9[33;9H[40;182H10[33;10H[40;183H1[33;11H[40;183H2[33;12H[40;183H3[33;13H[40;183H4[33;14H[40;183H5[33;15H[40;183H6[33;16H[40;183H7[33;17H[40;183H8[33;18H[40;183H9[33;19H[40;182H20[33;20H[40;183H1[33;21H[40;183H2[33;22H[40;183H3[33;23He[46m[[12C][0m[40;183H4[33;24H[[12C][40;183H5[33;25H[40;183H6[33;26H[40;183H7[33;27H[40;183H8[33;28H[40;183H9[33;29H[40;182H30[33;30Hn[46m([0mname[46m)[0m[40;183H1[33;31H(name)[40;183H2[33;32H[40;183H3[33;33H[40;183H4[33;34H[40;183H5[33;35H[46m([0mname[46m)[0m[40;183H6[33;36H[33;24H[46m[[0mstrlen(name)[46m][0m[40;183H7[33;37H[40;1H[1m-- INSERT --[0m[40;179H[K[40;179H43,37[9CBot[33;37H+[46m][0m;[40;183H8[33;38H1[46m][0m;[40;183H9[33;39Hj[46m][0m[40;1H[K[33;24H[[14C][40;179H43,38[9CBot[33;38H[40;179H[K[40;1H:wq[40;3H[K[40;3H"hello.c" 49L, 983C written[151C43,38[9CBot[40;179H[K[40;179H43,38[9CBot[33;38H[30;3H[K[1;1H[10L[1;1H#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/** Upcase the initial letter of each word from in, copying the
+ *  results into out.  The caller is responsible to ensure that out
+ *  has enough space for the strlen(in) characters of in.
+ */
+void[40;179H1,1[11CTop[1;1H[40;179H[K[40;1H:wq"hello.c" 49L, 983C written
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ vim hello.c[D[D[D[D[D[D[D[D[D[D[D./hello 'lisa  simp' bart
+Hello Lisa  Simpj=tU
+Hello Bart  Si)j=tU
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start 'lisa simpson'
+Temporary breakpoint 1 at 0x12be: file hello.c, line 35.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab2/exercises/2-hello-upcase-args/hello 'lisa simpson'
+
+Temporary breakpoint 1, main (argc=2, argv=0x7fffffffe828) at hello.c:35
+warning: Source file is more recent than executable.
+35	{
+(gdb) l
+30	  printf("Hello %s\n", name);
+31	}
+32	
+33	int
+34	main(int argc, const char *argv[])
+35	{
+36	  if (argc == 1) {
+37	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+38	    exit(1);
+39	  }
+(gdb) b [D[K[D[Kb[D[Kb [D[K[D[Ks
+40	  else {
+(gdb) s
+41	    for (int i = 1; i < argc; i++) {
+(gdb) s
+42	      const char *name = argv[i];
+(gdb) s
+__strlen_avx2 () at ../sysdeps/x86_64/multiarch/strlen-avx2.S:55
+55	../sysdeps/x86_64/multiarch/strlen-avx2.S: No such file or directory.
+(gdb) l
+50	in ../sysdeps/x86_64/multiarch/strlen-avx2.S
+(gdb) l
+50	in ../sysdeps/x86_64/multiarch/strlen-avx2.S
+(gdb) s
+56	in ../sysdeps/x86_64/multiarch/strlen-avx2.S
+(gdb) s
+57	in ../sysdeps/x86_64/multiarch/strlen-avx2.S
+(gdb) s
+60	in ../sysdeps/x86_64/multiarch/strlen-avx2.S
+(gdb) c
+Continuing.
+Hello Lisa SimpsonUU
+[Inferior 1 (process 2618979) exited normally]
+(gdb) start
+Temporary breakpoint 2 at 0x5555555552be: file hello.c, line 35.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab2/exercises/2-hello-upcase-args/hello 'lisa simpson'
+
+Temporary breakpoint 2, main (argc=2, argv=0x7fffffffe828) at hello.c:35
+35	{
+(gdb) start 'lisa simpson'
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Temporary breakpoint 3 at 0x5555555552be: file hello.c, line 35.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab2/exercises/2-hello-upcase-args/hello 'lisa simpson'
+
+Temporary breakpoint 3, main (argc=2, argv=0x7fffffffe828) at hello.c:35
+35	{
+(gdb) l
+30	  printf("Hello %s\n", name);
+31	}
+32	
+33	int
+34	main(int argc, const char *argv[])
+35	{
+36	  if (argc == 1) {
+37	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+38	    exit(1);
+39	  }
+(gdb) ll
+Undefined command: "ll".  Try "help".
+(gdb) l
+40	  else {
+41	    for (int i = 1; i < argc; i++) {
+42	      const char *name = argv[i];
+43	      char friendlyName[strlen(name)+1];
+44	      upcase_words(name, friendlyName);
+45	      say_hello(friendlyName);
+46	    }
+47	  }
+48	  return 0;
+49	}
+(gdb) help
+List of classes of commands:
+
+aliases -- Aliases of other commands
+breakpoints -- Making program stop at certain points
+data -- Examining data
+files -- Specifying and examining files
+internals -- Maintenance commands
+obscure -- Obscure features
+running -- Running the program
+stack -- Examining the stack
+status -- Status inquiries
+support -- Support facilities
+tracepoints -- Tracing of program execution without stopping the program
+user-defined -- User-defined commands
+
+Type "help" followed by a class name for a list of commands in that class.
+Type "help all" for the list of all commands.
+Type "help" followed by command name for full documentation.
+Type "apropos word" to search for commands related to "word".
+Command name abbreviations are allowed if unambiguous.
+(gdb) l
+Line number 50 out of range; hello.c has 49 lines.
+(gdb) n
+40	  else {
+(gdb) n
+41	    for (int i = 1; i < argc; i++) {
+(gdb) n
+42	      const char *name = argv[i];
+(gdb) n[D[Kn
+43	      char friendlyName[strlen(name)+1];
+(gdb) p name
+$1 = 0x7fffffffeaf4 "lisa simpson"
+(gdb) n
+44	      upcase_words(name, friendlyName);
+(gdb) p friendlyName 
+$2 = "Lisa Simpson"
+(gdb) l
+39	  }
+40	  else {
+41	    for (int i = 1; i < argc; i++) {
+42	      const char *name = argv[i];
+43	      char friendlyName[strlen(name)+1];
+44	      upcase_words(name, friendlyName);
+45	      say_hello(friendlyName);
+46	    }
+47	  }
+48	  return 0;
+(gdb) n
+Hello Lisa SimpsonUU
+40	  else {
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2619200] will be killed.
+
+Quit anyway? (y or n) y
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ vim hello
+[m[m[0m[H[2J[40;1H"hello" [noeol][converted] 16L, 21094C[2;1H▽[6n[2;1H  [1;1H[1;1H[34m^?[0mELF[34m^B^A^A^@^@^@^@^@^@^@^@^@^C^@[0m>[34m^@^A^@^@^@[0m [34m^P^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mXF[34m^@^@^@^@^@^@^@^@^@^@[0m@[34m^@[0m8[34m^@^K^@[0m@[34m^@[0m#[34m^@[0m"[34m^@^F^@^@^@^D^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mh[34m^B^@^@^@^@^@^@[0mh[34m^B^@[2;1H^@^@^@^@^@^H^@^@^@^@^@^@^@^C^@^@^@^D^@^@^@[0m¨[2;44H[34m^B^@^@^@^@^@^@[0m¨[2;59H[34m^B^@^@^@^@^@^@[0m¨[2;74H[34m^B^@^@^@^@^@^@^\^@^@^@^@^@^@^@^\^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[3;1H@^@[0mØ[3;5H[34m^F^@^@^@^@^@^@[0mØ[3;20H[34m^F^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^E^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@[0m-[34m^D^@^@^@^@^@^@[0m-[34m^D^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@[0m [34m^@^@^@^@^@^@^@[0m [34m^@^[4;1H@^@^@^@^@^@[0m [34m^@^@^@^@^@^@[0mÈ[34m^A^@^@^@^@^@^@[0mÈ[34m^A^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^F^@^@^@[0mè[4;88H-[34m^@^@^@^@^@^@[0mè[4;102H=[34m^@^@^@^@^@^@[0mè[4;116H=[34m^@^@^@^@^@^@[0mp[34m^B^@^@^@^@^@^@<88>^B^@^@^@^@^@^@^@^P^@^@^@^@^@^@^B^@^@^@^F^@^@^@[0mø[4;195H-[34m^[5;1H@^@^@^@^@^@[0mø[5;13H=[34m^@^@^@^@^@^@[0mø[5;27H=[34m^@^@^@^@^@^@[0mà[5;41H[34m^A^@^@^@^@^@^@[0mà[5;56H[34m^A^@^@^@^@^@^@^H^@^@^@^@^@^@^@^D^@^@^@^D^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@[0mPåtd[6;1H[34m^D^@^@^@[0m$ [34m^@^@^@^@^@^@[0m$ [34m^@^@^@^@^@^@[0m$ [34m^@^@^@^@^@^@[0mL[34m^@^@^@^@^@^@^@[0mL[34m^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@[0mQåtd[34m^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@[7;1H^@^@^@^@[0mRåtd[34m^D^@^@^@[0mè[7;22H-[34m^@^@^@^@^@^@[0mè[7;36H=[34m^@^@^@^@^@^@[0mè[7;50H=[34m^@^@^@^@^@^@^X^B^@^@^@^@^@^@^X^B^@^@^@^@^@^@^A^@^@^@^@^@^@^@[0m/lib64/ld-linux-x86-64.so.2[34m^@^D^@^@^@^P^@^@^@^A^@^@^@[0mGNU[34m^@^@^@^@^@^C^@^@^@^B^@^@^@^@^@[8;1H^@^@^D^@^@^@^T^@^@^@^C^@^@^@[0mGNU[34m^@[0mô[34m^P[0mï[34m<9c>[0m"Ã[34m<9b>[0m9ü[8;50HtÒ[34m^B[0má[8;55H³[8;56Hg[34m<94>[0mJöÒ[34m^E^B^@^@^@^K^@^@^@^A^@^@^@^F^@^@^@^@^A<81>^@^@^@^@^B^K^@^@^@^L^@^@^@[0mÑeÎm9ò[8;138H[34m<8b>^\^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0ms[34m^@^@[9;1H^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^W^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m5[34m^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0mK[34m^@^@^@^R^@^[10;1H@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m4[34m^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<8f>^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^K^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<9e>^@^@^@[0m [34m^@^@^@[11;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^_^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m<[34m^@^@^@[0m"[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m-[34m^@^@^@^Q^@^Y^@[0m`@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@[0mlibc.so.6[34m^@[0mexit[34m^@[0mstrlen[12;1H[34m^@[0mtoupper[34m^@[0m__ctype_b_loc[34m^@[0mstderr[34m^@[0mfprintf[34m^@[0m__cxa_finalize[34m^@[0m__libc_start_main[34m^@[0mGLIBC_2.3[34m^@[0mGLIBC_2.2.5[34m^@[0m_ITM_deregisterTMCloneTable[34m^@[0m__gmon_start__[34m^@[0m_ITM_registerTMCloneTable[34m^@^@^@^@^@^B^@^B^@^B^@^B[13;1H^@^B^@^@^@^B^@^@^@^C^@^B^@^B^@^@^@^@^@^@^@^A^@^B^@^A^@^@^@^P^@^@^@^@^@^@^@^S[0mii[34m^M^@^@^C^@[0m][34m^@^@^@^P^@^@^@[0mu[34m^Z[0mi     [34m^@^@^B^@[0mg[34m^@^@^@^@^@^@^@[0mè[13;137H=[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@<80>^Q^@^@^@^@^@^@[0mð[13;185H=[34m^@^@^@^@^@^[14;1H@^H^@^@^@^@^@^@^@[0m@[34m^Q^@^@^@^@^@^@[0mP@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0mP@[34m^@^@^@^@^@^@[0mØ[14;78H?[34m^@^@^@^@^@^@^F^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@[0mà[14;124H?[34m^@^@^@^@^@^@^F^@^@^@^E^@^@^@^@^@^@^@^@^@^@^@[0mè[14;170H?[34m^@^@^@^@^@^@^F^@^@^@^G^@^@[15;1H^@^@^@^@^@^@^@^@^@[0mð[15;20H?[34m^@^@^@^@^@^@^F^@^@^@[8C^@^@^@^@^@^@^@^@^@^@^@[0mø[15;72H?[34m^@^@^@^@^@^@^F^@^@^@^K^@^@^@^@^@^@^@^@^@^@^@[0m`@[34m^@^@^@^@^@^@^E^@^@^@^L^@^@^@^@^@^@^@^@^@^@^@^X[0m@[34m^@^@^@^@^@^@^G^@^@^@^B^@^@^@^@^[16;1H@^@^@^@^@^@^@[0m @[34m^@^@^@^@^@^@^G^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@[0m(@[34m^@^@^@^@^@^@^G^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@[0m0@[34m^@^@^@^@^@^@^G^@^@^@^F^@^@^@^@^@^@^@^@^@^@^@[0m8@[34m^@^@^@^@^@^@^G^@^@^@^H^@^@^@^@^@^@^@^@^@^@^[17;1H@[0m@@[34m^@^@^@^@^@^@^G^@^@^@
+^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[19;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[20;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[21;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[22;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[23;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[24;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[25;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[26;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[27;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[28;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[29;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[30;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[31;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[32;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[33;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[34;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[35;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[36;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[37;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[38;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[39;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[18;1H[1m[34m@                                                                                                                                                                                                   [19;1H@                                                                                                                                                                                                   [20;1H@                                                                                                                                                                                                   [21;1H@                                                                                                                                                                                                   [22;1H@                                                                                                                                                                                                   [23;1H@                                                                                                                                                                                                   [24;1H@                                                                                                                                                                                                   [25;1H@                                                                                                                                                                                                   [26;1H@                                                                                                                                                                                                   [27;1H@                                                                                                                                                                                                   [28;1H@                                                                                                                                                                                                   [29;1H@                                                                                                                                                                                                   [30;1H@                                                                                                                                                                                                   [31;1H@                                                                                                                                                                                                   [32;1H@                                                                                                                                                                                                   [33;1H@                                                                                                                                                                                                   [34;1H@                                                                                                                                                                                                   [35;1H@                                                                                                                                                                                                   [36;1H@                                                                                                                                                                                                   [37;1H@                                                                                                                                                                                                   [38;1H@                                                                                                                                                                                                   [39;1H@                                                                                                                                                                                                   [0m[40;179H1,1[11CTop[1;1H[40;1H[K[40;1H:wq"hello" [converted] 16L, 21095C written
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ bim [D[K[D[K[D[K[D[Kvimh[D[K hello.c 
+[m[m[0m[H[2J[40;1H"hello.c" 49L, 983C[2;1H▽[6n[2;1H  [1;1H[1;1H#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/** Upcase the initial letter of each word from in, copying the
+ *  results into out.  The caller is responsible to ensure that out
+ *  has enough space for the strlen(in) characters of in.
+ */
+void
+upcase_words(const char in[], char out[])
+{
+  int inWord = 0;
+  int n = strlen(in);
+  for (int i = 0; i < n; i++) {
+    if (!inWord && isalpha(in[i])) {[17;7Hout[i] = toupper(in[i]);
+    }
+    else {[20;7Hout[i] = in[i];
+    }
+    inWord = isalpha(in[i]);
+  }
+  out[n+1] = '\0';
+}
+
+static void
+say_hello(const char *name)
+{
+  printf("Hello %s\n", name);
+}
+
+int
+main(int argc, const char *argv[])
+{
+  if (argc == 1) {
+    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+    exit(1);
+  }[40;179H1,1[11CTop[1;1H[40;179H2[2;1H[40;179H3[3;1H[40;179H4[4;1H[40;179H5,0-1[5;1H[40;179H6,1  [6;1H[40;179H7[7;1H[40;179H8[8;1H[40;179H9[9;1H[40;179H10,1[10;1H[40;180H1[11;1H
+[46m{[25;1H}[0m[40;180H2[12;1H{[25;1H}[40;180H3[13;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H7[17;1H[40;180H6[16;1H[40;180H5[15;1H[40;180H4[14;1H[40;180H5[15;1H[40;180H6[16;1H[40;180H7[17;1H[40;180H8[18;1H[40;180H9[19;1H[40;179H20[20;1H[40;180H1[21;1H[40;180H2[22;1H[40;180H3[23;1H[40;180H4[24;1H[12;1H[46m{[25;1H}[0m[40;180H5[25;1H[12;1H{[25;1H}[40;180H6,0-1[26;1H[12;1H[46m{[25;1H}[0m[40;180H5,1  [25;1H[12;1H{[25;1H}[40;180H4[24;1H[40;180H3[23;1H[40;180H2[22;1H[40;180H1[21;1H[40;180H2[22;1H[40;180H3[23;1H[40;180H4[24;1H[12;1H[46m{[25;1H}[0m[40;180H5[25;1H[12;1H{[25;1H}[40;180H6,0-1[26;1H[40;180H7,1  [27;1H[40;180H8[28;1H
+[46m{
+
+}[0m[40;180H9[29;1H{
+
+}[40;179H30[30;1H[29;1H[46m{
+
+}[0m[40;180H1[31;1H[29;1H{
+
+}[40;180H2,0-1[32;1H[40;180H3,1  [33;1H[40;180H4[34;1H[40;180H5[35;1H[40;180H6[36;1H[40;180H7[37;1H[40;180H8[38;1H[40;180H9[39;1H
+
+[39;1H  else {[39;9H[K[40;179H40,1[10C10%[39;1H
+
+[39;5Hfor (int i = 1; i < argc; i++) {[39;179H[K[40;179H41,1[10C20%[39;1H
+
+[39;7Hconst char *name = argv[i];[39;179H[K[40;179H42,1[10C30%[39;1H
+
+[39;7Hchar friendlyName[strlen(name)+1];[39;179H[K[40;179H43,1[10C40%[39;1H
+
+[39;7Hupcase_words(name, friendlyName);[39;179H[K[40;179H44,1[10C50%[39;1H
+
+[39;7Hsay_hello(friendlyName);[39;179H[K[40;179H45,1[10C60%[39;1H
+
+[39;5H}[39;179H[K[40;179H46,1[10C70%[39;1H
+
+[39;3H}[39;179H[K[40;179H47,1[10C80%[39;1H
+
+[39;3Hreturn 0;[39;179H[K[40;179H48,1[10C90%[39;1H
+
+[25;1H[46m{[39;1H}[0m[39;179H[K[40;179H49,1[10CBot[39;1H[25;1H{[39;1H}[40;180H8[38;1H[40;180H7[37;1H[40;180H6[36;1H[40;180H5[35;1H[40;180H4[34;1H[40;182H2[34;2H[40;182H3[34;3H[40;182H4[34;4H[40;182H5[34;5H[40;182H6[34;6H[40;182H7[34;7H[40;182H8[34;8H[40;182H9[34;9H[40;182H10[34;10H[40;183H1[34;11H[40;183H2[34;12H[40;183H3[34;13H[40;183H4[34;14H[40;183H5[34;15H[40;183H6[34;16H[40;183H7[34;17H[40;183H8[34;18Hs[46m([18C)[0m[40;183H9[34;19H([18C)[40;182H20[34;20H[40;183H1[34;21H[40;183H2[34;22H[40;183H3[34;23H[40;183H4[34;24H[40;183H5[34;25H[40;183H6[34;26H[40;183H7[34;27H[40;183H8[34;28H[40;183H9[34;29H[40;182H30[34;30H[40;183H1[34;31H[40;183H2[34;32H[40;183H3[34;33H[40;183H4[34;34H[40;183H5[34;35H[40;180H3[33;35H[40;180H4[34;35H[40;180H3[33;35H[40;180H4[34;35H[40;180H3[33;35H[40;180H4[34;35H[40;180H3[33;35H[40;180H2,33[32;33H[40;180H1,35[31;35H[30;8H[46m{[37;3H}[0m[40;180H0,8 [30;8H[26;18H[46m{[29;3H}[0m[30;8H{[37;3H}[40;179H39,3[29;3H[26;18H{[29;3H}[40;180H8,12[28;12H[40;180H7,35[27;35H[26;18H[46m{[29;3H}[0m[40;180H6,18[26;18H[25;1H[46m{[0m[26;18H{[29;3H}[39;1H[46m}[0m[40;180H5,1 [25;1H[24;5H[46m([28C)[0m
+{[39;1H}[40;180H4,34[24;34Hmain([28C)[40;180H3,3 [23;3H[40;180H2,0-1[22;1H[19;1H[46m{
+
+}[0m[40;180H1,1  [21;1H[19;1H{
+
+}[40;180H0,29[20;29H[19;1H[46m{
+
+}[0m[40;179H29,1 [19;1H[18;10H[46m([16C)[0m
+{
+
+}[40;180H8,27[18;27H[18;10H([16C)[40;180H7,11[17;11H[40;180H6,0-1[16;1H[2;1H[46m{[15;1H}[0m[40;180H5,1  [15;1H[2;1H{[15;1H}[40;180H4,18[14;18H[2;1H[46m{[15;1H}[0m[40;180H5,1 [15;1H[2;1H{[15;1H}[40;180H4,18[14;18H[40;183H7[14;17H[40;183H6[14;16H[5;31H[46m{[13;3H}[0m[40;180H3,3 [13;3H[5;31H{[13;3H}[40;180H2,16[12;16H[9;10H[46m{[11;5H}[0m[40;180H1,5 [11;5H[9;10H{[11;5H}[40;180H0,16[10;16H[9;10H[46m{[11;5H}[0m[40;179H19,10[9;10H[6;36H[46m{[8;5H}[0m[9;10H{[11;5H}[40;180H8,5 [8;5H[6;36H{[8;5H}[40;180H7,16[7;16H[40;180H6[6;16H[40;180H5[5;16H[40;180H4[4;16H[40;180H3[3;16H[2;1H[46m{[15;1H}[0m[40;180H2,1 [2;1H{[15;1H}[40;180H1,16[1;16H[39;1H[K[1;1H[L[1;1Hvoid[40;179H10,4[10C90%[1;4H[39;3H[K[1;1H[L[1;2H*/[40;179H9,3[11C80%[1;3H[39;3H[K[1;1H[L[1;2H*  has enough space for the strlen(in) characters of in.[40;179H8,16[10C70%[1;16H[40;179H9,3 [2;3H[40;179H10,4[3;4H[40;180H1,16[4;16H
+[46m{[18;1H}[0m[40;180H2,1 [5;1H{[18;1H}[40;180H3,16[6;16H[40;180H4[7;16H[40;180H5[8;16H[40;180H6[9;16H[40;180H7[10;16H[9;36H[46m{[11;5H}[0m[40;180H8,5 [11;5H[9;36H{[11;5H}[12;10H[46m{[14;5H}[0m[40;180H9,10[12;10H{[14;5H}[40;179H20,16[13;16H[12;10H[46m{[14;5H}[0m[40;180H1,5 [14;5H[12;10H{[14;5H}[40;180H2,16[15;16H[12;10H[46m{[14;5H}[0m[40;180H1,5 [14;5H[12;10H{[14;5H}[40;180H0,16[13;16H[12;10H[46m{[14;5H}[0m[40;179H19,10[12;10H{[14;5H}[40;179H20,16[13;16H[12;10H[46m{[14;5H}[0m[40;180H1,5 [14;5H[12;10H{[14;5H}[40;180H2,16[15;16H[8;31H[46m{[16;3H}[0m[40;180H3,3 [16;3H[8;31H{[16;3H}[40;180H4,16[17;16H[40;183H5[17;15H[40;183H4[17;14H[40;183H3[17;13H[40;183H2[17;12H[40;183H1[17;11H[46m[[0mn+1[46m][0m[40;183H0[17;10H[n+1][40;182H9 [17;9H[46m[[0mn+1[46m][0m[40;182H10[17;10H[40;1H[1m-- INSERT --[0m[40;179H[K[40;179H24,10[9C70%[17;10H[46m][0m = '\0';[17;18H[K[40;182H9 [17;9H[46m][0m = '\0';[17;17H[K[40;182H8[17;8H-[46m][0m = '\0';[40;182H9[17;9H1[46m][0m = '\0';[40;182H10[17;10Hj[46m][0m[40;1H[K[17;6H[n-1][40;179H24,9[10C70%[17;9H[40;179H[K[40;1H:wq"hello.c" 49L, 983C written
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ make
+cc -g -Wall -std=c11    hello.c   -o hello
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ ./hello 'lista sima'
+Hello Lista Sim
+awalley1@remote03:~/i220a/submit/lab2/exercises/2-hello-upcase-args$ vim hello
+[m[m[0m[H[2J[40;1H"hello" [noeol][converted] 17L, 21114C[2;1H▽[6n[2;1H  [1;1H[1;1H[34m^?[0mELF[34m^B^A^A^@^@^@^@^@^@^@^@^@^C^@[0m>[34m^@^A^@^@^@[0m [34m^P^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mhF[34m^@^@^@^@^@^@^@^@^@^@[0m@[34m^@[0m8[34m^@^K^@[0m@[34m^@[0m#[34m^@[0m"[34m^@^F^@^@^@^D^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mh[34m^B^@^@^@^@^@^@[0mh[34m^B^@[2;1H^@^@^@^@^@^H^@^@^@^@^@^@^@^C^@^@^@^D^@^@^@[0m¨[2;44H[34m^B^@^@^@^@^@^@[0m¨[2;59H[34m^B^@^@^@^@^@^@[0m¨[2;74H[34m^B^@^@^@^@^@^@^\^@^@^@^@^@^@^@^\^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[3;1H@^@[0mØ[3;5H[34m^F^@^@^@^@^@^@[0mØ[3;20H[34m^F^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^E^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@[0m=[34m^D^@^@^@^@^@^@[0m=[34m^D^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@[0m [34m^@^@^@^@^@^@^@[0m [34m^@^[4;1H@^@^@^@^@^@[0m [34m^@^@^@^@^@^@[0mÈ[34m^A^@^@^@^@^@^@[0mÈ[34m^A^@^@^@^@^@^@^@^P^@^@^@^@^@^@^A^@^@^@^F^@^@^@[0mè[4;88H-[34m^@^@^@^@^@^@[0mè[4;102H=[34m^@^@^@^@^@^@[0mè[4;116H=[34m^@^@^@^@^@^@[0mp[34m^B^@^@^@^@^@^@<88>^B^@^@^@^@^@^@^@^P^@^@^@^@^@^@^B^@^@^@^F^@^@^@[0mø[4;195H-[34m^[5;1H@^@^@^@^@^@[0mø[5;13H=[34m^@^@^@^@^@^@[0mø[5;27H=[34m^@^@^@^@^@^@[0mà[5;41H[34m^A^@^@^@^@^@^@[0mà[5;56H[34m^A^@^@^@^@^@^@^H^@^@^@^@^@^@^@^D^@^@^@^D^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@[0mPåtd[6;1H[34m^D^@^@^@[0m$ [34m^@^@^@^@^@^@[0m$ [34m^@^@^@^@^@^@[0m$ [34m^@^@^@^@^@^@[0mL[34m^@^@^@^@^@^@^@[0mL[34m^@^@^@^@^@^@^@^D^@^@^@^@^@^@^@[0mQåtd[34m^F^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@[7;1H^@^@^@^@[0mRåtd[34m^D^@^@^@[0mè[7;22H-[34m^@^@^@^@^@^@[0mè[7;36H=[34m^@^@^@^@^@^@[0mè[7;50H=[34m^@^@^@^@^@^@^X^B^@^@^@^@^@^@^X^B^@^@^@^@^@^@^A^@^@^@^@^@^@^@[0m/lib64/ld-linux-x86-64.so.2[34m^@^D^@^@^@^P^@^@^@^A^@^@^@[0mGNU[34m^@^@^@^@^@^C^@^@^@^B^@^@^@^@^@[8;1H^@^@^D^@^@^@^T^@^@^@^C^@^@^@[0mGNU[34m^@[0mgÎgc¡[8;39H[34m^U<96>^K^@[0mÃ[34m<9c>[0mê[8;55H3
+ÕN[34m<8c>[0m°[9;8Hï¼[9;10H[34m^B^@^@^@^K^@^@^@^A^@^@^@^F^@^@^@^@^A<81>^@^@^@^@^B^K^@^@^@^L^@^@^@[0mÑeÎm9ò[9;82H[34m<8b>^\^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0ms[34m^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^W^@^@^@^R^@^@^[10;1H@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m5[34m^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0mK[34m^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m4[34m^@^@^@^R^@^@^@^@^@^@[11;1H^@^@^@^@^@^@^@^@^@^@^@^@^@<8f>^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^K^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@<9e>^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^_^@^@^@^R^@^@^@^@^@^@^@[12;1H^@^@^@^@^@^@^@^@^@^@^@^@[0m<[34m^@^@^@[0m"[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m-[34m^@^@^@^Q^@^Y^@[0m`@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@^@[0mlibc.so.6[34m^@[0mexit[34m^@[0mstrlen[34m^@[0mtoupper[34m^@[0m__ctype_b_loc[34m^@[0mstderr[34m^@[0mfprintf[34m^@[0m__cxa_finaliz[13;1He[34m^@[0m__libc_start_main[34m^@[0mGLIBC_2.3[34m^@[0mGLIBC_2.2.5[34m^@[0m_ITM_deregisterTMCloneTable[34m^@[0m__gmon_start__[34m^@[0m_ITM_registerTMCloneTable[34m^@^@^@^@^@^B^@^B^@^B^@^B^@^B^@^@^@^B^@^@^@^C^@^B^@^B^@^@^@^@^@^@^@^A^@^B^@^A^@^@[14;1H^@^P^@^@^@^@^@^@^@^S[0mii[34m^M^@^@^C^@[0m][34m^@^@^@^P^@^@^@[0mu[34m^Z[0mi [34m^@^@^B^@[0mg[34m^@^@^@^@^@^@^@[0mè[14;77H=[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@<80>^Q^@^@^@^@^@^@[0mð[14;125H=[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0m@[34m^Q^@^@^@^@^@^@[0mP@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@[15;1H^@[0mP@[34m^@^@^@^@^@^@[0mØ[15;18H?[34m^@^@^@^@^@^@^F^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@[0mà[15;64H?[34m^@^@^@^@^@^@^F^@^@^@^E^@^@^@^@^@^@^@^@^@^@^@[0mè[15;110H?[34m^@^@^@^@^@^@^F^@^@^@^G^@^@^@^@^@^@^@^@^@^@^@[0mð[15;156H?[34m^@^@^@^@^@^@^F^@^@^@[8C^@^@^@^@^@^@[16;1H^@^@^@^@^@[0mø[16;12H?[34m^@^@^@^@^@^@^F^@^@^@^K^@^@^@^@^@^@^@^@^@^@^@[0m`@[34m^@^@^@^@^@^@^E^@^@^@^L^@^@^@^@^@^@^@^@^@^@^@^X[0m@[34m^@^@^@^@^@^@^G^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@[0m @[34m^@^@^@^@^@^@^G^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@[0m([17;1H@[34m^@^@^@^@^@^@^G^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@[0m0@[34m^@^@^@^@^@^@^G^@^@^@^F^@^@^@^@^@^@^@^@^@^@^@[0m8@[34m^@^@^@^@^@^@^G^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@[0m@@[34m^@^@^@^@^@^@^G^@^@^@
+^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[19;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[20;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[21;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[22;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[23;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[24;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[25;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[26;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[27;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[28;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[29;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[30;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[31;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[32;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[33;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[34;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[35;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[36;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[37;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[38;1H^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@
