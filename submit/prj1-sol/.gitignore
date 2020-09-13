@@ -1,0 +1,3 @@
+*.o
+hamming-encode
+hamming-decode
