@@ -13,8 +13,7 @@ static inline unsigned
 get_bit(HammingWord word, int bitIndex)
 {
   assert(bitIndex > 0);
-  //@TODO
-  return 0;
+  return (word >> bitIndex)&1;
 }
 
 /** Return word with bit at bitIndex in word set to bitValue. */
