@@ -61,8 +61,16 @@ static int
 compute_parity(HammingWord word, int bitIndex, unsigned nBits)
 {
   assert(bitIndex > 0);
-  //@TODO
-  return 0;
+  char res = -1;
+  // XOR all of bits that contain a 1 at bitIndex
+  for(int i = 1; i <= nBits; i++){
+	if(i & bitIndex && i != bitIndex){
+		if(res == -1) res = (word >> (i-1)) & 1;
+		else res ^= (word >> (i-1)) & 1;
+	}
+	
+  }
+  return res;
 }
 
 /** Encode data using nParityBits Hamming code parity bits.
