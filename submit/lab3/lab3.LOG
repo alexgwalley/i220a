@@ -3292,4 +3292,251 @@ Bitmap	       GXditview-color	 XClipboard	 XFontSel     Xmessage-color
 Bitmap-color   KOI8RXTerm	 XClock		 Xgc	      XMore
 Bitmap-nocase  KOI8RXTerm-color  XClock-color	 Xgc-color    XSm
 Clock-color    UXTerm		 XConsole	 XLoad	      XTerm
-Ddd	       UXTerm-color	
+Ddd	       UXTerm-color	 Xditview	 XLogo	      XTerm-color
+Editres        Viewres		 Xditview-chrtr  XLogo-color  Xvidtune
+Editres-color  Viewres-color	 Xedit		 Xmag
+GV	       XCalc		 Xedit-color	 Xman
+GXditview      XCalc-color	 Xfd		 Xmessage
+
+/etc/X11/conf:
+
+/etc/X11/fonts:
+100dpi	75dpi  misc  Type1
+
+/etc/X11/fonts/100dpi:
+xfonts-100dpi.alias
+
+/etc/X11/fonts/75dpi:
+xfonts-75dpi.alias
+
+/etc/X11/fonts/misc:
+xfonts-base.alias
+
+/etc/X11/fonts/Type1:
+gsfonts-x11.alias  lmodern.scale   xfonts-scalable.scale
+gsfonts-x11.scale  tex-gyre.scale
+
+/etc/X11/xinit:
+xinitrc  xserverrc
+
+/etc/X11/xkb:
+
+/etc/X11/Xreset.d:
+README
+
+/etc/X11/Xresources:
+x11-common  xpdf
+
+/etc/X11/Xsession.d:
+20dbus_xdg-runtime		60xbrlapi
+20x11-common_process-args	75dbus_dbus-launch
+30x11-common_xresources		90atk-adaptor
+35x11-common_xhost-local	90gpg-agent
+40x11-common_xsessionrc		90qt-a11y
+50x11-common_determine-startup	90x11-common_ssh-agent
+54xfce4-umask			95dbus_update-activation-env
+55xfce4-session			99x11-common_start
+
+/etc/X11/xsm:
+system.xsm
+
+/etc/x2go:
+applications	   x2go_logout	    x2gosql	Xsession.d
+keystrokes.cfg	   x2go_logout.d    Xresources	Xsession.options
+x2goagent.options  x2goserver.conf  Xsession
+
+/etc/x2go/x2go_logout.d:
+010_userscripts.sh
+
+/etc/x2go/x2gosql:
+passwords  sql	sql.postgres
+ls: cannot open directory '/etc/x2go/x2gosql/passwords': Permission denied
+
+/etc/xdg:
+accept-languages.codes	   kjobwidgets.categories
+ark.categories		   knewstuff.categories
+attica.categories	   knotifications.categories
+autostart		   kservice.categories
+cantor_kalgebra.knsrc	   kshorturifilterrc
+cantor.knsrc		   ktexteditor.categories
+cantor_lua.knsrc	   kwallet.categories
+cantor_octave.knsrc	   kwindowsystem.categories
+cantor_qalculate.knsrc	   kwindowsystem.kwayland.categories
+cantor_scilab.knsrc	   kxmlgui.categories
+drkonqi.categories	   kxmlrpcclient.categories
+filelightrc		   kxmlrpcclient.renamecategories
+kactivities.categories	   menus
+karchive.categories	   new-xfce4
+kauth.categories	   okular.categories
+kbookmarks.categories	   org_kde_kwayland.categories
+kcodecs.categories	   save-xfce4
+kconfigwidgets.categories  solid.categories
+kcoreaddons.categories	   sonnet.categories
+kcrash.categories	   systemd
+kdbusaddons.categories	   Thunar
+kglobalaccel.categories    tumbler
+kiconthemes.categories	   ui
+kidletime.categories	   user-dirs.conf
+kinit.categories	   user-dirs.defaults
+kio.categories		   xfce4
+kitemmodels.categories
+
+/etc/xdg/autostart:
+at-spi-dbus-bus.desktop
+geoclue-demo-agent.desktop
+gnome-keyring-pkcs11.desktop
+gnome-keyring-secrets.desktop
+gnome-keyring-ssh.desktop
+gsettings-data-convert.desktop
+light-locker.desktop
+orca-autostart.desktop
+org.gnome.SettingsDaemon.A11ySettings.desktop
+org.gnome.SettingsDaemon.Clipboard.desktop
+org.gnome.SettingsDaemon.Color.desktop
+org.gnome.SettingsDaemon.Datetime.desktop
+org.gnome.SettingsDaemon.Housekeeping.desktop
+org.gnome.SettingsDaemon.Keyboard.desktop
+org.gnome.SettingsDaemon.MediaKeys.desktop
+org.gnome.SettingsDaemon.Mouse.desktop
+org.gnome.SettingsDaemon.Power.desktop
+org.gnome.SettingsDaemon.PrintNotifications.desktop
+org.gnome.SettingsDaemon.Rfkill.desktop
+org.gnome.SettingsDaemon.ScreensaverProxy.desktop
+org.gnome.SettingsDaemon.Sharing.desktop
+org.gnome.SettingsDaemon.Smartcard.desktop
+org.gnome.SettingsDaemon.Sound.desktop
+org.gnome.SettingsDaemon.Wacom.desktop
+org.gnome.SettingsDaemon.XSettings.desktop
+polkit-gnome-authentication-agent-1.desktop
+print-applet.desktop
+pulseaudio.desktop
+tracker-extract.desktop
+tracker-miner-apps.desktop
+tracker-miner-fs.desktop
+tracker-store.desktop
+xdg-user-dirs.desktop
+xfce4-clipman-plugin-autostart.desktop
+xfce4-notes-autostart.desktop
+xfce4-power-manager.desktop
+xfsettingsd.desktop
+xscreensaver.desktop
+zeitgeist-datahub.desktop
+
+/etc/xdg/menus:
+gnome-applications.menu  kde-information.menu	xfce-applications.menu
+kde4-applications.menu	 kf5-applications.menu	xfce-settings-manager.menu
+
+/etc/xdg/new-xfce4:
+desktop  helpers.rc  panel  terminal  xfconf  xfwm4
+ls: cannot open directory '/etc/xdg/new-xfce4/desktop': Permission denied
+
+/etc/xdg/new-xfce4/panel:
+launcher-10  launcher-17  launcher-22  xfce4-mixer-plugin-16.rc
+launcher-11  launcher-18  launcher-23  xfce4-orageclock-plugin-24.rc
+launcher-12  launcher-19  launcher-5
+launcher-15  launcher-21  launcher-9
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-10': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-11': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-12': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-15': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-17': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-18': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-19': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-21': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-22': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-23': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-5': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-9': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/terminal': Permission denied
+
+/etc/xdg/new-xfce4/xfconf:
+xfce-perchannel-xml
+ls: cannot open directory '/etc/xdg/new-xfce4/xfconf/xfce-perchannel-xml': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfwm4': Permission denied
+
+/etc/xdg/save-xfce4:
+helpers.rc  panel  xfconf  Xft.xrdb  xinitrc
+
+/etc/xdg/save-xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/save-xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/save-xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-panel.xml	       xfce4-session.xml
+xfce4-keyboard-shortcuts.xml  xfce4-power-manager.xml  xsettings.xml
+
+/etc/xdg/systemd:
+user
+
+/etc/xdg/Thunar:
+uca.xml
+
+/etc/xdg/tumbler:
+tumbler.rc
+
+/etc/xdg/ui:
+ui_standards.rc
+
+/etc/xdg/xfce4:
+helpers.rc  panel  whiskermenu	xfconf	Xft.xrdb  xinitrc
+
+/etc/xdg/xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/xfce4/whiskermenu:
+defaults.rc
+
+/etc/xdg/xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-power-manager.xml  xsettings.xml
+xfce4-keyboard-shortcuts.xml  xfce4-session.xml
+
+/etc/xfce4:
+defaults.list
+
+/etc/xml:
+catalog		     docbook-xsl.xml.old      sgml-data.xml.old
+catalog.old	     docutils-common.xml      w3c-dtd-xhtml.xml
+dia-common.xml	     docutils-common.xml.old  w3c-dtd-xhtml.xml.old
+dia-common.xml.old   rarian-compat.xml	      xml-core.xml
+docbook-xml.xml      rarian-compat.xml.old    xml-core.xml.old
+docbook-xml.xml.old  resolver
+docbook-xsl.xml      sgml-data.xml
+
+/etc/xml/resolver:
+CatalogManager.properties
+
+/etc/xpdf:
+includes  xpdfrc
+
+/etc/zsh:
+newuser.zshrc.recommended  zlogin  zlogout  zprofile  zshenv  zshrc
+awalley1@remote01:~/i220a/submit/lab3$ tc[D[Kr  [:lower:] [:upper:][D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[1P[D[D[D[1@l[1@s[1@ [1@|[1@ 
+BIN-C.LOG
+CAT.LOG
+DIR
+EXERCISES
+LAB3.LOG
+LS.LOG
+T1.C
+T1.S
+V1.S
+V.C
+X.C
+awalley1@remote01:~/i220a/submit/lab3$ script[D[K[D[K[D[K[D[K[D[K[D[Kgot add[D[K[D[K[D[K[D[K[D[K[D[Kit add .
+awalley1@remote01:~/i220a/submit/lab3$ git commit -m "findished[D[K[D[K[D[K[D[K[D[K[D[Kishde[D[K[D[Ked lab3"
+[lab3 3820588] finished lab3
+ Committer: Alexander Walley <awalley1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identit
