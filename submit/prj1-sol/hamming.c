@@ -114,6 +114,41 @@ HammingWord
 hamming_decode(HammingWord encoded, unsigned nParityBits,
                            int *hasError)
 {
-  //@TODO
-  return 0;
+  int numBits = (2<<nParityBits) - 1;
+
+  // Calculate Error Syndrome
+  HammingWord es = 0;
+  int pos = 1;
+  while(pos < numBits){
+	if(get_bit(encoded, pos) != compute_parity(encoded, pos, numBits)) {
+		// Bitwise OR into error syndrome
+		es |= pos;
+	}
+	pos <<= 1;
+  } 
+  if(es){ // Flip bit at Error Syndrome 
+  	set_bit(encoded, es, (get_bit(encoded, es)==1) ? 0 : 1);  
+	*hasError = 1;
+  }
+
+  HammingWord decoded = 0;
+  int j = 1;
+  for(int i = 1; i <= numBits; i++){
+	if(!is_parity_position(i)){
+		decoded = set_bit(decoded, j, get_bit(encoded, i));
+		j++;
+	}
+  }
+
+  return decoded;
 }
+
+
+
+
+
+
+
+
+
+
