@@ -1,0 +1,4391 @@
+Script started on 2020-09-17 13:01:04-04:00 [TERM="ansi" TTY="/dev/pts/1" COLUMNS="97" LINES="50"]
+awalley1@remote01:~/i220a/submit/lab3$ mkdir dir
+awalley1@remote01:~/i220a/submit/lab3$ touch T1.c[D[K[D[Ks.[D[K[D[K.s, c[D[Kv/c[D[K[D[K.c, v1.c[D[Ks, x.c, d[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Ktouch t1.c T1.s v.c v1.s x.c dir/t2.c dir/T2.s1 dir/t3
+awalley1@remote01:~/i220a/submit/lab3$ ls 
+dir  exercises	lab3.LOG  t1.c	T1.s  v1.s  v.c  x.c
+awalley1@remote01:~/i220a/submit/lab3$ ls -l
+total 0
+drwxr-x--- 2 awalley1 awalley1 54 Sep 17 13:02 dir
+drwxr-x--- 2 awalley1 awalley1 31 Sep 15 08:18 exercises
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:01 lab3.LOG
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 t1.c
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 T1.s
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 v1.s
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 v.c
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 x.c
+awalley1@remote01:~/i220a/submit/lab3$ ls -tl
+total 0
+drwxr-x--- 2 awalley1 awalley1 54 Sep 17 13:02 dir
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 v1.s
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 v.c
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 x.c
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 t1.c
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:02 T1.s
+-rw-r----- 1 awalley1 awalley1  0 Sep 17 13:01 lab3.LOG
+drwxr-x--- 2 awalley1 awalley1 31 Sep 15 08:18 exercises
+awalley1@remote01:~/i220a/submit/lab3$ ls T*
+T1.s
+awalley1@remote01:~/i220a/submit/lab3$ ls dir/*.?
+dir/t2.c
+awalley1@remote01:~/i220a/submit/lab3$ ls [t-s[D[Kv].[D[K*.c
+t1.c  v.c
+awalley1@remote01:~/i220a/submit/lab3$ ls /bin/?[p-s]
+/bin/cp  /bin/ip  /bin/ls  /bin/ps  /bin/ss
+awalley1@remote01:~/i220a/submit/lab3$ ls /bin/?[p-s][D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Ketc/*rc
+/etc/bash.bashrc    /etc/gnashrc	   /etc/matplotlibrc  /etc/quilt.quiltrc  /etc/wgetrc
+/etc/chktexrc	    /etc/gnashthumbnailrc  /etc/Muttrc	      /etc/sbclrc
+/etc/csh.cshrc	    /etc/inputrc	   /etc/nanorc	      /etc/screenrc
+/etc/gnashpluginrc  /etc/mail.rc	   /etc/pbuilderrc    /etc/slsh.rc
+awalley1@remote01:~/i220a/submit/lab3$ la /bin/???
+bash: la: command not found
+awalley1@remote01:~/i220a/submit/lab3$ ls /bin/???
+/bin/cat  /bin/csh  /bin/dir  /bin/pwd	/bin/red  /bin/sed  /bin/tar  /bin/zsh
+awalley1@remote01:~/i220a/submit/lab3$ ls > ls.log
+awalley1@remote01:~/i220a/submit/lab3$ cat ls.log 
+dir
+exercises
+lab3.LOG
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+awalley1@remote01:~/i220a/submit/lab3$ cat > cat.log
+This si  is test
+test
+awalley1@remote01:~/i220a/submit/lab3$ cat cat.log 
+This is test
+test
+awalley1@remote01:~/i220a/submit/lab3$ ls dr[D[Kir >> ls.log 
+awalley1@remote01:~/i220a/submit/lab3$ cat ls.log
+dir
+exercises
+lab3.LOG
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+t2.c
+T2.s1
+t3
+awalley1@remote01:~/i220a/submit/lab3$ cat < ls.log 
+dir
+exercises
+lab3.LOG
+ls.log
+t1.c
+T1.s
+v1.s
+v.c
+x.c
+t2.c
+T2.s1
+t3
+awalley1@remote01:~/i220a/submit/lab3$ wc -l[D[K[D[K[D[K[D[K[D[Kls | wc -l
+10
+awalley1@remote01:~/i220a/submit/lab3$ man wc
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K...skipping...
+WC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[H[J[H[H[J[HWC(1)                                    User Commands                                   WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[m]... [[4mFILE[m]...[m
+       [1mwc[0m [[4mOPTION[m]... [4m--files0-from=F[m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print  newline,  word, and byte counts for each FILE, and a total line if more than one[m
+       FILE is specified.  A word is a non-zero-length sequence  of  characters  delimited  by[m
+       white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always in the follow‐[m
+       ing order: newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[m[m
+              read input from the files specified by NUL-terminated names in file F; If F is -[m
+              then read names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[m[K[Kawalley1@remote01:~/i220a/submit/lab3$ ls/[D[K /bin/???? | wc -l
+23
+awalley1@remote01:~/i220a/submit/lab3$ ls /bin/*c[D[K[D[Kc* > bin-c.o[D[Klog
+awalley1@remote01:~/i220a/submit/lab3$ v[D[Kbin-c.log | wc-l
+bash: bin-c.log: command not found
+bash: wc-l: command not found
+awalley1@remote01:~/i220a/submit/lab3$ bin-c.log | wc-l[D[D -l[D[D
+bash: bin-c.log: command not found
+0
+awalley1@remote01:~/i220a/submit/lab3$ cat bin-c.log | wc -l
+9
+awalley1@remote01:~/i220a/submit/lab3$ /[D[Kls /[D[K-R /etc
+/etc:
+3270			       hosts.internal		  postgresql-common
+a2ps.cfg		       idmapd.conf		  ppp
+a2ps-site.cfg		       idmapd.conf.ucf-dist	  printcap
+acpi			       ifplugd			  profile
+adduser.conf		       ImageMagick-6		  profile.d
+adjtime			       init			  protocols
+aliases			       init.d			  pulse
+alsa			       initramfs-tools		  purple
+alternatives		       inputrc			  python
+anacrontab		       insserv			  python2.7
+apache2			       insserv.conf		  python3
+apm			       insserv.conf.d		  python3.5
+apparmor		       installed_packages	  python3.7
+apparmor.d		       iproute2			  qemu-ifdown
+apt			       iscsi			  qemu-ifup
+apt-venv.conf		       issue			  quilt.quiltrc
+at.deny			       issue.net		  quotagrpadmins
+at-spi2			       java			  quotatab
+autoconf2.13		       java-10-oracle		  R
+avahi			       java-11-oracle		  racket
+bash.bashrc		       java-8-oracle		  rarfiles.lst
+bash_completion		       jed.d			  rc0.d
+bash_completion.d	       jython			  rc1.d
+bindresvport.blacklist	       kernel			  rc2.d
+binfmt.d		       kernel-img.conf		  rc3.d
+bluetooth		       krb5.conf		  rc4.d
+bogofilter.cf		       krb5.keytab		  rc5.d
+bonobo-activation	       latex2html.conf		  rc6.d
+bootchartd.conf		       LatexMk			  rc.local
+ca-certificates		       ldap			  rcS.d
+ca-certificates.conf	       ld.so.cache		  reader.conf.d
+ca-certificates.conf.dpkg-old  ld.so.conf		  rearj.cfg
+calendar		       ld.so.conf.d		  reportbug.conf
+chatscripts		       libao.conf		  request-key.conf
+chktexrc		       libaudit.conf		  request-key.d
+chromium		       libblockdev		  resolv.conf
+chromium.d		       libccid_Info.plist	  resolvconf
+cifs-utils		       libgda-5.0		  resolv.conf.class
+common-lisp		       libibverbs.d		  resolv.conf.external
+complete.tcsh		       libnl-3			  resolv.conf.internal
+console			       libnss-ldap.conf		  rlwrap
+console-setup		       libnss-ldap.conf.class	  rmt
+cowpoke.conf		       libnss-ldap.conf.linux	  rpc
+cracklib		       libpaper.d		  rsyslog.conf
+cron.d			       libreoffice		  rsyslog.d
+cron.daily		       lightdm			  rsyslog-haproxy.conf
+cron.hourly		       lighttpd			  rsyslog-normal.conf
+cron.monthly		       lisp-config.lisp		  runit
+crontab			       lldpd.d			  samba
+cron.weekly		       locale.alias		  sane.d
+cruft			       locale.gen		  sbclrc
+csh			       localtime		  scite
+csh.cshrc		       logcheck			  screenrc
+csh.login		       login.defs		  securetty
+csh.logout		       login.warn		  security
+cupshelpers		       logrotate.conf		  selinux
+cvsdeb.conf		       logrotate.conf.dpkg-old	  sensors3.conf
+dat.conf		       logrotate.d		  sensors.d
+dbus-1			       logrotate.d.save		  services
+debconf.conf		       ltrace.conf		  sgml
+debian_version		       lynx			  shadow
+debsums-ignore		       machine-id		  shadow-
+debtree			       magic			  shells
+default			       magic.mime		  skel
+deluser.conf		       mailcap			  slsh.rc
+devscripts.conf		       mailcap.order		  smartd.conf
+dhcp			       mailname			  smartmontools
+dictionaries-common	       mail.rc			  smi.conf
+dirmngr			       manpath.config		  snmp
+discover.conf.d		       matplotlibrc		  sound
+discover-modprobe.conf	       matplotlibrc2		  speech-dispatcher
+dkms			       mediaprm			  ssh
+dleyna-server-service.conf     mercurial		  ssl
+doc-base		       mime.types		  staff-group-for-usr-local
+dpkg			       minicom			  stunnel
+dpkg-list		       mke2fs.conf		  subgid
+dput.cf			       modprobe.d		  subgid-
+e2scrub.conf		       modules			  subuid
+eclipse.ini		       modules-load.d		  subuid-
+emacs			       monit			  subversion
+email-addresses		       motd			  sudoers
+environment		       mtab			  sudoers.d
+environment.d		       mtools.conf		  sudoers.old
+ethertypes		       Muttrc			  sudoers.save
+exim4			       Muttrc.d			  sv
+fail2ban		       mysql			  sysctl.conf
+fdmount.conf		       nanorc			  sysctl.d
+firebird		       netconf			  sysfs.conf
+firefox-esr		       netconfig		  sysfs.d
+fonts			       netgroup			  sysstat
+freeipmi		       netscsid.conf		  systemd
+fstab			       network			  terminfo
+fstab.save		       NetworkManager		  tex4ht
+fstab.save.1		       networks			  texmf
+fuse.conf		       nftables.conf		  thunderbird
+gai.conf		       nscd.conf		  tigervnc
+gamin			       nslcd.conf		  timezone
+gconf			       nslcd.conf.buster-upgrade  timidity
+gdb			       nslcd.conf.class		  tmpfiles.d
+geoclue			       nslcd.conf.linux		  ucf.conf
+ghostscript		       nsswitch.conf		  udev
+gimp			       ntp.conf			  udisks2
+git-buildpackage	       ntp.conf.dpkg-old	  ufw
+glvnd			       nvcc.profile		  updatedb.conf
+gnashpluginrc		       nvidia			  update-motd.d
+gnashrc			       nxagent			  UPower
+gnashthumbnailrc	       ocamlfind.conf		  usb_modeswitch.conf
+gnome			       ODBCDataSources		  usb_modeswitch.d
+gnome-vfs-2.0		       odbc.ini			  vbox
+gnome-vfs-mime-magic	       odbcinst.ini		  vdpau_wrapper.cfg
+GNUstep			       openal			  video_format
+go-mmproxy		       OpenCL			  vim
+groff			       openmpi			  visualvm
+groovy			       opensc			  vmware-tools
+group			       openvpn			  vnc.conf
+group-			       opt			  vulkan
+gshadow			       os-release		  w3m
+gshadow-		       PackageKit		  warnquota.conf
+gss			       pam.conf			  wgetrc
+gssapi_mech.conf	       pam.d			  wildmidi
+gssapi_mech.conf.dpkg-dist     pam_ldap.conf		  wireshark
+gtk-2.0			       pam_ldap.conf.class	  wodim.conf
+gtk-3.0			       pam_ldap.conf.linux	  wpa_supplicant
+hddtemp.db		       papersize		  X11
+hdparm.conf		       passwd			  x2go
+highlight		       passwd-			  xattr.conf
+host.conf		       pbuilder			  xdg
+hostname		       pbuilderrc		  xfce4
+hosts			       perl			  xml
+hosts.allow		       php			  xpdf
+hosts.class		       piuparts			  xprofile
+hosts.deny		       pm			  zsh
+hosts.external		       polkit-1
+
+/etc/3270:
+ibm_hosts
+
+/etc/acpi:
+events	powerbtn-acpi-support.sh
+
+/etc/acpi/events:
+powerbtn-acpi-support
+
+/etc/alsa:
+conf.d
+
+/etc/alsa/conf.d:
+10-rate-lav.conf      50-jack.conf	   60-upmix.conf		       99-pulse.conf
+10-samplerate.conf    50-oss.conf	   60-vdownmix.conf
+10-speexrate.conf     50-pulseaudio.conf   98-usb-stream.conf
+50-arcam-av-ctl.conf  60-a52-encoder.conf  99-pulseaudio-default.conf.example
+
+/etc/alternatives:
+ABORT.7.gz
+aclocal
+aclocal.1.gz
+ALTER_AGGREGATE.7.gz
+ALTER_COLLATION.7.gz
+ALTER_CONVERSION.7.gz
+ALTER_DATABASE.7.gz
+ALTER_DEFAULT_PRIVILEGES.7.gz
+ALTER_DOMAIN.7.gz
+ALTER_EVENT_TRIGGER.7.gz
+ALTER_EXTENSION.7.gz
+ALTER_FOREIGN_DATA_WRAPPER.7.gz
+ALTER_FOREIGN_TABLE.7.gz
+ALTER_FUNCTION.7.gz
+ALTER_GROUP.7.gz
+ALTER_INDEX.7.gz
+ALTER_LANGUAGE.7.gz
+ALTER_LARGE_OBJECT.7.gz
+ALTER_MATERIALIZED_VIEW.7.gz
+ALTER_OPERATOR.7.gz
+ALTER_OPERATOR_CLASS.7.gz
+ALTER_OPERATOR_FAMILY.7.gz
+ALTER_POLICY.7.gz
+ALTER_PROCEDURE.7.gz
+ALTER_PUBLICATION.7.gz
+ALTER_ROLE.7.gz
+ALTER_ROUTINE.7.gz
+ALTER_RULE.7.gz
+ALTER_SCHEMA.7.gz
+ALTER_SEQUENCE.7.gz
+ALTER_SERVER.7.gz
+ALTER_STATISTICS.7.gz
+ALTER_SUBSCRIPTION.7.gz
+ALTER_SYSTEM.7.gz
+ALTER_TABLE.7.gz
+ALTER_TABLESPACE.7.gz
+ALTER_TEXT_SEARCH_CONFIGURATION.7.gz
+ALTER_TEXT_SEARCH_DICTIONARY.7.gz
+ALTER_TEXT_SEARCH_PARSER.7.gz
+ALTER_TEXT_SEARCH_TEMPLATE.7.gz
+ALTER_TRIGGER.7.gz
+ALTER_TYPE.7.gz
+ALTER_USER.7.gz
+ALTER_USER_MAPPING.7.gz
+ALTER_VIEW.7.gz
+ANALYZE.7.gz
+animate
+animate.1.gz
+animate-im6
+animate-im6.1.gz
+appletviewer
+appletviewer.1.gz
+aptitude
+aptitude.8.gz
+aptitude.cs.8.gz
+aptitude.de.8.gz
+aptitude.es.8.gz
+aptitude.fi.8.gz
+aptitude.fr.8.gz
+aptitude.gl.8.gz
+aptitude.it.8.gz
+aptitude.ja.8.gz
+aptitude.pl.8.gz
+arptables
+arptables-restore
+arptables-save
+automake
+automake.1.gz
+awk
+awk.1.gz
+BEGIN.7.gz
+bf_compact
+bf_copy
+bf_tar
+bibtex
+bibtex.1.gz
+blas.pc-x86_64-linux-gnu
+bogofilter
+bogolexer
+bogotune
+bogoupgrade
+bogoutil
+builtins.7.gz
+bzr
+bzr.1.gz
+c++
+c89
+c89.1.gz
+c99
+c99.1.gz
+CALL.7.gz
+cblas.h-x86_64-linux-gnu
+cc
+CHECKPOINT.7.gz
+clojure
+clojure.1.gz
+clojurec
+clojurec.1.gz
+clojure.jar
+CLOSE.7.gz
+CLUSTER.7.gz
+clusterdb.1.gz
+COMMENT.7.gz
+COMMIT.7.gz
+COMMIT_PREPARED.7.gz
+compare
+compare.1.gz
+compare-im6
+compare-im6.1.gz
+composite
+composite.1.gz
+composite-im6
+composite-im6.1.gz
+conjure
+conjure.1.gz
+conjure-im6
+conjure-im6.1.gz
+ControlPanel
+convert
+convert.1.gz
+convert-im6
+convert-im6.1.gz
+COPY.7.gz
+cpp
+CREATE_ACCESS_METHOD.7.gz
+CREATE_AGGREGATE.7.gz
+CREATE_CAST.7.gz
+CREATE_COLLATION.7.gz
+CREATE_CONVERSION.7.gz
+CREATE_DATABASE.7.gz
+createdb.1.gz
+CREATE_DOMAIN.7.gz
+CREATE_EVENT_TRIGGER.7.gz
+CREATE_EXTENSION.7.gz
+CREATE_FOREIGN_DATA_WRAPPER.7.gz
+CREATE_FOREIGN_TABLE.7.gz
+CREATE_FUNCTION.7.gz
+CREATE_GROUP.7.gz
+CREATE_INDEX.7.gz
+CREATE_LANGUAGE.7.gz
+CREATE_MATERIALIZED_VIEW.7.gz
+CREATE_OPERATOR.7.gz
+CREATE_OPERATOR_CLASS.7.gz
+CREATE_OPERATOR_FAMILY.7.gz
+CREATE_POLICY.7.gz
+CREATE_PROCEDURE.7.gz
+CREATE_PUBLICATION.7.gz
+CREATE_ROLE.7.gz
+CREATE_RULE.7.gz
+CREATE_SCHEMA.7.gz
+CREATE_SEQUENCE.7.gz
+CREATE_SERVER.7.gz
+CREATE_STATISTICS.7.gz
+CREATE_SUBSCRIPTION.7.gz
+CREATE_TABLE.7.gz
+CREATE_TABLE_AS.7.gz
+CREATE_TABLESPACE.7.gz
+CREATE_TEXT_SEARCH_CONFIGURATION.7.gz
+CREATE_TEXT_SEARCH_DICTIONARY.7.gz
+CREATE_TEXT_SEARCH_PARSER.7.gz
+CREATE_TEXT_SEARCH_TEMPLATE.7.gz
+CREATE_TRANSFORM.7.gz
+CREATE_TRIGGER.7.gz
+CREATE_TYPE.7.gz
+createuser.1.gz
+CREATE_USER.7.gz
+CREATE_USER_MAPPING.7.gz
+CREATE_VIEW.7.gz
+csh
+csh.1.gz
+ctags
+ctags.1.gz
+DEALLOCATE.7.gz
+DECLARE.7.gz
+DELETE.7.gz
+desktop-background
+desktop-background.xml
+desktop-grub
+desktop-grub.sh
+desktop-lockscreen.xml
+desktop-login-background
+desktop-plasma5-wallpaper
+desktop-theme
+DISCARD.7.gz
+display
+display.1.gz
+display-im6
+display-im6.1.gz
+DO.7.gz
+dotlock
+dotlock.1.gz
+DROP_ACCESS_METHOD.7.gz
+DROP_AGGREGATE.7.gz
+DROP_CAST.7.gz
+DROP_COLLATION.7.gz
+DROP_CONVERSION.7.gz
+DROP_DATABASE.7.gz
+dropdb.1.gz
+DROP_DOMAIN.7.gz
+DROP_EVENT_TRIGGER.7.gz
+DROP_EXTENSION.7.gz
+DROP_FOREIGN_DATA_WRAPPER.7.gz
+DROP_FOREIGN_TABLE.7.gz
+DROP_FUNCTION.7.gz
+DROP_GROUP.7.gz
+DROP_INDEX.7.gz
+DROP_LANGUAGE.7.gz
+DROP_MATERIALIZED_VIEW.7.gz
+DROP_OPERATOR.7.gz
+DROP_OPERATOR_CLASS.7.gz
+DROP_OPERATOR_FAMILY.7.gz
+DROP_OWNED.7.gz
+DROP_POLICY.7.gz
+DROP_PROCEDURE.7.gz
+DROP_PUBLICATION.7.gz
+DROP_ROLE.7.gz
+DROP_ROUTINE.7.gz
+DROP_RULE.7.gz
+DROP_SCHEMA.7.gz
+DROP_SEQUENCE.7.gz
+DROP_SERVER.7.gz
+DROP_STATISTICS.7.gz
+DROP_SUBSCRIPTION.7.gz
+DROP_TABLE.7.gz
+DROP_TABLESPACE.7.gz
+DROP_TEXT_SEARCH_CONFIGURATION.7.gz
+DROP_TEXT_SEARCH_DICTIONARY.7.gz
+DROP_TEXT_SEARCH_PARSER.7.gz
+DROP_TEXT_SEARCH_TEMPLATE.7.gz
+DROP_TRANSFORM.7.gz
+DROP_TRIGGER.7.gz
+DROP_TYPE.7.gz
+dropuser.1.gz
+DROP_USER.7.gz
+DROP_USER_MAPPING.7.gz
+DROP_VIEW.7.gz
+ebrowse
+ebrowse.1.gz
+ebtables
+ebtables-restore
+ebtables-save
+editor
+editor.1.gz
+editor.da.1.gz
+editor.de.1.gz
+editor.fr.1.gz
+editor.it.1.gz
+editor.ja.1.gz
+editor.pl.1.gz
+editor.ru.1.gz
+emacs
+emacs.1.gz
+emacsclient
+emacsclient.1.gz
+emblem-vendor-128
+emblem-vendor-256
+emblem-vendor-64
+emblem-vendor-scalable
+emblem-vendor-symbolic-128
+emblem-vendor-symbolic-256
+emblem-vendor-symbolic-64
+emblem-vendor-symbolic-scalable
+emblem-vendor-white-128
+emblem-vendor-white-256
+emblem-vendor-white-64
+emblem-vendor-white-scalable
+END.7.gz
+etags
+etags.1.gz
+eview
+evim
+ex
+ex.1.gz
+ex.da.1.gz
+ex.de.1.gz
+EXECUTE.7.gz
+ex.fr.1.gz
+ex.it.1.gz
+ex.ja.1.gz
+ex.pl.1.gz
+EXPLAIN.7.gz
+ex.ru.1.gz
+extcheck
+extcheck.1.gz
+f77
+f95
+faked.1.gz
+faked.es.1.gz
+faked.fr.1.gz
+faked.sv.1.gz
+fakeroot
+fakeroot.1.gz
+fakeroot.es.1.gz
+fakeroot.fr.1.gz
+fakeroot.sv.1.gz
+FETCH.7.gz
+flash-mozilla.so
+fonts-japanese-gothic.ttf
+fonts-japanese-mincho.ttf
+frm
+frm.1.gz
+from
+from.1.gz
+ftp
+ftp.1.gz
+futurize
+gcc-arm-none-eabi-include
+gcc-arm-none-eabi-lib
+glx
+glx--libEGL.so.1-i386-linux-gnu
+glx--libEGL.so.1-x86_64-linux-gnu
+glx--libEGL.so-x86_64-linux-gnu
+glx--libGLESv1_CM.so.1-i386-linux-gnu
+glx--libGLESv1_CM.so.1-x86_64-linux-gnu
+glx--libGLESv1_CM.so-x86_64-linux-gnu
+glx--libGLESv2.so.2-i386-linux-gnu
+glx--libGLESv2.so.2-x86_64-linux-gnu
+glx--libGLESv2.so-x86_64-linux-gnu
+glx--libGL.so.1-i386-linux-gnu
+glx--libGL.so.1-x86_64-linux-gnu
+glx--libGL.so-x86_64-linux-gnu
+glx--libGLX_indirect.so.0-i386-linux-gnu
+glx--libGLX_indirect.so.0-x86_64-linux-gnu
+glx--libnvidia-cfg.so.1-x86_64-linux-gnu
+glx--linux-libglx.so
+glx--nvidia-blacklists-nouveau.conf
+glx--nvidia-bug-report.sh
+glx--nvidia-drm-outputclass.conf
+glx--nvidia_drv.so
+glx--nvidia-load.conf
+glx--nvidia-modprobe.conf
+gnome-text-editor
+gnome-text-editor.1.gz
+gnome-www-browser
+gnuplot
+gnuplot.1.gz
+gnuplot.gih
+google-chrome
+gplc
+gprolog
+gprolog-inc
+GRANT.7.gz
+grape
+grape.1.gz
+groovy
+groovy.1.gz
+groovyc
+groovyc.1.gz
+groovyConsole
+groovydoc
+groovysh
+gview
+gvim
+gvimdiff
+haskell-compiler
+haskell-compiler.1.gz
+hexgplc
+identify
+identify.1.gz
+identify-im6
+identify-im6.1.gz
+idlj
+idlj.1.gz
+idmap-plugin
+idmap-plugin.8.gz
+import
+import.1.gz
+IMPORT_FOREIGN_SCHEMA.7.gz
+import-im6
+import-im6.1.gz
+infobrowser
+infobrowser.1.gz
+INSERT.7.gz
+ip6tables
+ip6tables-restore
+ip6tables-save
+iptables
+iptables-restore
+iptables-save
+jaotc
+jaotc.1
+jar
+jar.1
+jarsigner
+jarsigner.1
+java
+java.1
+java2groovy
+javac
+javac.1
+javadoc
+javadoc.1
+javafxpackager
+javafxpackager.1.gz
+javah
+javah.1.gz
+javap
+javap.1
+javapackager
+javapackager.1.gz
+javaws
+javaws.1.gz
+javaws.real
+jcmd
+jcmd.1
+jconsole
+jconsole.1
+jcontrol
+jdb
+jdb.1
+jdeprscan
+jdeprscan.1
+jdeps
+jdeps.1
+jed-script
+jed-script.1.gz
+jexec
+jexec-binfmt
+jfr
+jfr.1
+jhat
+jhat.1.gz
+jhsdb
+jhsdb.1
+jimage
+jinfo
+jinfo.1
+jjs
+jjs.1
+jlink
+jlink.1
+jmap
+jmap.1
+jmc
+jmc.1.gz
+jmod
+jmod.1
+jpackage
+jpackage.1
+jps
+jps.1
+jrunscript
+jrunscript.1
+js
+js.1.gz
+jsadebugd
+jsadebugd.1.gz
+jshell
+jshell.1
+jstack
+jstack.1
+jstat
+jstat.1
+jstatd
+jstatd.1
+jvisualvm
+jvisualvm.1.gz
+jweblauncher
+kdesu
+keytool
+keytool.1.gz
+lapack.pc-x86_64-linux-gnu
+lft
+lft.1.gz
+libblas.a-x86_64-linux-gnu
+libblas.so.3-x86_64-linux-gnu
+libblas.so-x86_64-linux-gnu
+libGL.so-master
+liblapack.a-x86_64-linux-gnu
+liblapack.so.3-x86_64-linux-gnu
+liblapack.so-x86_64-linux-gnu
+libmpi++.so-x86_64-linux-gnu
+libmpi.so-x86_64-linux-gnu
+libpsm_infinipath.so.1
+lightdm-greeter
+LISTEN.7.gz
+LOAD.7.gz
+locate
+locate.1.gz
+LOCK.7.gz
+lzcat
+lzcat.1.gz
+lzip
+lzip.1.gz
+lzip-compressor
+lzip-compressor.1.gz
+lzip-compressor.info.gz
+lzip-decompressor
+lzip-decompressor.1.gz
+lzip-decompressor.info.gz
+lzip.info.gz
+lzma
+lzma.1.gz
+mail
+Mail
+mail.1.gz
+Mail.1.gz
+mailx
+mailx.1.gz
+messages
+messages.1.gz
+mogrify
+mogrify.1.gz
+mogrify-im6
+mogrify-im6.1.gz
+montage
+montage.1.gz
+montage-im6
+montage-im6.1.gz
+MOVE.7.gz
+movemail
+movemail.1.gz
+mozilla-javaplugin.so
+mpi
+mpic++
+mpic++.1.gz
+mpiCC
+mpicc.1.gz
+mpiCC.1.gz
+mpi-c.pc-x86_64-linux-gnu
+mpicxx
+mpicxx.1.gz
+mpi-cxx.pc-x86_64-linux-gnu
+mpiexec
+mpiexec.1.gz
+mpif77
+mpif77.1.gz
+mpif90
+mpif90.1.gz
+mpifort
+mpifort.1.gz
+mpi-fort.pc-x86_64-linux-gnu
+mpi.pc-x86_64-linux-gnu
+mpirun
+mpirun.1.gz
+mpi-x86_64-linux-gnu
+mt
+mt.1.gz
+my.cnf
+native2ascii
+native2ascii.1.gz
+nawk
+nawk.1.gz
+nc
+nc.1.gz
+netcat
+netcat.1.gz
+netrc.5.gz
+NOTIFY.7.gz
+nvidia
+nvidia--libcuda.so.1-x86_64-linux-gnu
+nvidia--libcuda.so-x86_64-linux-gnu
+nvidia--libEGL_nvidia.so.0-i386-linux-gnu
+nvidia--libEGL_nvidia.so.0-x86_64-linux-gnu
+nvidia--libGLESv1_CM_nvidia.so.1-i386-linux-gnu
+nvidia--libGLESv1_CM_nvidia.so.1-x86_64-linux-gnu
+nvidia--libGLESv2_nvidia.so.2-i386-linux-gnu
+nvidia--libGLESv2_nvidia.so.2-x86_64-linux-gnu
+nvidia--libGLX_nvidia.so.0-i386-linux-gnu
+nvidia--libGLX_nvidia.so.0-x86_64-linux-gnu
+nvidia--libglx.so
+nvidia--libnvcuvid.so.1-x86_64-linux-gnu
+nvidia--libnvcuvid.so-x86_64-linux-gnu
+nvidia--libnvidia-cfg.so.1-x86_64-linux-gnu
+nvidia--libnvidia-ml.so.1-x86_64-linux-gnu
+nvidia--libnvidia-opencl.so.1-x86_64-linux-gnu
+nvidia--libnvidia-ptxjitcompiler.so.1-x86_64-linux-gnu
+nvidia--libvdpau_nvidia.so.1-x86_64-linux-gnu
+nvidia--nv-control-dpy
+nvidia--nvidia-application-profiles-key-documentation
+nvidia--nvidia-blacklists-nouveau.conf
+nvidia--nvidia-bug-report.sh
+nvidia--nvidia-debugdump
+nvidia--nvidia-drm-outputclass.conf
+nvidia--nvidia_drv.so
+nvidia--nvidia-load.conf
+nvidia--nvidia-modprobe.conf
+nvidia--nvidia-settings
+nvidia--nvidia-settings.1.gz
+nvidia--nvidia-settings.desktop
+nvidia--nvidia-smi
+nvidia--nvidia-smi.1.gz
+openjade
+openjade.1.gz
+orbd
+orbd.1.gz
+pack200
+pack200.1.gz
+pager
+pager.1.gz
+pasteurize
+pbr
+pdftk
+pdftkman
+pftp
+pftp.1.gz
+pg_basebackup.1.gz
+pg_dump.1.gz
+pg_dumpall.1.gz
+pg_isready.1.gz
+pg_receivewal.1.gz
+pg_recvlogical.1.gz
+pg_restore.1.gz
+phar
+phar.1.gz
+phar.phar
+phar.phar.1.gz
+php
+php.1.gz
+pico
+pico.1.gz
+pinentry
+pinentry.1.gz
+pinentry-x11
+pinentry-x11.1.gz
+policytool
+policytool.1.gz
+PREPARE.7.gz
+PREPARE_TRANSACTION.7.gz
+prolog
+prolog.1.gz
+psql.1.gz
+python
+rcp
+rcp.1.gz
+readline-editor
+readline-editor.1.gz
+README
+readmsg
+readmsg.1.gz
+REASSIGN_OWNED.7.gz
+REFRESH_MATERIALIZED_VIEW.7.gz
+regulatory.db
+regulatory.db.p7s
+REINDEX.7.gz
+reindexdb.1.gz
+RELEASE_SAVEPOINT.7.gz
+RESET.7.gz
+REVOKE.7.gz
+rgview
+rgvim
+rlogin
+rlogin.1.gz
+rmic
+rmic.1.gz
+rmid
+rmid.1.gz
+rmiregistry
+rmiregistry.1.gz
+rmt
+rmt.8.gz
+ROLLBACK.7.gz
+ROLLBACK_PREPARED.7.gz
+ROLLBACK_TO_SAVEPOINT.7.gz
+rsh
+rsh.1.gz
+rst2html
+rst2html4
+rst2html5
+rst2latex
+rst2man
+rst2odt
+rst2odt_prepstyles
+rst2pseudoxml
+rst2s5
+rst2xetex
+rst2xml
+rst-buildhtml
+rstpep2html
+runhaskell
+runhaskell.1.gz
+rview
+rvim
+sar
+sar.1.gz
+SAVEPOINT.7.gz
+schemagen
+schemagen.1.gz
+SECURITY_LABEL.7.gz
+SELECT.7.gz
+SELECT_INTO.7.gz
+serialver
+serialver.1.gz
+servertool
+servertool.1.gz
+SET.7.gz
+SET_CONSTRAINTS.7.gz
+SET_ROLE.7.gz
+SET_SESSION_AUTHORIZATION.7.gz
+SET_TRANSACTION.7.gz
+SHOW.7.gz
+startGroovy
+start-here-16.png
+start-here-22.png
+start-here-24.png
+start-here-256.png
+start-here-32.png
+start-here-48.png
+start-here.svg
+START_TRANSACTION.7.gz
+stream
+stream.1.gz
+stream-im6
+stream-im6.1.gz
+TABLE.7.gz
+tcptraceroute
+tcptraceroute.1.gz
+tdbbackup
+tdbbackup.8.gz
+telnet
+telnet.1.gz
+tnameserv
+tnameserv.1.gz
+traceproto
+traceproto.1.gz
+traceroute
+traceroute.1.gz
+traceroute6
+traceroute6.8.gz
+traceroute.sbin
+TRUNCATE.7.gz
+UNLISTEN.7.gz
+unlzma
+unlzma.1.gz
+unpack200
+unpack200.1.gz
+unrar
+unrar.1.gz
+UPDATE.7.gz
+updatedb
+updatedb.8.gz
+VACUUM.7.gz
+vacuumdb.1.gz
+VALUES.7.gz
+vendor-logos
+vi
+vi.1.gz
+vi.da.1.gz
+vi.de.1.gz
+view
+view.1.gz
+view.da.1.gz
+view.de.1.gz
+view.fr.1.gz
+view.it.1.gz
+view.ja.1.gz
+view.pl.1.gz
+view.ru.1.gz
+vi.fr.1.gz
+vi.it.1.gz
+vi.ja.1.gz
+vim
+vimdiff
+vi.pl.1.gz
+vi.ru.1.gz
+vncconfig
+vncconfig.1.gz
+vncpasswd
+vncpasswd.1.gz
+vncserver
+vncserver.1.gz
+vncviewer
+vncviewer.1.gz
+w
+w.1.gz
+WITH.7.gz
+write
+write.1.gz
+wsgen
+wsgen.1.gz
+wsimport
+wsimport.1.gz
+www-browser
+www-browser.1.gz
+wx.pth
+x-cursor-theme
+xdvi.bin
+xjc
+xjc.1.gz
+x-session-manager
+x-session-manager.1.gz
+x-terminal-emulator
+x-terminal-emulator.1.gz
+Xvnc
+Xvnc.1.gz
+xvncviewer
+xvncviewer.1.gz
+x-window-manager
+x-window-manager.1.gz
+x-www-browser
+yacc
+yaccman
+
+/etc/apache2:
+conf-available
+
+/etc/apache2/conf-available:
+javascript-common.conf
+
+/etc/apm:
+event.d
+
+/etc/apm/event.d:
+
+/etc/apparmor:
+init  parser.conf
+
+/etc/apparmor/init:
+network-interface-security
+
+/etc/apparmor/init/network-interface-security:
+usr.sbin.ntpd
+
+/etc/apparmor.d:
+abstractions	       usr.bin.man
+cache		       usr.bin.thunderbird
+disable		       usr.lib.libreoffice.program.oosplash
+force-complain	       usr.lib.libreoffice.program.senddoc
+lightdm-guest-session  usr.lib.libreoffice.program.soffice.bin
+local		       usr.lib.libreoffice.program.xpdfimport
+nvidia_modprobe        usr.sbin.gpsd
+samba		       usr.sbin.ntpd
+tunables	       usr.sbin.ntpd.dpkg-old
+usr.bin.evince
+
+/etc/apparmor.d/abstractions:
+apache2-common		   libpam-systemd	     smbpass
+apparmor_api		   lightdm		     ssl_certs
+aspell			   lightdm_chromium-browser  ssl_keys
+audio			   likewise		     svn-repositories
+authentication		   mdns			     ubuntu-bittorrent-clients
+base			   mesa			     ubuntu-browsers
+bash			   mir			     ubuntu-browsers.d
+consoles		   mozc			     ubuntu-console-browsers
+cups-client		   mysql		     ubuntu-console-email
+dbus			   nameservice		     ubuntu-email
+dbus-accessibility	   nis			     ubuntu-feed-readers
+dbus-accessibility-strict  nvidia		     ubuntu-gnome-terminal
+dbus-session		   opencl		     ubuntu-helpers
+dbus-session-strict	   opencl-common	     ubuntu-konsole
+dbus-strict		   opencl-intel		     ubuntu-media-players
+dconf			   opencl-mesa		     ubuntu-unity7-base
+dovecot-common		   opencl-nvidia	     ubuntu-unity7-launcher
+dri-common		   opencl-pocl		     ubuntu-unity7-messaging
+dri-enumerate		   openssl		     ubuntu-xterm
+enchant			   orbit2		     user-download
+evince			   p11-kit		     user-mail
+fcitx			   perl			     user-manpages
+fcitx-strict		   php			     user-tmp
+fonts			   php5			     user-write
+freedesktop.org		   postfix-common	     video
+gnome			   private-files	     vulkan
+gnupg			   private-files-strict      wayland
+ibus			   python		     web-data
+kde			   qt5			     winbind
+kde-globals-write	   qt5-compose-cache-write   wutmp
+kde-icon-cache-write	   qt5-settings-write	     X
+kde-language-write	   recent-documents-write    xad
+kerberosclient		   ruby			     xdg-desktop
+ldapclient		   samba
+
+/etc/apparmor.d/abstractions/apparmor_api:
+change_profile	examine  find_mountpoint  introspect  is_enabled
+
+/etc/apparmor.d/abstractions/ubuntu-browsers.d:
+java  mailto	  plugins-common  text-editors	      ubuntu-integration-xul
+kde   multimedia  productivity	  ubuntu-integration  user-files
+
+/etc/apparmor.d/cache:
+
+/etc/apparmor.d/disable:
+usr.bin.thunderbird
+
+/etc/apparmor.d/force-complain:
+
+/etc/apparmor.d/local:
+nvidia_modprobe  usr.bin.thunderbird			  usr.lib.libreoffice.program.xpdfimport
+README		 usr.lib.libreoffice.program.oosplash	  usr.sbin.gpsd
+usr.bin.evince	 usr.lib.libreoffice.program.senddoc	  usr.sbin.ntpd
+usr.bin.man	 usr.lib.libreoffice.program.soffice.bin
+
+/etc/apparmor.d/samba:
+
+/etc/apparmor.d/tunables:
+alias	    dovecot  home    kernelvars  multiarch.d  proc	  share  xdg-user-dirs
+apparmorfs  global   home.d  multiarch	 ntpd	      securityfs  sys	 xdg-user-dirs.d
+
+/etc/apparmor.d/tunables/home.d:
+site.local  ubuntu
+
+/etc/apparmor.d/tunables/multiarch.d:
+site.local
+
+/etc/apparmor.d/tunables/xdg-user-dirs.d:
+site.local
+
+/etc/apt:
+apt.conf.d   listchanges.conf  sources.list   sources.list.d  trusted.gpg~
+auth.conf.d  preferences.d     sources.list~  trusted.gpg     trusted.gpg.d
+
+/etc/apt/apt.conf.d:
+000DefaultRelease  01autoremove		 20dbus		50apt-file.conf
+00CDMountPoint	   01autoremove-kernels  20listchanges	70debconf
+00trustcdrom	   20adequate		 20packagekit	99synaptic
+
+/etc/apt/auth.conf.d:
+
+/etc/apt/preferences.d:
+libssh-4  manpages  remmina
+
+/etc/apt/sources.list.d:
+backports.list	    linuxuprising-java.list  sublime-text.list	    x2go.list
+google-chrome.list  neo4j.list		     virtualbox.list	    zulu-openjdk.list
+google.list	    paparazzi.list	     webupd8team-java.list
+
+/etc/apt/trusted.gpg.d:
+debian-archive-buster-automatic.gpg
+debian-archive-buster-security-automatic.gpg
+debian-archive-buster-stable.gpg
+debian-archive-jessie-automatic.gpg
+debian-archive-jessie-security-automatic.gpg
+debian-archive-jessie-stable.gpg
+debian-archive-stretch-automatic.gpg
+debian-archive-stretch-security-automatic.gpg
+debian-archive-stretch-stable.gpg
+x2go-archive-debian-ubuntu-signing-key.gpg
+x2go-archive-git-admin.gpg
+x2go-archive-ncryer.gpg
+x2go-archive-X2Go-Packages-Automatic-Signing-Key.gpg
+
+/etc/at-spi2:
+
+/etc/autoconf2.13:
+acconfig.h
+
+/etc/avahi:
+avahi-daemon.conf  hosts  services
+
+/etc/avahi/services:
+
+/etc/bash_completion.d:
+apt-venv	       fail2ban    licensecheck  svn-buildpackage  virtualenvwrapper
+desktop-file-validate  git-prompt  ocamlfind	 thunderbird
+dkms		       insserv	   openvpn	 unp
+
+/etc/binfmt.d:
+
+/etc/bluetooth:
+input.conf  main.conf  network.conf  proximity.conf.dpkg-remove
+
+/etc/bonobo-activation:
+bonobo-activation-config.xml
+
+/etc/ca-certificates:
+update.d
+
+/etc/ca-certificates/update.d:
+
+/etc/calendar:
+default
+
+/etc/chatscripts:
+gprs  pap  provider
+
+/etc/chromium:
+master_preferences
+
+/etc/chromium.d:
+apikeys  default-flags	extensions  pepperflashplugin-nonfree  README
+
+/etc/cifs-utils:
+idmap-plugin
+
+/etc/common-lisp:
+asdf-output-translations.conf.d  source-registry.conf.d
+
+/etc/common-lisp/asdf-output-translations.conf.d:
+01-common-lisp-controller.conf
+
+/etc/common-lisp/source-registry.conf.d:
+01-common-lisp-controller.conf	02-common-lisp-controller-userdir.conf	03-clbuild.conf
+
+/etc/console:
+
+/etc/console-setup:
+cached_Lat15-Fixed16.psf.gz   compose.IBM1133.inc      compose.ISO-8859-4.inc
+cached_setup_font.sh	      compose.ISIRI-3342.inc   compose.ISO-8859-5.inc
+cached_setup_keyboard.sh      compose.ISO-8859-10.inc  compose.ISO-8859-6.inc
+cached_setup_terminal.sh      compose.ISO-8859-11.inc  compose.ISO-8859-7.inc
+cached_UTF-8_del.kmap.gz      compose.ISO-8859-13.inc  compose.ISO-8859-8.inc
+compose.ARMSCII-8.inc	      compose.ISO-8859-14.inc  compose.ISO-8859-9.inc
+compose.CP1251.inc	      compose.ISO-8859-15.inc  compose.KOI8-R.inc
+compose.CP1255.inc	      compose.ISO-8859-16.inc  compose.KOI8-U.inc
+compose.CP1256.inc	      compose.ISO-8859-1.inc   compose.TIS-620.inc
+compose.GEORGIAN-ACADEMY.inc  compose.ISO-8859-2.inc   compose.VISCII.inc
+compose.GEORGIAN-PS.inc       compose.ISO-8859-3.inc   remap.inc
+
+/etc/cracklib:
+cracklib.conf
+
+/etc/cron.d:
+anacron  e2scrub_all  php  sysstat
+
+/etc/cron.daily:
+0anacron      aptitude		dpkg	       google-chrome	   man-db.dpkg-old   passwd
+acct	      bsdmainutils	dpkg.dpkg-old  logrotate	   mlocate	     quota
+apt-compat    cracklib-runtime	dpkg-list      logrotate.dpkg-old  mlocate.dpkg-old  samba
+apt.dpkg-bak  debsums		exim4-base     man-db		   ntp		     sysstat
+
+/etc/cron.hourly:
+
+/etc/cron.monthly:
+0anacron  acct	debsums
+
+/etc/cron.weekly:
+0anacron  debsums  man-db  man-db.dpkg-old
+
+/etc/cruft:
+explain  filters
+
+/etc/cruft/explain:
+
+/etc/cruft/filters:
+
+/etc/csh:
+login.d
+
+/etc/csh/login.d:
+cs424.csh  umask.csh
+
+/etc/cupshelpers:
+preferreddrivers.xml
+
+/etc/dbus-1:
+session.d  system.d
+
+/etc/dbus-1/session.d:
+
+/etc/dbus-1/system.d:
+avahi-dbus.conf				 org.freedesktop.PackageKit.conf
+bluetooth.conf				 org.freedesktop.RealtimeKit1.conf
+com.redhat.NewPrinterNotification.conf	 org.gnome.GConf.Defaults.conf
+com.redhat.PrinterDriversInstaller.conf  org.kde.auth.conf
+net.hadess.SensorProxy.conf		 org.kde.kcontrol.kcmremotewidgets.conf
+org.debian.apt.conf			 org.kde.kf5auth.conf
+org.freedesktop.Accounts.conf		 org.kde.ktexteditor.katetextbuffer.conf
+org.freedesktop.DisplayManager.conf	 org.opensuse.CupsPkHelper.Mechanism.conf
+org.freedesktop.GeoClue2.Agent.conf	 pulseaudio-system.conf
+org.freedesktop.GeoClue2.conf		 wpa_supplicant.conf
+org.freedesktop.ModemManager1.conf
+
+/etc/debtree:
+endlist  skiplist
+
+/etc/default:
+acct		 crda	   go-mmproxy	    ipmievd.dpkg-old  nss	rsyslog		tmpfs
+acpid		 cron	   google-chrome    irqbalance	      ntp	saned		useradd
+amd64-microcode  dbus	   gpsd		    keyboard	      openipmi	smartmontools	winbind
+anacron		 debsums   halt		    lldpd	      openvpn	snmpd
+avahi-daemon	 devpts    hddtemp	    locale	      pyro-nsd	snmpd.dpkg-old
+bluetooth	 exim4	   hwclock	    networking	      quota	ssh
+bsdmainutils	 fail2ban  intel-microcode  nfs-common	      rcS	stunnel4
+console-setup	 gdomap    ipmievd	    nslcd	      rsync	sysstat
+
+/etc/dhcp:
+debug  dhclient.conf  dhclient-enter-hooks.d  dhclient-exit-hooks.d
+
+/etc/dhcp/dhclient-enter-hooks.d:
+debug  samba
+
+/etc/dhcp/dhclient-exit-hooks.d:
+debug  ntp  rfc3442-classless-routes  timesyncd
+
+/etc/dictionaries-common:
+default.aff  default.hash  ispell-default  words
+
+/etc/dirmngr:
+
+/etc/discover.conf.d:
+00discover
+
+/etc/dkms:
+framework.conf	template-dkms-mkbmdeb  template-dkms-mkdeb  template-dkms-mkdsc
+
+/etc/dkms/template-dkms-mkbmdeb:
+debian	Makefile
+
+/etc/dkms/template-dkms-mkbmdeb/debian:
+changelog  compat  control  copyright  README.Debian  rules
+
+/etc/dkms/template-dkms-mkdeb:
+debian	Makefile
+
+/etc/dkms/template-dkms-mkdeb/debian:
+changelog  compat  control  copyright  dirs  postinst  prerm  README.Debian  rules
+
+/etc/doc-base:
+documents
+
+/etc/doc-base/documents:
+README
+
+/etc/dpkg:
+dpkg.cfg  dpkg.cfg.d  origins  shlibs.default  shlibs.override
+
+/etc/dpkg/dpkg.cfg.d:
+pkg-config-hook-config
+
+/etc/dpkg/origins:
+debian	default
+
+/etc/emacs:
+site-start.d
+
+/etc/emacs/site-start.d:
+00debian.el	50cmake-data.el		  50haskell-mode.el	 50python-docutils.el
+50a2ps.el	50devhelp.el		  50latex-cjk-common.el  50tcsh.el
+50asymptote.el	50dictionaries-common.el  50latex-cjk-thai.el	 50texlive-lang-english.el
+50autoconf.el	50erlang-mode.el	  50psvn.el
+
+/etc/environment.d:
+90atk-adaptor.conf  90qt-a11y.conf
+
+/etc/exim4:
+conf.d	exim4.conf.template  passwd.client  update-exim4.conf.conf
+
+/etc/exim4/conf.d:
+acl  auth  main  retry	rewrite  router  transport
+
+/etc/exim4/conf.d/acl:
+00_exim4-config_header		       30_exim4-config_check_mail  40_exim4-config_check_data
+20_exim4-config_local_deny_exceptions  30_exim4-config_check_rcpt
+
+/etc/exim4/conf.d/auth:
+00_exim4-config_header	30_exim4-config_examples
+
+/etc/exim4/conf.d/main:
+01_exim4-config_listmacrosdefs	03_exim4-config_tlsoptions
+02_exim4-config_options		90_exim4-config_log_selector
+
+/etc/exim4/conf.d/retry:
+00_exim4-config_header	30_exim4-config
+
+/etc/exim4/conf.d/rewrite:
+00_exim4-config_header	31_exim4-config_rewriting
+
+/etc/exim4/conf.d/router:
+00_exim4-config_header		 400_exim4-config_system_aliases  850_exim4-config_lowuid
+100_exim4-config_domain_literal  500_exim4-config_hubuser	  900_exim4-config_local_user
+150_exim4-config_hubbed_hosts	 600_exim4-config_userforward	  mmm_mail4root
+200_exim4-config_primary	 700_exim4-config_procmail
+300_exim4-config_real_local	 800_exim4-config_maildrop
+
+/etc/exim4/conf.d/transport:
+00_exim4-config_header		  30_exim4-config_maildrop_pipe
+10_exim4-config_transport-macros  30_exim4-config_mail_spool
+30_exim4-config_address_file	  30_exim4-config_procmail_pipe
+30_exim4-config_address_pipe	  30_exim4-config_remote_smtp
+30_exim4-config_address_reply	  30_exim4-config_remote_smtp_smarthost
+30_exim4-config_maildir_home	  35_exim4-config_address_directory
+
+/etc/fail2ban:
+action.d		 fail2ban.d  jail.d	      paths-common.conf
+fail2ban.conf		 filter.d    jail.local       paths-debian.conf
+fail2ban.conf.dpkg-dist  jail.conf   paths-arch.conf  paths-opensuse.conf
+
+/etc/fail2ban/action.d:
+abuseipdb.conf			     mail.conf
+apf.conf			     mail-whois-common.conf
+badips.conf			     mail-whois.conf
+badips.py			     mail-whois-lines.conf
+blocklist_de.conf		     mynetwatchman.conf
+bsd-ipfw.conf			     netscaler.conf
+cloudflare.conf			     nftables-allports.conf
+complain.conf			     nftables-common.conf
+dshield.conf			     nftables-multiport.conf
+dummy.conf			     nginx-block-map.conf
+firewallcmd-allports.conf	     npf.conf
+firewallcmd-common.conf		     nsupdate.conf
+firewallcmd-ipset.conf		     osx-afctl.conf
+firewallcmd-multiport.conf	     osx-ipfw.conf
+firewallcmd-new.conf		     pf.conf
+firewallcmd-rich-logging.conf	     route.conf
+firewallcmd-rich-rules.conf	     sendmail-buffered.conf
+helpers-common.conf		     sendmail-common.conf
+hostsdeny.conf			     sendmail.conf
+ipfilter.conf			     sendmail-geoip-lines.conf
+ipfw.conf			     sendmail-whois.conf
+iptables-allports.conf		     sendmail-whois-ipjailmatches.conf
+iptables-common.conf		     sendmail-whois-ipmatches.conf
+iptables.conf			     sendmail-whois-lines.conf
+iptables-ipset-proto4.conf	     sendmail-whois-matches.conf
+iptables-ipset-proto6-allports.conf  shorewall.conf
+iptables-ipset-proto6.conf	     shorewall-ipset-proto6.conf
+iptables-multiport.conf		     smtp.py
+iptables-multiport-log.conf	     symbiosis-blacklist-allports.conf
+iptables-new.conf		     ufw.conf
+iptables-xt_recent-echo.conf	     xarf-login-attack.conf
+mail-buffered.conf
+
+/etc/fail2ban/fail2ban.d:
+
+/etc/fail2ban/filter.d:
+3proxy.conf		   dovecot.conf		   named-refused.conf	   selinux-common.conf
+apache-auth.conf	   dropbear.conf	   nginx-botsearch.conf    selinux-ssh.conf
+apache-badbots.conf	   drupal-auth.conf	   nginx-http-auth.conf    sendmail-auth.conf
+apache-botsearch.conf	   ejabberd-auth.conf	   nginx-limit-req.conf    sendmail-reject.conf
+apache-common.conf	   exim-common.conf	   nsd.conf		   sieve.conf
+apache-fakegooglebot.conf  exim.conf		   openhab.conf		   slapd.conf
+apache-modsecurity.conf    exim-spam.conf	   openwebmail.conf	   sogo-auth.conf
+apache-nohome.conf	   freeswitch.conf	   oracleims.conf	   solid-pop3d.conf
+apache-noscript.conf	   froxlor-auth.conf	   pam-generic.conf	   squid.conf
+apache-overflows.conf	   groupoffice.conf	   perdition.conf	   squirrelmail.conf
+apache-pass.conf	   gssftpd.conf		   phpmyadmin-syslog.conf  sshd.conf
+apache-shellshock.conf	   guacamole.conf	   php-url-fopen.conf	   sshd-ddos.conf
+assp.conf		   haproxy-http-auth.conf  portsentry.conf	   stunnel.conf
+asterisk.conf		   horde.conf		   postfix.conf		   suhosin.conf
+botsearch-common.conf	   ignorecommands	   postfix-rbl.conf	   tine20.conf
+common.conf		   kerio.conf		   postfix-sasl.conf	   uwimap-auth.conf
+counter-strike.conf	   lighttpd-auth.conf	   proftpd.conf		   vsftpd.conf
+courier-auth.conf	   mongodb-auth.conf	   pure-ftpd.conf	   webmin-auth.conf
+courier-smtp.conf	   monit.conf		   qmail.conf		   wuftpd.conf
+cyrus-imap.conf		   murmur.conf		   recidive.conf	   xinetd-fail.conf
+directadmin.conf	   mysqld-auth.conf	   roundcube-auth.conf	   zoneminder.conf
+domino-smtp.conf	   nagios.conf		   screensharingd.conf
+
+/etc/fail2ban/filter.d/ignorecommands:
+apache-fakegooglebot
+
+/etc/fail2ban/jail.d:
+defaults-debian.conf
+
+/etc/firebird:
+3.0
+
+/etc/firebird/3.0:
+fbintl.conf  firebird.conf  plugins.conf
+
+/etc/firefox-esr:
+firefox-esr.js
+
+/etc/fonts:
+conf.avail  conf.d  fonts.conf
+
+/etc/fonts/conf.avail:
+20-unhint-small-dejavu-lgc-sans.conf	       57-dejavu-sans-mono.conf
+20-unhint-small-dejavu-lgc-sans-mono.conf      57-dejavu-serif.conf
+20-unhint-small-dejavu-lgc-serif.conf	       58-dejavu-lgc-sans.conf
+20-unhint-small-dejavu-sans.conf	       58-dejavu-lgc-sans-mono.conf
+20-unhint-small-dejavu-sans-mono.conf	       58-dejavu-lgc-serif.conf
+20-unhint-small-dejavu-serif.conf	       62-google-crosextra-carlito-fontconfig.conf
+30-0-google-crosextra-carlito-fontconfig.conf  65-droid-sans-fallback.conf
+30-droid-noto.conf			       65-fonts-lmodern.conf
+30-droid-noto-mono.conf			       65-fonts-texgyre.conf
+57-dejavu-sans.conf
+
+/etc/fonts/conf.d:
+10-hinting-slight.conf			       64-01-tlwg-kinnari.conf
+10-scale-bitmap-fonts.conf		       64-02-tlwg-norasi.conf
+11-lcdfilter-default.conf		       64-10-tlwg-loma.conf
+20-unhint-small-dejavu-lgc-sans.conf	       64-11-tlwg-waree.conf
+20-unhint-small-dejavu-lgc-sans-mono.conf      64-13-tlwg-garuda.conf
+20-unhint-small-dejavu-lgc-serif.conf	       64-14-tlwg-umpush.conf
+20-unhint-small-dejavu-sans.conf	       64-15-laksaman.conf
+20-unhint-small-dejavu-sans-mono.conf	       64-21-tlwg-typo.conf
+20-unhint-small-dejavu-serif.conf	       64-22-tlwg-typist.conf
+20-unhint-small-vera.conf		       64-23-tlwg-mono.conf
+30-0-google-crosextra-carlito-fontconfig.conf  65-fonts-lmodern.conf
+30-metric-aliases.conf			       65-fonts-persian.conf
+30-opensymbol.conf			       65-fonts-texgyre.conf
+40-nonlatin.conf			       65-nonlatin.conf
+45-generic.conf				       69-unifont.conf
+45-latin.conf				       70-no-bitmaps.conf
+49-sansserif.conf			       80-delicious.conf
+50-user.conf				       89-tlwg-garuda-synthetic.conf
+51-local.conf				       89-tlwg-kinnari-synthetic.conf
+57-dejavu-sans.conf			       89-tlwg-laksaman-synthetic.conf
+57-dejavu-sans-mono.conf		       89-tlwg-umpush-synthetic.conf
+57-dejavu-serif.conf			       90-fonts-baekmuk.conf
+58-dejavu-lgc-sans.conf			       90-fonts-linux-libertine.conf
+58-dejavu-lgc-sans-mono.conf		       90-fonts-unfonts-core.conf
+58-dejavu-lgc-serif.conf		       90-fonts-unfonts-extra.conf
+60-generic.conf				       90-synthetic.conf
+60-latin.conf				       README
+
+/etc/freeipmi:
+freeipmi.conf  freeipmi_interpret_sel.conf  freeipmi_interpret_sensor.conf  libipmiconsole.conf
+
+/etc/gamin:
+gaminrc
+
+/etc/gconf:
+2  gconf.xml.defaults  gconf.xml.mandatory
+
+/etc/gconf/2:
+evoldap.conf  path
+
+/etc/gconf/gconf.xml.defaults:
+%gconf-tree.xml
+
+/etc/gconf/gconf.xml.mandatory:
+%gconf-tree.xml
+
+/etc/gdb:
+gdbinit
+
+/etc/geoclue:
+geoclue.conf
+
+/etc/ghostscript:
+cidfmap.d  fontmap.d
+
+/etc/ghostscript/cidfmap.d:
+90gs-cjk-resource-cns1.conf  90gs-cjk-resource-japan1.conf  90gs-cjk-resource-korea1.conf
+90gs-cjk-resource-gb1.conf   90gs-cjk-resource-japan2.conf
+
+/etc/ghostscript/fontmap.d:
+10gsfonts.conf
+
+/etc/gimp:
+2.0
+
+/etc/gimp/2.0:
+controllerrc  gimprc  gtkrc  menurc  sessionrc	templaterc  unitrc
+
+/etc/git-buildpackage:
+gbp.conf
+
+/etc/glvnd:
+egl_vendor.d
+
+/etc/glvnd/egl_vendor.d:
+
+/etc/gnome:
+menus.blacklist
+
+/etc/gnome-vfs-2.0:
+modules
+
+/etc/gnome-vfs-2.0/modules:
+default-modules.conf  extra-modules.conf
+
+/etc/GNUstep:
+gdomap_probes  GNUstep.conf
+
+/etc/go-mmproxy:
+path-prefixes.txt
+
+/etc/groff:
+man.local  mdoc.local
+
+/etc/groovy:
+groovy-starter.conf
+
+/etc/gss:
+mech.d
+
+/etc/gss/mech.d:
+README
+
+/etc/gtk-2.0:
+im-multipress.conf
+
+/etc/gtk-3.0:
+im-multipress.conf
+
+/etc/highlight:
+filetypes.conf
+
+/etc/ifplugd:
+action.d
+
+/etc/ifplugd/action.d:
+action_wpa
+
+/etc/ImageMagick-6:
+coder.xml      log.xml	  policy.xml		  type-apple.xml	type-urw-base35.xml
+colors.xml     magic.xml  quantization-table.xml  type-dejavu.xml	type-windows.xml
+delegates.xml  mime.xml   thresholds.xml	  type-ghostscript.xml	type.xml
+
+/etc/init:
+lldpd.conf  nmbd.override  smbd.override  winbind.override
+
+/etc/init.d:
+acct			gdomap		       nscd		    saned
+acpid			halt		       nslcd		    screen-cleanup
+alsa-utils		hddtemp		       ntp		    sendsigs
+anacron			hostname.sh	       nvidia-persistenced  single
+apparmor		hwclock.sh	       openipmi		    smartmontools
+atd			ipmievd		       open-vm-tools	    smbd
+avahi-daemon		irqbalance	       openvpn		    snmpd
+binfmt-support		keyboard-setup.sh      pcscd		    speech-dispatcher
+bluetooth		killprocs	       pppd-dns		    ssh
+bootchart-done		kmod		       procps		    stunnel4
+bootlogs		lightdm		       pyro-nsd		    sudo
+bootmisc.sh		lldpd		       quota		    sysfsutils
+brightness		lm-sensors	       quotarpc		    sysstat
+checkfs.sh		loadcpufreq	       rc		    udev
+checkroot-bootclean.sh	mountall-bootclean.sh  rc.local		    umountfs
+checkroot.sh		mountall.sh	       rcS		    umountnfs.sh
+console-setup.sh	mountdevsubfs.sh       README		    umountroot
+cpufrequtils		mountkernfs.sh	       reboot		    urandom
+cron			mountnfs-bootclean.sh  rmnologin	    winbind
+dbus			mountnfs.sh	       rpcbind		    x11-common
+exim4			networking	       rsync		    x2goserver
+fail2ban		nfs-common	       rsyslog
+fancontrol		nmbd		       samba-ad-dc
+
+/etc/initramfs-tools:
+conf.d	hooks  initramfs.conf  initramfs.conf.dpkg-old	modules  scripts  update-initramfs.conf
+
+/etc/initramfs-tools/conf.d:
+resume
+
+/etc/initramfs-tools/hooks:
+
+/etc/initramfs-tools/scripts:
+init-bottom    init-top      local-premount  nfs-bottom    nfs-top
+init-premount  local-bottom  local-top	     nfs-premount  panic
+
+/etc/initramfs-tools/scripts/init-bottom:
+
+/etc/initramfs-tools/scripts/init-premount:
+
+/etc/initramfs-tools/scripts/init-top:
+
+/etc/initramfs-tools/scripts/local-bottom:
+
+/etc/initramfs-tools/scripts/local-premount:
+
+/etc/initramfs-tools/scripts/local-top:
+
+/etc/initramfs-tools/scripts/nfs-bottom:
+
+/etc/initramfs-tools/scripts/nfs-premount:
+
+/etc/initramfs-tools/scripts/nfs-top:
+
+/etc/initramfs-tools/scripts/panic:
+
+/etc/insserv:
+overrides
+
+/etc/insserv/overrides:
+
+/etc/insserv.conf.d:
+rpcbind
+
+/etc/iproute2:
+bpf_pinning  group	rt_dsfield  rt_protos.d  rt_scopes  rt_tables.d
+ematch_map   nl_protos	rt_protos   rt_realms	 rt_tables
+
+/etc/iproute2/rt_protos.d:
+README
+
+/etc/iproute2/rt_tables.d:
+README
+
+/etc/iscsi:
+iscsid.conf
+
+/etc/java:
+security
+
+/etc/java/security:
+security.d
+
+/etc/java/security/security.d:
+2000-org.bouncycastle.jce.provider.BouncyCastleProvider
+
+/etc/java-10-oracle:
+conf
+
+/etc/java-10-oracle/conf:
+logging.properties  management	net.properties	security  sound.properties
+
+/etc/java-10-oracle/conf/management:
+jmxremote.access  management.properties
+
+/etc/java-10-oracle/conf/security:
+java.policy  java.security  javaws.policy
+
+/etc/java-11-oracle:
+conf
+
+/etc/java-11-oracle/conf:
+logging.properties  management	net.properties	security  sound.properties
+
+/etc/java-11-oracle/conf/management:
+jmxremote.access  management.properties
+
+/etc/java-11-oracle/conf/security:
+java.policy  java.security
+
+/etc/java-8-oracle:
+security
+
+/etc/java-8-oracle/security:
+blacklist  blacklisted.certs  java.policy  java.security  javaws.policy  trusted.libraries
+
+/etc/jed.d:
+05jed-common.sl  README
+
+/etc/jython:
+jython.conf
+
+/etc/kernel:
+header_postinst.d  install.d  postinst.d  postrm.d  preinst.d  prerm.d
+
+/etc/kernel/header_postinst.d:
+dkms
+
+/etc/kernel/install.d:
+
+/etc/kernel/postinst.d:
+apt-auto-removal  dkms	initramfs-tools  pm-utils
+
+/etc/kernel/postrm.d:
+initramfs-tools
+
+/etc/kernel/preinst.d:
+intel-microcode
+
+/etc/kernel/prerm.d:
+dkms
+
+/etc/ldap:
+ldap.conf  ldap.conf.dpkg-dist
+
+/etc/ld.so.conf.d:
+fakeroot-x86_64-linux-gnu.conf	libc.conf	       zz_i386-biarch-compat.conf
+i386-linux-gnu.conf		x86_64-linux-gnu.conf  zz_x32-biarch-compat.conf
+
+/etc/libblockdev:
+conf.d
+
+/etc/libblockdev/conf.d:
+00-default.cfg
+
+/etc/libgda-5.0:
+config
+
+/etc/libibverbs.d:
+bnxt_re.driver	hfi1verbs.driver   mlx4.driver	 ocrdma.driver
+cxgb3.driver	hns.driver	   mlx5.driver	 qedr.driver
+cxgb4.driver	i40iw.driver	   mthca.driver  rxe.driver
+efa.driver	ipathverbs.driver  nes.driver	 vmw_pvrdma.driver
+
+/etc/libnl-3:
+classid  pktloc
+
+/etc/libpaper.d:
+texlive-base
+
+/etc/libreoffice:
+psprint.conf  registry	sofficerc  soffice.sh
+
+/etc/libreoffice/registry:
+base.xcd	   Langpack-en-US.xcd  ogltrans.xcd	      pyuno.xcd
+calc.xcd	   librelogo.xcd       oo-ad-ldap.xcd.sample  reportbuilder.xcd
+draw.xcd	   lingucomponent.xcd  oo-ldap.xcd.sample     res
+graphicfilter.xcd  main.xcd	       pdfimport.xcd	      writer.xcd
+impress.xcd	   math.xcd	       postgresql.xcd	      xsltfilter.xcd
+
+/etc/libreoffice/registry/res:
+fcfg_langpack_en-US.xcd
+
+/etc/lightdm:
+keys.conf  lightdm.conf  lightdm-gtk-greeter.conf  users.conf
+
+/etc/lighttpd:
+conf-available	conf-enabled
+
+/etc/lighttpd/conf-available:
+90-javascript-alias.conf
+
+/etc/lighttpd/conf-enabled:
+90-javascript-alias.conf
+
+/etc/lldpd.d:
+README.conf
+
+/etc/logcheck:
+ignore.d.paranoid  ignore.d.server
+
+/etc/logcheck/ignore.d.paranoid:
+cracklib-runtime
+
+/etc/logcheck/ignore.d.server:
+gpg-agent  hddtemp  libsasl2-modules  rsyslog  x2goserver
+
+/etc/logrotate.d:
+alternatives  btmp	  exim4-paniclog  pm-utils  samba	       winbind
+apt	      dpkg	  fail2ban	  ppp	    speech-dispatcher  wtmp
+aptitude      exim4-base  pacct		  rsyslog   stunnel4
+
+/etc/logrotate.d.save:
+fail2ban  wtmp.conf
+
+/etc/lynx:
+lynx.cfg  lynx.lss
+
+/etc/mercurial:
+hgrc  hgrc.d
+
+/etc/mercurial/hgrc.d:
+cacerts.rc  hgext.rc
+
+/etc/minicom:
+
+/etc/modprobe.d:
+amd64-microcode-blacklist.conf	nvidia.conf
+dkms.conf			nvidia-kernel-common.conf
+intel-microcode-blacklist.conf	nvidia-kernel-common.conf.dpkg-old
+nvidia-blacklists-nouveau.conf	open-vm-tools-dkms.conf
+
+/etc/modules-load.d:
+ipmievd.conf  modules.conf  nvidia.conf
+
+/etc/monit:
+conf-available	monitrc.d
+
+/etc/monit/conf-available:
+
+/etc/monit/monitrc.d:
+fail2ban
+
+/etc/Muttrc.d:
+charset.rc  colors.rc  compressed-folders.rc  gpg.rc  smime.rc
+
+/etc/mysql:
+conf.d	mariadb.cnf  mariadb.conf.d  my.cnf  my.cnf.fallback
+
+/etc/mysql/conf.d:
+mysql.cnf  mysqldump.cnf
+
+/etc/mysql/mariadb.conf.d:
+
+/etc/netconf:
+hostname  hosts  ip  libnss-ldap.conf  nslcd.conf  pam_ldap.conf  resolv.conf  rsyslog.conf
+
+/etc/network:
+if-down.d  if-post-down.d  if-pre-up.d	if-up.d  interfaces  interfaces.d  run
+
+/etc/network/if-down.d:
+openvpn  wpasupplicant
+
+/etc/network/if-post-down.d:
+avahi-daemon  wpasupplicant
+
+/etc/network/if-pre-up.d:
+ethtool  wpasupplicant
+
+/etc/network/if-up.d:
+avahi-daemon  ethtool  mountnfs  nslcd	openvpn  wpasupplicant
+
+/etc/network/interfaces.d:
+
+/etc/NetworkManager:
+dispatcher.d
+
+/etc/NetworkManager/dispatcher.d:
+ntp
+
+/etc/nvidia:
+current       nvidia-blacklists-nouveau.conf  nvidia-load.conf
+legacy-390xx  nvidia-drm-outputclass.conf     nvidia-modprobe.conf
+
+/etc/nvidia/current:
+nvidia-drm-outputclass.conf
+
+/etc/nvidia/legacy-390xx:
+nvidia-blacklists-nouveau.conf	nvidia-load.conf
+nvidia-drm-outputclass.conf	nvidia-modprobe.conf
+
+/etc/nxagent:
+keystrokes.cfg
+
+/etc/ODBCDataSources:
+
+/etc/openal:
+alsoft.conf
+
+/etc/OpenCL:
+vendors
+
+/etc/OpenCL/vendors:
+nvidia.icd
+
+/etc/openmpi:
+openmpi-default-hostfile  openmpi-mca-params.conf  openmpi-totalview.tcl
+
+/etc/opensc:
+opensc.conf
+
+/etc/openvpn:
+client	server	update-resolv-conf
+
+/etc/openvpn/client:
+
+/etc/openvpn/server:
+
+/etc/opt:
+
+/etc/PackageKit:
+PackageKit.conf  Vendor.conf
+
+/etc/pam.d:
+atd		common-password		       lightdm-greeter	ppp	   sudo
+chfn		common-session		       login		runuser    su-l
+chpasswd	common-session-noninteractive  newusers		runuser-l  systemd-user
+chsh		cron			       other		samba	   tigervnc
+common-account	lightdm			       passwd		sshd	   vmtoolsd
+common-auth	lightdm-autologin	       polkit-1		su
+
+/etc/pbuilder:
+buildd-config.sh
+
+/etc/perl:
+CPAN  Net  XML
+
+/etc/perl/CPAN:
+
+/etc/perl/Net:
+libnet.cfg
+
+/etc/perl/XML:
+SAX
+
+/etc/perl/XML/SAX:
+ParserDetails.ini
+
+/etc/php:
+7.0  7.3
+
+/etc/php/7.0:
+cli  mods-available
+
+/etc/php/7.0/cli:
+conf.d
+
+/etc/php/7.0/cli/conf.d:
+
+/etc/php/7.0/mods-available:
+
+/etc/php/7.3:
+cli  mods-available
+
+/etc/php/7.3/cli:
+conf.d	php.ini
+
+/etc/php/7.3/cli/conf.d:
+10-mysqlnd.ini	 20-dom.ini	  20-json.ini	    20-readline.ini   20-sysvshm.ini
+10-opcache.ini	 20-exif.ini	  20-ldap.ini	    20-shmop.ini      20-tokenizer.ini
+10-pdo.ini	 20-fileinfo.ini  20-mysqli.ini     20-simplexml.ini  20-wddx.ini
+15-xml.ini	 20-ftp.ini	  20-pdo_mysql.ini  20-sockets.ini    20-xmlreader.ini
+20-calendar.ini  20-gettext.ini   20-phar.ini	    20-sysvmsg.ini    20-xmlwriter.ini
+20-ctype.ini	 20-iconv.ini	  20-posix.ini	    20-sysvsem.ini    20-xsl.ini
+
+/etc/php/7.3/mods-available:
+calendar.ini  ftp.ini	   mysqli.ini	  phar.ini	 sockets.ini	wddx.ini
+ctype.ini     gettext.ini  mysqlnd.ini	  posix.ini	 sysvmsg.ini	xml.ini
+dom.ini       iconv.ini    opcache.ini	  readline.ini	 sysvsem.ini	xmlreader.ini
+exif.ini      json.ini	   pdo.ini	  shmop.ini	 sysvshm.ini	xmlwriter.ini
+fileinfo.ini  ldap.ini	   pdo_mysql.ini  simplexml.ini  tokenizer.ini	xsl.ini
+
+/etc/piuparts:
+distros.conf		       scripts-debug-remove	     scripts-no-usr-share-doc
+scripts			       scripts-debug-triggers	     scripts-squeeze
+scripts-apt-first	       scripts-jessie		     scripts-sysvinit
+scripts-broken-symlinks        scripts-leftovers	     scripts-unused-examples
+scripts-debug-packagemanager   scripts-lenny		     scripts-wheezy
+scripts-debug-problemresolver  scripts-log-alternatives
+scripts-debug-purge	       scripts-multi-distro-upgrade
+
+/etc/piuparts/scripts:
+is_testable_uninstallable		  pre_distupgrade_exceptions
+post_chroot_unpack_allow_unauthenticated  pre_distupgrade_foreign_architecture_i386
+post_distupgrade_base_cleanup		  pre_distupgrade_zz_database-server
+post_distupgrade_exceptions		  pre_distupgrade_zz_upgrade_early
+post_distupgrade_force-unsafe-io	  pre_install_database-server
+post_distupgrade_squeeze-backports	  pre_install_exceptions
+post_distupgrade_zz_backports		  pre_install_extras
+post_install_exceptions			  pre_install_foreign_architecture
+post_purge_exceptions			  pre_install_foreign_architecture_i386
+post_remove_exceptions			  pre_remove_40_find_missing_md5sums
+post_setup_dummy_users			  pre_remove_40_find_obsolete_conffiles
+post_setup_forbid_home			  pre_remove_40_find_unowned_lib_links
+post_setup_force-unsafe-io		  pre_remove_50_find_bad_permissions
+post_setup_minimize			  pre_remove_50_find_missing_copyright
+post_setup_squeeze-backports		  pre_remove_exceptions
+post_setup_zz_backports			  pre_test_exceptions
+post_test_exceptions			  pre_test_root_password
+pre_distupgrade_allow_unauthenticated
+
+/etc/piuparts/scripts-apt-first:
+pre_distupgrade_zz_apt_first
+
+/etc/piuparts/scripts-broken-symlinks:
+post_install_extras_unbreak_symlinks  post_setup_fake-essential_unbreak_symlinks
+
+/etc/piuparts/scripts-debug-packagemanager:
+pre_distupgrade_debug_packagemanager
+
+/etc/piuparts/scripts-debug-problemresolver:
+pre_distupgrade_debug_problemresolver  pre_install_debug_problemresolver
+
+/etc/piuparts/scripts-debug-purge:
+post_remove_postrm_set-x
+
+/etc/piuparts/scripts-debug-remove:
+pre_remove_prerm_postrm_set-x
+
+/etc/piuparts/scripts-debug-triggers:
+pre_distupgrade_debug_triggers	pre_install_debug_triggers
+
+/etc/piuparts/scripts-jessie:
+post_setup_jessie-fake-essential
+
+/etc/piuparts/scripts-leftovers:
+post_purge_manual_cleanup  post_setup_fake-essential
+post_remove_cleanup	   pre_remove_preseed_cleanup
+
+/etc/piuparts/scripts-lenny:
+post_remove_exceptions_lenny  post_setup_lenny-fake-essential
+
+/etc/piuparts/scripts-log-alternatives:
+post_install_log_alternatives  pre_install_log_alternatives
+
+/etc/piuparts/scripts-multi-distro-upgrade:
+post_distupgrade_base_cleanup_multi-distro-upgrade
+post_distupgrade_exceptions_multi-distro-upgrade
+post_setup_fake-essential_multi-distro-upgrade
+pre_remove_exceptions_multi-distro-upgrade
+
+/etc/piuparts/scripts-no-usr-share-doc:
+post_setup_disable_usr_share_doc
+
+/etc/piuparts/scripts-squeeze:
+post_distupgrade_squeeze-fake-essential  post_setup_squeeze-fake-essential
+post_remove_exceptions_squeeze
+
+/etc/piuparts/scripts-sysvinit:
+pre_distupgrade_zz_sysvinit
+
+/etc/piuparts/scripts-unused-examples:
+post_chroot_unpack_key_setup
+
+/etc/piuparts/scripts-wheezy:
+post_setup_wheezy-fake-essential  pre_distupgrade_wheezy
+
+/etc/pm:
+config.d  power.d  sleep.d
+
+/etc/pm/config.d:
+
+/etc/pm/power.d:
+
+/etc/pm/sleep.d:
+
+/etc/polkit-1:
+localauthority	localauthority.conf.d  nullbackend.conf.d
+ls: cannot open directory '/etc/polkit-1/localauthority': Permission denied
+
+/etc/polkit-1/localauthority.conf.d:
+50-localauthority.conf	51-debian-sudo.conf
+
+/etc/polkit-1/nullbackend.conf.d:
+50-nullbackend.conf
+
+/etc/postgresql-common:
+supported_versions  user_clusters
+
+/etc/ppp:
+chap-secrets  ip-down.d  ip-up.d    ipv6-down.d  ipv6-up.d  pap-secrets
+ip-down       ip-up	 ipv6-down  ipv6-up	 options    peers
+
+/etc/ppp/ip-down.d:
+0000usepeerdns	0stunnel4
+
+/etc/ppp/ip-up.d:
+0000usepeerdns	0stunnel4  exim4
+
+/etc/ppp/ipv6-down.d:
+
+/etc/ppp/ipv6-up.d:
+
+/etc/ppp/peers:
+provider
+
+/etc/profile.d:
+bash_completion.sh  cs424.sh  gawk.csh	gawk.sh  jdk.csh  jdk.sh  umask.sh  vte-2.91.sh
+
+/etc/pulse:
+client.conf  client.conf.d  daemon.conf  default.pa  system.pa
+
+/etc/pulse/client.conf.d:
+00-disable-autospawn.conf
+
+/etc/purple:
+prefs.xml
+
+/etc/python:
+debian_config
+
+/etc/python2.7:
+sitecustomize.py
+
+/etc/python3:
+debian_config
+
+/etc/python3.5:
+sitecustomize.py
+
+/etc/python3.7:
+sitecustomize.py
+
+/etc/R:
+ldpaths  Makeconf  Renviron  Renviron.site  repositories  Rprofile.site
+
+/etc/racket:
+config.rktd
+
+/etc/rc0.d:
+K01acct		 K01ipmievd		 K01openvpn	       K01urandom	K07hwclock.sh
+K01alsa-utils	 K01irqbalance		 K01pcscd	       K01winbind	K07networking
+K01atd		 K01lightdm		 K01pyro-nsd	       K01x2goserver	K08umountfs
+K01avahi-daemon  K01lldpd		 K01quotarpc	       K02quota		K09umountroot
+K01bluetooth	 K01nmbd		 K01samba-ad-dc        K02udev		K10halt
+K01brightness	 K01nscd		 K01saned	       K03sendsigs	README
+K01exim4	 K01nslcd		 K01smbd	       K04rsyslog
+K01fail2ban	 K01nvidia-persistenced  K01snmpd	       K05umountnfs.sh
+K01gdomap	 K01openipmi		 K01speech-dispatcher  K06nfs-common
+K01hddtemp	 K01open-vm-tools	 K01stunnel4	       K06rpcbind
+
+/etc/rc1.d:
+K01acct		 K01hddtemp	K01nvidia-persistenced	K01saned	      K04rsyslog
+K01alsa-utils	 K01ipmievd	K01openipmi		K01smartmontools      K06nfs-common
+K01atd		 K01irqbalance	K01open-vm-tools	K01smbd		      K06rpcbind
+K01avahi-daemon  K01lightdm	K01openvpn		K01snmpd	      README
+K01bluetooth	 K01lldpd	K01pcscd		K01speech-dispatcher  S01killprocs
+K01exim4	 K01nmbd	K01pyro-nsd		K01stunnel4	      S02single
+K01fail2ban	 K01nscd	K01quotarpc		K01winbind	      S06bootlogs
+K01gdomap	 K01nslcd	K01samba-ad-dc		K01x2goserver	      S07bootchart-done
+
+/etc/rc2.d:
+K01gdomap	      S02fancontrol	      S04dbus	      S04rmnologin     S05lightdm
+K01ipmievd	      S02nvidia-persistenced  S04fail2ban     S04snmpd	       S06bootlogs
+K01nmbd		      S02open-vm-tools	      S04hddtemp      S04ssh	       S06cron
+K01openipmi	      S02pyro-nsd	      S04irqbalance   S04stunnel4      S06rsync
+K01smartmontools      S02rsyslog	      S04lldpd	      S04sysstat       S06saned
+K01smbd		      S02samba-ad-dc	      S04loadcpufreq  S04x2goserver    S06sysfsutils
+K01speech-dispatcher  S02sudo		      S04nscd	      S05atd	       S07bootchart-done
+K01winbind	      S03openvpn	      S04nslcd	      S05avahi-daemon  S07rc.local
+README		      S04acct		      S04ntp	      S05bluetooth
+S01console-setup.sh   S04acpid		      S04pcscd	      S05cpufrequtils
+S02binfmt-support     S04anacron	      S04quotarpc     S05exim4
+
+/etc/rc3.d:
+K01gdomap	      S02fancontrol	      S04dbus	      S04rmnologin     S05lightdm
+K01ipmievd	      S02nvidia-persistenced  S04fail2ban     S04snmpd	       S06bootlogs
+K01nmbd		      S02open-vm-tools	      S04hddtemp      S04ssh	       S06cron
+K01openipmi	      S02pyro-nsd	      S04irqbalance   S04stunnel4      S06rsync
+K01smartmontools      S02rsyslog	      S04lldpd	      S04sysstat       S06saned
+K01smbd		      S02samba-ad-dc	      S04loadcpufreq  S04x2goserver    S06sysfsutils
+K01speech-dispatcher  S02sudo		      S04nscd	      S05atd	       S07bootchart-done
+K01winbind	      S03openvpn	      S04nslcd	      S05avahi-daemon  S07rc.local
+README		      S04acct		      S04ntp	      S05bluetooth
+S01console-setup.sh   S04acpid		      S04pcscd	      S05cpufrequtils
+S02binfmt-support     S04anacron	      S04quotarpc     S05exim4
+
+/etc/rc4.d:
+K01gdomap	      S02fancontrol	      S04dbus	      S04rmnologin     S05lightdm
+K01ipmievd	      S02nvidia-persistenced  S04fail2ban     S04snmpd	       S06bootlogs
+K01nmbd		      S02open-vm-tools	      S04hddtemp      S04ssh	       S06cron
+K01openipmi	      S02pyro-nsd	      S04irqbalance   S04stunnel4      S06rsync
+K01smartmontools      S02rsyslog	      S04lldpd	      S04sysstat       S06saned
+K01smbd		      S02samba-ad-dc	      S04loadcpufreq  S04x2goserver    S06sysfsutils
+K01speech-dispatcher  S02sudo		      S04nscd	      S05atd	       S07bootchart-done
+K01winbind	      S03openvpn	      S04nslcd	      S05avahi-daemon  S07rc.local
+README		      S04acct		      S04ntp	      S05bluetooth
+S01console-setup.sh   S04acpid		      S04pcscd	      S05cpufrequtils
+S02binfmt-support     S04anacron	      S04quotarpc     S05exim4
+
+/etc/rc5.d:
+K01gdomap	      S02fancontrol	      S04dbus	      S04rmnologin     S05lightdm
+K01ipmievd	      S02nvidia-persistenced  S04fail2ban     S04snmpd	       S06bootlogs
+K01nmbd		      S02open-vm-tools	      S04hddtemp      S04ssh	       S06cron
+K01openipmi	      S02pyro-nsd	      S04irqbalance   S04stunnel4      S06rsync
+K01smartmontools      S02rsyslog	      S04lldpd	      S04sysstat       S06saned
+K01smbd		      S02samba-ad-dc	      S04loadcpufreq  S04x2goserver    S06sysfsutils
+K01speech-dispatcher  S02sudo		      S04nscd	      S05atd	       S07bootchart-done
+K01winbind	      S03openvpn	      S04nslcd	      S05avahi-daemon  S07rc.local
+README		      S04acct		      S04ntp	      S05bluetooth
+S01console-setup.sh   S04acpid		      S04pcscd	      S05cpufrequtils
+S02binfmt-support     S04anacron	      S04quotarpc     S05exim4
+
+/etc/rc6.d:
+K01acct		 K01ipmievd		 K01openvpn	       K01urandom	K07hwclock.sh
+K01alsa-utils	 K01irqbalance		 K01pcscd	       K01winbind	K07networking
+K01atd		 K01lightdm		 K01pyro-nsd	       K01x2goserver	K08umountfs
+K01avahi-daemon  K01lldpd		 K01quotarpc	       K02quota		K09umountroot
+K01bluetooth	 K01nmbd		 K01samba-ad-dc        K02udev		K10reboot
+K01brightness	 K01nscd		 K01saned	       K03sendsigs	README
+K01exim4	 K01nslcd		 K01smbd	       K04rsyslog
+K01fail2ban	 K01nvidia-persistenced  K01snmpd	       K05umountnfs.sh
+K01gdomap	 K01openipmi		 K01speech-dispatcher  K06nfs-common
+K01hddtemp	 K01open-vm-tools	 K01stunnel4	       K06rpcbind
+
+/etc/rcS.d:
+K15nfs-common	      S05hwclock.sh		 S11brightness		   S16alsa-utils
+K20quota	      S06checkroot.sh		 S11pppd-dns		   S16bootmisc.sh
+README		      S07checkfs.sh		 S11procps		   S16lm-sensors
+S01hostname.sh	      S08checkroot-bootclean.sh  S11urandom		   S16screen-cleanup
+S01mountkernfs.sh     S08kmod			 S12networking		   S16x11-common
+S02udev		      S09mountall.sh		 S13rpcbind
+S03keyboard-setup.sh  S10mountall-bootclean.sh	 S14mountnfs.sh
+S04mountdevsubfs.sh   S11apparmor		 S15mountnfs-bootclean.sh
+
+/etc/reader.conf.d:
+libccidtwin
+
+/etc/request-key.d:
+cifs.idmap.conf  cifs.spnego.conf  id_resolver.conf
+
+/etc/resolvconf:
+update-libc.d
+
+/etc/resolvconf/update-libc.d:
+avahi-daemon
+
+/etc/rlwrap:
+clojure1.2  clojure1.6
+
+/etc/rsyslog.d:
+
+/etc/runit:
+runsvdir
+
+/etc/runit/runsvdir:
+default
+
+/etc/runit/runsvdir/default:
+irqbalance
+
+/etc/samba:
+gdbcommands  smb.conf  tls
+
+/etc/samba/tls:
+
+/etc/sane.d:
+abaton.conf	     dc25.conf		 hpsj5s.conf	  net.conf	   st400.conf
+agfafocus.conf	     dell1600n_net.conf  hs2p.conf	  p5.conf	   stv680.conf
+apple.conf	     dll.conf		 ibm.conf	  pie.conf	   tamarack.conf
+artec.conf	     dll.d		 kodakaio.conf	  pieusb.conf	   teco1.conf
+artec_eplus48u.conf  dmc.conf		 kodak.conf	  pixma.conf	   teco2.conf
+avision.conf	     epjitsu.conf	 kvs1025.conf	  plustek.conf	   teco3.conf
+bh.conf		     epson2.conf	 leo.conf	  plustek_pp.conf  test.conf
+canon630u.conf	     epson.conf		 lexmark.conf	  qcam.conf	   u12.conf
+canon.conf	     epsonds.conf	 ma1509.conf	  ricoh.conf	   umax1220u.conf
+canon_dr.conf	     fujitsu.conf	 magicolor.conf   rts8891.conf	   umax.conf
+canon_pp.conf	     genesys.conf	 matsushita.conf  s9036.conf	   umax_pp.conf
+cardscan.conf	     gphoto2.conf	 microtek2.conf   saned.conf	   v4l.conf.dpkg-remove
+coolscan2.conf	     gt68xx.conf	 microtek.conf	  sceptre.conf	   xerox_mfp.conf
+coolscan3.conf	     hp3900.conf	 mustek.conf	  sharp.conf
+coolscan.conf	     hp4200.conf	 mustek_pp.conf   sm3840.conf
+dc210.conf	     hp5400.conf	 mustek_usb.conf  snapscan.conf
+dc240.conf	     hp.conf		 nec.conf	  sp15c.conf
+
+/etc/sane.d/dll.d:
+
+/etc/scite:
+abaqus.properties	 eiffel.properties     maxima.properties      ruby.properties
+abbrev.properties	 Embedded.properties   metapost.properties    rust.properties
+ada.properties		 erlang.properties     mmixal.properties      SciTEGlobal.properties
+asl.properties		 escript.properties    modula3.properties     SciTE.properties
+asm.properties		 flagship.properties   nim.properties	      scriptol.properties
+asn1.properties		 forth.properties      nimrod.properties      smalltalk.properties
+au3.properties		 fortran.properties    nncrontab.properties   sorcins.properties
+ave.properties		 freebasic.properties  nsis.properties	      specman.properties
+avs.properties		 gap.properties        opal.properties	      spice.properties
+baan.properties		 haskell.properties    oscript.properties     sql.properties
+blitzbasic.properties	 hex.properties        others.properties      tacl.properties
+bullant.properties	 html.properties       pascal.properties      tal.properties
+caml.properties		 inno.properties       perl.properties	      tcl.properties
+cmake.properties	 json.properties       pov.properties	      tex.properties
+cobol.properties	 kix.properties        powerpro.properties    txt2tags.properties
+coffeescript.properties  latex.properties      powershell.properties  vb.properties
+conf.properties		 lisp.properties       ps.properties	      verilog.properties
+cpp.properties		 lot.properties        purebasic.properties   vhdl.properties
+csound.properties	 lout.properties       python.properties      visualprolog.properties
+css.properties		 lua.properties        rebol.properties       yaml.properties
+d.properties		 markdown.properties   registry.properties
+ecl.properties		 matlab.properties     r.properties
+
+/etc/security:
+access.conf	 limits.conf	       limits.ssh.conf	namespace.init	sepermit.conf
+capability.conf  limits.conf.dpkg-old  namespace.conf	opasswd		time.conf
+group.conf	 limits.d	       namespace.d	pam_env.conf
+
+/etc/security/limits.d:
+
+/etc/security/namespace.d:
+
+/etc/selinux:
+semanage.conf
+
+/etc/sensors.d:
+
+/etc/sgml:
+catalog      docbook-xml.cat	  jade.cat	sgml-data.cat	   xml-core.cat
+docbook-xml  docutils-common.cat  openjade.cat	w3c-dtd-xhtml.cat
+
+/etc/sgml/docbook-xml:
+4.0  4.1.2  4.2  4.3  4.4  4.5
+
+/etc/sgml/docbook-xml/4.0:
+dbgenent.ent
+
+/etc/sgml/docbook-xml/4.1.2:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.2:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.3:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.4:
+dbgenent.mod
+
+/etc/sgml/docbook-xml/4.5:
+dbgenent.mod
+
+/etc/skel:
+
+/etc/smartmontools:
+run.d  smartd_warning.d
+
+/etc/smartmontools/run.d:
+10mail
+
+/etc/smartmontools/smartd_warning.d:
+
+/etc/snmp:
+snmp.conf  snmpd.conf  snmpd.conf.save
+
+/etc/sound:
+events
+
+/etc/sound/events:
+gnome-2.soundlist  gtk-events-2.soundlist
+
+/etc/speech-dispatcher:
+clients  modules  speechd.conf
+
+/etc/speech-dispatcher/clients:
+emacs.conf
+
+/etc/speech-dispatcher/modules:
+baratinoo.conf	   espeak-generic.conf		  flite.conf		  mary-generic.conf
+cicero.conf	   espeak-mbrola-generic.conf	  ibmtts.conf		  pico-generic.conf
+dtk-generic.conf   espeak-ng.conf		  ivona.conf		  swift-generic.conf
+epos-generic.conf  espeak-ng-mbrola-generic.conf  kali.conf
+espeak.conf	   festival.conf		  llia_phon-generic.conf
+
+/etc/ssh:
+moduli		     sshd_config.ucf-dist  ssh_host_ecdsa_key.pub    ssh_host_rsa_key.pub
+ssh_config	     ssh_host_dsa_key	   ssh_host_ed25519_key
+ssh_config.dpkg-old  ssh_host_dsa_key.pub  ssh_host_ed25519_key.pub
+sshd_config	     ssh_host_ecdsa_key    ssh_host_rsa_key
+
+/etc/ssl:
+cacert.pem  certs  openssl.cnf	private
+
+/etc/ssl/certs:
+ 02265526.0
+ 03179a64.0
+ 062cdee6.0
+ 064e0aa9.0
+ 06dc52d5.0
+ 07ec2cc8
+ 07ec2cc8.0
+ 080911ac.0
+ 09789157.0
+ 0a775a30.0
+ 0b1b94ef.0
+ 0bf05006.0
+ 0c4c9b6c.0
+ 0f5dc4f3.0
+ 0f6fa695.0
+ 1001acf7.0
+ 106f3e4d.0
+ 128805a3.0
+ 14bc7599.0
+ 1636090b.0
+ 18856ac4.0
+ 1d3472b9.0
+ 1e08bfd1.0
+ 1e09d511.0
+ 244b5494.0
+ 2923b3f9.0
+ 2ae6433e.0
+ 2b349938.0
+ 2e5ac55d.0
+ 32888f65.0
+ 349f2832.0
+ 3513523f.0
+ 3bde41ac.0
+ 3e44d2f7.0
+ 3e45d192.0
+ 40193066.0
+ 4042bcee.0
+ 40547a79.0
+ 406c9bb1.0
+ 4304c5e5.0
+ 48bec511.0
+ 4a6481c9.0
+ 4b718d9b.0
+ 4bfab552.0
+ 4f316efb.0
+ 5273a94c.0
+ 5443e9e3.0
+ 54657681.0
+ 57bcb2da.0
+ 5a4d6896.0
+ 5ad8a5d6.0
+ 5c44d531.0
+ 5cd81ad7.0
+ 5d3033c5.0
+ 5e98733a.0
+ 5f15c80c.0
+ 607986c7.0
+ 626dceaf.0
+ 6410666e.0
+ 653b494a.0
+ 68dd7389.0
+ 6b99d060.0
+ 6d41d539.0
+ 6fa5da56.0
+ 706f604c.0
+ 749e9e03.0
+ 75d1b2ed.0
+ 76cb8f92.0
+ 76faf6c0.0
+ 7719f463.0
+ 773e07ad.0
+ 7aaf71c0.0
+ 7f3d5d1d.0
+ 8160b96c.0
+ 8867006a.0
+ 8cb5ee0f.0
+ 8d86cdd1.0
+ 930ac5d2.0
+ 93bc0acc.0
+ 988a38cb.0
+ 9c2e7d30.0
+ 9c8dfbd4.0
+ 9d04f354.0
+ a3418fda.0
+ a94d09e5.0
+ ACCVRAIZ1.pem
+ AC_RAIZ_FNMT-RCM.pem
+ Actalis_Authentication_Root_CA.pem
+ aee5f10d.0
+ AffirmTrust_Commercial.pem
+ AffirmTrust_Networking.pem
+ AffirmTrust_Premium_ECC.pem
+ AffirmTrust_Premium.pem
+ Amazon_Root_CA_1.pem
+ Amazon_Root_CA_2.pem
+ Amazon_Root_CA_3.pem
+ Amazon_Root_CA_4.pem
+ Atos_TrustedRoot_2011.pem
+ Autoridad_de_Certificacion_Firmaprofesional_CIF_A62634068.pem
+ b0e59380.0
+ b1159c4c.0
+ b1b8a7f3.0
+ b66938e9.0
+ b727005e.0
+ b7a5b843.0
+ Baltimore_CyberTrust_Root.pem
+ Buypass_Class_2_Root_CA.pem
+ Buypass_Class_3_Root_CA.pem
+ c01eb047.0
+ c0ff1f52.0
+ c28a8a30.0
+ c47d9980.0
+ ca6e4ad9.0
+ ca-certificates.crt
+ CA_Disig_Root_R2.pem
+ cbf06781.0
+ cc450945.0
+ cd58d51e.0
+ cd8c0d63.0
+ ce5e74ef.0
+ Certigna.pem
+ Certigna_Root_CA.pem
+ certSIGN_ROOT_CA.pem
+ Certum_Trusted_Network_CA_2.pem
+ Certum_Trusted_Network_CA.pem
+ CFCA_EV_ROOT.pem
+ Chambers_of_Commerce_Root_-_2008.pem
+ Comodo_AAA_Services_root.pem
+ COMODO_Certification_Authority.pem
+ COMODO_ECC_Certification_Authority.pem
+ COMODO_RSA_Certification_Authority.pem
+ Cybertrust_Global_Root.pem
+ d4dae3dd.0
+ d6325660.0
+ d7e8dc79.0
+ d853d49e.0
+ dc4d6a89.0
+ dd8e9d41.0
+ de6d66f3.0
+ def36a68.0
+ DigiCert_Assured_ID_Root_CA.pem
+ DigiCert_Assured_ID_Root_G2.pem
+ DigiCert_Assured_ID_Root_G3.pem
+ DigiCert_Global_Root_CA.pem
+ DigiCert_Global_Root_G2.pem
+ DigiCert_Global_Root_G3.pem
+ DigiCert_High_Assurance_EV_Root_CA.pem
+ DigiCert_Trusted_Root_G4.pem
+ DST_Root_CA_X3.pem
+ D-TRUST_Root_Class_3_CA_2_2009.pem
+ D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+ e113c810.0
+ e18bfb83.0
+ e36a6752.0
+ e73d606e.0
+ e8de2f56.0
+ EC-ACC.pem
+ ee64a828.0
+ EE_Certification_Centre_Root_CA.pem
+ eed8c118.0
+ ef954a4e.0
+ emSign_ECC_Root_CA_-_C3.pem
+ emSign_ECC_Root_CA_-_G3.pem
+ emSign_Root_CA_-_C1.pem
+ emSign_Root_CA_-_G1.pem
+ Entrust.net_Premium_2048_Secure_Server_CA.pem
+ Entrust_Root_Certification_Authority_-_EC1.pem
+ Entrust_Root_Certification_Authority_-_G2.pem
+ Entrust_Root_Certification_Authority_-_G4.pem
+ Entrust_Root_Certification_Authority.pem
+ ePKI_Root_Certification_Authority.pem
+ E-Tugra_Certification_Authority.pem
+ f081611a.0
+ f0c70a8d.0
+ f30dd6ad.0
+ f3377b1b.0
+ f387163d.0
+ f39fc864.0
+ f51bb24c.0
+ fc5a8f99.0
+ fe8a2cd8.0
+ ff34af3f.0
+ GDCA_TrustAUTH_R5_ROOT.pem
+ GeoTrust_Universal_CA_2.pem
+ Global_Chambersign_Root_-_2008.pem
+ GlobalSign_ECC_Root_CA_-_R4.pem
+ GlobalSign_ECC_Root_CA_-_R5.pem
+ GlobalSign_Root_CA.pem
+ GlobalSign_Root_CA_-_R2.pem
+ GlobalSign_Root_CA_-_R3.pem
+ GlobalSign_Root_CA_-_R6.pem
+ Go_Daddy_Class_2_CA.pem
+ Go_Daddy_Root_Certificate_Authority_-_G2.pem
+ GTS_Root_R1.pem
+ GTS_Root_R2.pem
+ GTS_Root_R3.pem
+ GTS_Root_R4.pem
+ Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+ Hellenic_Academic_and_Research_Institutions_RootCA_2011.pem
+ Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+ Hongkong_Post_Root_CA_1.pem
+ Hongkong_Post_Root_CA_3.pem
+ IdenTrust_Commercial_Root_CA_1.pem
+ IdenTrust_Public_Sector_Root_CA_1.pem
+ ISRG_Root_X1.pem
+ Izenpe.com.pem
+ LuxTrust_Global_Root_2.pem
+ Microsec_e-Szigno_Root_CA_2009.pem
+'NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem'
+ Network_Solutions_Certificate_Authority.pem
+ OISTE_WISeKey_Global_Root_GA_CA.pem
+ OISTE_WISeKey_Global_Root_GB_CA.pem
+ OISTE_WISeKey_Global_Root_GC_CA.pem
+ QuoVadis_Root_CA_1_G3.pem
+ QuoVadis_Root_CA_2_G3.pem
+ QuoVadis_Root_CA_2.pem
+ QuoVadis_Root_CA_3_G3.pem
+ QuoVadis_Root_CA_3.pem
+ QuoVadis_Root_CA.pem
+ Secure_Global_CA.pem
+ SecureSign_RootCA11.pem
+ SecureTrust_CA.pem
+ Security_Communication_RootCA2.pem
+ Security_Communication_Root_CA.pem
+ Sonera_Class_2_Root_CA.pem
+ ssl-cert-snakeoil.pem
+ SSL.com_EV_Root_Certification_Authority_ECC.pem
+ SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+ SSL.com_Root_Certification_Authority_ECC.pem
+ SSL.com_Root_Certification_Authority_RSA.pem
+ Staat_der_Nederlanden_EV_Root_CA.pem
+ Staat_der_Nederlanden_Root_CA_-_G2.pem
+ Staat_der_Nederlanden_Root_CA_-_G3.pem
+ Starfield_Class_2_CA.pem
+ Starfield_Root_Certificate_Authority_-_G2.pem
+ Starfield_Services_Root_Certificate_Authority_-_G2.pem
+ SwissSign_Gold_CA_-_G2.pem
+ SwissSign_Silver_CA_-_G2.pem
+ SZAFIR_ROOT_CA2.pem
+ Taiwan_GRCA.pem
+ TeliaSonera_Root_CA_v1.pem
+ TrustCor_ECA-1.pem
+ TrustCor_RootCert_CA-1.pem
+ TrustCor_RootCert_CA-2.pem
+ Trustis_FPS_Root_CA.pem
+ T-TeleSec_GlobalRoot_Class_2.pem
+ T-TeleSec_GlobalRoot_Class_3.pem
+ TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+ TWCA_Global_Root_CA.pem
+ TWCA_Root_Certification_Authority.pem
+ UCA_Extended_Validation_Root.pem
+ UCA_Global_G2_Root.pem
+ USERTrust_ECC_Certification_Authority.pem
+ USERTrust_RSA_Certification_Authority.pem
+ Verisign_Class_3_Public_Primary_Certification_Authority_-_G3.pem
+ XRamp_Global_CA_Root.pem
+ls: cannot open directory '/etc/ssl/private': Permission denied
+
+/etc/stunnel:
+README
+
+/etc/subversion:
+config	servers
+
+/etc/sudoers.d:
+cs424  README  x2goserver
+
+/etc/sv:
+irqbalance
+
+/etc/sv/irqbalance:
+run  supervise
+
+/etc/sysctl.d:
+00-perf.conf  99-sysctl.conf  core-dump.conf  protect-links.conf  README.sysctl
+
+/etc/sysfs.d:
+
+/etc/sysstat:
+sysstat  sysstat.ioconf
+
+/etc/systemd:
+journald.conf		 network	sleep.conf	user
+journald.conf.dpkg-dist  networkd.conf	system		user.conf
+logind.conf		 pstore.conf	system.conf	user.conf.dpkg-dist
+logind.conf.dpkg-dist	 resolved.conf	timesyncd.conf	user.conf.save
+
+/etc/systemd/network:
+10-eth0.link
+
+/etc/systemd/system:
+acct.service.d				    mountnfs.service
+anacron.service.d			    multi-user.target.wants
+apparmor.service.d			    networking.service.d
+autovt@.service.d			    network-online.target.d
+backup.mount				    network-online.target.wants
+backup.mount.d				    nfs-client.target.d
+bluetooth.target.wants			    nfs-client.target.wants
+bootlogs.service			    nfs-idmapd.service.d
+bootmisc.service			    nfs-idmapd.service.requires
+brightness.service			    nfs-mounts.service
+checkfs.service				    nfs-server.service.wants
+checkroot-bootclean.service		    nfs-utils.service.requires
+checkroot.service			    nmbd.service.d
+console-kit-daemon.service.d		    nscd.service.d
+console-kit-log-system-restart.service.d    nslcd.service.d
+console-kit-log-system-start.service.d	    open-vm-tools.service.d
+console-kit-log-system-stop.service.d	    paths.target.wants
+cron.service.d				    rc.local.service
+dbus-fi.w1.wpa_supplicant1.service	    reboot.service
+dbus-org.freedesktop.ModemManager1.service  remote-fs-pre.target.wants
+dbus-org.freedesktop.timesync1.service	    remote-fs.target.requires
+default.target.wants			    rmnologin.service
+display-manager.service			    rpcbind.service.d
+exim4.service.d				    rpc-gssd.service.requires
+fail2ban.service.d			    rpc-statd.service.d
+getty@.service.d			    rpc-svcgssd.service.requires
+getty.target.requires			    rsyslog.service.d
+getty.target.wants			    samba-ad-dc.service
+go-mmproxy.service			    sendsigs.service
+go-mmproxy.service.d			    single.service
+graphical.target.wants			    smbd.service.d
+gssproxy.service.requires		    snmpd.service.d
+halt.service				    sockets.target.wants
+headless.service			    sshd.service
+hostname.service			    ssh.service.d
+import-linux1.mount			    sudo.service.d
+import-linux1.mount.d			    sysinit.target.wants
+import-linux.mount			    syslog.service
+import-linux.mount.d			    systemd-networkd-wait-online.service.d
+killprocs.service			    systemd-tmpfiles-setup.service.d
+lightdm.service.d			    timers.target.wants
+local-fs.target.d			    umountfs.service
+microchip.mount.d			    umountnfs.service
+mountall-bootclean.service		    umountroot.service
+mountall.service			    urandom.service
+mountdevsubfs.service			    var-log.mount.d
+mountkernfs.service			    vmtoolsd.service
+mountnfs-bootclean.service		    x2goserver.service.d
+
+/etc/systemd/system/acct.service.d:
+unit.conf
+
+/etc/systemd/system/anacron.service.d:
+mounts.conf
+ls: cannot open directory '/etc/systemd/system/apparmor.service.d': Permission denied
+
+/etc/systemd/system/backup.mount.d:
+unit.conf
+
+/etc/systemd/system/bluetooth.target.wants:
+bluetooth.service
+
+/etc/systemd/system/console-kit-daemon.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-restart.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-start.service.d:
+mounts.conf
+
+/etc/systemd/system/console-kit-log-system-stop.service.d:
+mounts.conf
+
+/etc/systemd/system/cron.service.d:
+mounts.conf
+
+/etc/systemd/system/default.target.wants:
+e2scrub_reap.service
+
+/etc/systemd/system/exim4.service.d:
+mounts.conf
+
+/etc/systemd/system/fail2ban.service.d:
+unit.conf
+
+/etc/systemd/system/getty@.service.d:
+notty.conf
+
+/etc/systemd/system/getty.target.requires:
+headless.service
+
+/etc/systemd/system/getty.target.wants:
+getty@tty1.service
+
+/etc/systemd/system/go-mmproxy.service.d:
+mm.conf
+
+/etc/systemd/system/graphical.target.wants:
+accounts-daemon.service  rtkit-daemon.service  udisks2.service
+
+/etc/systemd/system/gssproxy.service.requires:
+network-online.target
+
+/etc/systemd/system/import-linux1.mount.d:
+unit.conf
+
+/etc/systemd/system/import-linux.mount.d:
+mounts.conf
+
+/etc/systemd/system/lightdm.service.d:
+mount.conf
+
+/etc/systemd/system/local-fs.target.d:
+mounts.conf
+
+/etc/systemd/system/microchip.mount.d:
+mounts.conf
+
+/etc/systemd/system/multi-user.target.wants:
+anacron.service		ModemManager.service	     rpc-gssd.service
+atd.service		networking.service	     rsync.service
+avahi-daemon.service	nfs-client.target	     rsyslog.service
+binfmt-support.service	nscd.service		     snmpd.service
+console-setup.service	ntp.service		     ssh.service
+cron.service		nvidia-persistenced.service  sysstat.service
+fail2ban.service	open-vm-tools.service	     vboxautostart-service.service
+fancontrol.service	openvpn.service		     vboxballoonctrl-service.service
+go-mmproxy.service	pppd-dns.service	     vboxdrv.service
+irqbalance.service	quotarpc.service	     vboxweb-service.service
+lldpd.service		remote-fs.target	     wpa_supplicant.service
+lm-sensors.service	rpcbind.service		     x2goserver.service
+
+/etc/systemd/system/networking.service.d:
+service.conf
+
+/etc/systemd/system/network-online.target.d:
+unit.conf
+
+/etc/systemd/system/network-online.target.wants:
+networking.service  systemd-networkd-wait-online.service
+
+/etc/systemd/system/nfs-client.target.d:
+unit.conf
+
+/etc/systemd/system/nfs-client.target.wants:
+rpc-statd-notify.service
+
+/etc/systemd/system/nfs-idmapd.service.d:
+unit.conf
+
+/etc/systemd/system/nfs-idmapd.service.requires:
+network-online.target
+
+/etc/systemd/system/nfs-server.service.wants:
+rpc-statd.service
+
+/etc/systemd/system/nfs-utils.service.requires:
+network-online.target
+
+/etc/systemd/system/nmbd.service.d:
+mounts.conf
+
+/etc/systemd/system/nscd.service.d:
+unit.conf
+
+/etc/systemd/system/nslcd.service.d:
+unit.conf
+
+/etc/systemd/system/open-vm-tools.service.d:
+service.conf
+
+/etc/systemd/system/paths.target.wants:
+acpid.path
+
+/etc/systemd/system/remote-fs-pre.target.wants:
+rpcbind.target
+
+/etc/systemd/system/remote-fs.target.requires:
+nfs-mounts.service
+
+/etc/systemd/system/rpcbind.service.d:
+unit.conf
+
+/etc/systemd/system/rpc-gssd.service.requires:
+network-online.target
+
+/etc/systemd/system/rpc-statd.service.d:
+mounts.conf
+
+/etc/systemd/system/rpc-svcgssd.service.requires:
+network-online.target
+
+/etc/systemd/system/rsyslog.service.d:
+storage.conf
+
+/etc/systemd/system/smbd.service.d:
+mounts.conf
+
+/etc/systemd/system/snmpd.service.d:
+unit.conf
+
+/etc/systemd/system/sockets.target.wants:
+acpid.socket  avahi-daemon.socket  gpsd.socket	pcscd.socket  rpcbind.socket
+
+/etc/systemd/system/ssh.service.d:
+unit.conf
+
+/etc/systemd/system/sudo.service.d:
+mounts.conf
+
+/etc/systemd/system/sysinit.target.wants:
+apparmor.service  keyboard-setup.service  systemd-pstore.service  systemd-timesyncd.service
+
+/etc/systemd/system/systemd-networkd-wait-online.service.d:
+unit.conf
+
+/etc/systemd/system/systemd-tmpfiles-setup.service.d:
+mounts.conf
+
+/etc/systemd/system/timers.target.wants:
+anacron.timer	   exim4-base.timer  man-db.timer
+e2scrub_all.timer  logrotate.timer   phpsessionclean.timer
+
+/etc/systemd/system/var-log.mount.d:
+mounts.conf
+ls: cannot open directory '/etc/systemd/system/x2goserver.service.d': Permission denied
+
+/etc/systemd/user:
+default.target.wants  sockets.target.wants
+
+/etc/systemd/user/default.target.wants:
+pulseaudio.service
+
+/etc/systemd/user/sockets.target.wants:
+dirmngr.socket		  gpg-agent-extra.socket  gpg-agent-ssh.socket
+gpg-agent-browser.socket  gpg-agent.socket	  pulseaudio.socket
+
+/etc/terminfo:
+README
+
+/etc/tex4ht:
+tex4ht.env
+
+/etc/texmf:
+dvipdfmx  dvips  hyphen.d  tex	texdoctk  texmf.d  web2c
+
+/etc/texmf/dvipdfmx:
+
+/etc/texmf/dvips:
+config
+
+/etc/texmf/dvips/config:
+
+/etc/texmf/hyphen.d:
+
+/etc/texmf/tex:
+context  generic
+
+/etc/texmf/tex/context:
+user
+
+/etc/texmf/tex/context/user:
+cont-sys.rme
+
+/etc/texmf/tex/generic:
+config
+
+/etc/texmf/tex/generic/config:
+
+/etc/texmf/texdoctk:
+texdocrc.defaults
+
+/etc/texmf/texmf.d:
+00debian.cnf
+
+/etc/texmf/web2c:
+mktex.cnf  texmf.cnf
+
+/etc/thunderbird:
+pref
+
+/etc/thunderbird/pref:
+thunderbird.js
+
+/etc/tigervnc:
+ecparams.pem  ssleay.cnf
+
+/etc/timidity:
+freepats.cfg
+
+/etc/tmpfiles.d:
+acct.conf    home.local.conf  nfs-common.conf	   var-log.conf
+dbus.conf    legacy.conf      screen-cleanup.conf  var-spool-exim4.conf
+debian.conf  lightdm.conf     snmpd.conf	   var-work.conf
+home.conf    media.conf       ssh.conf		   x2go.conf
+
+/etc/udev:
+hwdb.d	rules.d  udev.conf
+
+/etc/udev/hwdb.d:
+
+/etc/udev/rules.d:
+1-jtag-rule.rules   60-vboxdrv.rules	     99-usb-power.rules  z010_mchp_tools.rules
+50-paparazzi.rules  80-net-setup-link.rules  wis-ezusb.rules
+
+/etc/udisks2:
+udisks2.conf
+
+/etc/ufw:
+applications.d
+
+/etc/ufw/applications.d:
+openssh-server	samba
+
+/etc/update-motd.d:
+10-uname
+
+/etc/UPower:
+UPower.conf
+
+/etc/usb_modeswitch.d:
+
+/etc/vbox:
+
+/etc/vim:
+gvimrc	vimrc  vimrc.tiny
+
+/etc/visualvm:
+visualvm.clusters  visualvm.conf
+
+/etc/vmware-tools:
+guestproxy-ssl.conf  quiesce_manifest.xml  statechange.subr    tools.conf.dpkg-old  vgauth
+poweroff-vm-default  resume-vm-default	   suspend-vm-default  tools.conf.example   vgauth.conf
+poweron-vm-default   scripts		   tools.conf	       tools.conf.old	    vm-support
+
+/etc/vmware-tools/scripts:
+vmware
+
+/etc/vmware-tools/scripts/vmware:
+network
+
+/etc/vmware-tools/vgauth:
+schemas
+
+/etc/vmware-tools/vgauth/schemas:
+catalog.xml		       xmldsig-core-schema.xsd		  XMLSchema.xsd
+datatypes.dtd		       XMLSchema.dtd			  xml.xsd
+saml-schema-assertion-2.0.xsd  XMLSchema-hasFacetAndProperty.xsd
+xenc-schema.xsd		       XMLSchema-instance.xsd
+
+/etc/vulkan:
+explicit_layer.d  icd.d  implicit_layer.d
+
+/etc/vulkan/explicit_layer.d:
+
+/etc/vulkan/icd.d:
+
+/etc/vulkan/implicit_layer.d:
+
+/etc/w3m:
+config	mailcap
+
+/etc/wildmidi:
+wildmidi.cfg
+
+/etc/wireshark:
+init.lua
+
+/etc/wpa_supplicant:
+action_wpa.sh  functions.sh  ifupdown.sh
+
+/etc/X11:
+app-defaults		 xorg.conf.g7				      xorg.conf.qxx-00
+conf			 xorg.conf.g7-00			      xorg.conf.radeon
+default-display-manager  xorg.conf.g7-00-nouveau		      Xreset
+fonts			 xorg.conf.g7-00-nvidia			      Xreset.d
+rgb.txt			 xorg.conf.G98				      Xresources
+X			 xorg.conf.jessie-current-working-2016-12-28  Xsession
+xinit			 xorg.conf.lab				      Xsession.d
+xkb			 xorg.conf.nvidia			      Xsession.options
+xorg.conf		 xorg.conf.nvidia-xconfig-original	      xsm
+xorg.conf.backup	 xorg.conf.omega			      XvMCConfig
+xorg.conf.basic		 xorg.conf.optimus			      Xvnc-session
+xorg.conf.class00	 xorg.conf.optimus-w			      Xwrapper.config
+
+/etc/X11/app-defaults:
+Bitmap	       GV		 Viewres	XConsole	Xgc	     Xmessage
+Bitmap-color   GXditview	 Viewres-color	Xditview	Xgc-color    Xmessage-color
+Bitmap-nocase  GXditview-color	 XCalc		Xditview-chrtr	XLoad	     XMore
+Clock-color    KOI8RXTerm	 XCalc-color	Xedit		XLogo	     XSm
+Ddd	       KOI8RXTerm-color  XClipboard	Xedit-color	XLogo-color  XTerm
+Editres        UXTerm		 XClock		Xfd		Xmag	     XTerm-color
+Editres-color  UXTerm-color	 XClock-color	XFontSel	Xman	     Xvidtune
+
+/etc/X11/conf:
+
+/etc/X11/fonts:
+100dpi	75dpi  misc  Type1
+
+/etc/X11/fonts/100dpi:
+xfonts-100dpi.alias
+
+/etc/X11/fonts/75dpi:
+xfonts-75dpi.alias
+
+/etc/X11/fonts/misc:
+xfonts-base.alias
+
+/etc/X11/fonts/Type1:
+gsfonts-x11.alias  gsfonts-x11.scale  lmodern.scale  tex-gyre.scale  xfonts-scalable.scale
+
+/etc/X11/xinit:
+xinitrc  xserverrc
+
+/etc/X11/xkb:
+
+/etc/X11/Xreset.d:
+README
+
+/etc/X11/Xresources:
+x11-common  xpdf
+
+/etc/X11/Xsession.d:
+20dbus_xdg-runtime		54xfce4-umask	    90qt-a11y
+20x11-common_process-args	55xfce4-session     90x11-common_ssh-agent
+30x11-common_xresources		60xbrlapi	    95dbus_update-activation-env
+35x11-common_xhost-local	75dbus_dbus-launch  99x11-common_start
+40x11-common_xsessionrc		90atk-adaptor
+50x11-common_determine-startup	90gpg-agent
+
+/etc/X11/xsm:
+system.xsm
+
+/etc/x2go:
+applications	x2goagent.options  x2go_logout.d    x2gosql	Xsession    Xsession.options
+keystrokes.cfg	x2go_logout	   x2goserver.conf  Xresources	Xsession.d
+
+/etc/x2go/x2go_logout.d:
+010_userscripts.sh
+
+/etc/x2go/x2gosql:
+passwords  sql	sql.postgres
+ls: cannot open directory '/etc/x2go/x2gosql/passwords': Permission denied
+
+/etc/xdg:
+accept-languages.codes	   kcoreaddons.categories	      kxmlgui.categories
+ark.categories		   kcrash.categories		      kxmlrpcclient.categories
+attica.categories	   kdbusaddons.categories	      kxmlrpcclient.renamecategories
+autostart		   kglobalaccel.categories	      menus
+cantor_kalgebra.knsrc	   kiconthemes.categories	      new-xfce4
+cantor.knsrc		   kidletime.categories		      okular.categories
+cantor_lua.knsrc	   kinit.categories		      org_kde_kwayland.categories
+cantor_octave.knsrc	   kio.categories		      save-xfce4
+cantor_qalculate.knsrc	   kitemmodels.categories	      solid.categories
+cantor_scilab.knsrc	   kjobwidgets.categories	      sonnet.categories
+drkonqi.categories	   knewstuff.categories		      systemd
+filelightrc		   knotifications.categories	      Thunar
+kactivities.categories	   kservice.categories		      tumbler
+karchive.categories	   kshorturifilterrc		      ui
+kauth.categories	   ktexteditor.categories	      user-dirs.conf
+kbookmarks.categories	   kwallet.categories		      user-dirs.defaults
+kcodecs.categories	   kwindowsystem.categories	      xfce4
+kconfigwidgets.categories  kwindowsystem.kwayland.categories
+
+/etc/xdg/autostart:
+at-spi-dbus-bus.desktop				     org.gnome.SettingsDaemon.Sharing.desktop
+geoclue-demo-agent.desktop			     org.gnome.SettingsDaemon.Smartcard.desktop
+gnome-keyring-pkcs11.desktop			     org.gnome.SettingsDaemon.Sound.desktop
+gnome-keyring-secrets.desktop			     org.gnome.SettingsDaemon.Wacom.desktop
+gnome-keyring-ssh.desktop			     org.gnome.SettingsDaemon.XSettings.desktop
+gsettings-data-convert.desktop			     polkit-gnome-authentication-agent-1.desktop
+light-locker.desktop				     print-applet.desktop
+orca-autostart.desktop				     pulseaudio.desktop
+org.gnome.SettingsDaemon.A11ySettings.desktop	     tracker-extract.desktop
+org.gnome.SettingsDaemon.Clipboard.desktop	     tracker-miner-apps.desktop
+org.gnome.SettingsDaemon.Color.desktop		     tracker-miner-fs.desktop
+org.gnome.SettingsDaemon.Datetime.desktop	     tracker-store.desktop
+org.gnome.SettingsDaemon.Housekeeping.desktop	     xdg-user-dirs.desktop
+org.gnome.SettingsDaemon.Keyboard.desktop	     xfce4-clipman-plugin-autostart.desktop
+org.gnome.SettingsDaemon.MediaKeys.desktop	     xfce4-notes-autostart.desktop
+org.gnome.SettingsDaemon.Mouse.desktop		     xfce4-power-manager.desktop
+org.gnome.SettingsDaemon.Power.desktop		     xfsettingsd.desktop
+org.gnome.SettingsDaemon.PrintNotifications.desktop  xscreensaver.desktop
+org.gnome.SettingsDaemon.Rfkill.desktop		     zeitgeist-datahub.desktop
+org.gnome.SettingsDaemon.ScreensaverProxy.desktop
+
+/etc/xdg/menus:
+gnome-applications.menu  kde-information.menu	xfce-applications.menu
+kde4-applications.menu	 kf5-applications.menu	xfce-settings-manager.menu
+
+/etc/xdg/new-xfce4:
+desktop  helpers.rc  panel  terminal  xfconf  xfwm4
+ls: cannot open directory '/etc/xdg/new-xfce4/desktop': Permission denied
+
+/etc/xdg/new-xfce4/panel:
+launcher-10  launcher-15  launcher-19  launcher-23  xfce4-mixer-plugin-16.rc
+launcher-11  launcher-17  launcher-21  launcher-5   xfce4-orageclock-plugin-24.rc
+launcher-12  launcher-18  launcher-22  launcher-9
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-10': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-11': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-12': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-15': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-17': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-18': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-19': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-21': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-22': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-23': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-5': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-9': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/terminal': Permission denied
+
+/etc/xdg/new-xfce4/xfconf:
+xfce-perchannel-xml
+ls: cannot open directory '/etc/xdg/new-xfce4/xfconf/xfce-perchannel-xml': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfwm4': Permission denied
+
+/etc/xdg/save-xfce4:
+helpers.rc  panel  xfconf  Xft.xrdb  xinitrc
+
+/etc/xdg/save-xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/save-xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/save-xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-panel.xml	       xfce4-session.xml
+xfce4-keyboard-shortcuts.xml  xfce4-power-manager.xml  xsettings.xml
+
+/etc/xdg/systemd:
+user
+
+/etc/xdg/Thunar:
+uca.xml
+
+/etc/xdg/tumbler:
+tumbler.rc
+
+/etc/xdg/ui:
+ui_standards.rc
+
+/etc/xdg/xfce4:
+helpers.rc  panel  whiskermenu	xfconf	Xft.xrdb  xinitrc
+
+/etc/xdg/xfce4/panel:
+default.xml  xfce4-clipman-actions.xml
+
+/etc/xdg/xfce4/whiskermenu:
+defaults.rc
+
+/etc/xdg/xfce4/xfconf:
+xfce-perchannel-xml
+
+/etc/xdg/xfce4/xfconf/xfce-perchannel-xml:
+thunar-volman.xml	      xfce4-power-manager.xml  xsettings.xml
+xfce4-keyboard-shortcuts.xml  xfce4-session.xml
+
+/etc/xfce4:
+defaults.list
+
+/etc/xml:
+catalog		    docbook-xml.xml.old      rarian-compat.xml	    w3c-dtd-xhtml.xml
+catalog.old	    docbook-xsl.xml	     rarian-compat.xml.old  w3c-dtd-xhtml.xml.old
+dia-common.xml	    docbook-xsl.xml.old      resolver		    xml-core.xml
+dia-common.xml.old  docutils-common.xml      sgml-data.xml	    xml-core.xml.old
+docbook-xml.xml     docutils-common.xml.old  sgml-data.xml.old
+
+/etc/xml/resolver:
+CatalogManager.properties
+
+/etc/xpdf:
+includes  xpdfrc
+
+/etc/zsh:
+newuser.zshrc.recommended  zlogin  zlogout  zprofile  zshenv  zshrc
+awalley1@remote01:~/i220a/submit/lab3$ ls -R /etc[D[D[D[D[D[D[D[D[D[Dcat bin-c.log | wc -l[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[11Pls -R /etc | wc-l
+bash: wc-l: command not found
+awalley1@remote01:~/i220a/submit/lab3$ ls -R /etc | wc-l[D[D -l[D[D
+ls: cannot open directory '/etc/polkit-1/localauthority': Permission denied
+ls: cannot open directory '/etc/ssl/private': Permission denied
+ls: cannot open directory '/etc/systemd/system/apparmor.service.d': Permission denied
+ls: cannot open directory '/etc/systemd/system/x2goserver.service.d': Permission denied
+ls: cannot open directory '/etc/x2go/x2gosql/passwords': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/desktop': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-10': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-11': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-12': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-15': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-17': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-18': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-19': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-21': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-22': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-23': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-5': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/panel/launcher-9': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/terminal': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfconf/xfce-perchannel-xml': Permission denied
+ls: cannot open directory '/etc/xdg/new-xfce4/xfwm4': Permission denied
+5199
+awalley1@remote01:~/i220a/submit/lab3$ man tr
+TR(1)                                    User Commands                                   TR(1)[m
+[m
+[1mNAME[0m[m
+       tr - translate or delete characters[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mtr[0m [[4mOPTION[m]... [4mSET1[m [[4mSET2[m][m
+[m
+[1mDESCRIPTION[0m[m
+       Translate,  squeeze,  and/or delete characters from standard input, writing to standard[m
+       output.[m
+[m
+       [1m-c[0m, [1m-C[0m, [1m--complement[0m[m
+              use the complement of SET1[m
+[m
+       [1m-d[0m, [1m--delete[0m[m
+              delete characters in SET1, do not translate[m
+[m
+       [1m-s[0m, [1m--squeeze-repeats[0m[m
+              replace each sequence of a repeated character that is listed in the last  speci‐[m
+              fied SET, with a single occurrence of that character[m
+[m
+       [1m-t[0m, [1m--truncate-set1[0m[m
+              first truncate SET1 to length of SET2[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[m
+       SETs  are  specified as strings of characters.  Most represent themselves.  Interpreted[m
+       sequences are:[m
+[m
+[7m Manual page tr(1) line 1 (press h for help or q to quit)[m[K[K       \NNN   character with octal value NNN (1 to 3 octal digits)[m
+[m
+       \\     backslash[m
+[m
+       \a     audible BEL[m
+[m
+       \b     backspace[m
+[m
+       \f     form feed[m
+[m
+       \n     new line[m
+[m
+       \r     return[m
+[m
+       \t     horizontal tab[m
+[m
+       \v     vertical tab[m
+[m
+       CHAR1-CHAR2[m
+              all characters from CHAR1 to CHAR2 in ascending order[m
+[m
+       [CHAR*][m
+              in SET2, copies of CHAR until length of SET1[m
+[m
+       [CHAR*REPEAT][m
+              REPEAT copies of CHAR, REPEAT octal if starting with 0[m
+[m
+       [:alnum:][m
+              all letters and digits[m
+[m
+       [:alpha:][m
+              all letters[m
+[m
+[7m Manual page tr(1) line 34 (press h for help or q to quit)[m[K[K       [:blank:][m
+              all horizontal whitespace[m
+[m
+       [:cntrl:][m
+              all control characters[m
+[m
+       [:digit:][m
+              all digits[m
+[m
+       [:graph:][m
+              all printable characters, not including space[m
+[m
+       [:lower:][m
+              all lower case letters[m
+[m
+       [:print:][m
+              all printable characters, including space[m
+[m
+       [:punct:][m
+              all punctuation characters[m
+[m
+       [:space:][m
+              all horizontal or vertical whitespace[m
+[m
+       [:upper:][m
+              all upper case letters[m
+[m
+       [:xdigit:][m
+              all hexadecimal digits[m
+[m
+       [=CHAR=][m
+              all characters which are equivalent to CHAR[m
+[m
+[7m Manual page tr(1) line 67 (press h for help or q to quit)[m[K[K       Translation occurs if [1m-d[0m is not given and both SET1 and SET2 appear.  [1m-t[0m  may  be  used[m
+       only  when translating.  SET2 is extended to length of SET1 by repeating its last char‐[m
+       acter as necessary.  Excess characters of SET2 are ignored.  Only [:lower:]  and  [:up‐[m
+       per:] are guaranteed to expand in ascending order; used in SET2 while translating, they[m
+       may only be used in pairs to specify case conversion.  [1m-s[0m uses the last specified  SET,[m
+       and occurs after translation or deletion.[m
+[m
+[1mAUTHOR[0m[m
+       Written by Jim Meyering.[m
+[m
+[1mREPORTING[0m [1mBUGS[0m[m
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>[m
+       Report tr translation bugs to <https://translationproject.org/team/>[m
+[m
+[1mCOPYRIGHT[0m[m
+       Copyright  ©  2018 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or[m
+       later <https://gnu.org/licenses/gpl.html>.[m
+       This is free software: you are free to change and redistribute it.  There  is  NO  WAR‐[m
+       RANTY, to the extent permitted by law.[m
+[m
+[1mSEE[0m [1mALSO[0m[m
+       Full documentation at: <https://www.gnu.org/software/coreutils/tr>[m
+       or available locally via: info '(coreutils) tr invocation'[m
+[m
+GNU coreutils 8.30                       February 2019                                   TR(1)[m
+[7m Manual page tr(1) line 92/124 (END) (press h for help or q to quit)[m[K[K[K[7m Manual page tr(1) line 92/124 (END) (press h for help or q to quit)[m[K[K/[Ku[Du[Kp[Dp[Kp[Dp[Ke[De[Kr[Dr[K[1;1H              all upper case letters[m
+[2;1H[m
+[3;1H       [:xdigit:][m
+[4;1H              all hexadecimal digits[m
+[5;1H[m
+[6;1H       [=CHAR=][m
+[7;1H              all characters which are equivalent to CHAR[m
+[8;1H[m
+[9;1H       Translation occurs if [1m-d[0m is not given and both SET1 and SET2 appear.  [1m-t[0m  may  be  used[m
+[10;1H       only  when translating.  SET2 is extended to length of SET1 by repeating its last char‐[m
+[11;1H       acter as necessary.  Excess characters of SET2 are ignored.  Only [:lower:]  and  [:up‐[m
+[12;1H       per:] are guaranteed to expand in ascending order; used in SET2 while translating, they[m
+[13;1H       may only be used in pairs to specify case conversion.  [1m-s[0m uses the last specified  SET,[m
+[14;1H       and occurs after translation or deletion.[m
+[15;1H[m
+[16;1H[1mAUTHOR[0m[m
+[17;1H       Written by Jim Meyering.[m
+[18;1H[m
+[19;1H[1mREPORTING[0m [1mBUGS[0m[m
+[20;1H       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>[m
+[21;1H       Report tr translation bugs to <https://translationproject.org/team/>[m
+[22;1H[m
+[23;1H[1mCOPYRIGHT[0m[m
+[24;1H       Copyright  ©  2018 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or[m
+[25;1H       later <https://gnu.org/licenses/gpl.html>.[m
+[26;1H       This is free software: you are free to change and redistribute it.  There  is  NO  WAR‐[m
+[27;1H       RANTY, to the extent permitted by law.[m
+[28;1H[m
+[29;1H[1mSEE[0m [1mALSO[0m[m
+[30;1H       Full documentation at: <https://www.gnu.org/software/coreutils/tr>[m
+[31;1H       or available locally via: info '(coreutils) tr invocation'[m
+[32;1H[m
+[33;1HGNU coreutils 8.30                       February 2019                                   TR(1)[m
+[34;1H[1;1H              all [7mupper[m case letters[m
+[2;1H[m
+[3;1H       [:xdigit:][m
+[4;1H              all hexadecimal digits[m
+[5;1H[m
+[6;1H       [=CHAR=][m
+[7;1H              all characters which are equivalent to CHAR[m
+[8;1H[m
+[9;1H       Translation occurs if [1m-d[0m is not given and both SET1 and SET2 appear.  [1m-t[0m  may  be  used[m
+[10;1H       only  when translating.  SET2 is extended to length of SET1 by repeating its last char‐[m
+[11;1H       acter as necessary.  Excess characters of SET2 are ignored.  Only [:lower:]  and  [:up‐[m
+[12;1H       per:] are guaranteed to expand in ascending order; used in SET2 while translating, they[m
+[13;1H       may only be used in pairs to specify case conversion.  [1m-s[0m uses the last specified  SET,[m
+[14;1H       and occurs after translation or deletion.[m
+[15;1H[m
+[16;1H[1mAUTHOR[0m[m
+[17;1H       Written by Jim Meyering.[m
+[18;1H[m
+[19;1H[1mREPORTING[0m [1mBUGS[0m[m
+[20;1H       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>[m
+[21;1H       Report tr translation bugs to <https://translationproject.org/team/>[m
+[22;1H[m
+[23;1H[1mCOPYRIGHT[0m[m
+[24;1H       Copyright  ©  2018 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or[m
+[25;1H       later <https://gnu.org/licenses/gpl.html>.[m
+[26;1H       This is free software: you are free to change and redistribute it.  There  is  NO  WAR‐[m
+[27;1H       RANTY, to the extent permitted by law.[m
+[28;1H[m
+[29;1H[1mSEE[0m [1mALSO[0m[m
+[30;1H       Full documentation at: <https://www.gnu.org/software/coreutils/tr>[m
+[31;1H       or available locally via: info '(coreutils) tr invocation'[m
+[32;1H[m
+[33;1HGNU coreutils 8.30                       February 2019                                   TR(1)[m
+[34;1H[K[7m Manual page tr(1) line 92/124 (END) (press h for help or q to quit)[m[K[Kawalley1@remote01:~/i220a/submit/lab3$ tr a
+tr: missing operand after ‘a’
+Two strings must be given when translating.
+Try 'tr --help' for more information.
+awalley1@remote01:~/i220a/submit/lab3$ tr a[D-a[Dca[D a[D[C [:upper:]
+tr: misaligned [:upper:] and/or [:lower:] construct
+awalley1@remote01:~/i220a/submit/lab3$ tr -c a [:upper:][D[D[D[D[D[D[D[D[D[D[D[D[C[1@ [D[1@[[1@:[1@l[1@o[1@w[1@e[1@r[1@:[1@]
+tr: extra operand ‘[:upper:]’
+Try 'tr --help' for more information.
+awalley1@remote01:~/i220a/submit/lab3$ tr -c [:lower:] a [:upper:][D[D[C[C[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K
+a
+A
+aaaaawalley1@remote01:~/i220a/s

@@ -1,0 +1,9 @@
+/bin/cat
+/bin/chacl
+/bin/chgrp
+/bin/chmod
+/bin/chown
+/bin/chvt
+/bin/cp
+/bin/cpio
+/bin/csh
