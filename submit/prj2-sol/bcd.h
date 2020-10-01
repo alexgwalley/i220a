@@ -130,4 +130,8 @@ Bcd bcd_add(Bcd x, Bcd y, BcdError *error);
  */
 Bcd bcd_multiply(Bcd x, Bcd y, BcdError *error);
 
+
+char get_bcd_digit(Bcd num, int digitIndex);
+void set_bcd_digit(Bcd* num, int digitIndex, char toSet);
+
 #endif //ifndef BCD_H_

@@ -16,8 +16,21 @@
 Bcd
 binary_to_bcd(Binary value, BcdError *error)
 {
-  //@TODO
-  return 0;
+  Bcd res = 0;
+  int index = 0;
+  while(res != 0){
+	if(index > MAX_BCD_DIGITS){
+		*error = OVERFLOW_ERR;
+		break;
+	}
+	char digit = res % 10;
+	/* printf("binary_to_bcd_res: %" BCD_FORMAT_MODIFIER , res); */
+	res /= 10;
+	set_bcd_digit(&res, index, digit);
+	index ++;
+  }
+
+  return res;
 }
 
 /** Return binary encoding of BCD value bcd.
@@ -32,8 +45,22 @@ binary_to_bcd(Binary value, BcdError *error)
 Binary
 bcd_to_binary(Binary bcd, BcdError *error)
 {
-  //@TODO
-  return 0;
+  /* printf("Start of bcd_to_binary\n"); */
+  Binary res = 0; 
+  int pow = 1;
+  while(bcd > 0){
+	char digit = bcd & 0xf;
+	/* printf("bcd_to_binary_bcd: 0x%08" BCD_FORMAT_MODIFIER "x\n", bcd); */
+	bcd >>= 4;
+	if(digit > 0x9){
+		/* printf("Error:Invalid digit!\n"); */
+		*error = BAD_VALUE_ERR;
+		break;
+	}
+ 	res += digit*pow;
+	pow *= 10;	
+  }
+  return res;
 }
 
 /** Return BCD encoding of decimal number corresponding to string s.
@@ -46,8 +73,21 @@ bcd_to_binary(Binary bcd, BcdError *error)
 Bcd
 str_to_bcd(const char *s, const char **p, BcdError *error)
 {
-  //@TODO
-  return 0;
+  Bcd res = 0;
+  int index = 0;
+  *p = s;
+  while((*p)++ && s[index] != '\0'){
+	char digit = s[index] - '0';
+	if(!isdigit(s[index])) break;	
+	if(index > MAX_BCD_DIGITS){
+		*error = OVERFLOW_ERR;
+		break;
+	}
+	set_bcd_digit(&res, digit, 0);	
+	res <<= 4;
+	index++;
+  }
+  return res;
 }
 
 /** Convert bcd to a NUL-terminated string in buf[] without any
@@ -62,8 +102,25 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
 int
 bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
 {
-  //@TODO
-  return 0;
+  int numCharWritten = 0;
+  if(bufSize < BCD_BUF_SIZE){
+	*error = OVERFLOW_ERR;
+	return numCharWritten;
+  } 
+
+  int index = 0;
+  while(index < bufSize){
+	char digit = get_bcd_digit(bcd, index);
+	if(digit > 0x9){
+		*error = BAD_VALUE_ERR;
+		break;
+	}
+	buf[index] = digit + '0';
+	index ++;
+  }
+
+  buf[bufSize] = '\0';
+  return numCharWritten;
 }
 
 /** Return the BCD representation of the sum of BCD int's x and y.
@@ -90,4 +147,12 @@ bcd_multiply(Bcd x, Bcd y, BcdError *error)
 {
   //@TODO
   return 0;
+}
+
+char get_bcd_digit(Bcd num, int digitIndex){
+	return (num << digitIndex*4) & 0xf;
+}
+
+void set_bcd_digit(Bcd* num, int digitIndex, char toSet){
+	*num |= toSet << (digitIndex*4);
 }
