@@ -10,7 +10,7 @@ char get_bcd_digit(Bcd num, int digitIndex){
 }
 
 void set_bcd_digit(Bcd* num, int digitIndex, char toSet){
-	*num |= toSet << (digitIndex*4);
+	*num |= (Bcd)toSet << (digitIndex*4);
 }
 
 /** Return BCD encoding of binary (which has normal binary representation).
@@ -28,8 +28,8 @@ binary_to_bcd(Binary value, BcdError *error)
   int index = 0;
 
   while(value != 0){
-	if(index > MAX_BCD_DIGITS){
-		*error = OVERFLOW_ERR;
+	if(index >= MAX_BCD_DIGITS){
+		if(error != NULL) *error = OVERFLOW_ERR;
 		break;
 	}
 	char digit = value % 10;
@@ -62,7 +62,7 @@ bcd_to_binary(Binary bcd, BcdError *error)
 	bcd >>= 4;
 	if(digit > 0x9){
 		/* printf("Error:Invalid digit!\n"); */
-		*error = BAD_VALUE_ERR;
+		if(error != NULL) *error = BAD_VALUE_ERR;
 		break;
 	}
  	res += digit*pow;
@@ -86,23 +86,21 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
   int index = 0;
   *p = s;
 
-  while(s[index] != '\0'){
+  while(*(*p++) != '\0'){
 	/* Convert char to binary */
-	char digit = s[index] - '0';
+	char digit = **p - '0';
 
 	/* Check if is valid digit */
-	if(!isdigit(s[index])) break;	
-	if(index > MAX_BCD_DIGITS){
-		*error = OVERFLOW_ERR;
+	if(!isdigit(**p)) break;	
+	if(index >= MAX_BCD_DIGITS){
+		if(error != NULL) *error = OVERFLOW_ERR;
 		break;
 	}
 	
 	/* Set digit */
-	set_bcd_digit(&res, digit, 0);	
+	set_bcd_digit(&res, 0, digit);	
  	res <<= 4;	
 
-	index ++;
-	*p ++;
   }
 
   return res;
@@ -115,29 +113,27 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
  *
  *  If error is not NULL, sets *error to BAD_VALUE_ERR is bcd contains
  *  a BCD digit which is greater than 9, OVERFLOW_ERR if bufSize bytes
- *  is greater than BCD_BUF_SIZE, otherwise *error is unchanged.
+ *  is less than BCD_BUF_SIZE, otherwise *error is unchanged.
  */
 int
 bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
 {
   int numCharWritten = 0;
-  if(bufSize > BCD_BUF_SIZE){
-	*error = OVERFLOW_ERR;
+  if(bufSize < BCD_BUF_SIZE){
+	if(error != NULL) *error = OVERFLOW_ERR;
 	return numCharWritten;
   } 
 
-  int index = 0;
-  while(index < bufSize){
-	char digit_bin = get_bcd_digit(bcd, index);
-	if(digit_bin > 0x9){
-		*error = BAD_VALUE_ERR;
-		break;
+  for (int i = 0; i < bufSize; i++) {
+	if (get_bcd_digit(bcd, i) > 0x9) {
+		if (error != NULL) *error = BAD_VALUE_ERR;
+		return 0;
 	}
-	buf[index] = digit_bin + '0';
-	index ++;
-  }
+  } 
 
-  buf[bufSize] = '\0';
+  Binary bin = bcd_to_binary (bcd, error); 
+  numCharWritten = snprintf(buf, bufSize, "%x", bin);
+
   return numCharWritten;
 }
 
