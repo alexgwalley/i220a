@@ -86,7 +86,6 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
   int index = 0;
   *p = s;
 
-  printf ("String: %s\n", s);
   while(**p != '\0'){
 	/* Convert char to binary */
 	char digit = **p - '0';
@@ -98,7 +97,6 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
 		break;
 	}
 	
-	printf ("NUM: 0x"BCD_FORMAT_MODIFIER"\n", res);
 	/* Set digit */
  	res <<= 4;	
 	set_bcd_digit(&res, 0, (Bcd)digit);	
@@ -107,7 +105,6 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
 	index ++;
   }
 
-  printf ("RES: 0x%x\n", res);
   return res;
 }
 
@@ -137,8 +134,7 @@ bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
   } 
 
   Binary bin = bcd_to_binary (bcd, error); 
-  numCharWritten = snprintf(buf, bufSize, BCD_FORMAT_MODIFIER, bin);
-
+  numCharWritten = snprintf(buf, bufSize, "%d" BCD_FORMAT_MODIFIER, bin);
   return numCharWritten;
 }
 
