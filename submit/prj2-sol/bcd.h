@@ -132,6 +132,6 @@ Bcd bcd_multiply(Bcd x, Bcd y, BcdError *error);
 
 
 char get_bcd_digit(Bcd num, int digitIndex);
-void set_bcd_digit(Bcd* num, int digitIndex, char toSet);
+void set_bcd_digit(Bcd* num, int digitIndex, Bcd toSet);
 
 #endif //ifndef BCD_H_

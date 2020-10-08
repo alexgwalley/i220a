@@ -9,8 +9,8 @@ char get_bcd_digit(Bcd num, int digitIndex){
 	return (num >> digitIndex*4) & 0xf;
 }
 
-void set_bcd_digit(Bcd* num, int digitIndex, char toSet){
-	*num |= (Bcd)toSet << (digitIndex*4);
+void set_bcd_digit(Bcd* num, int digitIndex, Bcd toSet){
+	*num |= (toSet&0xf) << (digitIndex*4);
 }
 
 /** Return BCD encoding of binary (which has normal binary representation).
@@ -35,7 +35,7 @@ binary_to_bcd(Binary value, BcdError *error)
 	char digit = value % 10;
 	/* printf("binary_to_bcd_res: %" BCD_FORMAT_MODIFIER , res); */
 	value /= 10;
-	set_bcd_digit(&res, index, digit);
+	set_bcd_digit(&res, index, (Bcd)digit);
 	index ++;
   }
   return res;
@@ -86,23 +86,28 @@ str_to_bcd(const char *s, const char **p, BcdError *error)
   int index = 0;
   *p = s;
 
-  while(*(*p++) != '\0'){
+  printf ("String: %s\n", s);
+  while(**p != '\0'){
 	/* Convert char to binary */
 	char digit = **p - '0';
-
+			
 	/* Check if is valid digit */
-	if(!isdigit(**p)) break;	
+	if(digit > 9) break;	
 	if(index >= MAX_BCD_DIGITS){
 		if(error != NULL) *error = OVERFLOW_ERR;
 		break;
 	}
 	
+	printf ("NUM: 0x"BCD_FORMAT_MODIFIER"\n", res);
 	/* Set digit */
-	set_bcd_digit(&res, 0, digit);	
  	res <<= 4;	
+	set_bcd_digit(&res, 0, (Bcd)digit);	
 
+	(*p)++;
+	index ++;
   }
 
+  printf ("RES: 0x%x\n", res);
   return res;
 }
 
@@ -132,7 +137,7 @@ bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
   } 
 
   Binary bin = bcd_to_binary (bcd, error); 
-  numCharWritten = snprintf(buf, bufSize, "%x", bin);
+  numCharWritten = snprintf(buf, bufSize, BCD_FORMAT_MODIFIER, bin);
 
   return numCharWritten;
 }
@@ -147,7 +152,11 @@ Bcd
 bcd_add(Bcd x, Bcd y, BcdError *error)
 {
   //@TODO
-  return 0;
+  Bcd sum = 0;
+  Binary x_bin = bcd_to_binary(x, error);
+  Binary y_bin = bcd_to_binary(y, error);
+  sum = binary_to_bcd (x_bin + y_bin, error);
+  return sum;
 }
 
 /** Return the BCD representation of the product of BCD int's x and y.
