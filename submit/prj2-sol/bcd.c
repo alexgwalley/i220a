@@ -134,7 +134,7 @@ bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
   } 
 
   Binary bin = bcd_to_binary (bcd, error); 
-  numCharWritten = snprintf(buf, bufSize, "%d" BCD_FORMAT_MODIFIER, bin);
+  numCharWritten = snprintf(buf, bufSize, "%" BCD_FORMAT_MODIFIER "d", bin);
   return numCharWritten;
 }
 
@@ -147,12 +147,9 @@ bcd_to_str(Bcd bcd, char buf[], size_t bufSize, BcdError *error)
 Bcd
 bcd_add(Bcd x, Bcd y, BcdError *error)
 {
-  //@TODO
-  Bcd sum = 0;
   Binary x_bin = bcd_to_binary(x, error);
   Binary y_bin = bcd_to_binary(y, error);
-  sum = binary_to_bcd (x_bin + y_bin, error);
-  return sum;
+  return binary_to_bcd (x_bin + y_bin, error);
 }
 
 /** Return the BCD representation of the product of BCD int's x and y.
@@ -164,7 +161,8 @@ bcd_add(Bcd x, Bcd y, BcdError *error)
 Bcd
 bcd_multiply(Bcd x, Bcd y, BcdError *error)
 {
-  //@TODO
-  return 0;
+  Binary x_bin = bcd_to_binary (x, error);
+  Binary y_bin = bcd_to_binary (y, error); 
+  return binary_to_bcd (x_bin * y_bin, error);
 }
 
