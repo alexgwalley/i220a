@@ -1,1 +1,1 @@
-int sym = 45;
+int sym;
