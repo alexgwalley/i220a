@@ -1,0 +1,1839 @@
+Script started on 2020-10-18 20:44:53-04:00 [TERM="xterm-256color" TTY="/dev/pts/13" COLUMNS="92" LINES="52"]
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+exercises  lab7.LOG
+awalley1@remote00:~/i220a/submit/lab7/exercises$ make
+make: *** No targets specified and no makefile found.  Stop.
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ./hello
+bash: ./hello: No such file or directory
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+exercises  lab7.LOG
+awalley1@remote00:~/i220a/submit/lab7/exercises$ cd exercises/
+awalley1@remote00:~/i220a/submit/lab7/exercises/exercises$ ls
+hello.c  Makefile  mystery.o
+awalley1@remote00:~/i220a/submit/lab7/exercises/exercises$ make
+cc -g -Wall  -std=c11    hello.c   -o hello
+cc -g -Wall  -std=c11 -S hello.c
+awalley1@remote00:~/i220a/submit/lab7/exercises/exercises$ cd[K[Kmv -[K.  ../[K[K[K[K../
+mv: cannot move '.' to '../.': Device or resource busy
+awalley1@remote00:~/i220a/submit/lab7/exercises/exercises$ cd ..
+awalley1@remote00:~/i220a/submit/lab7/exercises$ cd[K[Kmc[Kv exercises/ .
+mv: 'exercises/' and './exercises' are the same file
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+exercises  lab7.LOG
+awalley1@remote00:~/i220a/submit/lab7/exercises$ cd exercises/[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+exercises  lab7.LOG
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls exercises/
+hello  hello.c	hello.s  Makefile  mystery.o
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+exercises  lab7.LOG
+awalley1@remote00:~/i220a/submit/lab7/exercises$ mv *[K.[Kexercises/* .
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+exercises  hello  hello.c  hello.s  lab7.LOG  Makefile	mystery.o
+awalley1@remote00:~/i220a/submit/lab7/exercises$ cd s[K[K[K[Krm exercises/
+rm: cannot remove 'exercises/': Is a directory
+awalley1@remote00:~/i220a/submit/lab7/exercises$ make[K[K[K[Krm -r exercises/
+awalley1@remote00:~/i220a/submit/lab7/exercises$ make
+make: Nothing to be done for 'all'.
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+hello  hello.c	hello.s  lab7.LOG  Makefile  mystery.o
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ./hello 
+usage: ./hello NAME...
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ./hello alex
+hello alex
+awalley1@remote00:~/i220a/submit/lab7/exercises$ size hello
+   text	   data	    bss	    dec	    hex	filename
+   1874	    592	     48	   2514	    9d2	hello
+awalley1@remote00:~/i220a/submit/lab7/exercises$ size hello-hello[Chello hello
+Usage: size [option(s)] [file(s)]
+ Displays the sizes of sections inside binary files
+ If no input file(s) are specified, a.out is assumed
+ The options are:
+  -A|-B     --format={sysv|berkeley}  Select output style (default is berkeley)
+  -o|-d|-x  --radix={8|10|16}         Display numbers in octal, decimal or hex
+  -t        --totals                  Display the total sizes (Berkeley only)
+            --common                  Display total size for *COM* syms
+            --target=<bfdname>        Set the binary file format
+            @<file>                   Read options from <file>
+  -h        --help                    Display this information
+  -v        --version                 Display the program's version
+
+size: supported targets: elf64-x86-64 elf32-i386 elf32-iamcu elf32-x86-64 pei-i386 pei-x86-64 elf64-l1om elf64-k1om elf64-little elf64-big elf32-little elf32-big pe-x86-64 pe-bigobj-x86-64 pe-i386 plugin srec symbolsrec verilog tekhex binary ihex
+awalley1@remote00:~/i220a/submit/lab7/exercises$ sz[Kize -A hello
+hello  :
+section              size    addr
+.interp                28     680
+.note.ABI-tag          32     708
+.note.gnu.build-id     36     740
+.gnu.hash              48     776
+.dynsym               240     824
+.dynstr               152    1064
+.gnu.version           20    1216
+.gnu.version_r         32    1240
+.rela.dyn             240    1272
+.rela.plt              48    1512
+.init                  23    4096
+.plt                   48    4128
+.plt.got                8    4176
+.text                 513    4192
+.fini                   9    4708
+.rodata                33    8192
+.eh_frame_hdr          68    8228
+.eh_frame             296    8296
+.init_array             8   15848
+.fini_array             8   15856
+.dynamic              480   15864
+.got                   40   16344
+.got.plt               40   16384
+.data                  16   16424
+.bss                   48   16448
+.comment               28       0
+.debug_aranges         48       0
+.debug_info           860       0
+.debug_abbrev         287       0
+.debug_line           308       0
+.debug_str            608       0
+Total                4653
+
+
+awalley1@remote00:~/i220a/submit/lab7/exercises$ objdump -d hello > hello.objdump
+awalley1@remote00:~/i220a/submit/lab7/exercises$ vim hello.objdump 
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;52r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[52;1H"hello.objdump" 207L, 9918C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_ss[10;1H[38;5;130m    [mtart__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSEE[21;1H[38;5;130m    [mT_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSS[23;1H[38;5;130m    [mET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBB[28;1H[38;5;130m    [mC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_22[34;1H[38;5;130m    [m.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalii[42;1H[38;5;130m    [mze@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx[52;75H1,0-1[9CTop[1;5H[?25h[?12$p[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>[52;91H1,0-1[9CTop[1;5H[?25h[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>[52;96H1,0-1[9CTop[1;5H[?25h[27m[23m[29m[m[H[2J[?25l[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>[52;99H1,0-1[9CTop[1;5H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>
+[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 65 [m    10b1:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 66 [m    10b8:[7Cc3[22Cretq
+[38;5;130m 67 [m    10b9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 68 
+ 69 [m00000000000010c0 <register_tm_clones>:
+[38;5;130m 70 [m    10c0:[7C48 8d 3d 71 2f 00 00    lea    0x2f71(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 71 [m    10c7:[7C48 8d 35 6a 2f 00 00    lea    0x2f6a(%rip),%rsi[8C# 4038 <__TMC_END__>
+[38;5;130m 72 [m    10ce:[7C48 29 fe[16Csub    %rdi,%rsi
+[38;5;130m 73 [m    10d1:[7C48 c1 fe 03[13Csar    $0x3,%rsi
+[38;5;130m 74 [m    10d5:[7C48 89 f0[16Cmov    %rsi,%rax
+[38;5;130m 75 [m    10d8:[7C48 c1 e8 3f[13Cshr    $0x3f,%rax
+[38;5;130m 76 [m    10dc:[7C48 01 c6[16Cadd    %rax,%rsi
+[38;5;130m 77 [m    10df:[7C48 d1 fe[16Csar    %rsi
+[38;5;130m 78 [m    10e2:[7C74 14[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 79 [m    10e4:[7C48 8b 05 05 2f 00 00    mov    0x2f05(%rip),%rax[8C# 3ff0 <_ITM_registerTMCloneTable>
+[38;5;130m 80 [m    10eb:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 81 [m    10ee:[7C74 08[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 82 [m    10f0:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 83 [m    10f2:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m 84 [m    10f8:[7Cc3[22Cretq
+[38;5;130m 85 [m    10f9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 86 
+ 87 [m0000000000001100 <__do_global_dtors_aux>:
+[38;5;130m 88 [m    1100:[7C80 3d 61 2f 00 00 00    cmpb   $0x0,0x2f61(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 89 [m    1107:[7C75 2f[19Cjne    1138 <__do_global_dtors_aux+0x38>
+[38;5;130m 90 [m    1109:[7C55[22Cpush   %rbp
+[38;5;130m 91 [m    110a:[7C48 83 3d e6 2e 00 00    cmpq   $0x0,0x2ee6(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 92 [m    1111:[7C00
+[38;5;130m 93 [m    1112:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m 94 [m    1115:[7C74 0c[19Cje     1123 <__do_global_dtors_aux+0x23>
+[38;5;130m 95 [m    1117:[7C48 8b 3d 12 2f 00 00    mov    0x2f12(%rip),%rdi[8C# 4030 <__dso_handle>
+[38;5;130m 96 [m    111e:[7Ce8 2d ff ff ff[10Ccallq  1050 <__cxa_finalize@plt>
+[38;5;130m 97 [m    1123:[7Ce8 68 ff ff ff[10Ccallq  1090 <deregister_tm_clones>
+[38;5;130m 98 [m    1128:[7Cc6 05 39 2f 00 00 01    movb   $0x1,0x2f39(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 99 [m    112f:[7C5d[22Cpop    %rbp
+[38;5;130m100 [m    1130:[7Cc3[22Cretq[52;99H50,5[10C31%[1;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m 99 [m    112f:[7C5d[22Cpop    %rbp
+[38;5;130m100 [m    1130:[7Cc3[22Cretq
+[38;5;130m101 [m    1131:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m102 [m    1138:[7Cc3[22Cretq
+[38;5;130m103 [m    1139:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m104 
+105 [m0000000000001140 <frame_dummy>:
+[38;5;130m106 [m    1140:[7Ce9 7b ff ff ff[10Cjmpq   10c0 <register_tm_clones>
+[38;5;130m107 
+108 [m0000000000001145 <hello>:
+[38;5;130m109 [m    1145:[7C55[22Cpush   %rbp
+[38;5;130m110 [m    1146:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m111 [m    1149:[7C48 83 ec 10[13Csub    $0x10,%rsp
+[38;5;130m112 [m    114d:[7C48 89 7d f8[13Cmov    %rdi,-0x8(%rbp)
+[38;5;130m113 [m    1151:[7C48 89 75 f0[13Cmov    %rsi,-0x10(%rbp)
+[38;5;130m114 [m    1155:[7C48 8b 55 f0[13Cmov    -0x10(%rbp),%rdx
+[38;5;130m115 [m    1159:[7C48 8b 45 f8[13Cmov    -0x8(%rbp),%rax
+[38;5;130m116 [m    115d:[7C48 8d 35 a0 0e 00 00    lea    0xea0(%rip),%rsi[8C# 2004 <_IO_stdin_used+0x4>
+[38;5;130m117 [m    1164:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m118 [m    1167:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m119 [m    116c:[7Ce8 bf fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m120 [m    1171:[7C90[22Cnop
+[38;5;130m121 [m    1172:[7Cc9[22Cleaveq
+[38;5;130m122 [m    1173:[7Cc3[22Cretq
+[38;5;130m123 
+124 [m0000000000001174 <main>:
+[38;5;130m125 [m    1174:[7C55[22Cpush   %rbp
+[38;5;130m126 [m    1175:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m127 [m    1178:[7C48 83 ec 20[13Csub    $0x20,%rsp
+[38;5;130m128 [m    117c:[7C89 7d ec[16Cmov    %edi,-0x14(%rbp)
+[38;5;130m129 [m    117f:[7C48 89 75 e0[13Cmov    %rsi,-0x20(%rbp)
+[38;5;130m130 [m    1183:[7C83 7d ec 01[13Ccmpl   $0x1,-0x14(%rbp)
+[38;5;130m131 [m    1187:[7C75 2c[19Cjne    11b5 <main+0x41>
+[38;5;130m132 [m    1189:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m133 [m    118d:[7C48 8b 10[16Cmov    (%rax),%rdx
+[38;5;130m134 [m    1190:[7C48 8b 05 c9 2e 00 00    mov    0x2ec9(%rip),%rax[8C# 4060 <stderr@@GLIBC_2.2.5>
+[38;5;130m135 [m    1197:[7C48 8d 35 70 0e 00 00    lea    0xe70(%rip),%rsi[8C# 200e <_IO_stdin_used+0xe>
+[38;5;130m136 [m    119e:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m137 [m    11a1:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m138 [m    11a6:[7Ce8 85 fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m139 [m    11ab:[7Cbf ef be ad de[10Cmov    $0xdeadbeef,%edi
+[38;5;130m140 [m    11b0:[7Ce8 8b fe ff ff[10Ccallq  1040 <exit@plt>
+[38;5;130m141 [m    11b5:[7Cc7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)
+[38;5;130m142 [m    11bc:[7Ceb 2d[19Cjmp    11eb <main+0x77>
+[38;5;130m143 [m    11be:[7C8b 45 fc[16Cmov    -0x4(%rbp),%eax
+[38;5;130m144 [m    11c1:[7C48 98[19Ccltq
+[38;5;130m145 [m    11c3:[7C48 8d 14 c5 00 00 00    lea    0x0(,%rax,8),%rdx
+[38;5;130m146 [m    11ca:[7C00
+[38;5;130m147 [m    11cb:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m148 [m    11cf:[7C48 01 d0[16Cadd    %rdx,%rax
+[38;5;130m149 [m    11d2:[7C48 8b 10[16Cmov    (%rax),%rdx[52;99H99,5[10C62%[1;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>
+[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 65 [m    10b1:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 66 [m    10b8:[7Cc3[22Cretq
+[38;5;130m 67 [m    10b9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 68 
+ 69 [m00000000000010c0 <register_tm_clones>:
+[38;5;130m 70 [m    10c0:[7C48 8d 3d 71 2f 00 00    lea    0x2f71(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 71 [m    10c7:[7C48 8d 35 6a 2f 00 00    lea    0x2f6a(%rip),%rsi[8C# 4038 <__TMC_END__>
+[38;5;130m 72 [m    10ce:[7C48 29 fe[16Csub    %rdi,%rsi
+[38;5;130m 73 [m    10d1:[7C48 c1 fe 03[13Csar    $0x3,%rsi
+[38;5;130m 74 [m    10d5:[7C48 89 f0[16Cmov    %rsi,%rax
+[38;5;130m 75 [m    10d8:[7C48 c1 e8 3f[13Cshr    $0x3f,%rax
+[38;5;130m 76 [m    10dc:[7C48 01 c6[16Cadd    %rax,%rsi
+[38;5;130m 77 [m    10df:[7C48 d1 fe[16Csar    %rsi
+[38;5;130m 78 [m    10e2:[7C74 14[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 79 [m    10e4:[7C48 8b 05 05 2f 00 00    mov    0x2f05(%rip),%rax[8C# 3ff0 <_ITM_registerTMCloneTable>
+[38;5;130m 80 [m    10eb:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 81 [m    10ee:[7C74 08[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 82 [m    10f0:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 83 [m    10f2:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m 84 [m    10f8:[7Cc3[22Cretq
+[38;5;130m 85 [m    10f9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 86 
+ 87 [m0000000000001100 <__do_global_dtors_aux>:
+[38;5;130m 88 [m    1100:[7C80 3d 61 2f 00 00 00    cmpb   $0x0,0x2f61(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 89 [m    1107:[7C75 2f[19Cjne    1138 <__do_global_dtors_aux+0x38>
+[38;5;130m 90 [m    1109:[7C55[22Cpush   %rbp
+[38;5;130m 91 [m    110a:[7C48 83 3d e6 2e 00 00    cmpq   $0x0,0x2ee6(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 92 [m    1111:[7C00
+[38;5;130m 93 [m    1112:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m 94 [m    1115:[7C74 0c[19Cje     1123 <__do_global_dtors_aux+0x23>
+[38;5;130m 95 [m    1117:[7C48 8b 3d 12 2f 00 00    mov    0x2f12(%rip),%rdi[8C# 4030 <__dso_handle>
+[38;5;130m 96 [m    111e:[7Ce8 2d ff ff ff[10Ccallq  1050 <__cxa_finalize@plt>
+[38;5;130m 97 [m    1123:[7Ce8 68 ff ff ff[10Ccallq  1090 <deregister_tm_clones>
+[38;5;130m 98 [m    1128:[7Cc6 05 39 2f 00 00 01    movb   $0x1,0x2f39(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 99 [m    112f:[7C5d[22Cpop    %rbp
+[38;5;130m100 [m    1130:[7Cc3[22Cretq[52;99H100,5[9C31%[51;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>[52;99H51,5[10CTop[51;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>
+[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 65 [m    10b1:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 66 [m    10b8:[7Cc3[22Cretq
+[38;5;130m 67 [m    10b9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 68 
+ 69 [m00000000000010c0 <register_tm_clones>:
+[38;5;130m 70 [m    10c0:[7C48 8d 3d 71 2f 00 00    lea    0x2f71(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 71 [m    10c7:[7C48 8d 35 6a 2f 00 00    lea    0x2f6a(%rip),%rsi[8C# 4038 <__TMC_END__>
+[38;5;130m 72 [m    10ce:[7C48 29 fe[16Csub    %rdi,%rsi
+[38;5;130m 73 [m    10d1:[7C48 c1 fe 03[13Csar    $0x3,%rsi
+[38;5;130m 74 [m    10d5:[7C48 89 f0[16Cmov    %rsi,%rax
+[38;5;130m 75 [m    10d8:[7C48 c1 e8 3f[13Cshr    $0x3f,%rax
+[38;5;130m 76 [m    10dc:[7C48 01 c6[16Cadd    %rax,%rsi
+[38;5;130m 77 [m    10df:[7C48 d1 fe[16Csar    %rsi
+[38;5;130m 78 [m    10e2:[7C74 14[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 79 [m    10e4:[7C48 8b 05 05 2f 00 00    mov    0x2f05(%rip),%rax[8C# 3ff0 <_ITM_registerTMCloneTable>
+[38;5;130m 80 [m    10eb:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 81 [m    10ee:[7C74 08[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 82 [m    10f0:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 83 [m    10f2:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m 84 [m    10f8:[7Cc3[22Cretq
+[38;5;130m 85 [m    10f9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 86 
+ 87 [m0000000000001100 <__do_global_dtors_aux>:
+[38;5;130m 88 [m    1100:[7C80 3d 61 2f 00 00 00    cmpb   $0x0,0x2f61(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 89 [m    1107:[7C75 2f[19Cjne    1138 <__do_global_dtors_aux+0x38>
+[38;5;130m 90 [m    1109:[7C55[22Cpush   %rbp
+[38;5;130m 91 [m    110a:[7C48 83 3d e6 2e 00 00    cmpq   $0x0,0x2ee6(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 92 [m    1111:[7C00
+[38;5;130m 93 [m    1112:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m 94 [m    1115:[7C74 0c[19Cje     1123 <__do_global_dtors_aux+0x23>
+[38;5;130m 95 [m    1117:[7C48 8b 3d 12 2f 00 00    mov    0x2f12(%rip),%rdi[8C# 4030 <__dso_handle>
+[38;5;130m 96 [m    111e:[7Ce8 2d ff ff ff[10Ccallq  1050 <__cxa_finalize@plt>
+[38;5;130m 97 [m    1123:[7Ce8 68 ff ff ff[10Ccallq  1090 <deregister_tm_clones>
+[38;5;130m 98 [m    1128:[7Cc6 05 39 2f 00 00 01    movb   $0x1,0x2f39(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 99 [m    112f:[7C5d[22Cpop    %rbp
+[38;5;130m100 [m    1130:[7Cc3[22Cretq[52;99H50,5[10C31%[1;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>[52;99H51,5[10CTop[51;9H[?25h[?25l[1;51r[1;1H[25M[1;52r[27;1H[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 65 [m    10b1:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 66 [m    10b8:[7Cc3[22Cretq
+[38;5;130m 67 [m    10b9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 68 
+ 69 [m00000000000010c0 <register_tm_clones>:
+[38;5;130m 70 [m    10c0:[7C48 8d 3d 71 2f 00 00    lea    0x2f71(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 71 [m    10c7:[7C48 8d 35 6a 2f 00 00    lea    0x2f6a(%rip),%rsi[8C# 4038 <__TMC_END__>
+[38;5;130m 72 [m    10ce:[7C48 29 fe[16Csub    %rdi,%rsi
+[38;5;130m 73 [m    10d1:[7C48 c1 fe 03[13Csar    $0x3,%rsi
+[38;5;130m 74 [m    10d5:[7C48 89 f0[16Cmov    %rsi,%rax
+[38;5;130m 75 [m    10d8:[7C48 c1 e8 3f[13Cshr    $0x3f,%rax
+[38;5;130m 76 [m    10dc:[7C48 01 c6[16Cadd    %rax,%rsi[52;99H[K[52;99H76,5[10C16%[51;9H[?25h[?25l[1;51r[1;1H[25L[1;52r[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .init:
+[38;5;130m  6 
+  7 [m0000000000001000 <_init>:
+[38;5;130m  8 [m    1000:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m  9 [m    1004:[7C48 8b 05 dd 2f 00 00    mov    0x2fdd(%rip),%rax[8C# 3fe8 <__gmon_start__>
+[38;5;130m 10 [m    100b:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 11 [m    100e:[7C74 02[19Cje     1012 <_init+0x12>
+[38;5;130m 12 [m    1010:[7Cff d0[19Ccallq  *%rax
+[38;5;130m 13 [m    1012:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0[52;99H[K[52;99H51,5[10CTop[51;9H[?25h[?25l[1;51r[1;1H[25M[1;52r[27;1H[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 65 [m    10b1:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 66 [m    10b8:[7Cc3[22Cretq
+[38;5;130m 67 [m    10b9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 68 
+ 69 [m00000000000010c0 <register_tm_clones>:
+[38;5;130m 70 [m    10c0:[7C48 8d 3d 71 2f 00 00    lea    0x2f71(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 71 [m    10c7:[7C48 8d 35 6a 2f 00 00    lea    0x2f6a(%rip),%rsi[8C# 4038 <__TMC_END__>
+[38;5;130m 72 [m    10ce:[7C48 29 fe[16Csub    %rdi,%rsi
+[38;5;130m 73 [m    10d1:[7C48 c1 fe 03[13Csar    $0x3,%rsi
+[38;5;130m 74 [m    10d5:[7C48 89 f0[16Cmov    %rsi,%rax
+[38;5;130m 75 [m    10d8:[7C48 c1 e8 3f[13Cshr    $0x3f,%rax
+[38;5;130m 76 [m    10dc:[7C48 01 c6[16Cadd    %rax,%rsi[52;99H[K[52;99H76,5[10C16%[51;9H[?25h[?25l[1;51r[1;1H[25M[1;52r[27;1H[38;5;130m 77 [m    10df:[7C48 d1 fe[16Csar    %rsi
+[38;5;130m 78 [m    10e2:[7C74 14[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 79 [m    10e4:[7C48 8b 05 05 2f 00 00    mov    0x2f05(%rip),%rax[8C# 3ff0 <_ITM_registerTMCloneTable>
+[38;5;130m 80 [m    10eb:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 81 [m    10ee:[7C74 08[19Cje     10f8 <register_tm_clones+0x38>
+[38;5;130m 82 [m    10f0:[7Cff e0[19Cjmpq   *%rax
+[38;5;130m 83 [m    10f2:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m 84 [m    10f8:[7Cc3[22Cretq
+[38;5;130m 85 [m    10f9:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m 86 
+ 87 [m0000000000001100 <__do_global_dtors_aux>:
+[38;5;130m 88 [m    1100:[7C80 3d 61 2f 00 00 00    cmpb   $0x0,0x2f61(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 89 [m    1107:[7C75 2f[19Cjne    1138 <__do_global_dtors_aux+0x38>
+[38;5;130m 90 [m    1109:[7C55[22Cpush   %rbp
+[38;5;130m 91 [m    110a:[7C48 83 3d e6 2e 00 00    cmpq   $0x0,0x2ee6(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 92 [m    1111:[7C00
+[38;5;130m 93 [m    1112:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m 94 [m    1115:[7C74 0c[19Cje     1123 <__do_global_dtors_aux+0x23>
+[38;5;130m 95 [m    1117:[7C48 8b 3d 12 2f 00 00    mov    0x2f12(%rip),%rdi[8C# 4030 <__dso_handle>
+[38;5;130m 96 [m    111e:[7Ce8 2d ff ff ff[10Ccallq  1050 <__cxa_finalize@plt>
+[38;5;130m 97 [m    1123:[7Ce8 68 ff ff ff[10Ccallq  1090 <deregister_tm_clones>
+[38;5;130m 98 [m    1128:[7Cc6 05 39 2f 00 00 01    movb   $0x1,0x2f39(%rip)[8C# 4068 <completed.7325>
+[38;5;130m 99 [m    112f:[7C5d[22Cpop    %rbp
+[38;5;130m100 [m    1130:[7Cc3[22Cretq
+[38;5;130m101 [m    1131:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)[52;99H[K[52;99H101,5[9C32%[51;9H[?25h[?25l[1;51r[1;1H[25M[1;52r[27;1H[38;5;130m102 [m    1138:[7Cc3[22Cretq
+[38;5;130m103 [m    1139:[7C0f 1f 80 00 00 00 00    nopl   0x0(%rax)
+[38;5;130m104 
+105 [m0000000000001140 <frame_dummy>:
+[38;5;130m106 [m    1140:[7Ce9 7b ff ff ff[10Cjmpq   10c0 <register_tm_clones>
+[38;5;130m107 
+108 [m0000000000001145 <hello>:
+[38;5;130m109 [m    1145:[7C55[22Cpush   %rbp
+[38;5;130m110 [m    1146:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m111 [m    1149:[7C48 83 ec 10[13Csub    $0x10,%rsp
+[38;5;130m112 [m    114d:[7C48 89 7d f8[13Cmov    %rdi,-0x8(%rbp)
+[38;5;130m113 [m    1151:[7C48 89 75 f0[13Cmov    %rsi,-0x10(%rbp)
+[38;5;130m114 [m    1155:[7C48 8b 55 f0[13Cmov    -0x10(%rbp),%rdx
+[38;5;130m115 [m    1159:[7C48 8b 45 f8[13Cmov    -0x8(%rbp),%rax
+[38;5;130m116 [m    115d:[7C48 8d 35 a0 0e 00 00    lea    0xea0(%rip),%rsi[8C# 2004 <_IO_stdin_used+0x4>
+[38;5;130m117 [m    1164:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m118 [m    1167:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m119 [m    116c:[7Ce8 bf fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m120 [m    1171:[7C90[22Cnop
+[38;5;130m121 [m    1172:[7Cc9[22Cleaveq
+[38;5;130m122 [m    1173:[7Cc3[22Cretq
+[38;5;130m123 
+124 [m0000000000001174 <main>:
+[38;5;130m125 [m    1174:[7C55[22Cpush   %rbp
+[38;5;130m126 [m    1175:[7C48 89 e5[16Cmov    %rsp,%rbp[52;99H[K[52;99H126,5[9C48%[51;9H[?25h[?25l[1;51r[1;1H[25M[1;52r[27;1H[38;5;130m127 [m    1178:[7C48 83 ec 20[13Csub    $0x20,%rsp
+[38;5;130m128 [m    117c:[7C89 7d ec[16Cmov    %edi,-0x14(%rbp)
+[38;5;130m129 [m    117f:[7C48 89 75 e0[13Cmov    %rsi,-0x20(%rbp)
+[38;5;130m130 [m    1183:[7C83 7d ec 01[13Ccmpl   $0x1,-0x14(%rbp)
+[38;5;130m131 [m    1187:[7C75 2c[19Cjne    11b5 <main+0x41>
+[38;5;130m132 [m    1189:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m133 [m    118d:[7C48 8b 10[16Cmov    (%rax),%rdx
+[38;5;130m134 [m    1190:[7C48 8b 05 c9 2e 00 00    mov    0x2ec9(%rip),%rax[8C# 4060 <stderr@@GLIBC_2.2.5>
+[38;5;130m135 [m    1197:[7C48 8d 35 70 0e 00 00    lea    0xe70(%rip),%rsi[8C# 200e <_IO_stdin_used+0xe>
+[38;5;130m136 [m    119e:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m137 [m    11a1:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m138 [m    11a6:[7Ce8 85 fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m139 [m    11ab:[7Cbf ef be ad de[10Cmov    $0xdeadbeef,%edi
+[38;5;130m140 [m    11b0:[7Ce8 8b fe ff ff[10Ccallq  1040 <exit@plt>
+[38;5;130m141 [m    11b5:[7Cc7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)
+[38;5;130m142 [m    11bc:[7Ceb 2d[19Cjmp    11eb <main+0x77>
+[38;5;130m143 [m    11be:[7C8b 45 fc[16Cmov    -0x4(%rbp),%eax
+[38;5;130m144 [m    11c1:[7C48 98[19Ccltq
+[38;5;130m145 [m    11c3:[7C48 8d 14 c5 00 00 00    lea    0x0(,%rax,8),%rdx
+[38;5;130m146 [m    11ca:[7C00
+[38;5;130m147 [m    11cb:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m148 [m    11cf:[7C48 01 d0[16Cadd    %rdx,%rax
+[38;5;130m149 [m    11d2:[7C48 8b 10[16Cmov    (%rax),%rdx
+[38;5;130m150 [m    11d5:[7C48 8b 05 64 2e 00 00    mov    0x2e64(%rip),%rax[8C# 4040 <stdout@@GLIBC_2.2.5>
+[38;5;130m151 [m    11dc:[7C48 89 d6[16Cmov    %rdx,%rsi[52;99H[K[52;99H151,5[9C64%[51;9H[?25h[?25l[52;99H[K[52;1H/[?2004h[?25ht[?25l[?25he[?25l[?25hx[?25l[?25ht[?25l[?25h[?25l[31msearch hit BOTTOM, continuing at TOP[27m[23m[29m[m[H[2J[1;1H[38;5;130m 14 [m    1016:[7Cc3[22Cretq
+[38;5;130m 15 
+ 16 [mDisassembly of section .plt:
+[38;5;130m 17 
+ 18 [m0000000000001020 <.plt>:
+[38;5;130m 19 [m    1020:[7Cff 35 e2 2f 00 00[7Cpushq  0x2fe2(%rip)[8C# 4008 <_GLOBAL_OFFSET_TABLE_+0x8>
+[38;5;130m 20 [m    1026:[7Cff 25 e4 2f 00 00[7Cjmpq   *0x2fe4(%rip)[8C# 4010 <_GLOBAL_OFFSET_TABLE_+0x10>
+[38;5;130m 21 [m    102c:[7C0f 1f 40 00[13Cnopl   0x0(%rax)
+[38;5;130m 22 
+ 23 [m0000000000001030 <fprintf@plt>:
+[38;5;130m 24 [m    1030:[7Cff 25 e2 2f 00 00[7Cjmpq   *0x2fe2(%rip)[8C# 4018 <fprintf@GLIBC_2.2.5>
+[38;5;130m 25 [m    1036:[7C68 00 00 00 00[10Cpushq  $0x0
+[38;5;130m 26 [m    103b:[7Ce9 e0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 27 
+ 28 [m0000000000001040 <exit@plt>:
+[38;5;130m 29 [m    1040:[7Cff 25 da 2f 00 00[7Cjmpq   *0x2fda(%rip)[8C# 4020 <exit@GLIBC_2.2.5>
+[38;5;130m 30 [m    1046:[7C68 01 00 00 00[10Cpushq  $0x1
+[38;5;130m 31 [m    104b:[7Ce9 d0 ff ff ff[10Cjmpq   1020 <.plt>
+[38;5;130m 32 
+ 33 [mDisassembly of section .plt.got:
+[38;5;130m 34 
+ 35 [m0000000000001050 <__cxa_finalize@plt>:
+[38;5;130m 36 [m    1050:[7Cff 25 a2 2f 00 00[7Cjmpq   *0x2fa2(%rip)[8C# 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+[38;5;130m 37 [m    1056:[7C66 90[19Cxchg   %ax,%ax
+[38;5;130m 38 
+ 39 [mDisassembly of section .text:
+[38;5;130m 40 
+ 41 [m0000000000001060 <_start>:
+[38;5;130m 42 [m    1060:[7C31 ed[19Cxor    %ebp,%ebp
+[38;5;130m 43 [m    1062:[7C49 89 d1[16Cmov    %rdx,%r9
+[38;5;130m 44 [m    1065:[7C5e[22Cpop    %rsi
+[38;5;130m 45 [m    1066:[7C48 89 e2[16Cmov    %rsp,%rdx
+[38;5;130m 46 [m    1069:[7C48 83 e4 f0[13Cand    $0xfffffffffffffff0,%rsp
+[38;5;130m 47 [m    106d:[7C50[22Cpush   %rax
+[38;5;130m 48 [m    106e:[7C54[22Cpush   %rsp
+[38;5;130m 49 [m    106f:[7C4c 8d 05 ea 01 00 00    lea    0x1ea(%rip),%r8[8C# 1260 <__libc_csu_fini>
+[38;5;130m 50 [m    1076:[7C48 8d 0d 83 01 00 00    lea    0x183(%rip),%rcx[8C# 1200 <__libc_csu_init>
+[38;5;130m 51 [m    107d:[7C48 8d 3d f0 00 00 00    lea    0xf0(%rip),%rdi[8C# 1174 <main>
+[38;5;130m 52 [m    1084:[7Cff 15 56 2f 00 00[7Ccallq  *0x2f56(%rip)[8C# 3fe0 <__libc_start_main@GLIBC_2.2.5>
+[38;5;130m 53 [m    108a:[7Cf4[22Chlt
+[38;5;130m 54 [m    108b:[7C0f 1f 44 00 00[10Cnopl   0x0(%rax,%rax,1)
+[38;5;130m 55 
+ 56 [m0000000000001090 <deregister_tm_clones>:
+[38;5;130m 57 [m    1090:[7C48 8d 3d a1 2f 00 00    lea    0x2fa1(%rip),%rdi[8C# 4038 <__TMC_END__>
+[38;5;130m 58 [m    1097:[7C48 8d 05 9a 2f 00 00    lea    0x2f9a(%rip),%rax[8C# 4038 <__TMC_END__>
+[38;5;130m 59 [m    109e:[7C48 39 f8[16Ccmp    %rdi,%rax
+[38;5;130m 60 [m    10a1:[7C74 15[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 61 [m    10a3:[7C48 8b 05 2e 2f 00 00    mov    0x2f2e(%rip),%rax[8C# 3fd8 <_ITM_deregisterTMCloneTable>
+[38;5;130m 62 [m    10aa:[7C48 85 c0[16Ctest   %rax,%rax
+[38;5;130m 63 [m    10ad:[7C74 09[19Cje     10b8 <deregister_tm_clones+0x28>
+[38;5;130m 64 [m    10af:[7Cff e0[19Cjmpq   *%rax[52;99H39,25[10C8%[31msearch hit BOTTOM, continuing at TOP[m[52;99H[K[52;99H39,25[10C8%[26;29H[?25h[?25l[?25h[?25l[52;1H[K[52;1H/[?2004h[?25hd[?25l[?25he[?25l[?25ha[?25l[?25ha[?25l[?25hd[?25l[?25hb[?25l[?25he[?25l[?25he[?25l[?25hf[?25l[?25h[?25l[31msearch hit BOTTOM, continuing at TOP[m[97m[41mE486: Pattern not found: deaadbeef[m[52;35H[K[52;99H39,25[10C8%[26;29H[?25h[?25l[52;1H[K[52;1H:[?2004h[?25hs[?25l[?25he[?25l[?25ht[?25l[?25hh[?25l[?25h[?25l[52;5H[K[52;5H[?25h[?25l [?25hh[?25l[?25hl[?25l[?25hs[?25l[?25h[?25l[98C39,25[10C8%[26;29H[?25h[?25l[52;1H[K[52;1H/[?2004h[?25hd[?25l[?25he[?25l[?25ha[?25l[?25hd[?25l[?25h[?25l[52;5H[K[52;5H[?25h[?25l[52;4H[K[52;4H[?25h[?25l[52;3H[K[52;3H[?25h[?25l[52;2H[K[52;2H[?25h [?25l[97C39,25[10C8%[26;29H[?25h[?25l[52;99H[K[52;1H?[?2004h[?25hd[?25l[?25he[?25l[?25ha[?25l[?25hd[?25l[?25h[?25l[52;5H[K[52;5H[?25h[?25l[52;4H[K[52;4H[?25h[?25l[52;3H[K[52;3H[?25ha[?25l[?25h[?25l[52;3H[K[52;3H[?25h[?25l[52;2H[K[52;2H[?25hd[?25l[?25he[?25l[?25ha[?25l[?25hf[?25l[?25hb[?25l[?25he[?25l[?25he[?25l[?25hf[?25l[?25h[?25l[31msearch hit TOP, continuing at BOTTOM[m[97m[41mE486: Pattern not found: deafbeef[m[52;34H[K[52;99H39,25[10C8%[26;29H[?25h[?25l[52;1H[K[52;1H?[?2004h[?25hd[?25l[?25he[?25l[?25ha[?25l[?25hd[?25l[?25hb[?25l[?25he[?25l[?25he[?25l[?25hf[?25l[?25h[?25l[31msearch hit TOP, continuing at BOTTOM[27m[23m[29m[m[H[2J[1;1H[38;5;130m114 [m    1155:[7C48 8b 55 f0[13Cmov    -0x10(%rbp),%rdx
+[38;5;130m115 [m    1159:[7C48 8b 45 f8[13Cmov    -0x8(%rbp),%rax
+[38;5;130m116 [m    115d:[7C48 8d 35 a0 0e 00 00    lea    0xea0(%rip),%rsi[8C# 2004 <_IO_stdin_used+0x4>
+[38;5;130m117 [m    1164:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m118 [m    1167:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m119 [m    116c:[7Ce8 bf fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m120 [m    1171:[7C90[22Cnop
+[38;5;130m121 [m    1172:[7Cc9[22Cleaveq
+[38;5;130m122 [m    1173:[7Cc3[22Cretq
+[38;5;130m123 
+124 [m0000000000001174 <main>:
+[38;5;130m125 [m    1174:[7C55[22Cpush   %rbp
+[38;5;130m126 [m    1175:[7C48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m127 [m    1178:[7C48 83 ec 20[13Csub    $0x20,%rsp
+[38;5;130m128 [m    117c:[7C89 7d ec[16Cmov    %edi,-0x14(%rbp)
+[38;5;130m129 [m    117f:[7C48 89 75 e0[13Cmov    %rsi,-0x20(%rbp)
+[38;5;130m130 [m    1183:[7C83 7d ec 01[13Ccmpl   $0x1,-0x14(%rbp)
+[38;5;130m131 [m    1187:[7C75 2c[19Cjne    11b5 <main+0x41>
+[38;5;130m132 [m    1189:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m133 [m    118d:[7C48 8b 10[16Cmov    (%rax),%rdx
+[38;5;130m134 [m    1190:[7C48 8b 05 c9 2e 00 00    mov    0x2ec9(%rip),%rax[8C# 4060 <stderr@@GLIBC_2.2.5>
+[38;5;130m135 [m    1197:[7C48 8d 35 70 0e 00 00    lea    0xe70(%rip),%rsi[8C# 200e <_IO_stdin_used+0xe>
+[38;5;130m136 [m    119e:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m137 [m    11a1:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m138 [m    11a6:[7Ce8 85 fe ff ff[10Ccallq  1030 <fprintf@plt>
+[38;5;130m139 [m    11ab:[7Cbf ef be ad de[10Cmov    $0x[103mdeadbeef[m,%edi
+[38;5;130m140 [m    11b0:[7Ce8 8b fe ff ff[10Ccallq  1040 <exit@plt>
+[38;5;130m141 [m    11b5:[7Cc7 45 fc 01 00 00 00    movl   $0x1,-0x4(%rbp)
+[38;5;130m142 [m    11bc:[7Ceb 2d[19Cjmp    11eb <main+0x77>
+[38;5;130m143 [m    11be:[7C8b 45 fc[16Cmov    -0x4(%rbp),%eax
+[38;5;130m144 [m    11c1:[7C48 98[19Ccltq
+[38;5;130m145 [m    11c3:[7C48 8d 14 c5 00 00 00    lea    0x0(,%rax,8),%rdx
+[38;5;130m146 [m    11ca:[7C00
+[38;5;130m147 [m    11cb:[7C48 8b 45 e0[13Cmov    -0x20(%rbp),%rax
+[38;5;130m148 [m    11cf:[7C48 01 d0[16Cadd    %rdx,%rax
+[38;5;130m149 [m    11d2:[7C48 8b 10[16Cmov    (%rax),%rdx
+[38;5;130m150 [m    11d5:[7C48 8b 05 64 2e 00 00    mov    0x2e64(%rip),%rax[8C# 4040 <stdout@@GLIBC_2.2.5>
+[38;5;130m151 [m    11dc:[7C48 89 d6[16Cmov    %rdx,%rsi
+[38;5;130m152 [m    11df:[7C48 89 c7[16Cmov    %rax,%rdi
+[38;5;130m153 [m    11e2:[7Ce8 5e ff ff ff[10Ccallq  1145 <hello>
+[38;5;130m154 [m    11e7:[7C83 45 fc 01[13Caddl   $0x1,-0x4(%rbp)
+[38;5;130m155 [m    11eb:[7C8b 45 fc[16Cmov    -0x4(%rbp),%eax
+[38;5;130m156 [m    11ee:[7C3b 45 ec[16Ccmp    -0x14(%rbp),%eax
+[38;5;130m157 [m    11f1:[7C7c cb[19Cjl     11be <main+0x4a>
+[38;5;130m158 [m    11f3:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m159 [m    11f8:[7Cc9[22Cleaveq
+[38;5;130m160 [m    11f9:[7Cc3[22Cretq
+[38;5;130m161 [m    11fa:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m162 
+163 [m0000000000001200 <__libc_csu_init>:
+[38;5;130m164 [m    1200:[7C41 57[19Cpush   %r15[52;99H139,43-51     72%[31msearch hit TOP, continuing at BOTTOM[m[52;99H[K[52;99H139,43-51     72%[26;55H[?25h[?25l[52;1H[K[52;1H:[?2004h[?25hq[?25l[?25h[?25l[?2004l[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t[52;1H[K[52;1H[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab7/exercises$ vim hello.objdump objdump -d hello > hello.objdump[1@-[1@s[1@ [1@-[1@x[1@ 
+awalley1@remote00:~/i220a/submit/lab7/exercises$ vim hello.objdump 
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;52r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[52;1H"hello.objdump" 733L, 41515C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 [mhello
+[38;5;130m  4 [marchitecture: i386:x86-64, flags 0x00000150:
+[38;5;130m  5 [mHAS_SYMS, DYNAMIC, D_PAGED
+[38;5;130m  6 [mstart address 0x0000000000001060
+[38;5;130m  7 
+  8 [mProgram Header:
+[38;5;130m  9 [m    PHDR off    0x0000000000000040 vaddr 0x0000000000000040 paddr 0x0000000000000040 align 2**3
+[38;5;130m 10 [m[9Cfilesz 0x0000000000000268 memsz 0x0000000000000268 flags r--
+[38;5;130m 11 [m  INTERP off    0x00000000000002a8 vaddr 0x00000000000002a8 paddr 0x00000000000002a8 align 2**0
+[38;5;130m 12 [m[9Cfilesz 0x000000000000001c memsz 0x000000000000001c flags r--
+[38;5;130m 13 [m    LOAD off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**12
+[38;5;130m 14 [m[9Cfilesz 0x0000000000000618 memsz 0x0000000000000618 flags r--
+[38;5;130m 15 [m    LOAD off    0x0000000000001000 vaddr 0x0000000000001000 paddr 0x0000000000001000 align 2**12
+[38;5;130m 16 [m[9Cfilesz 0x000000000000026d memsz 0x000000000000026d flags r-x
+[38;5;130m 17 [m    LOAD off    0x0000000000002000 vaddr 0x0000000000002000 paddr 0x0000000000002000 align 2**12
+[38;5;130m 18 [m[9Cfilesz 0x0000000000000190 memsz 0x0000000000000190 flags r--
+[38;5;130m 19 [m    LOAD off    0x0000000000002de8 vaddr 0x0000000000003de8 paddr 0x0000000000003de8 align 2**12
+[38;5;130m 20 [m[9Cfilesz 0x0000000000000250 memsz 0x0000000000000288 flags rw-
+[38;5;130m 21 [m DYNAMIC off    0x0000000000002df8 vaddr 0x0000000000003df8 paddr 0x0000000000003df8 align 2**3
+[38;5;130m 22 [m[9Cfilesz 0x00000000000001e0 memsz 0x00000000000001e0 flags rw-
+[38;5;130m 23 [m    NOTE off    0x00000000000002c4 vaddr 0x00000000000002c4 paddr 0x00000000000002c4 align 2**2
+[38;5;130m 24 [m[9Cfilesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
+[38;5;130m 25 [mEH_FRAME off    0x0000000000002024 vaddr 0x0000000000002024 paddr 0x0000000000002024 align 2**2
+[38;5;130m 26 [m[9Cfilesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
+[38;5;130m 27 [m   STACK off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**4
+[38;5;130m 28 [m[9Cfilesz 0x0000000000000000 memsz 0x0000000000000000 flags rw-
+[38;5;130m 29 [m   RELRO off    0x0000000000002de8 vaddr 0x0000000000003de8 paddr 0x0000000000003de8 align 2**0
+[38;5;130m 30 [m[9Cfilesz 0x0000000000000218 memsz 0x0000000000000218 flags r--
+[38;5;130m 31 
+ 32 [mDynamic Section:
+[38;5;130m 33 [m  NEEDED[15Clibc.so.6
+[38;5;130m 34 [m  INIT[17C0x0000000000001000
+[38;5;130m 35 [m  FINI[17C0x0000000000001264
+[38;5;130m 36 [m  INIT_ARRAY[11C0x0000000000003de8
+[38;5;130m 37 [m  INIT_ARRAYSZ[9C0x0000000000000008
+[38;5;130m 38 [m  FINI_ARRAY[11C0x0000000000003df0
+[38;5;130m 39 [m  FINI_ARRAYSZ[9C0x0000000000000008
+[38;5;130m 40 [m  GNU_HASH[13C0x0000000000000308
+[38;5;130m 41 [m  STRTAB[15C0x0000000000000428
+[38;5;130m 42 [m  SYMTAB[15C0x0000000000000338
+[38;5;130m 43 [m  STRSZ[16C0x0000000000000098
+[38;5;130m 44 [m  SYMENT[15C0x0000000000000018
+[38;5;130m 45 [m  DEBUG[16C0x0000000000000000
+[38;5;130m 46 [m  PLTGOT[15C0x0000000000004000
+[38;5;130m 47 [m  PLTRELSZ[13C0x0000000000000030
+[38;5;130m 48 [m  PLTREL[15C0x0000000000000007
+[38;5;130m 49 [m  JMPREL[15C0x00000000000005e8
+[38;5;130m 50 [m  RELA[17C0x00000000000004f8
+[38;5;130m 51 [m  RELASZ[15C0x00000000000000f0[52;99H1,0-1[9CTop[1;5H[?25h[?12$p[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m683 [m    11f1:[7C7c cb[19Cjl     11be <main+0x4a>
+[38;5;130m684 [m    11f3:[7Cb8 00 00 00 00[10Cmov    $0x0,%eax
+[38;5;130m685 [m    11f8:[7Cc9[22Cleaveq
+[38;5;130m686 [m    11f9:[7Cc3[22Cretq
+[38;5;130m687 [m    11fa:[7C66 0f 1f 44 00 00[7Cnopw   0x0(%rax,%rax,1)
+[38;5;130m688 
+689 [m0000000000001200 <__libc_csu_init>:
+[38;5;130m690 [m    1200:[7C41 57[19Cpush   %r15
+[38;5;130m691 [m    1202:[7C49 89 d7[16Cmov    %rdx,%r15
+[38;5;130m692 [m    1205:[7C41 56[19Cpush   %r14
+[38;5;130m693 [m    1207:[7C49 89 f6[16Cmov    %rsi,%r14
+[38;5;130m694 [m    120a:[7C41 55[19Cpush   %r13
+[38;5;130m695 [m    120c:[7C41 89 fd[16Cmov    %edi,%r13d
+[38;5;130m696 [m    120f:[7C41 54[19Cpush   %r12
+[38;5;130m697 [m    1211:[7C4c 8d 25 d0 2b 00 00    lea    0x2bd0(%rip),%r12[8C# 3de8 <__frame_dummy_init_array_entry>
+[38;5;130m698 [m    1218:[7C55[22Cpush   %rbp
+[38;5;130m699 [m    1219:[7C48 8d 2d d0 2b 00 00    lea    0x2bd0(%rip),%rbp[8C# 3df0 <__init_array_end>
+[38;5;130m700 [m    1220:[7C53[22Cpush   %rbx
+[38;5;130m701 [m    1221:[7C4c 29 e5[16Csub    %r12,%rbp
+[38;5;130m702 [m    1224:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m703 [m    1228:[7Ce8 d3 fd ff ff[10Ccallq  1000 <_init>
+[38;5;130m704 [m    122d:[7C48 c1 fd 03[13Csar    $0x3,%rbp
+[38;5;130m705 [m    1231:[7C74 1b[19Cje     124e <__libc_csu_init+0x4e>
+[38;5;130m706 [m    1233:[7C31 db[19Cxor    %ebx,%ebx
+[38;5;130m707 [m    1235:[7C0f 1f 00[16Cnopl   (%rax)
+[38;5;130m708 [m    1238:[7C4c 89 fa[16Cmov    %r15,%rdx
+[38;5;130m709 [m    123b:[7C4c 89 f6[16Cmov    %r14,%rsi
+[38;5;130m710 [m    123e:[7C44 89 ef[16Cmov    %r13d,%edi
+[38;5;130m711 [m    1241:[7C41 ff 14 dc[13Ccallq  *(%r12,%rbx,8)
+[38;5;130m712 [m    1245:[7C48 83 c3 01[13Cadd    $0x1,%rbx
+[38;5;130m713 [m    1249:[7C48 39 dd[16Ccmp    %rbx,%rbp
+[38;5;130m714 [m    124c:[7C75 ea[19Cjne    1238 <__libc_csu_init+0x38>
+[38;5;130m715 [m    124e:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m716 [m    1252:[7C5b[22Cpop    %rbx
+[38;5;130m717 [m    1253:[7C5d[22Cpop    %rbp
+[38;5;130m718 [m    1254:[7C41 5c[19Cpop    %r12
+[38;5;130m719 [m    1256:[7C41 5d[19Cpop    %r13
+[38;5;130m720 [m    1258:[7C41 5e[19Cpop    %r14
+[38;5;130m721 [m    125a:[7C41 5f[19Cpop    %r15
+[38;5;130m722 [m    125c:[7Cc3[22Cretq
+[38;5;130m723 [m    125d:[7C0f 1f 00[16Cnopl   (%rax)
+[38;5;130m724 
+725 [m0000000000001260 <__libc_csu_fini>:
+[38;5;130m726 [m    1260:[7Cc3[22Cretq
+[38;5;130m727 
+728 [mDisassembly of section .fini:
+[38;5;130m729 
+730 [m0000000000001264 <_fini>:
+[38;5;130m731 [m    1264:[7C48 83 ec 08[13Csub    $0x8,%rsp
+[38;5;130m732 [m    1268:[7C48 83 c4 08[13Cadd    $0x8,%rsp
+[38;5;130m733 [m    126c:[7Cc3[22Cretq[52;99H733,5[9CBot[51;9H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[38;5;130m  1 
+  2 [mhello:     file format elf64-x86-64
+[38;5;130m  3 [mhello
+[38;5;130m  4 [marchitecture: i386:x86-64, flags 0x00000150:
+[38;5;130m  5 [mHAS_SYMS, DYNAMIC, D_PAGED
+[38;5;130m  6 [mstart address 0x0000000000001060
+[38;5;130m  7 
+  8 [mProgram Header:
+[38;5;130m  9 [m    PHDR off    0x0000000000000040 vaddr 0x0000000000000040 paddr 0x0000000000000040 align 2**3
+[38;5;130m 10 [m[9Cfilesz 0x0000000000000268 memsz 0x0000000000000268 flags r--
+[38;5;130m 11 [m  INTERP off    0x00000000000002a8 vaddr 0x00000000000002a8 paddr 0x00000000000002a8 align 2**0
+[38;5;130m 12 [m[9Cfilesz 0x000000000000001c memsz 0x000000000000001c flags r--
+[38;5;130m 13 [m    LOAD off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**12
+[38;5;130m 14 [m[9Cfilesz 0x0000000000000618 memsz 0x0000000000000618 flags r--
+[38;5;130m 15 [m    LOAD off    0x0000000000001000 vaddr 0x0000000000001000 paddr 0x0000000000001000 align 2**12
+[38;5;130m 16 [m[9Cfilesz 0x000000000000026d memsz 0x000000000000026d flags r-x
+[38;5;130m 17 [m    LOAD off    0x0000000000002000 vaddr 0x0000000000002000 paddr 0x0000000000002000 align 2**12
+[38;5;130m 18 [m[9Cfilesz 0x0000000000000190 memsz 0x0000000000000190 flags r--
+[38;5;130m 19 [m    LOAD off    0x0000000000002de8 vaddr 0x0000000000003de8 paddr 0x0000000000003de8 align 2**12
+[38;5;130m 20 [m[9Cfilesz 0x0000000000000250 memsz 0x0000000000000288 flags rw-
+[38;5;130m 21 [m DYNAMIC off    0x0000000000002df8 vaddr 0x0000000000003df8 paddr 0x0000000000003df8 align 2**3
+[38;5;130m 22 [m[9Cfilesz 0x00000000000001e0 memsz 0x00000000000001e0 flags rw-
+[38;5;130m 23 [m    NOTE off    0x00000000000002c4 vaddr 0x00000000000002c4 paddr 0x00000000000002c4 align 2**2
+[38;5;130m 24 [m[9Cfilesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
+[38;5;130m 25 [mEH_FRAME off    0x0000000000002024 vaddr 0x0000000000002024 paddr 0x0000000000002024 align 2**2
+[38;5;130m 26 [m[9Cfilesz 0x0000000000000044 memsz 0x0000000000000044 flags r--
+[38;5;130m 27 [m   STACK off    0x0000000000000000 vaddr 0x0000000000000000 paddr 0x0000000000000000 align 2**4
+[38;5;130m 28 [m[9Cfilesz 0x0000000000000000 memsz 0x0000000000000000 flags rw-
+[38;5;130m 29 [m   RELRO off    0x0000000000002de8 vaddr 0x0000000000003de8 paddr 0x0000000000003de8 align 2**0
+[38;5;130m 30 [m[9Cfilesz 0x0000000000000218 memsz 0x0000000000000218 flags r--
+[38;5;130m 31 
+ 32 [mDynamic Section:
+[38;5;130m 33 [m  NEEDED[15Clibc.so.6
+[38;5;130m 34 [m  INIT[17C0x0000000000001000
+[38;5;130m 35 [m  FINI[17C0x0000000000001264
+[38;5;130m 36 [m  INIT_ARRAY[11C0x0000000000003de8
+[38;5;130m 37 [m  INIT_ARRAYSZ[9C0x0000000000000008
+[38;5;130m 38 [m  FINI_ARRAY[11C0x0000000000003df0
+[38;5;130m 39 [m  FINI_ARRAYSZ[9C0x0000000000000008
+[38;5;130m 40 [m  GNU_HASH[13C0x0000000000000308
+[38;5;130m 41 [m  STRTAB[15C0x0000000000000428
+[38;5;130m 42 [m  SYMTAB[15C0x0000000000000338
+[38;5;130m 43 [m  STRSZ[16C0x0000000000000098
+[38;5;130m 44 [m  SYMENT[15C0x0000000000000018
+[38;5;130m 45 [m  DEBUG[16C0x0000000000000000
+[38;5;130m 46 [m  PLTGOT[15C0x0000000000004000
+[38;5;130m 47 [m  PLTRELSZ[13C0x0000000000000030
+[38;5;130m 48 [m  PLTREL[15C0x0000000000000007
+[38;5;130m 49 [m  JMPREL[15C0x00000000000005e8
+[38;5;130m 50 [m  RELA[17C0x00000000000004f8
+[38;5;130m 51 [m  RELASZ[15C0x00000000000000f0[52;99H1,0-1[9CTop[1;5H[?25h[?25l[52;99H[K[52;1H:[?2004h[?25hq[?25l[?25h[?25l[?2004l[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t[52;1H[K[52;1H[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab7/exercises$ vim hello.objdump [Kobjdump -d hello | gre[[Kp -A40 main.:
+0000000000001174 <main>:
+    1174:	55                   	push   %rbp
+    1175:	48 89 e5             	mov    %rsp,%rbp
+    1178:	48 83 ec 20          	sub    $0x20,%rsp
+    117c:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    117f:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+    1183:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
+    1187:	75 2c                	jne    11b5 <main+0x41>
+    1189:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    118d:	48 8b 10             	mov    (%rax),%rdx
+    1190:	48 8b 05 c9 2e 00 00 	mov    0x2ec9(%rip),%rax        # 4060 <stderr@@GLIBC_2.2.5>
+    1197:	48 8d 35 70 0e 00 00 	lea    0xe70(%rip),%rsi        # 200e <_IO_stdin_used+0xe>
+    119e:	48 89 c7             	mov    %rax,%rdi
+    11a1:	b8 00 00 00 00       	mov    $0x0,%eax
+    11a6:	e8 85 fe ff ff       	callq  1030 <fprintf@plt>
+    11ab:	bf ef be ad de       	mov    $0xdeadbeef,%edi
+    11b0:	e8 8b fe ff ff       	callq  1040 <exit@plt>
+    11b5:	c7 45 fc 01 00 00 00 	movl   $0x1,-0x4(%rbp)
+    11bc:	eb 2d                	jmp    11eb <main+0x77>
+    11be:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11c1:	48 98                	cltq   
+    11c3:	48 8d 14 c5 00 00 00 	lea    0x0(,%rax,8),%rdx
+    11ca:	00 
+    11cb:	48 8b 45 e0          	mov    -0x20(%rbp),%rax
+    11cf:	48 01 d0             	add    %rdx,%rax
+    11d2:	48 8b 10             	mov    (%rax),%rdx
+    11d5:	48 8b 05 64 2e 00 00 	mov    0x2e64(%rip),%rax        # 4040 <stdout@@GLIBC_2.2.5>
+    11dc:	48 89 d6             	mov    %rdx,%rsi
+    11df:	48 89 c7             	mov    %rax,%rdi
+    11e2:	e8 5e ff ff ff       	callq  1145 <hello>
+    11e7:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    11eb:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11ee:	3b 45 ec             	cmp    -0x14(%rbp),%eax
+    11f1:	7c cb                	jl     11be <main+0x4a>
+    11f3:	b8 00 00 00 00       	mov    $0x0,%eax
+    11f8:	c9                   	leaveq 
+    11f9:	c3                   	retq   
+    11fa:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+0000000000001200 <__libc_csu_init>:
+    1200:	41 57                	push   %r15
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls -l hello
+-rwxr-x--- 1 awalley1 awalley1 19392 Oct 18 20:46 hello
+awalley1@remote00:~/i220a/submit/lab7/exercises$ strup[K[Kip hello
+awalley1@remote00:~/i220a/submit/lab7/exercises$ strip hellols -l[C[C[C[C[C[C
+-rwxr-x--- 1 awalley1 awalley1 14416 Oct 18 20:52 hello
+awalley1@remote00:~/i220a/submit/lab7/exercises$ make clean
+rm -f hello hello.s *.objdump *~
+awalley1@remote00:~/i220a/submit/lab7/exercises$ ls
+hello.c  lab7.LOG  Makefile  mystery.o
+awalley1@remote00:~/i220a/submit/lab7/exercises$ objdump -d -s [K[K[K>[Kmyster/[Ky.p >[K[K[Ko > mystery.objec[K[Kdump
+awalley1@remote00:~/i220a/submit/lab7/exercises$ vim mystery.o.[Kbjdump 
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;52r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[52;1H"mystery.objdump" 14L, 411C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 
+  2 [mmystery.o:     file format elf64-x86-64
+[38;5;130m  3 
+  4 
+  5 [mDisassembly of section .text:
+[38;5;130m  6 
+  7 [m0000000000000000 <mystery>:
+[38;5;130m  8 [m   0:   55[22Cpush   %rbp
+[38;5;130m  9 [m   1:   48 89 e5[16Cmov    %rsp,%rbp
+[38;5;130m 10 [m   4:   89 7d fc[16Cmov    %edi,-0x4(%rbp)
+[38;5;130m 11 [m   7:   8b 45 fc[16Cmov    -0x4(%rbp),%eax
+[38;5;130m 12 [m   a:   25 ff ff 7f 00[10Cand    $0x7fffff,%eax
+[38;5;130m 13 [m   f:   c9[22Cleaveq
+[38;5;130m 14 [m  10:   c3[22Cretq
+[94m~                                                                                                                   [16;1H~                                                                                                                   [17;1H~                                                                                                                   [18;1H~                                                                                                                   [19;1H~                                                                                                                   [20;1H~                                                                                                                   [21;1H~                                                                                                                   [22;1H~                                                                                                                   [23;1H~                                                                                                                   [24;1H~                                                                                                                   [25;1H~                                                                                                                   [26;1H~                                                                                                                   [27;1H~                                                                                                                   [28;1H~                                                                                                                   [29;1H~                                                                                                                   [30;1H~                                                                                                                   [31;1H~                                                                                                                   [32;1H~                                                                                                                   [33;1H~                                                                                                                   [34;1H~                                                                                                                   [35;1H~                                                                                                                   [36;1H~                                                                                                                   [37;1H~                                                                                                                   [38;1H~                                                                                                                   [39;1H~                                                                                                                   [40;1H~                                                                                                                   [41;1H~                                                                                                                   [42;1H~                                                                                                                   [43;1H~                                                                                                                   [44;1H~                                                                                                                   [45;1H~                                                                                                                   [46;1H~                                                                                                                   [47;1H~                                                                                                                   [48;1H~                                                                                                                   [49;1H~                                                                                                                   [50;1H~                                                                                                                   [51;1H~                                                                                                                   [m[52;99H1,0-1[9CAll[1;5H[?25h[?12$p[?25l[52;1H[K[52;1H:[?2004h[?25hq[?25l[?25h[?25l[?2004l[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t[52;1H[K[52;1H[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab7/exercises$ make
+cc -g -Wall  -std=c11    hello.c   -o hello
+cc -g -Wall  -std=c11 -S hello.c
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdp hello
+bash: gdp: command not found
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b main
+Breakpoint 1 at 0x1183: file hello.c, line 16.
+(gdb) r
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe888) at hello.c:16
+16	  if (argc == 1) {
+(gdb) s[Kdisas /m
+Dump of assembler code for function main:
+15	{
+   0x0000555555555174 <+0>:	push   %rbp
+   0x0000555555555175 <+1>:	mov    %rsp,%rbp
+   0x0000555555555178 <+4>:	sub    $0x20,%rsp
+   0x000055555555517c <+8>:	mov    %edi,-0x14(%rbp)
+   0x000055555555517f <+11>:	mov    %rsi,-0x20(%rbp)
+
+16	  if (argc == 1) {
+=> 0x0000555555555183 <+15>:	cmpl   $0x1,-0x14(%rbp)
+   0x0000555555555187 <+19>:	jne    0x5555555551b5 <main+65>
+
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+   0x0000555555555189 <+21>:	mov    -0x20(%rbp),%rax
+   0x000055555555518d <+25>:	mov    (%rax),%rdx
+   0x0000555555555190 <+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x0000555555555197 <+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x000055555555519e <+42>:	mov    %rax,%rdi
+   0x00005555555551a1 <+45>:	mov    $0x0,%eax
+   0x00005555555551a6 <+50>:	callq  0x555555555030 <fprintf@plt>
+
+18	    exit(0xdeadbeef);
+   0x00005555555551ab <+55>:	mov    $0xdeadbeef,%edi
+   0x00005555555551b0 <+60>:	callq  0x555555555040 <exit@plt>
+
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+   0x00005555555551b5 <+65>:	movl   $0x1,-0x4(%rbp)
+   0x00005555555551bc <+72>:	jmp    0x5555555551eb <main+119>
+   0x00005555555551e7 <+115>:	addl   $0x1,-0x4(%rbp)
+   0x00005555555551eb <+119>:	mov    -0x4(%rbp),%eax
+   0x00005555555551ee <+122>:	cmp    -0x14(%rbp),%eax
+   0x00005555555551f1 <+125>:	jl     0x5555555551be <main+74>
+
+21	    hello(stdout, argv[i]);
+   0x00005555555551be <+74>:	mov    -0x4(%rbp),%eax
+   0x00005555555551c1 <+77>:	cltq   
+   0x00005555555551c3 <+79>:	lea    0x0(,%rax,8),%rdx
+   0x00005555555551cb <+87>:	mov    -0x20(%rbp),%rax
+   0x00005555555551cf <+91>:	add    %rdx,%rax
+   0x00005555555551d2 <+94>:	mov    (%rax),%rdx
+   0x00005555555551d5 <+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x00005555555551dc <+104>:	mov    %rdx,%rsi
+   0x00005555555551df <+107>:	mov    %rax,%rdi
+   0x00005555555551e2 <+110>:	callq  0x555555555145 <hello>
+
+22	  }
+23	  return 0;
+   0x00005555555551f3 <+127>:	mov    $0x0,%eax
+
+24	}
+--Type <RET> for more, q to quit, c to continue without paging--i reg
+   0x00005555555551f8 <+132>:	leaveq 
+   0x00005555555551f9 <+133>:	retq   
+
+End of assembler dump.
+(gdb) i reg
+rax            0x555555555174      93824992235892
+rbx            0x0                 0
+rcx            0x7ffff7f8d718      140737353668376
+rdx            0x7fffffffe898      140737488349336
+rsi            0x7fffffffe888      140737488349320
+rdi            0x1                 1
+rbp            0x7fffffffe7a0      0x7fffffffe7a0
+rsp            0x7fffffffe780      0x7fffffffe780
+r8             0x7ffff7f8ed80      140737353674112
+r9             0x7ffff7f8ed80      140737353674112
+r10            0x3                 3
+r11            0x0                 0
+r12            0x555555555060      93824992235616
+r13            0x7fffffffe880      140737488349312
+r14            0x0                 0
+r15            0x0                 0
+rip            0x555555555183      0x555555555183 <main+15>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) i regdisas /m[C[C[C[C[C[Cr[Kb mainr[K
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe888) at hello.c:16
+16	  if (argc == 1) {
+(gdb) disas [K /m
+Dump of assembler code for function main:
+15	{
+   0x0000555555555174 <+0>:	push   %rbp
+   0x0000555555555175 <+1>:	mov    %rsp,%rbp
+   0x0000555555555178 <+4>:	sub    $0x20,%rsp
+   0x000055555555517c <+8>:	mov    %edi,-0x14(%rbp)
+   0x000055555555517f <+11>:	mov    %rsi,-0x20(%rbp)
+
+16	  if (argc == 1) {
+=> 0x0000555555555183 <+15>:	cmpl   $0x1,-0x14(%rbp)
+   0x0000555555555187 <+19>:	jne    0x5555555551b5 <main+65>
+
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+   0x0000555555555189 <+21>:	mov    -0x20(%rbp),%rax
+   0x000055555555518d <+25>:	mov    (%rax),%rdx
+   0x0000555555555190 <+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x0000555555555197 <+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x000055555555519e <+42>:	mov    %rax,%rdi
+   0x00005555555551a1 <+45>:	mov    $0x0,%eax
+   0x00005555555551a6 <+50>:	callq  0x555555555030 <fprintf@plt>
+
+18	    exit(0xdeadbeef);
+   0x00005555555551ab <+55>:	mov    $0xdeadbeef,%edi
+   0x00005555555551b0 <+60>:	callq  0x555555555040 <exit@plt>
+
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+   0x00005555555551b5 <+65>:	movl   $0x1,-0x4(%rbp)
+   0x00005555555551bc <+72>:	jmp    0x5555555551eb <main+119>
+   0x00005555555551e7 <+115>:	addl   $0x1,-0x4(%rbp)
+   0x00005555555551eb <+119>:	mov    -0x4(%rbp),%eax
+   0x00005555555551ee <+122>:	cmp    -0x14(%rbp),%eax
+   0x00005555555551f1 <+125>:	jl     0x5555555551be <main+74>
+
+21	    hello(stdout, argv[i]);
+   0x00005555555551be <+74>:	mov    -0x4(%rbp),%eax
+   0x00005555555551c1 <+77>:	cltq   
+   0x00005555555551c3 <+79>:	lea    0x0(,%rax,8),%rdx
+   0x00005555555551cb <+87>:	mov    -0x20(%rbp),%rax
+   0x00005555555551cf <+91>:	add    %rdx,%rax
+   0x00005555555551d2 <+94>:	mov    (%rax),%rdx
+   0x00005555555551d5 <+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x00005555555551dc <+104>:	mov    %rdx,%rsi
+   0x00005555555551df <+107>:	mov    %rax,%rdi
+   0x00005555555551e2 <+110>:	callq  0x555555555145 <hello>
+
+22	  }
+23	  return 0;
+   0x00005555555551f3 <+127>:	mov    $0x0,%eax
+
+24	}
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x00005555555551f8 <+132>:	leaveq 
+   0x00005555555551f9 <+133>:	retq   
+
+End of assembler dump.
+(gdb) i reg
+rax            0x555555555174      93824992235892
+rbx            0x0                 0
+rcx            0x7ffff7f8d718      140737353668376
+rdx            0x7fffffffe898      140737488349336
+rsi            0x7fffffffe888      140737488349320
+rdi            0x1                 1
+rbp            0x7fffffffe7a0      0x7fffffffe7a0
+rsp            0x7fffffffe780      0x7fffffffe780
+r8             0x7ffff7f8ed80      140737353674112
+r9             0x7ffff7f8ed80      140737353674112
+r10            0x3                 3
+r11            0x0                 0
+r12            0x555555555060      93824992235616
+r13            0x7fffffffe880      140737488349312
+r14            0x0                 0
+r15            0x0                 0
+rip            0x555555555183      0x555555555183 <main+15>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) p argc
+$1 = 1
+(gdb) p *($rbp-20)
+Attempt to dereference a generic pointer.
+(gdb) p *($rbp-20) ($rbp-20)
+Attempt to dereference a generic pointer.
+(gdb) p *(int *_)[K[K)($rbp -20)
+$2 = 1
+(gdb) p r[Kargv
+$3 = (const char **) 0x7fffffffe888
+(gdb) p *(const char**) [K($rbp_[K-20)
+$4 = 0xffffe88000000001 <error: Cannot access memory at address 0xffffe88000000001>
+(gdb) p *(const char**)($rbp-20)[C[1P)[1P)3)2)
+$5 = 0x7fffffffe888 "\343\352\377\377\377\177"
+(gdb) p *(const char**)($rbp-32)[C*)($rbp-32)
+$6 = (const char **) 0x7fffffffe888
+(gdb) p *(const char***)($rbp-32)[C[C)[0][1@(
+$7 = 0x7fffffffeae3 "/import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello"
+(gdb) siapl[K[K[K[K[Kdiplsay [K[K[K[K[K[Ksplay /i *$pc
+1: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+(gdb) p $eflags
+$8 = [ IF ]
+(gdb) ni
+0x0000555555555187	16	  if (argc == 1) {
+1: x/i *$pc
+=> 0x555555555187 <main+19>:	jne    0x5555555551b5 <main+65>
+(gdb) p$eflags
+Undefined command: "p$eflags".  Try "help".
+(gdb) p$eflags $eflags
+$9 = [ PF ZF IF ]
+(gdb) display /o[Ki *$pc
+2: x/i *$pc
+=> 0x555555555187 <main+19>:	jne    0x5555555551b5 <main+65>
+(gdb) ni
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555189 <main+21>:	mov    -0x20(%rbp),%rax
+2: x/i *$pc
+=> 0x555555555189 <main+21>:	mov    -0x20(%rbp),%rax
+(gdb) x/20i
+   0x55555555518d <main+25>:	mov    (%rax),%rdx
+   0x555555555190 <main+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x555555555197 <main+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x55555555519e <main+42>:	mov    %rax,%rdi
+   0x5555555551a1 <main+45>:	mov    $0x0,%eax
+   0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+   0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+   0x5555555551b0 <main+60>:	callq  0x555555555040 <exit@plt>
+   0x5555555551b5 <main+65>:	movl   $0x1,-0x4(%rbp)
+   0x5555555551bc <main+72>:	jmp    0x5555555551eb <main+119>
+   0x5555555551be <main+74>:	mov    -0x4(%rbp),%eax
+   0x5555555551c1 <main+77>:	cltq   
+   0x5555555551c3 <main+79>:	lea    0x0(,%rax,8),%rdx
+   0x5555555551cb <main+87>:	mov    -0x20(%rbp),%rax
+   0x5555555551cf <main+91>:	add    %rdx,%rax
+   0x5555555551d2 <main+94>:	mov    (%rax),%rdx
+   0x5555555551d5 <main+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x5555555551dc <main+104>:	mov    %rdx,%rsi
+   0x5555555551df <main+107>:	mov    %rax,%rdi
+   0x5555555551e2 <main+110>:	callq  0x555555555145 <hello>
+(gdb) p (char*)0x[K[Kx55555555600e0x55555555600e
+$10 = 0x55555555600e "usage: %s NAME...\n"
+(gdb) ni
+0x000055555555518d	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x55555555518d <main+25>:	mov    (%rax),%rdx
+2: x/i *$pc
+=> 0x55555555518d <main+25>:	mov    (%rax),%rdx
+(gdb) ni
+0x0000555555555190	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555190 <main+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+2: x/i *$pc
+=> 0x555555555190 <main+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+(gdb) ni
+0x0000555555555197	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x555555555197 <main+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+2: x/i *$pc
+=> 0x555555555197 <main+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+(gdb) bu
+Undefined command: "bu".  Try "help".
+(gdb) ni
+0x000055555555519e	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x55555555519e <main+42>:	mov    %rax,%rdi
+2: x/i *$pc
+=> 0x55555555519e <main+42>:	mov    %rax,%rdi
+(gdb) ni
+0x00005555555551a1	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x5555555551a1 <main+45>:	mov    $0x0,%eax
+2: x/i *$pc
+=> 0x5555555551a1 <main+45>:	mov    $0x0,%eax
+(gdb) ni
+0x00005555555551a6	17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+2: x/i *$pc
+=> 0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+(gdb) ni
+usage: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello NAME...
+18	    exit(0xdeadbeef);
+1: x/i *$pc
+=> 0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+2: x/i *$pc
+=> 0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+(gdb) p $rdi
+$11 = 0
+(gdb) p $rdx
+$12 = 140737353676976
+(gdb) b 0x5555555551a6
+Function "0x5555555551a6" not defined.
+Make breakpoint pending on future shared library load? (y or [n]) y
+Breakpoint 2 (0x5555555551a6) pending.
+(gdb) r
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe888) at hello.c:16
+16	  if (argc == 1) {
+1: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+2: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+(gdb) c
+Continuing.
+usage: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello NAME...
+[Inferior 1 (process 2095936) exited with code 0357]
+(gdb) x/2i
+   0x555555555187 <main+19>:	jne    0x5555555551b5 <main+65>
+   0x555555555189 <main+21>:	mov    -0x20(%rbp),%rax
+(gdb) x/20i
+   0x55555555518d <main+25>:	mov    (%rax),%rdx
+   0x555555555190 <main+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x555555555197 <main+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x55555555519e <main+42>:	mov    %rax,%rdi
+   0x5555555551a1 <main+45>:	mov    $0x0,%eax
+   0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+   0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+   0x5555555551b0 <main+60>:	callq  0x555555555040 <exit@plt>
+   0x5555555551b5 <main+65>:	movl   $0x1,-0x4(%rbp)
+   0x5555555551bc <main+72>:	jmp    0x5555555551eb <main+119>
+   0x5555555551be <main+74>:	mov    -0x4(%rbp),%eax
+   0x5555555551c1 <main+77>:	cltq   
+   0x5555555551c3 <main+79>:	lea    0x0(,%rax,8),%rdx
+   0x5555555551cb <main+87>:	mov    -0x20(%rbp),%rax
+   0x5555555551cf <main+91>:	add    %rdx,%rax
+   0x5555555551d2 <main+94>:	mov    (%rax),%rdx
+   0x5555555551d5 <main+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x5555555551dc <main+104>:	mov    %rdx,%rsi
+   0x5555555551df <main+107>:	mov    %rax,%rdi
+   0x5555555551e2 <main+110>:	callq  0x555555555145 <hello>
+(gdb) c
+The program is not being run.
+(gdb) r
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello 
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe888) at hello.c:16
+16	  if (argc == 1) {
+1: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+2: x/i *$pc
+=> 0x555555555183 <main+15>:	cmpl   $0x1,-0x14(%rbp)
+(gdb) b *0x5555555551a6
+Breakpoint 3 at 0x5555555551a6: file hello.c, line 17.
+(gdb) c
+Continuing.
+
+Breakpoint 3, 0x00005555555551a6 in main (argc=1, argv=0x7fffffffe888) at hello.c:17
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+1: x/i *$pc
+=> 0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+2: x/i *$pc
+=> 0x5555555551a6 <main+50>:	callq  0x555555555030 <fprintf@plt>
+(gdb) p $rdx
+$13 = 140737488349923
+(gdb) ni
+usage: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello NAME...
+18	    exit(0xdeadbeef);
+1: x/i *$pc
+=> 0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+2: x/i *$pc
+=> 0x5555555551ab <main+55>:	mov    $0xdeadbeef,%edi
+(gdb) 
+0x00005555555551b0	18	    exit(0xdeadbeef);
+1: x/i *$pc
+=> 0x5555555551b0 <main+60>:	callq  0x555555555040 <exit@plt>
+2: x/i *$pc
+=> 0x5555555551b0 <main+60>:	callq  0x555555555040 <exit@plt>
+(gdb) 
+[Inferior 1 (process 2096026) exited with code 0357]
+(gdb) 
+The program is not being run.
+(gdb) gdp hello
+Undefined command: "gdp".  Try "help".
+(gdb) gdb[K[K[Kq
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdb hellop[C[C[C[C[C[C
+bash: gdp: command not found
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdb gel[K[K[Khello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) b hello[K[K[K[K[K* hello
+Breakpoint 1 at 0x1145: file hello.c, line 7.
+(gdb) r joe
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello joe
+
+Breakpoint 1, hello (out=0x555555555245 <__libc_csu_init+69>, who=0x0) at hello.c:7
+7	{
+(gdb) x/2[K[K/20i
+Argument required (starting display address).
+(gdb) display x/20i
+No symbol "x" in current context.
+(gdb) disas /m
+Dump of assembler code for function hello:
+7	{
+=> 0x0000555555555145 <+0>:	push   %rbp
+   0x0000555555555146 <+1>:	mov    %rsp,%rbp
+   0x0000555555555149 <+4>:	sub    $0x10,%rsp
+   0x000055555555514d <+8>:	mov    %rdi,-0x8(%rbp)
+   0x0000555555555151 <+12>:	mov    %rsi,-0x10(%rbp)
+
+8	  fprintf(out, "hello %s\n", who);
+   0x0000555555555155 <+16>:	mov    -0x10(%rbp),%rdx
+   0x0000555555555159 <+20>:	mov    -0x8(%rbp),%rax
+   0x000055555555515d <+24>:	lea    0xea0(%rip),%rsi        # 0x555555556004
+   0x0000555555555164 <+31>:	mov    %rax,%rdi
+   0x0000555555555167 <+34>:	mov    $0x0,%eax
+   0x000055555555516c <+39>:	callq  0x555555555030 <fprintf@plt>
+
+9	}
+   0x0000555555555171 <+44>:	nop
+   0x0000555555555172 <+45>:	leaveq 
+   0x0000555555555173 <+46>:	retq   
+
+End of assembler dump.
+(gdb) p who
+$1 = 0x0
+(gdb) ni
+0x0000555555555146	7	{
+(gdb) display /2i
+Argument required (expression to compute).
+(gdb) display /2i *$pc
+1: x/2i *$pc
+=> 0x555555555146 <hello+1>:	mov    %rsp,%rbp
+   0x555555555149 <hello+4>:	sub    $0x10,%rsp
+(gdb) ni
+0x0000555555555149	7	{
+1: x/2i *$pc
+=> 0x555555555149 <hello+4>:	sub    $0x10,%rsp
+   0x55555555514d <hello+8>:	mov    %rdi,-0x8(%rbp)
+(gdb) ni
+0x000055555555514d	7	{
+1: x/2i *$pc
+=> 0x55555555514d <hello+8>:	mov    %rdi,-0x8(%rbp)
+   0x555555555151 <hello+12>:	mov    %rsi,-0x10(%rbp)
+(gdb) p $rdi
+$2 = 140737353672544
+(gdb) ni
+0x0000555555555151	7	{
+1: x/2i *$pc
+=> 0x555555555151 <hello+12>:	mov    %rsi,-0x10(%rbp)
+   0x555555555155 <hello+16>:	mov    -0x10(%rbp),%rdx
+(gdb) nip $rdi
+$3 = 140737353672544
+(gdb) p $rdi[K[Ksi
+$4 = 140737488349991
+(gdb) p $rsi($rsic$rsih$rsia$rsir$rsi*$rsi)$rsi
+$5 = 0x7fffffffeb27 "joe"
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 2096569] will be killed.
+
+Quit anyway? (y or n) qp (char*)$rsiq[K[Ky
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdb hellop[C[C[C[C[C[Cb[C[C[C[C[C[C
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start joe
+Temporary breakpoint 1 at 0x1183: file hello.c, line 16.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello joe
+
+Temporary breakpoint 1, main (argc=2, argv=0x7fffffffe868) at hello.c:16
+16	  if (argc == 1) {
+(gdb) disas /m
+Dump of assembler code for function main:
+15	{
+   0x0000555555555174 <+0>:	push   %rbp
+   0x0000555555555175 <+1>:	mov    %rsp,%rbp
+   0x0000555555555178 <+4>:	sub    $0x20,%rsp
+   0x000055555555517c <+8>:	mov    %edi,-0x14(%rbp)
+   0x000055555555517f <+11>:	mov    %rsi,-0x20(%rbp)
+
+16	  if (argc == 1) {
+=> 0x0000555555555183 <+15>:	cmpl   $0x1,-0x14(%rbp)
+   0x0000555555555187 <+19>:	jne    0x5555555551b5 <main+65>
+
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+   0x0000555555555189 <+21>:	mov    -0x20(%rbp),%rax
+   0x000055555555518d <+25>:	mov    (%rax),%rdx
+   0x0000555555555190 <+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x0000555555555197 <+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x000055555555519e <+42>:	mov    %rax,%rdi
+   0x00005555555551a1 <+45>:	mov    $0x0,%eax
+   0x00005555555551a6 <+50>:	callq  0x555555555030 <fprintf@plt>
+
+18	    exit(0xdeadbeef);
+   0x00005555555551ab <+55>:	mov    $0xdeadbeef,%edi
+   0x00005555555551b0 <+60>:	callq  0x555555555040 <exit@plt>
+
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+   0x00005555555551b5 <+65>:	movl   $0x1,-0x4(%rbp)
+   0x00005555555551bc <+72>:	jmp    0x5555555551eb <main+119>
+   0x00005555555551e7 <+115>:	addl   $0x1,-0x4(%rbp)
+   0x00005555555551eb <+119>:	mov    -0x4(%rbp),%eax
+   0x00005555555551ee <+122>:	cmp    -0x14(%rbp),%eax
+   0x00005555555551f1 <+125>:	jl     0x5555555551be <main+74>
+
+21	    hello(stdout, argv[i]);
+   0x00005555555551be <+74>:	mov    -0x4(%rbp),%eax
+   0x00005555555551c1 <+77>:	cltq   
+   0x00005555555551c3 <+79>:	lea    0x0(,%rax,8),%rdx
+   0x00005555555551cb <+87>:	mov    -0x20(%rbp),%rax
+   0x00005555555551cf <+91>:	add    %rdx,%rax
+   0x00005555555551d2 <+94>:	mov    (%rax),%rdx
+   0x00005555555551d5 <+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x00005555555551dc <+104>:	mov    %rdx,%rsi
+   0x00005555555551df <+107>:	mov    %rax,%rdi
+   0x00005555555551e2 <+110>:	callq  0x555555555145 <hello>
+
+22	  }
+23	  return 0;
+   0x00005555555551f3 <+127>:	mov    $0x0,%eax
+
+24	}
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x00005555555551f8 <+132>:	leaveq 
+   0x00005555555551f9 <+133>:	retq   
+
+End of assembler dump.
+(gdb) 
+(gdb) b* 0x00005555555551ee
+Breakpoint 2 at 0x5555555551ee: file hello.c, line 20.
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x00005555555551ee in main (argc=2, argv=0x7fffffffe868) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) x/2i
+Argument required (starting display address).
+(gdb) x/2i[K9[K[K[K[Ki/x[K20x
+Undefined info command: "/20x".  Try "help info".
+(gdb) x/0[K20i
+Argument required (starting display address).
+(gdb) x/20i $pc*$pc
+=> 0x5555555551ee <main+122>:	cmp    -0x14(%rbp),%eax
+   0x5555555551f1 <main+125>:	jl     0x5555555551be <main+74>
+   0x5555555551f3 <main+127>:	mov    $0x0,%eax
+   0x5555555551f8 <main+132>:	leaveq 
+   0x5555555551f9 <main+133>:	retq   
+   0x5555555551fa:	nopw   0x0(%rax,%rax,1)
+   0x555555555200 <__libc_csu_init>:	push   %r15
+   0x555555555202 <__libc_csu_init+2>:	mov    %rdx,%r15
+   0x555555555205 <__libc_csu_init+5>:	push   %r14
+   0x555555555207 <__libc_csu_init+7>:	mov    %rsi,%r14
+   0x55555555520a <__libc_csu_init+10>:	push   %r13
+   0x55555555520c <__libc_csu_init+12>:	mov    %edi,%r13d
+   0x55555555520f <__libc_csu_init+15>:	push   %r12
+   0x555555555211 <__libc_csu_init+17>:	lea    0x2bd0(%rip),%r12        # 0x555555557de8
+   0x555555555218 <__libc_csu_init+24>:	push   %rbp
+   0x555555555219 <__libc_csu_init+25>:	lea    0x2bd0(%rip),%rbp        # 0x555555557df0
+   0x555555555220 <__libc_csu_init+32>:	push   %rbx
+   0x555555555221 <__libc_csu_init+33>:	sub    %r12,%rbp
+   0x555555555224 <__libc_csu_init+36>:	sub    $0x8,%rsp
+   0x555555555228 <__libc_csu_init+40>:	callq  0x555555555000 <_init>
+(gdb) c
+Continuing.
+hello joe
+
+Breakpoint 2, 0x00005555555551ee in main (argc=2, argv=0x7fffffffe868) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) p i
+$1 = 2
+(gdb) $eax = $eax1-[K[K-1
+Undefined command: "$eax".  Try "help".
+(gdb) $eax = $eax-1[1P[1@r[C[C[C[C[C[C[C[1Pax-1rax-1
+Undefined command: "$rax".  Try "help".
+(gdb) $rax = $rax-1[C[C[C[C[C[C[Ceax = $eax-1[C[C[C[C[C[Cp i[K[2Pcx/20i *$pc[Ki/20xx/20i *$pc[C[C[C[C[C[Cc[Kp i$eax = $eax-1[C[C[C[C[C[C[Crax = $rax-1[C[C[C[C[C[C[Kstart hello
+The program being debugged has been started already.
+Start it from the beginning? (y or n) y
+Temporary breakpoint 3 at 0x555555555183: file hello.c, line 16.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello hello
+
+Temporary breakpoint 3, main (argc=2, argv=0x7fffffffe868) at hello.c:16
+16	  if (argc == 1) {
+(gdb) c[Kpi
+>>> 
+>>> q
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'q' is not defined
+>>> pi
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pi' is not defined
+>>> quit
+Use quit() or Ctrl-D (i.e. EOF) to exit
+>>> qui t[K[Kt([K()
+awalley1@remote00:~/i220a/submit/lab7/exercises$ 
+awalley1@remote00:~/i220a/submit/lab7/exercises$ gdb hello
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from hello...done.
+(gdb) start hello
+Temporary breakpoint 1 at 0x1183: file hello.c, line 16.
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab7/exercises/hello hello
+
+Temporary breakpoint 1, main (argc=2, argv=0x7fffffffe868) at hello.c:16
+16	  if (argc == 1) {
+(gdb) disas /m
+Dump of assembler code for function main:
+15	{
+   0x0000555555555174 <+0>:	push   %rbp
+   0x0000555555555175 <+1>:	mov    %rsp,%rbp
+   0x0000555555555178 <+4>:	sub    $0x20,%rsp
+   0x000055555555517c <+8>:	mov    %edi,-0x14(%rbp)
+   0x000055555555517f <+11>:	mov    %rsi,-0x20(%rbp)
+
+16	  if (argc == 1) {
+=> 0x0000555555555183 <+15>:	cmpl   $0x1,-0x14(%rbp)
+   0x0000555555555187 <+19>:	jne    0x5555555551b5 <main+65>
+
+17	    fprintf(stderr, "usage: %s NAME...\n", argv[0]);
+   0x0000555555555189 <+21>:	mov    -0x20(%rbp),%rax
+   0x000055555555518d <+25>:	mov    (%rax),%rdx
+   0x0000555555555190 <+28>:	mov    0x2ec9(%rip),%rax        # 0x555555558060 <stderr@@GLIBC_2.2.5>
+   0x0000555555555197 <+35>:	lea    0xe70(%rip),%rsi        # 0x55555555600e
+   0x000055555555519e <+42>:	mov    %rax,%rdi
+   0x00005555555551a1 <+45>:	mov    $0x0,%eax
+   0x00005555555551a6 <+50>:	callq  0x555555555030 <fprintf@plt>
+
+18	    exit(0xdeadbeef);
+   0x00005555555551ab <+55>:	mov    $0xdeadbeef,%edi
+   0x00005555555551b0 <+60>:	callq  0x555555555040 <exit@plt>
+
+19	  }
+20	  for (int i = 1; i < argc; i++) {
+   0x00005555555551b5 <+65>:	movl   $0x1,-0x4(%rbp)
+   0x00005555555551bc <+72>:	jmp    0x5555555551eb <main+119>
+   0x00005555555551e7 <+115>:	addl   $0x1,-0x4(%rbp)
+   0x00005555555551eb <+119>:	mov    -0x4(%rbp),%eax
+   0x00005555555551ee <+122>:	cmp    -0x14(%rbp),%eax
+   0x00005555555551f1 <+125>:	jl     0x5555555551be <main+74>
+
+21	    hello(stdout, argv[i]);
+   0x00005555555551be <+74>:	mov    -0x4(%rbp),%eax
+   0x00005555555551c1 <+77>:	cltq   
+   0x00005555555551c3 <+79>:	lea    0x0(,%rax,8),%rdx
+   0x00005555555551cb <+87>:	mov    -0x20(%rbp),%rax
+   0x00005555555551cf <+91>:	add    %rdx,%rax
+   0x00005555555551d2 <+94>:	mov    (%rax),%rdx
+   0x00005555555551d5 <+97>:	mov    0x2e64(%rip),%rax        # 0x555555558040 <stdout@@GLIBC_2.2.5>
+   0x00005555555551dc <+104>:	mov    %rdx,%rsi
+   0x00005555555551df <+107>:	mov    %rax,%rdi
+   0x00005555555551e2 <+110>:	callq  0x555555555145 <hello>
+
+22	  }
+23	  return 0;
+   0x00005555555551f3 <+127>:	mov    $0x0,%eax
+
+24	}
+--Type <RET> for more, q to quit, c to continue without paging--
+   0x00005555555551f8 <+132>:	leaveq 
+   0x00005555555551f9 <+133>:	retq   
+
+End of assembler dump.
+(gdb) b* 0x00005555555551ee
+Breakpoint 2 at 0x5555555551ee: file hello.c, line 20.
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x00005555555551ee in main (argc=2, argv=0x7fffffffe868) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) p i
+$1 = 1
+(gdb) x/20i
+Argument required (starting display address).
+(gdb) x/20i *$pc
+=> 0x5555555551ee <main+122>:	cmp    -0x14(%rbp),%eax
+   0x5555555551f1 <main+125>:	jl     0x5555555551be <main+74>
+   0x5555555551f3 <main+127>:	mov    $0x0,%eax
+   0x5555555551f8 <main+132>:	leaveq 
+   0x5555555551f9 <main+133>:	retq   
+   0x5555555551fa:	nopw   0x0(%rax,%rax,1)
+   0x555555555200 <__libc_csu_init>:	push   %r15
+   0x555555555202 <__libc_csu_init+2>:	mov    %rdx,%r15
+   0x555555555205 <__libc_csu_init+5>:	push   %r14
+   0x555555555207 <__libc_csu_init+7>:	mov    %rsi,%r14
+   0x55555555520a <__libc_csu_init+10>:	push   %r13
+   0x55555555520c <__libc_csu_init+12>:	mov    %edi,%r13d
+   0x55555555520f <__libc_csu_init+15>:	push   %r12
+   0x555555555211 <__libc_csu_init+17>:	lea    0x2bd0(%rip),%r12        # 0x555555557de8
+   0x555555555218 <__libc_csu_init+24>:	push   %rbp
+   0x555555555219 <__libc_csu_init+25>:	lea    0x2bd0(%rip),%rbp        # 0x555555557df0
+   0x555555555220 <__libc_csu_init+32>:	push   %rbx
+   0x555555555221 <__libc_csu_init+33>:	sub    %r12,%rbp
+   0x555555555224 <__libc_csu_init+36>:	sub    $0x8,%rsp
+   0x555555555228 <__libc_csu_init+40>:	callq  0x555555555000 <_init>
+(gdb) c
+Continuing.
+hello hello
+
+Breakpoint 2, 0x00005555555551ee in main (argc=2, argv=0x7fffffffe868) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) p i
+$2 = 2
+(gdb) p *($b[Krbp-0x14)
+Attempt to dereference a generic pointer.
+(gdb) p *($rbp-0x14)(*($rbp-0x14)[C[C[C[C[C[C[C[C[Ci*($rbp-0x14)[C[C[C[C[C[C[C[C[C[Cn*($rbp-0x14)t*($rbp-0x14))*($rbp-0x14)[1P*($rbp-0x14) *($rbp-0x14)[C*($rbp-0x14)[C[1P($rbp-0x14))($rbp-0x14)D($rbp-0x14)[C[1P($rbp-0x14)[1@*
+$3 = 2
+(gdb) $eax = $eax -1
+Undefined command: "$eax".  Try "help".
+(gdb) $eax = $eax -1[1P-1
+Undefined command: "$eax".  Try "help".
+(gdb) $eax = $eax-1[1@s[1@e[1@t[1@ 
+(gdb) c
+Continuing.
+hello (null)
+
+Breakpoint 2, 0x00005555555551ee in main (argc=2, argv=0x7fffffffe868) at hello.c:20
+20	  for (int i = 1; i < argc; i++) {
+(gdb) c
+Continuing.
+[Inferior 1 (process 2098420) exited normally]
+(gdb) q
+awalley1@remote00:~/i220a/submit/lab7/exercises$ cd ..
+awalley1@remote00:~/i220a/submit/lab7$ exit
+
+Script done on 2020-10-18 21:16:40-04:00 [COMMAND_EXIT_CODE="0"]
