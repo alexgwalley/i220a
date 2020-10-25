@@ -440,4 +440,8 @@ awalley1@remote02:~$ man wc
   106 /home/awalley1/cs220/projects/prj1-sol/main.c
  1016 /home/awalley1/cs220/projects/prj2-sol/bcd-test.c
   207 /home/awalley1/cs220/projects/prj2-sol/bcd.c
-  134 /home/awalley1/cs220/projects/
+  134 /home/awalley1/cs220/projects/Script started on 2020-10-25 08:20:13-04:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="110" LINES="53"]
+awalley1@remote02:~/i220a/submit/lab8$ exit
+exit
+
+Script done on 2020-10-25 08:20:21-04:00 [COMMAND_EXIT_CODE="0"]
