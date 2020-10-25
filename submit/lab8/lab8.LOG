@@ -1,0 +1,443 @@
+Script started on 2020-10-25 07:59:49-04:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="110" LINES="53"]
+awalley1@remote02:~/i220a/submit/lab8$ cd exercises/
+awalley1@remote02:~/i220a/submit/lab8/exercises$ 1[Kcd 1
+bash: cd: 1: No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises$ ls
+exercises
+awalley1@remote02:~/i220a/submit/lab8/exercises$ cd exercises/[K[K[K[K[K[K[K[K[K[K[K[K[Kmv exercises/* .
+awalley1@remote02:~/i220a/submit/lab8/exercises$ ls
+1-quote-files  exercises
+awalley1@remote02:~/i220a/submit/lab8/exercises$ cd exercises/
+awalley1@remote02:~/i220a/submit/lab8/exercises/exercises$ ls
+awalley1@remote02:~/i220a/submit/lab8/exercises/exercises$ cd ..
+awalley1@remote02:~/i220a/submit/lab8/exercises$ rm -r exercises/
+awalley1@remote02:~/i220a/submit/lab8/exercises$ ls
+1-quote-files
+awalley1@remote02:~/i220a/submit/lab8/exercises$ cd 1-quote-files/
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo \\
+\
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo \
+> q
+q
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo \*
+*
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo \$HOME}[K\"\\
+$HOME"\
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo '\'
+\
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo[K[Kho '\''
+> q
+> '
+\
+q
+
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo '\''
+q
+'[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho '\\'
+\\
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo "\"\\[K|[K\"
+"\
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo "\"\\"[K[K[K[K[K$HOME"
+/home/awalley1
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo \
+> abc \
+> 123
+abc 123
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | greap [K[K[K{[Kp *$*
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep *$*\$*
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep *\$*"\$*[C[C"*
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls[Kls | grep *"\$"*[1P\$"*[1P\$"*"\$"*[C[C[C[C[K*\$"[C[C*"
+**
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep "*\$*"[1P$*"
+**
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls 8$*[K[K[K8[K*\4[K$*
+'1$2'  'a$b'
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls \'
+ls: cannot access "'": No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls \'[Kls \'*\'[C[C*
+"'12"  "a'b"
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls \\*
+'\\ab'
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls $$
+ls: cannot access '940222': No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls"ls\ls[C[C[K[K[K[Kls "\$\$"
+ls: cannot access '$$': No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls "\$\$"[K[K[K[K[K$$"
+ls: cannot access '940222': No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls ??
+-rw-r----- 1 awalley1 awalley1 0 Oct 25 07:57 '**'
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep \\
+grep: Trailing backslash
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep \\[Kls | grep \\"\\[C[C*"
+**
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls | grep "\\*"[K[K[K[K[K\&[K*
+**
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ /*
+bash: /backup: Stale file handle
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ /*ls | grep \*[K[K\\*
+\\ab
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ env
+SHELL=/bin/bash
+DERBY_HOME=/usr/lib/jvm/java-8-oracle/db
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+PWD=/home/awalley1/i220a/submit/lab8/exercises/1-quote-files
+LOGNAME=awalley1
+XDG_SESSION_TYPE=tty
+J2REDIR=/usr/lib/jvm/java-8-oracle/jre
+VIRTUALENVWRAPPER_SCRIPT=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+HOME=/home/awalley1
+LANG=en_US.UTF-8
+_VIRTUALENVWRAPPER_API= mkvirtualenv rmvirtualenv lsvirtualenv showvirtualenv workon add2virtualenv cdsitepackages cdvirtualenv lssitepackages toggleglobalsitepackages cpvirtualenv setvirtualenvproject mkproject cdproject mktmpenv
+LC_TERMINAL=iTerm2
+SSH_CONNECTION=67.255.13.80 50464 127.0.0.1 22
+XDG_SESSION_CLASS=user
+TERM=xterm-256color
+J2SDKDIR=/usr/lib/jvm/java-8-oracle
+USER=awalley1
+LC_TERMINAL_VERSION=3.3.9
+SHLVL=2
+XDG_SESSION_ID=772624
+LD_LIBRARY_PATH=.:/home/awalley1/cs220/lib
+XDG_RUNTIME_DIR=/run/user/14688
+SSH_CLIENT=67.255.13.80 50464 22
+PATH=/home/awalley1/cs220/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/14688/bus
+MAIL=/var/mail/awalley1
+SSH_TTY=/dev/pts/0
+OLDPWD=/home/awalley1/i220a/submit/lab8/exercises
+_=/usr/bin/env
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo $HOME
+/home/awalley1
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo $PATH
+/home/awalley1/cs220/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo %[K$XXX[K[K[Kxxx
+
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ xxx=123
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ech $[K[Kp [K[Ko $xxx
+123
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ env | grep xxx
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ exprot x[K[K[K[K[Kort xxx
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ecn[K[K[Kexport xxx[4@nv | grep[C[C[C[C
+xxx=123
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ env | grep xxx[K
+xxx=123
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ p=$PATH
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo p
+p
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo $p
+/home/awalley1/cs220/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls p
+ls: cannot access 'p': No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls $p
+ls: cannot access '/home/awalley1/cs220/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin': No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ export PATH=
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo $PATH
+
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ PATH=$p
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ echo $pATH[K[K[K[KPATH
+/home/awalley1/cs220/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls ;ce *
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+bash: ce: command not found
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls ;ce *[K[K[K[K wc *
+'**'  '1$2'  "'12"  '1"2'  'a$b'  '\\ab'  'a"b'  "a'b"	 -l
+0 **
+0 1$2
+0 '12
+0 1"2
+0 a$b
+0 \\ab
+0 a"b
+0 a'b
+0 total
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ find -L ~/cs200[K[K20 -name '*.c"[K'
+/home/awalley1/cs220/exercises/questions/src/x86/fns-asm.c
+/home/awalley1/cs220/labs/lab1/exercises/1-hello/hello.c
+/home/awalley1/cs220/labs/lab1/exercises/3-multifile/main.c
+/home/awalley1/cs220/labs/lab1/exercises/3-multifile/quadr.c
+/home/awalley1/cs220/labs/lab1/exercises/4-from-scratch/key-value.c
+/home/awalley1/cs220/labs/lab1/exercises/4-from-scratch/main.c
+/home/awalley1/cs220/labs/lab1/exercises/4-from-scratch/process-file.c
+/home/awalley1/cs220/labs/lab1/exercises/5-auto-dependencies/main.c
+/home/awalley1/cs220/labs/lab1/exercises/5-auto-dependencies/quadr.c
+/home/awalley1/cs220/labs/lab2/exercises/1-hello-args/hello.c
+/home/awalley1/cs220/labs/lab2/exercises/2-hello-upcase-args/hello.c
+/home/awalley1/cs220/labs/4-pointers/exercises/1-pointers/pointers.c
+/home/awalley1/cs220/labs/4-pointers/exercises/2-in-pointers/in-pointers.c
+/home/awalley1/cs220/labs/4-pointers/exercises/3-bad-types/bad-types.c
+/home/awalley1/cs220/labs/4-pointers/exercises/4-cast-types/cast-types.c
+/home/awalley1/cs220/labs/4-pointers/exercises/5-void-pointers/void-pointers.c
+/home/awalley1/cs220/labs/4-pointers/exercises/6-in-voids/in-voids.c
+/home/awalley1/cs220/labs/lab4/exercises/1-pointers/pointers.c
+/home/awalley1/cs220/labs/lab4/exercises/2-in-pointers/in-pointers.c
+/home/awalley1/cs220/labs/lab4/exercises/3-bad-types/bad-types.c
+/home/awalley1/cs220/labs/lab4/exercises/4-cast-types/cast-types.c
+/home/awalley1/cs220/labs/lab4/exercises/5-void-pointers/void-pointers.c
+/home/awalley1/cs220/labs/lab4/exercises/6-in-voids/in-voids.c
+/home/awalley1/cs220/labs/5-arith/exercises/1-uints/uints.c
+/home/awalley1/cs220/labs/5-arith/exercises/2-ints/ints.c
+/home/awalley1/cs220/labs/5-arith/exercises/3-identify/identify.c
+/home/awalley1/cs220/labs/5-arith/exercises/4-negeq/negeq.c
+/home/awalley1/cs220/labs/5-arith/exercises/6-inexact/0.1.c
+/home/awalley1/cs220/labs/5-arith/exercises/7-nan/nan.c
+/home/awalley1/cs220/labs/5-arith/exercises/8-ulp/ulp.c
+/home/awalley1/cs220/labs/5-arith/exercises/9-loop/loop.c
+/home/awalley1/cs220/labs/lab5/exercises/1-uints/uints.c
+/home/awalley1/cs220/labs/lab5/exercises/2-ints/ints.c
+/home/awalley1/cs220/labs/lab5/exercises/3-identify/identify.c
+/home/awalley1/cs220/labs/lab5/exercises/4-negeq/negeq.c
+/home/awalley1/cs220/labs/lab5/exercises/6-inexact/0.1.c
+/home/awalley1/cs220/labs/lab5/exercises/7-nan/nan.c
+/home/awalley1/cs220/labs/lab5/exercises/8-ulp/ulp.c
+/home/awalley1/cs220/labs/lab5/exercises/9-loop/loop.c
+/home/awalley1/cs220/labs/6-linking/exercises/1-log10/log10.c
+/home/awalley1/cs220/labs/6-linking/exercises/2-multiple-symbols/def1.c
+/home/awalley1/cs220/labs/6-linking/exercises/2-multiple-symbols/def2.c
+/home/awalley1/cs220/labs/6-linking/exercises/2-multiple-symbols/main.c
+/home/awalley1/cs220/labs/6-linking/exercises/3-multiple-defs/f.c
+/home/awalley1/cs220/labs/6-linking/exercises/3-multiple-defs/main.c
+/home/awalley1/cs220/labs/6-linking/exercises/4-static-dynamic/log10.c
+/home/awalley1/cs220/labs/6-linking/exercises/5-libvec/addvec.c
+/home/awalley1/cs220/labs/6-linking/exercises/5-libvec/multvec.c
+/home/awalley1/cs220/labs/6-linking/exercises/5-libvec/testvec.c
+/home/awalley1/cs220/labs/6-linking/exercises/7-libgeom/circ.c
+/home/awalley1/cs220/labs/6-linking/exercises/7-libgeom/rect.c
+/home/awalley1/cs220/labs/6-linking/exercises/7-libgeom/testgeom.c
+/home/awalley1/cs220/labs/lab6/exercises/1-log10/log10.c
+/home/awalley1/cs220/labs/lab6/exercises/2-multiple-symbols/def1.c
+/home/awalley1/cs220/labs/lab6/exercises/2-multiple-symbols/def2.c
+/home/awalley1/cs220/labs/lab6/exercises/2-multiple-symbols/main.c
+/home/awalley1/cs220/labs/lab6/exercises/3-multiple-defs/f.c
+/home/awalley1/cs220/labs/lab6/exercises/3-multiple-defs/main.c
+/home/awalley1/cs220/labs/lab6/exercises/4-static-dynamic/log10.c
+/home/awalley1/cs220/labs/lab6/exercises/5-libvec/addvec.c
+/home/awalley1/cs220/labs/lab6/exercises/5-libvec/multvec.c
+/home/awalley1/cs220/labs/lab6/exercises/5-libvec/testvec.c
+/home/awalley1/cs220/labs/lab6/exercises/7-libgeom/circ.c
+/home/awalley1/cs220/labs/lab6/exercises/7-libgeom/rect.c
+/home/awalley1/cs220/labs/lab6/exercises/7-libgeom/testgeom.c
+/home/awalley1/cs220/labs/7-assembly-language/exercises/hello.c
+/home/awalley1/cs220/labs/lab7/exercises/hello.c
+/home/awalley1/cs220/misc/doodles/220a/2020-08-28/hello-mem.c
+/home/awalley1/cs220/misc/doodles/220a/2020-08-28/hello.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-02/expr-vs-statement.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-02/fragments.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-02/sizeof.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-02/ternary.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-04/arrays.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-04/chars.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-04/ints.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-07/arrays.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-07/bases.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-07/sum.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-09/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-16/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-18/decl-defn.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-18/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-18/multi-array.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-18/ptr-array.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-21/ptr-ret.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-21/quadr.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-23/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-09-25/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-10-12/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-10-14/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-10-21/doodles.c
+/home/awalley1/cs220/misc/doodles/220a/2020-10-23/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-08-28/hello.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-02/assign.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-02/bits.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-02/expr.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-02/fragments.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-04/arrays.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-04/chars.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-04/ints.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-07/arrays.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-07/gsum.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-07/sum.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-09/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-16/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-18/arr-ptr.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-18/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-18/strings.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-21/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-21/even-odd.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-21/quadr.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-23/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-25/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-09-30/doodle.c
+/home/awalley1/cs220/misc/doodles/220b/2020-10-12/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-10-14/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-10-19/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-10-21/doodles.c
+/home/awalley1/cs220/misc/doodles/220b/2020-10-23/doodles.c
+/home/awalley1/cs220/projects/prj1/extras/flip-bits/flip-bits.c
+/home/awalley1/cs220/projects/prj1/prj1-sol/hamming.c
+/home/awalley1/cs220/projects/prj1/prj1-sol/main.c
+/home/awalley1/cs220/projects/prj2/bcd-test.c
+/home/awalley1/cs220/projects/prj2/prj2-sol/main.c
+/home/awalley1/cs220/projects/prj2/prj2-sol/bcd-test.c
+/home/awalley1/cs220/projects/prj2/prj2-sol/bcd.c
+/home/awalley1/cs220/projects/prj1-sol/hamming.c
+/home/awalley1/cs220/projects/prj1-sol/main.c
+/home/awalley1/cs220/projects/prj2-sol/bcd-test.c
+/home/awalley1/cs220/projects/prj2-sol/bcd.c
+/home/awalley1/cs220/projects/prj2-sol/main.c
+/home/awalley1/cs220/slides/intro/code/hello.c
+/home/awalley1/cs220/slides/c-intro/code/bases.c
+/home/awalley1/cs220/slides/c-intro/code/count-1s-1.c
+/home/awalley1/cs220/slides/c-intro/code/count-1s-2.c
+/home/awalley1/cs220/slides/c-intro/code/endian.c
+/home/awalley1/cs220/slides/c-intro/code/integer-sizes.c
+/home/awalley1/cs220/slides/c-intro/code/kilo-powers.c
+/home/awalley1/cs220/slides/c-intro/code/ptr-sum.c
+/home/awalley1/cs220/slides/c-intro/code/robust-sum.c
+/home/awalley1/cs220/slides/c-intro/code/sum-args.c
+/home/awalley1/cs220/slides/c-intro/code/wc.c
+/home/awalley1/cs220/slides/c-intro/code/sum.c
+/home/awalley1/cs220/slides/c-intro/code/out-bits.c
+/home/awalley1/cs220/slides/x86/code/abs-diff.c
+/home/awalley1/cs220/slides/x86/code/acc-fact.c
+/home/awalley1/cs220/slides/x86/code/arith.c
+/home/awalley1/cs220/slides/x86/code/array-access.c
+/home/awalley1/cs220/slides/x86/code/cmp-sets.c
+/home/awalley1/cs220/slides/x86/code/conditional-move.c
+/home/awalley1/cs220/slides/x86/code/div-mod.c
+/home/awalley1/cs220/slides/x86/code/dynamic-array.c
+/home/awalley1/cs220/slides/x86/code/fact-do-while.c
+/home/awalley1/cs220/slides/x86/code/fact-while.c
+/home/awalley1/cs220/slides/x86/code/find.c
+/home/awalley1/cs220/slides/x86/code/indirect-goto.c
+/home/awalley1/cs220/slides/x86/code/move.c
+/home/awalley1/cs220/slides/x86/code/mstore/main.c
+/home/awalley1/cs220/slides/x86/code/mstore/mstore.c
+/home/awalley1/cs220/slides/x86/code/point3.c
+/home/awalley1/cs220/slides/x86/code/read-point.c
+/home/awalley1/cs220/slides/x86/code/rec-fact.c
+/home/awalley1/cs220/slides/x86/code/scale.c
+/home/awalley1/cs220/slides/x86/code/stack-frame.c
+/home/awalley1/cs220/slides/x86/code/structs.c
+/home/awalley1/cs220/slides/x86/code/sum-dist-origin-s.c
+/home/awalley1/cs220/slides/x86/code/sum-dist-origin.c
+/home/awalley1/cs220/slides/x86/code/sum.c
+/home/awalley1/cs220/slides/x86/code/switch.c
+/home/awalley1/cs220/slides/x86/code/vframe.c
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ find -L ~/cs220 -name '*.c' | wc -l
+171
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ find -L ~/cs220 -name '*.c' | wc -l[1P[1P[1P
+0
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ find / 0-name[K[K[K[K[K[K-name '*.c"[K' 2>/dev/null > [Kc-files.lst &
+[1] 943399
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ cat [K[K[K[Kcat ls- l
+cat: ls-: No such file or directory
+cat: l: No such file or directory
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ cat ls- l[1P l[C l[C[C[C[C[C[K[K[K[K[K[K[K[K[Kls -l c-files.lst 
+-rw-r----- 1 awalley1 awalley1 244401 Oct 25 08:12 c-files.lst
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls -l c-files.lst 
+-rw-r----- 1 awalley1 awalley1 359958 Oct 25 08:12 c-files.lst
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls -l c-files.lst 
+-rw-r----- 1 awalley1 awalley1 359958 Oct 25 08:12 c-files.lst
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ ls -l c-files.lst 
+-rw-r----- 1 awalley1 awalley1 359958 Oct 25 08:12 c-files.lst
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ jobs
+[1]+  Running                 find / -name '*.c' 2> /dev/null > c-files.lst &
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ kill %1
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ kill %1[3Pjobsls -l c-files.lst 
+-rw-r----- 1 awalley1 awalley1 417302 Oct 25 08:13 c-files.lst
+[1]+  Terminated              find / -name '*.c' 2> /dev/null > c-files.lst
+awalley1@remote02:~/i220a/submit/lab8/exercises/1-quote-files$ cd ~
+awalley1@remote02:~$ pwd
+/home/awalley1
+awalley1@remote02:~$ xx=123
+awalley1@remote02:~$ pwd ;[K[K; echo $xx:[K; (xx=abc; cd /; pwd'[K; echo $xx); pwd; exho[K[K[Kcho $xx
+/home/awalley1
+123
+/
+abc
+/home/awalley1
+123
+awalley1@remote02:~$ wc -l
+q
+1
+awalley1@remote02:~$ man wc
+[?1049h[22;0;0t[?1h=WC(1)                                          User Commands                                          WC(1)[m
+[m
+[1mNAME[0m[m
+       wc - print newline, word, and byte counts for each file[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mwc[0m [[4mOPTION[24m]... [[4mFILE[24m]...[m
+       [1mwc[0m [[4mOPTION[24m]... [4m--files0-from=F[24m[m
+[m
+[1mDESCRIPTION[0m[m
+       Print newline, word, and byte counts for each FILE, and a total line if more than one FILE is speci‐[m
+       fied.  A word is a non-zero-length sequence of characters delimited by white space.[m
+[m
+       With no FILE, or when FILE is -, read standard input.[m
+[m
+       The options below may be used to select which counts are printed, always  in  the  following  order:[m
+       newline, word, character, byte, maximum line length.[m
+[m
+       [1m-c[0m, [1m--bytes[0m[m
+              print the byte counts[m
+[m
+       [1m-m[0m, [1m--chars[0m[m
+              print the character counts[m
+[m
+       [1m-l[0m, [1m--lines[0m[m
+              print the newline counts[m
+[m
+       [1m--files0-from[0m=[4mF[24m[m
+              read  input  from  the files specified by NUL-terminated names in file F; If F is - then read[m
+              names from standard input[m
+[m
+       [1m-L[0m, [1m--max-line-length[0m[m
+              print the maximum display width[m
+[m
+       [1m-w[0m, [1m--words[0m[m
+              print the word counts[m
+[m
+       [1m--help[0m display this help and exit[m
+[m
+       [1m--version[0m[m
+              output version information and exit[m
+[m
+[1mAUTHOR[0m[m
+       Written by Paul Rubin and David MacKenzie.[m
+[m
+[1mREPORTING[0m [1mBUGS[0m[m
+       GNU coreutils online help: <https://www.gnu.org/software/coreutils/>[m
+       Report wc translation bugs to <https://translationproject.org/team/>[m
+[m
+[1mCOPYRIGHT[0m[m
+       Copyright © 2018 Free Software Foundation,  Inc.   License  GPLv3+:  GNU  GPL  version  3  or  later[m
+       <https://gnu.org/licenses/gpl.html>.[m
+[7m Manual page wc(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0tawalley1@remote02:~$ wc -l `ls[K[Kfind ~/cs220/projects -name '*.[ch]'`
+   81 /home/awalley1/cs220/projects/prj1/extras/flip-bits/flip-bits.c
+   88 /home/awalley1/cs220/projects/prj1/prj1-sol/hamming.c
+   23 /home/awalley1/cs220/projects/prj1/prj1-sol/hamming.h
+  106 /home/awalley1/cs220/projects/prj1/prj1-sol/main.c
+    0 /home/awalley1/cs220/projects/prj2/bcd-test.c
+   25 /home/awalley1/cs220/projects/prj2/prj2-sol/check-extra.h
+   76 /home/awalley1/cs220/projects/prj2/prj2-sol/main.c
+ 1016 /home/awalley1/cs220/projects/prj2/prj2-sol/bcd-test.c
+   94 /home/awalley1/cs220/projects/prj2/prj2-sol/bcd.c
+  134 /home/awalley1/cs220/projects/prj2/prj2-sol/bcd.h
+  129 /home/awalley1/cs220/projects/prj1-sol/hamming.c
+   23 /home/awalley1/cs220/projects/prj1-sol/hamming.h
+  106 /home/awalley1/cs220/projects/prj1-sol/main.c
+ 1016 /home/awalley1/cs220/projects/prj2-sol/bcd-test.c
+  207 /home/awalley1/cs220/projects/prj2-sol/bcd.c
+  134 /home/awalley1/cs220/projects/
