@@ -1,0 +1,7 @@
+2019-09-22
+
+It looks like the malloc() library sets up an initial arena and so
+to brk does not change.
+
+[According to .<https://osa1.net/posts/2018-04-08-malloc-brk-sbrk.html> this,
+sbrk() is not used at all, though this is not what I am seeing.]
