@@ -1,0 +1,556 @@
+Script started on 2020-11-08 17:12:21-05:00 [TERM="xterm-256color" TTY="/dev/pts/15" COLUMNS="113" LINES="53"]
+awalley1@remote04:~/i220a/submit/lab10$ cd exercises/
+awalley1@remote04:~/i220a/submit/lab10/exercises$ cd process-memory/
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ make
+cc -g -Wall -std=c11 -O1    process-memory.c   -o process-memory
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ ./process-memory 10 &
+[1] 2909931
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ 10 MB allocated at 0x7f4301a72010
+[Kawalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ [Kawalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ ps -Fp a[Ka[Ka[K2909931
+UID          PID    PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+[1]+  Done                    ./process-memory 10
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ ./process-memory 100 &
+[1] 2910443
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ 100 MB allocated at 0x7fb593fce010
+
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ ./process-memory 100 &[K./process-memory 100 &[8Pps -Fp 2909931[K[K[K[K[K[K[K2910443
+UID          PID    PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+awalley1 2910443 2909762  0 26171   740   0 17:15 pts/16   00:00:00 ./process-memory 100
+awalley1@remote04:~/i220a/submit/lab10/exercises/process-memory$ cd ../bug-program/
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ make
+cc -g -Wall -std=c11 -O1    bug-program.c   -o bug-program
+[1]+  Done                    ./process-memory 100  (wd: ~/i220a/submit/lab10/exercises/process-memory)
+(wd now: ~/i220a/submit/lab10/exercises/bug-program)
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ vim bg[Kug-program.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"bug-program.c" 76L, 2199C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  3 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  5 
+  6 [m[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;130m  7 [m[32mstruct[m KeyValue {
+[38;5;130m  8 [m  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+[38;5;130m  9 [m  [32mint[m value;[13C[34m/** integer value */[m
+[38;5;130m 10 [m  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+[38;5;130m 11 [m};
+[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));
+[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k));
+[38;5;130m 25 
+ 26 [m  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m
+[38;5;130m 27 [m    fprintf([31mstderr[m, [31m"malloc failure: [m[35m%s\n[m[31m"[m, strerror(errno));
+[38;5;130m 28 [m    exit([31m1[m);
+[38;5;130m 29 [m  }
+[38;5;130m 30 [m  strcpy(s, k);  [34m//copy string k into newly allocated memory pointed to by s[m
+[38;5;130m 31 
+ 32 [m  [34m//initialize fields of *kv.[m
+[38;5;130m 33 [m  kv->key = s; kv->value = v; kv->succ = keyValues;
+[38;5;130m 34 
+ 35 [m  [38;5;130mreturn[m kv;
+[38;5;130m 36 [m}
+[38;5;130m 37 
+ 38 [m[34m/** Free all the key-value's in keyValues. */[m
+[38;5;130m 39 [m[32mstatic[m [32mvoid[m
+[38;5;130m 40 [mfree_key_values([32mstruct[m KeyValue *keyValues)
+[38;5;130m 41 [m{
+[38;5;130m 42 [m  [34m//go thru chain of keyValues[m
+[38;5;130m 43 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 44 [m    free(p); [34m//free KeyValue struct[m
+[38;5;130m 45 [m  }
+[38;5;130m 46 [m}
+[38;5;130m 47 
+ 48 [m[34m/** Make key-values for all the words in the first verse of Carroll's[m
+[38;5;130m 49 [m[34m *  Jabberwocky with value being the index of the word.[m
+[38;5;130m 50 [m[34m */[m
+[38;5;130m 51 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 52 [mmake_key_values([32mvoid[m) {[53;96H1,1[11CTop[1;5H[?25h[?12$p[?25l[53;96H2[2;5H[?25h[?25l[53;96H3[3;5H[?25h[?25l[53;96H4[4;5H[?25h[?25l[53;96H5,0-1[5;5H[?25h[?25l[53;96H6,1  [6;5H[?25h[?25l[53;96H7[7;5H[?25h[?25l[53;96H8[8;5H[?25h[?25l[53;96H9[9;5H[?25h[?25l[53;96H10,1[10;5H[?25h[?25l[7;21H[106m{[11;5H}[m[53;97H1[11;5H[?25h[?25l[7;21H{[11;5H}[53;97H2,0-1[12;5H[?25h[?25l[53;97H3,1  [13;5H[?25h[?25l[53;97H4[14;5H[?25h[?25l[53;97H5[15;5H[?25h[?25l[53;97H6[16;5H[?25h[?25l[53;97H7[17;5H[?25h[?25l[53;96H22,0-1[22;5H[?25h[?25l[53;97H5[25;5H[?25h[?25l[53;96H31[31;5H[?25h[?25l[53;97H4[34;5H[?25h[?25l[53;97H7[37;5H[?25h[?25l[53;96H4[47;5H[?25h[?25l[1;52r[1;1H[13M[1;53r[40;1H[38;5;130m 53 [m  [32mconst[m [32mchar[m *keys[] = {
+[38;5;130m 54 [m    [31m"twas"[m, [31m"brillig"[m, [31m"and"[m, [31m"the"[m, [31m"slithy"[m, [31m"toves"[m,
+[38;5;130m 55 [m    [31m"did"[m, [31m"gyre"[m, [31m"and"[m, [31m"gimble"[m, [31m"in"[m, [31m"the"[m, [31m"wabe"[m,
+[38;5;130m 56 [m    [31m"all"[m, [31m"mimsy"[m, [31m"were"[m, [31m"the"[m, [31m"borogoves"[m,
+[38;5;130m 57 [m    [31m"and"[m, [31m"the"[m, [31m"mome"[m, [31m"raths"[m, [31m"outgrabe"[m,
+[38;5;130m 58 [m  };
+[38;5;130m 59 [m  [32mstruct[m KeyValue *p = [31mNULL[m;
+[38;5;130m 60 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < [38;5;130msizeof[m(keys)/[38;5;130msizeof[m(keys[[31m0[m]); i++) {
+[38;5;130m 61 [m    p = add_key_value(p, keys[i], i);
+[38;5;130m 62 [m  }
+[38;5;130m 63 [m  [38;5;130mreturn[m p;
+[38;5;130m 64 [m}
+[38;5;130m 65 [m[53;1H[K[53;96H65,0-1[8C54%[52;5H[?25h[?25l[1;52r[1;1H[11M[1;53r[42;1H[38;5;130m 66 [m[34m/** Print out all the words in the first verse of Carroll's Jabberwocky[m
+[38;5;130m 67 [m[34m *  paired with their index in the verse.[m
+[38;5;130m 68 [m[34m */[m
+[38;5;130m 69 [m[32mint[m main() {
+[38;5;130m 70 [m  [32mstruct[m KeyValue *keyValues = make_key_values();
+[38;5;130m 71 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 72 [m    printf([31m"[m[35m%s[m[31m: [m[35m%d\n[m[31m"[m, p->key, p->value);
+[38;5;130m 73 [m  }
+[38;5;130m 74 [m  free_key_values(keyValues);
+[38;5;130m 75 [m  [38;5;130mreturn[m [31m0[m;
+[38;5;130m 76 [m}[53;96H[K[53;96H76,1[10CBot[52;5H[?25h[?25l[53;96H65,0-1[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H3[13;5H[?25h[?25l[53;97H4[10;5H[?25h[?25l[53;97H1[7;5H[?25h[?25l[53;96H25[1;5H[?25h[?25l[1;52r[1;1H[3L[1;53r[1;1H[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k));[53;96H[K[53;96H22,0-1[8C87%[1;5H[?25h[?25l[1;52r[1;1H[10L[1;53r[1;1H[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));[53;96H[K[53;96H12,0-1[8C45%[1;5H[?25h[?25l[1;52r[1;1H[7L[1;53r[1;1H[38;5;130m  5 
+  6 [m[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;130m  7 [m[32mstruct[m KeyValue {
+[38;5;130m  8 [m  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+[38;5;130m  9 [m  [32mint[m value;[13C[34m/** integer value */[m
+[38;5;130m 10 [m  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+[38;5;130m 11 [m};[53;96H[K[53;96H5,0-1[9C16%[1;5H[?25h[?25l[1;52r[1;1H[4L[1;53r[1;1H[38;5;130m  1 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  3 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<string.h>[m[53;96H[K[53;96H1,1[11CTop[1;5H[?25h[?25l[53;96H5,0-1[5;5H[?25h[?25l[53;96H12,0-1[12;5H[?25h[?25l[53;96H2[22;5H[?25h[?25l[53;97H5[25;5H[?25h[?25l[53;96H31[31;5H[?25h[?25l[53;97H4[34;5H[?25h[?25l[53;97H7[37;5H[?25h[?25l[53;96H4[47;5H[?25h[?25l[1;52r[1;1H[13M[1;53r[40;1H[38;5;130m 53 [m  [32mconst[m [32mchar[m *keys[] = {
+[38;5;130m 54 [m    [31m"twas"[m, [31m"brillig"[m, [31m"and"[m, [31m"the"[m, [31m"slithy"[m, [31m"toves"[m,
+[38;5;130m 55 [m    [31m"did"[m, [31m"gyre"[m, [31m"and"[m, [31m"gimble"[m, [31m"in"[m, [31m"the"[m, [31m"wabe"[m,
+[38;5;130m 56 [m    [31m"all"[m, [31m"mimsy"[m, [31m"were"[m, [31m"the"[m, [31m"borogoves"[m,
+[38;5;130m 57 [m    [31m"and"[m, [31m"the"[m, [31m"mome"[m, [31m"raths"[m, [31m"outgrabe"[m,
+[38;5;130m 58 [m  };
+[38;5;130m 59 [m  [32mstruct[m KeyValue *p = [31mNULL[m;
+[38;5;130m 60 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < [38;5;130msizeof[m(keys)/[38;5;130msizeof[m(keys[[31m0[m]); i++) {
+[38;5;130m 61 [m    p = add_key_value(p, keys[i], i);
+[38;5;130m 62 [m  }
+[38;5;130m 63 [m  [38;5;130mreturn[m p;
+[38;5;130m 64 [m}
+[38;5;130m 65 [m[53;96H[K[53;96H65,0-1[8C54%[52;5H[?25h[?25l[1;52r[1;1H[11M[1;53r[42;1H[38;5;130m 66 [m[34m/** Print out all the words in the first verse of Carroll's Jabberwocky[m
+[38;5;130m 67 [m[34m *  paired with their index in the verse.[m
+[38;5;130m 68 [m[34m */[m
+[38;5;130m 69 [m[32mint[m main() {
+[38;5;130m 70 [m  [32mstruct[m KeyValue *keyValues = make_key_values();
+[38;5;130m 71 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 72 [m    printf([31m"[m[35m%s[m[31m: [m[35m%d\n[m[31m"[m, p->key, p->value);
+[38;5;130m 73 [m  }
+[38;5;130m 74 [m  free_key_values(keyValues);
+[38;5;130m 75 [m  [38;5;130mreturn[m [31m0[m;
+[38;5;130m 76 [m}[53;96H[K[53;96H76,1[10CBot[52;5H[?25h[?25l[53;96H65,0-1[41;5H[?25h[?25l[28;27H[106m{[40;5H}[m[53;97H4,1  [40;5H[?25h[?25l[28;27H{[40;5H}[53;97H3[39;5H[?25h[?25l[53;97H2[38;5H[?25h[?25l[53;97H1[37;5H[?25h[?25l[53;97H0[36;5H[?25h[?25l[53;97H1[37;5H[?25h[?25l[53;99H2[37;6H[?25h[?25l[53;99H3[37;7H[?25h[?25l[53;99H4[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;96H59[35;8H[?25h[?25l[53;96H60[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;97H0[36;8H[?25h[?25l[53;97H1[37;8H[?25h[?25l[53;99H5[37;9H[?25h[?25l[36;62H[106m{[38;7H}[m[53;97H2,3[38;7H[?25h[?25l[36;62H{[38;7H}[53;97H3,5[39;9H[?25h[?25l[28;27H[106m{[40;5H}[m[53;97H4,1[40;5H[?25h[?25l[28;27H{[40;5H}[53;97H5,0-1[41;5H[?25h[?25l[53;97H6,5  [42;9H[?25h[?25l[53;97H7[43;9H[?25h[?25l[53;97H8,3[44;7H[?25h[?25l[53;97H9,5[45;9H[?25h[?25l[53;96H70[46;9H[?25h[?25l[53;97H1[47;9H[?25h[?25l[53;97H2[48;9H[?25h[?25l[47;68H[106m{[49;7H}[m[53;97H3,3[49;7H[?25h[?25l[47;68H{[49;7H}[53;97H4,5[50;9H[?25h[?25l[53;97H5[51;9H[?25h[?25l[45;16H[106m{[52;5H}[m[53;97H6,1[52;5H[?25h[?25l[45;16H{[52;5H}[53;97H5,5[51;9H[?25h[?25l[53;97H4[50;9H[?25h[?25l[47;68H[106m{[49;7H}[m[53;97H3,3[49;7H[?25h[?25l[47;68H{[49;7H}[53;97H2,5[48;9H[?25h[?25l[53;97H1[47;9H[?25h[?25l[53;97H0[46;9H[?25h[?25l[53;96H69[45;9H[?25h[?25l[53;97H8,3[44;7H[?25h[?25l[53;97H7,5[43;9H[?25h[?25l[53;97H6[42;9H[?25h[?25l[53;97H5,0-1[41;5H[?25h[?25l[28;27H[106m{[40;5H}[m[53;97H4,1  [40;5H[?25h[?25l[28;27H{[40;5H}[53;97H3,5[39;9H[?25h[?25l[36;62H[106m{[38;7H}[m[53;97H2,3[38;7H[?25h[?25l[36;62H{[38;7H}[53;97H1,5[37;9H[?25h[?25l[53;97H0[36;9H[?25h[?25l[53;96H59[35;9H[?25h[?25l[53;97H8,4[34;8H[?25h[?25l[53;97H7,5[33;9H[?25h[?25l[53;97H6[32;9H[?25h[?25l[53;97H5[31;9H[?25h[?25l[53;97H4[30;9H[?25h[?25l[53;97H3[29;9H[?25h[?25l[53;97H2[28;9H[?25h[?25l[53;97H1[27;9H[?25h[?25l[53;97H0,3[26;7H[?25h[?25l[53;96H49,5[25;9H[?25h[?25l[53;97H8[24;9H[?25h[?25l[53;97H7,0-1[23;5H[?25h[?25l[17;5H[106m{[22;5H}[m[53;97H6,1  [22;5H[?25h[?25l[17;5H{[19;68H[106m{[21;7H}[m[22;5H}[53;97H5,3[21;7H[?25h[?25l[19;68H{[21;7H}[53;97H4,5[20;9H[?25h[?25l[53;97H3[19;9H[?25h[?25l[53;97H2[18;9H[?25h[?25l[17;5H[106m{[22;5H}[m[53;97H1,1[17;5H[?25h[?25l{[22;5H}[53;97H0,5[16;9H[?25h[?25l[53;96H39[15;9H[?25h[?25l[53;97H8[14;9H[?25h[?25l[53;97H7,0-1[13;5H[?25h[?25l[53;97H6,1  [12;5H[?25h[?25l[53;97H5,5[11;9H[?25h[?25l[53;97H4,0-1[10;5H[?25h[?25l[53;97H3,5  [9;9H[?25h[?25l[53;97H2[8;9H[?25h[?25l[53;97H1,0-1[7;5H[?25h[?25l[53;97H0,5  [6;9H[?25h[?25l[2;36H[106m{[5;7H}[m[53;96H29,3[5;7H[?25h[?25l[2;36H{[5;7H}[53;97H8,5[4;9H[?25h[?25l[53;97H7[3;9H[?25h[?25l[53;97H6[2;9H[?25h[?25l[53;97H5,0-1[1;5H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k));[53;96H[K[53;96H24,5[10C95%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 23 [m  [34m//allocate storage for string pointed to by k[m[53;96H[K[53;96H23,5[10C91%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 22 [m[53;96H[K[53;96H22,0-1[8C87%[1;5H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));[53;96H[K[53;96H21,5[10C83%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m[53;96H[K[53;96H20,5[10C79%[1;9H[?25h[?25l[18;52r[18;1H[L[1;53r[1;2H[38;5;130m19[m[1C[106m{[m[1;7H[K[2;3H[38;5;130m0[m[3C[34m//allocate storage for new KeyValue struct[m[2;50H[K[3;3H[38;5;130m1[m[3C[32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));[4;3H[38;5;130m2[m[4;7H[K[5;3H[38;5;130m3[m[3C[34m//allocate storage for string pointed to by k[m[6;3H[38;5;130m4[m[3C[32mchar[m *s = malloc(strlen(k));[7;3H[38;5;130m5[m[7;7H[K[8;3H[38;5;130m6 [m  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m[9;3H[38;5;130m7[m[5Cfprintf([31mstderr[m, [31m"malloc failure: [m[35m%s\n[m[31m"[m, strerror(errno));[10;3H[38;5;130m8[m[3C  exit([31m1[m);[11;2H[38;5;130m29[m[3C}[11;8H[K[12;3H[38;5;130m0[m[3Cstrcpy(s, k);  [34m//copy string k into newly allocated memory pointed to by s[m[13;3H[38;5;130m1[m[13;7H[K[14;3H[38;5;130m2[m[3C[34m//initialize fields of *kv.[m[14;35H[K[15;3H[38;5;130m3[m[3Ckv->key = s; kv->value = v; kv->succ = keyValues;[16;3H[38;5;130m4[m[16;7H[K[17;3H[38;5;130m5[m[1C  [38;5;130mreturn[m kv;
+[38;5;130m 36 [m[106m}[m[53;96H[K[53;96H19,1[10C75%[1;5H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)[2;5H{[19;5H}[53;96H[K[53;96H18,5[10C70%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *[53;96H[K[53;96H17,5[10C66%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 16 [m[34m */[m[53;96H[K[53;96H16,3[10C62%[1;7H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 15 [m[34m *  resulting chain.[m[53;96H[K[53;96H15,5[10C58%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m[53;96H[K[53;96H14,5[10C54%[1;9H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m[53;96H[K[53;96H13,5[10C50%[1;9H[?25h[?25l[53;97H4[2;9H[?25h[?25l[53;97H5[3;9H[?25h[?25l[53;97H6,3[4;7H[?25h[?25l[1;52r[1;1H[L[1;53r[1;1H[38;5;130m 12 [m[53;96H[K[53;96H12,0-1[8C45%[1;5H[?25h[?25l[53;96H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;96H31[20;5H[?25h[?25l[53;96H25[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;96H31[20;5H[?25h[?25l[53;97H4[23;5H[?25h[?25l[53;97H7[26;5H[?25h[?25l[53;96H4[36;5H[?25h[?25l[1;52r[1;1H[2M[1;53r[51;1H[38;5;130m 64 [m}
+[38;5;130m 65 [m[53;96H[K[53;96H65,0-1[8C54%[52;5H[?25h[?25l[1;52r[1;1H[11M[1;53r[42;1H[38;5;130m 66 [m[34m/** Print out all the words in the first verse of Carroll's Jabberwocky[m
+[38;5;130m 67 [m[34m *  paired with their index in the verse.[m
+[38;5;130m 68 [m[34m */[m
+[38;5;130m 69 [m[32mint[m main() {
+[38;5;130m 70 [m  [32mstruct[m KeyValue *keyValues = make_key_values();
+[38;5;130m 71 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 72 [m    printf([31m"[m[35m%s[m[31m: [m[35m%d\n[m[31m"[m, p->key, p->value);
+[38;5;130m 73 [m  }
+[38;5;130m 74 [m  free_key_values(keyValues);
+[38;5;130m 75 [m  [38;5;130mreturn[m [31m0[m;
+[38;5;130m 76 [m}[53;96H[K[53;96H76,1[10CBot[52;5H[?25h[?25l[53;96H65,0-1[41;5H[?25h[?25l[45;16H[106m{[52;5H}[m[53;96H76,1  [52;5H[?25h[?25l[45;16H{[52;5H}[53;96H65,0-1[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[45;16H[106m{[52;5H}[m[53;96H76,1  [52;5H[?25h[?25l[45;16H{[52;5H}[53;96H65,0-1[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H65[41;5H[?25h[?25l[45;16H[106m{[52;5H}[m[53;96H76,1  [52;5H[?25h[?25l[45;16H{[52;5H}[53;96H65,0-1[41;5H[?25h[?25l[45;16H[106m{[52;5H}[m[53;96H76,1  [52;5H[?25h[?25l[45;16H{[52;5H}[53;96H65,0-1[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H3[13;5H[?25h[?25l[53;97H4[10;5H[?25h[?25l[53;97H7[13;5H[?25h[?25l[53;97H4[10;5H[?25h[?25l[53;97H1[7;5H[?25h[?25l[53;96H25[1;5H[?25h[?25l[1;52r[1;1H[3L[1;53r[1;1H[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k));[53;96H[K[53;96H22,0-1[8C87%[1;5H[?25h[?25l[1;52r[1;1H[10L[1;53r[1;1H[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));[53;96H[K[53;96H12,0-1[8C45%[1;5H[?25h[?25l[53;96H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H5[14;5H[?25h[?25l[53;97H2[11;5H[?25h[?25l[53;97H1,1  [10;5H[?25h[?25l[53;97H2,0-1[11;5H[?25h[?25l[53;97H3,1  [12;5H[?25h[?25l[53;99H3[12;7H[?25h[?25l[53;97H4[13;7H[?25h[?25l[53;99H8[13;12H[?25h[?25l[53;99H9[13;13H[?25h[?25l[53;99H11[13;15H[?25h[?25l[53;100H3[13;17H[?25h[?25lmalloc[106m([9C)[m[53;100H9[13;23H[?25h[?25l([9C)[53;99H20[13;24H[?25h[?25lstrlen[106m([mk[106m)[m[53;100H6[13;30H[?25h[?25l(k)[53;100H7[13;31H[?25h[?25l[106m([mk[106m)[m[53;100H8[13;32H[?25h[?25l[13;23H[106m([mstrlen(k)[106m)[m[53;100H9[13;33H[?25h[?25l[53;1H[1m-- INSERT --[m[53;96H[K[53;96H24,29[9C45%[13;33H[?25h[?25l[106m [m); [106m)[m[53;99H30[13;34H[?25h[?25l[106m+[m);+[106m)[m[53;100H1[13;35H[?25h[?25l[106m [m); [106m)[m[53;100H2[13;36H[?25h[?25l[31m[106m1[m);[31m1[m[106m)[m[53;100H3[13;37H[?25hj[106m)[m[53;1H[K[?25l[13;23H([13C)[53;96H24,32[9C45%[13;36H[?25h[?25l[53;96H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"bug-program.c" 76L, 2203C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ make
+cc -g -Wall -std=c11 -O1    bug-program.c   -o bug-program
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ ./bug-program make[Kvim bug-program.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"bug-program.c" 76L, 2203C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  3 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  5 
+  6 [m[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;130m  7 [m[32mstruct[m KeyValue {
+[38;5;130m  8 [m  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+[38;5;130m  9 [m  [32mint[m value;[13C[34m/** integer value */[m
+[38;5;130m 10 [m  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+[38;5;130m 11 [m};
+[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));
+[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k) + [31m1[m);
+[38;5;130m 25 
+ 26 [m  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m
+[38;5;130m 27 [m    fprintf([31mstderr[m, [31m"malloc failure: [m[35m%s\n[m[31m"[m, strerror(errno));
+[38;5;130m 28 [m    exit([31m1[m);
+[38;5;130m 29 [m  }
+[38;5;130m 30 [m  strcpy(s, k);  [34m//copy string k into newly allocated memory pointed to by s[m
+[38;5;130m 31 
+ 32 [m  [34m//initialize fields of *kv.[m
+[38;5;130m 33 [m  kv->key = s; kv->value = v; kv->succ = keyValues;
+[38;5;130m 34 
+ 35 [m  [38;5;130mreturn[m kv;
+[38;5;130m 36 [m}
+[38;5;130m 37 
+ 38 [m[34m/** Free all the key-value's in keyValues. */[m
+[38;5;130m 39 [m[32mstatic[m [32mvoid[m
+[38;5;130m 40 [mfree_key_values([32mstruct[m KeyValue *keyValues)
+[38;5;130m 41 [m{
+[38;5;130m 42 [m  [34m//go thru chain of keyValues[m
+[38;5;130m 43 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 44 [m    free(p); [34m//free KeyValue struct[m
+[38;5;130m 45 [m  }
+[38;5;130m 46 [m}
+[38;5;130m 47 
+ 48 [m[34m/** Make key-values for all the words in the first verse of Carroll's[m
+[38;5;130m 49 [m[34m *  Jabberwocky with value being the index of the word.[m
+[38;5;130m 50 [m[34m */[m
+[38;5;130m 51 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 52 [mmake_key_values([32mvoid[m) {[53;96H1,1[11CTop[1;5H[?25h[?12$p[?25l[53;96H2[2;5H[?25h[?25l[53;96H1[1;5H[?25h[?25l[1;52r[1;1H[24M[1;53r[29;1H[38;5;130m 53 [m  [32mconst[m [32mchar[m *keys[] = {
+[38;5;130m 54 [m    [31m"twas"[m, [31m"brillig"[m, [31m"and"[m, [31m"the"[m, [31m"slithy"[m, [31m"toves"[m,
+[38;5;130m 55 [m    [31m"did"[m, [31m"gyre"[m, [31m"and"[m, [31m"gimble"[m, [31m"in"[m, [31m"the"[m, [31m"wabe"[m,
+[38;5;130m 56 [m    [31m"all"[m, [31m"mimsy"[m, [31m"were"[m, [31m"the"[m, [31m"borogoves"[m,
+[38;5;130m 57 [m    [31m"and"[m, [31m"the"[m, [31m"mome"[m, [31m"raths"[m, [31m"outgrabe"[m,
+[38;5;130m 58 [m  };
+[38;5;130m 59 [m  [32mstruct[m KeyValue *p = [31mNULL[m;
+[38;5;130m 60 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < [38;5;130msizeof[m(keys)/[38;5;130msizeof[m(keys[[31m0[m]); i++) {
+[38;5;130m 61 [m    p = add_key_value(p, keys[i], i);
+[38;5;130m 62 [m  }
+[38;5;130m 63 [m  [38;5;130mreturn[m p;
+[38;5;130m 64 [m}
+[38;5;130m 65 
+ 66 [m[34m/** Print out all the words in the first verse of Carroll's Jabberwocky[m
+[38;5;130m 67 [m[34m *  paired with their index in the verse.[m
+[38;5;130m 68 [m[34m */[m
+[38;5;130m 69 [m[32mint[m main() {
+[38;5;130m 70 [m  [32mstruct[m KeyValue *keyValues = make_key_values();
+[38;5;130m 71 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 72 [m    printf([31m"[m[35m%s[m[31m: [m[35m%d\n[m[31m"[m, p->key, p->value);
+[38;5;130m 73 [m  }
+[38;5;130m 74 [m  free_key_values(keyValues);
+[38;5;130m 75 [m  [38;5;130mreturn[m [31m0[m;
+[38;5;130m 76 [m}[53;1H[K[53;96H76,1[10CBot[52;5H[?25h[?25l[53;97H5[51;5H[?25h[?25l[53;97H4[50;5H[?25h[?25l[53;97H3[49;5H[?25h[?25l[53;97H2[48;5H[?25h[?25l[53;97H1[47;5H[?25h[?25l[53;97H0[46;5H[?25h[?25l[53;96H69[45;5H[?25h[?25l[53;97H8[44;5H[?25h[?25l[53;97H7[43;5H[?25h[?25l[53;97H6[42;5H[?25h[?25l[53;97H5,0-1[41;5H[?25h[?25l[53;96H47[23;5H[?25h[?25l[53;96H3[13;5H[?25h[?25l[53;97H4[10;5H[?25h[?25l[53;97H1[7;5H[?25h[?25l[53;96H25[1;5H[?25h[?25l[1;52r[1;1H[3L[1;53r[1;1H[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k) + [31m1[m);[53;96H[K[53;96H22,0-1[8C87%[1;5H[?25h[?25l[53;97H5[4;5H[?25h[?25l[53;96H31[10;5H[?25h[?25l[53;96H25[4;5H[?25h[?25l[53;97H2[1;5H[?25h[?25l[1;52r[1;1H[10L[1;53r[1;1H[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));[53;96H[K[53;96H12,0-1[8C45%[1;5H[?25h[?25l[53;96H2[11;5H[?25h[?25l[53;96H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"bug-program.c" 76L, 2203C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ Ma[KALLOC_CHECK_=1 ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+free(): invalid pointer
+Aborted
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ MALLOC_CHECK_=1 ./bug-program [13Pvim bug-program.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"bug-program.c" 76L, 2203C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  3 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  5 
+  6 [m[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;130m  7 [m[32mstruct[m KeyValue {
+[38;5;130m  8 [m  [32mconst[m [32mchar[m *key;[7C[34m/** string key */[m
+[38;5;130m  9 [m  [32mint[m value;[13C[34m/** integer value */[m
+[38;5;130m 10 [m  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m
+[38;5;130m 11 [m};
+[38;5;130m 12 
+ 13 [m[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14 [m[34m *  key-value (k, v) at head of chain keyValues and return the[m
+[38;5;130m 15 [m[34m *  resulting chain.[m
+[38;5;130m 16 [m[34m */[m
+[38;5;130m 17 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 18 [madd_key_value([32mstruct[m KeyValue *keyValues, [32mconst[m [32mchar[m *k, [32mint[m v)
+[38;5;130m 19 [m{
+[38;5;130m 20 [m  [34m//allocate storage for new KeyValue struct[m
+[38;5;130m 21 [m  [32mstruct[m KeyValue *kv = malloc([38;5;130msizeof[m([32mstruct[m KeyValue *));
+[38;5;130m 22 
+ 23 [m  [34m//allocate storage for string pointed to by k[m
+[38;5;130m 24 [m  [32mchar[m *s = malloc(strlen(k) + [31m1[m);
+[38;5;130m 25 
+ 26 [m  [38;5;130mif[m (kv == [31mNULL[m || s == [31mNULL[m) { [34m//check if allocations succeeded[m
+[38;5;130m 27 [m    fprintf([31mstderr[m, [31m"malloc failure: [m[35m%s\n[m[31m"[m, strerror(errno));
+[38;5;130m 28 [m    exit([31m1[m);
+[38;5;130m 29 [m  }
+[38;5;130m 30 [m  strcpy(s, k);  [34m//copy string k into newly allocated memory pointed to by s[m
+[38;5;130m 31 
+ 32 [m  [34m//initialize fields of *kv.[m
+[38;5;130m 33 [m  kv->key = s; kv->value = v; kv->succ = keyValues;
+[38;5;130m 34 
+ 35 [m  [38;5;130mreturn[m kv;
+[38;5;130m 36 [m}
+[38;5;130m 37 
+ 38 [m[34m/** Free all the key-value's in keyValues. */[m
+[38;5;130m 39 [m[32mstatic[m [32mvoid[m
+[38;5;130m 40 [mfree_key_values([32mstruct[m KeyValue *keyValues)
+[38;5;130m 41 [m{
+[38;5;130m 42 [m  [34m//go thru chain of keyValues[m
+[38;5;130m 43 [m  [38;5;130mfor[m ([32mstruct[m KeyValue *p = keyValues; p != [31mNULL[m; p = p->succ) {
+[38;5;130m 44 [m    free(p); [34m//free KeyValue struct[m
+[38;5;130m 45 [m  }
+[38;5;130m 46 [m}
+[38;5;130m 47 
+ 48 [m[34m/** Make key-values for all the words in the first verse of Carroll's[m
+[38;5;130m 49 [m[34m *  Jabberwocky with value being the index of the word.[m
+[38;5;130m 50 [m[34m */[m
+[38;5;130m 51 [m[32mstatic[m [32mstruct[m KeyValue *
+[38;5;130m 52 [mmake_key_values([32mvoid[m) {[53;96H1,1[11CTop[1;5H[?25h[?12$p[?25l[53;96H2[2;5H[?25h[?25l[53;96H1[1;5H[?25h[?25l[53;96H5,0-1[5;5H[?25h[?25l[53;96H12,0-1[12;5H[?25h[?25l[53;96H2[22;5H[?25h[?25l[53;97H5[25;5H[?25h[?25l[53;96H31[31;5H[?25h[?25l[53;97H4[34;5H[?25h[?25l[53;97H7[37;5H[?25h[?25l[53;96H4[47;5H[?25h[?25l[53;96H3[37;5H[?25h[?25l[53;96H4[47;5H[?25h[?25l[53;96H3[37;5H[?25h[?25l[53;96H4[47;5H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25h [?25l[94C47,0-1[8CTop[47;5H[?25h[?25l[41;5H[106m{[46;5H}[m[53;97H6,1  [46;5H[?25h[?25l[41;5H{[46;5H}[53;97H5[45;5H[?25h[?25l[53;97H4[44;5H[?25h[?25l[53;97H3[43;5H[?25h[?25l[53;97H2[42;5H[?25h[?25l[41;5H[106m{[46;5H}[m[53;97H1[41;5H[?25h[?25l{[46;5H}[53;97H0[40;5H[?25h[?25l[53;96H39[39;5H[?25h[?25l[53;97H8[38;5H[?25h[?25l[53;97H7,0-1[37;5H[?25h[?25l[19;5H[106m{[36;5H}[m[53;97H6,1  [36;5H[?25h[?25l[19;5H{[36;5H}[53;97H5[35;5H[?25h[?25l[53;97H4,0-1[34;5H[?25h[?25l[53;97H3,1  [33;5H[?25h[?25l[53;97H2[32;5H[?25h[?25l[53;97H1,0-1[31;5H[?25h[?25l[53;97H0,1  [30;5H[?25h[?25l[53;96H29[29;5H[?25h[?25l[53;97H8[28;5H[?25h[?25l[53;97H7[27;5H[?25h[?25l[53;97H6[26;5H[?25h[?25l[53;97H5,0-1[25;5H[?25h[?25l[53;97H4,1  [24;5H[?25h[?25l[53;97H3[23;5H[?25h[?25l[53;97H2,0-1[22;5H[?25h[?25l[53;97H1,1  [21;5H[?25h[?25l[53;99H3[21;7H[?25h[?25l[53;99H10[21;14H[?25h[?25l[53;100H9[21;23H[?25h[?25l[53;99H20[21;24H[?25h[?25l[53;100H3[21;27H[?25h[?25l[53;100H5[21;29H[?25h[?25lmalloc[106m([25C)[m[53;99H31[21;35H[?25h[?25l([25C)[53;100H2[21;36H[?25h[?25l[6C[106m([17C)[m[53;100H8[21;42H[?25h[?25l([17C)[53;100H9[21;43H[?25h[?25l[53;99H46[21;50H[?25h[?25l[53;99H55[21;59H[?25h[?25l[53;97H2,0-1[22;5H[?25h[?25l[53;97H1,55 [21;59H[?25h[?25l[21;42H[106m([16C)[m);[21;62H[K[21;59H[?25h[?25l[53;1H[1m-- INSERT --[m[53;96H[K[53;96H21,55[9CTop[21;59H[?25h[?25l)[1C;[21;61H[K[21;58H[106m)[m)[53;100H4[21;58H[?25hj[106m)[m[53;1H[K[?25l[21;42H([15C)[53;96H21,53[9CTop[21;57H[?25h[?25l[53;96H[K[53;1H:[?2004h[?25hw[?25l[?25h[?25l"bug-program.c" 76L, 2201C written[61C21,53[9CTop[53;96H[K[53;96H21,53[9CTop[21;57H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25h[?25l"bug-program.c" 76L, 2201C written[61C21,53[9CTop[53;96H[K[53;96H21,53[9CTop[21;57H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"bug-program.c" 76L, 2201C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ vim bug-program.cMALLOC_CHECK_=1 ./bug-program [13Pvim bug-program.c[Kmake
+cc -g -Wall -std=c11 -O1    bug-program.c   -o bug-program
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ ./bug-program make[Kvim bug-program.cMALLOC_CHECK_=1 ./bug-program 
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ valgrind -v --leak-check=yes ./bug-program 2>bug-pr ogram/val[K[K[K[K.valgrind
+outgrabe: 22
+raths: 21
+mome: 20
+the: 19
+and: 18
+borogoves: 17
+the: 16
+were: 15
+mimsy: 14
+all: 13
+wabe: 12
+the: 11
+in: 10
+gimble: 9
+and: 8
+gyre: 7
+did: 6
+toves: 5
+slithy: 4
+the: 3
+and: 2
+brillig: 1
+twas: 0
+awalley1@remote04:~/i220a/submit/lab10/exercises/bug-program$ vim bug-program.valgrind l[K[K
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"bug-program.valgrind" 145L, 10094C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m==2913543== Memcheck, a memory error detector
+[38;5;130m  2 [m==2913543== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+[38;5;130m  3 [m==2913543== Using Valgrind-3.14.0-353a3587bb-20181007X and LibVEX; rerun with -h for copyright info
+[38;5;130m  4 [m==2913543== Command: ./bug-program
+[38;5;130m  5 [m==2913543==
+[38;5;130m  6 [m--2913543-- Valgrind options:
+[38;5;130m  7 [m--2913543--    -v
+[38;5;130m  8 [m--2913543--    --leak-check=yes
+[38;5;130m  9 [m--2913543-- Contents of /proc/version:
+[38;5;130m 10 [m--2913543--   Linux version 5.7.0-0.bpo.2-amd64 (debian-kernel@lists.debian.org) (gcc version 8.3.0 (Debian 88[11;1H[38;5;130m    [m.3.0-6), GNU ld (GNU Binutils for Debian) 2.31.1) #1 SMP Debian 5.7.10-1~bpo10+1 (2020-07-30)
+[38;5;130m 11 [m--2913543--
+[38;5;130m 12 [m--2913543-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+[38;5;130m 13 [m--2913543-- Page sizes: currently 4096, max supported 4096
+[38;5;130m 14 [m--2913543-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+[38;5;130m 15 [m--2913543-- Reading syms from /import/linux/home1/awalley1/projects/i220a/submit/lab10/exercises/bug-program//[17;1H[38;5;130m    [mbug-program
+[38;5;130m 16 [m--2913543-- Reading syms from /lib/x86_64-linux-gnu/ld-2.28.so
+[38;5;130m 17 [m--2913543--   Considering /usr/lib/debug/.build-id/f2/5dfd7b95be4ba386fd71080accae8c0732b711.debug ..
+[38;5;130m 18 [m--2913543--   .. build-id is valid
+[38;5;130m 19 [m--2913543-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+[38;5;130m 20 [m--2913543--   Considering /usr/lib/debug/.build-id/32/2e77af97f403c3d34ff09edf60b089e72ec889.debug ..
+[38;5;130m 21 [m--2913543--   .. build-id is valid
+[38;5;130m 22 [m--2913543--    object doesn't have a dynamic symbol table
+[38;5;130m 23 [m--2913543-- Scheduler: using generic scheduler lock implementation.
+[38;5;130m 24 [m--2913543-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+[38;5;130m 25 [m==2913543== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2913543-by-awalley1-on-???
+[38;5;130m 26 [m==2913543== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2913543-by-awalley1-on-???
+[38;5;130m 27 [m==2913543== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2913543-by-awalley1-on-???
+[38;5;130m 28 [m==2913543==
+[38;5;130m 29 [m==2913543== TO CONTROL THIS PROCESS USING vgdb (which you probably
+[38;5;130m 30 [m==2913543== don't want to do, unless you know exactly what you're doing,
+[38;5;130m 31 [m==2913543== or are doing some strange experiment):
+[38;5;130m 32 [m==2913543==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=2913543 ...command...
+[38;5;130m 33 [m==2913543==
+[38;5;130m 34 [m==2913543== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+[38;5;130m 35 [m==2913543==   /path/to/gdb ./bug-program
+[38;5;130m 36 [m==2913543== and then give GDB the following command
+[38;5;130m 37 [m==2913543==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=2913543
+[38;5;130m 38 [m==2913543== --pid is optional if only one valgrind process is running
+[38;5;130m 39 [m==2913543==
+[38;5;130m 40 [m--2913543-- REDIR: 0x401e2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (vgPlain_amd64_linux_REDII[43;1H[38;5;130m    [mR_FOR_strlen)
+[38;5;130m 41 [m--2913543-- REDIR: 0x401e0d0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (vgPlain_amd64_linux_REDIRR[45;1H[38;5;130m    [m_FOR_index)
+[38;5;130m 42 [m--2913543-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+[38;5;130m 43 [m--2913543--   Considering /usr/lib/debug/.build-id/34/fbc4cdfbfce1bfc3d2e522a01a050bf724c930.debug ..
+[38;5;130m 44 [m--2913543--   .. build-id is valid
+[38;5;130m 45 [m--2913543-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+[38;5;130m 46 [m--2913543--   Considering /usr/lib/debug/.build-id/ca/bb7898ea982d936cbfadd70ae831c6eb63623f.debug ..
+[38;5;130m 47 [m--2913543--   .. build-id is valid
+[38;5;130m 48 [m==2913543== WARNING: new redirection conflicts with existing -- ignoring it[53;96H1,1[11CTop[1;5H[?25h[?12$p[?25l[53;1H[K[53;1H/[?2004h[?25he[?25l[?25hr[?25l[?25hr[?25l[?25ho[?25l[?25hr[?25l[?25h[?25l[95C1,32[10CTop[1;36H[?25h[?25l[53;96H[K[53;1H[27m[23m[29m[m[H[2J[1;1H[38;5;130m 94 [m--2913543-- REDIR: 0x49029a0 (libc.so.6:free) redirected to 0x4836940 (free)
+[38;5;130m 95 [m==2913543== Invalid read of size 8
+[38;5;130m 96 [m==2913543==    at 0x109351: free_key_values (bug-program.c:43)
+[38;5;130m 97 [m==2913543==    by 0x109351: main (bug-program.c:74)
+[38;5;130m 98 [m==2913543==  Address 0x4a42f70 is 16 bytes inside a block of size 24 free'd
+[38;5;130m 99 [m==2913543==    at 0x48369AB: free (vg_replace_malloc.c:530)
+[38;5;130m100 [m==2913543==    by 0x109350: free_key_values (bug-program.c:44)
+[38;5;130m101 [m==2913543==    by 0x109350: main (bug-program.c:74)
+[38;5;130m102 [m==2913543==  Block was alloc'd at
+[38;5;130m103 [m==2913543==    at 0x483577F: malloc (vg_replace_malloc.c:299)
+[38;5;130m104 [m==2913543==    by 0x1092D3: add_key_value (bug-program.c:21)
+[38;5;130m105 [m==2913543==    by 0x1092D3: make_key_values (bug-program.c:61)
+[38;5;130m106 [m==2913543==    by 0x1092D3: main (bug-program.c:70)
+[38;5;130m107 [m==2913543==
+[38;5;130m108 [m==2913543==
+[38;5;130m109 [m==2913543== HEAP SUMMARY:
+[38;5;130m110 [m==2913543==     in use at exit: 123 bytes in 23 blocks
+[38;5;130m111 [m==2913543==   total heap usage: 47 allocs, 24 frees, 1,699 bytes allocated
+[38;5;130m112 [m==2913543==
+[38;5;130m113 [m==2913543== Searching for pointers to 23 not-freed blocks
+[38;5;130m114 [m==2913543== Checked 67,912 bytes
+[38;5;130m115 [m==2913543==
+[38;5;130m116 [m==2913543== 123 bytes in 23 blocks are definitely lost in loss record 1 of 1
+[38;5;130m117 [m==2913543==    at 0x483577F: malloc (vg_replace_malloc.c:299)
+[38;5;130m118 [m==2913543==    by 0x1092F2: add_key_value (bug-program.c:24)
+[38;5;130m119 [m==2913543==    by 0x1092F2: make_key_values (bug-program.c:61)
+[38;5;130m120 [m==2913543==    by 0x1092F2: main (bug-program.c:70)
+[38;5;130m121 [m==2913543==
+[38;5;130m122 [m==2913543== LEAK SUMMARY:
+[38;5;130m123 [m==2913543==    definitely lost: 123 bytes in 23 blocks
+[38;5;130m124 [m==2913543==    indirectly lost: 0 bytes in 0 blocks
+[38;5;130m125 [m==2913543==      possibly lost: 0 bytes in 0 blocks
+[38;5;130m126 [m==2913543==    still reachable: 0 bytes in 0 blocks
+[38;5;130m127 [m==2913543==[9Csuppressed: 0 bytes in 0 blocks
+[38;5;130m128 [m==2913543==
+[38;5;130m129 [m==2913543== ERROR SUMMARY: 24 errors from 2 contexts (suppressed: 0 from 0)
+[38;5;130m130 [m==2913543==
+[38;5;130m131 [m==2913543== 23 errors in context 1 of 2:
+[38;5;130m132 [m==2913543== Invalid read of size 8
+[38;5;130m133 [m==2913543==    at 0x109351: free_key_values (bug-program.c:43)
+[38;5;130m134 [m==2913543==    by 0x109351: main (bug-program.c:74)
+[38;5;130m135 [m==2913543==  Address 0x4a42f70 is 16 bytes inside a block of size 24 free'd
+[38;5;130m136 [m==2913543==    at 0x48369AB: free (vg_replace_malloc.c:530)
+[38;5;130m137 [m==2913543==    by 0x109350: free_key_values (bug-program.c:44)
+[38;5;130m138 [m==2913543==    by 0x109350: main (bug-program.c:74)
+[38;5;130m139 [m==2913543==  Block was alloc'd at
+[38;5;130m140 [m==2913543==    at 0x483577F: malloc (vg_replace_malloc.c:299)
+[38;5;130m141 [m==2913543==    by 0x1092D3: add_key_value (bug-program.c:21)
+[38;5;130m142 [m==2913543==    by 0x1092D3: make_key_values (bug-program.c:61)
+[38;5;130m143 [m==2913543==    by 0x1092D3: main (bug-program.c:70)
+[38;5;130m144 [m==2913543==
+[38;5;130m145 [m==2913543== ERROR SUMMARY: 24 errors from 2 contexts (suppressed: 0 from 0)[53;96H129,13[8CBot[36;17H[?25h[?25l[53;1H/error[53;96H[K[53;1H[95C129,31[8CBot[36;35H[?25h[?25l[53;97H30,12[37;16H[?25h[?25l[53;98H1,31[38;35H[?25h[?25l[53;98H2[39;35H[?25h[?25l[53;98H3[40;35H[?25h[?25l[53;98H4[41;35H[?25h[?25l[53;98H5[42;35H[?25h[?25l[53;98H6[43;35H[?25h[?25l[53;98H7[44;35H[?25h[?25l[53;98H8[45;35H[?25h[?25l[53;98H9[46;35H[?25h[?25l[53;97H40[47;35H[?25h[?25l[53;98H1[48;35H[?25h[?25l[53;98H2[49;35H[?25h[?25l[53;98H3[50;35H[?25h[?25l[53;98H4,12[51;16H[?25h[?25l[53;98H5,31[52;35H[?25h[?25l[53;98H4,12[51;16H[?25h[?25l[53;98H5,31[52;35H[?25h[?25l[53;98H4,12[51;16H[?25h[?25l[53;98H3,31[50;35H[?25h[?25l[53;98H2[49;35H[?25h[?25l[53;98H1[48;35H[?25h[?25l[53;98H0[47;35H[?25h[?25l[53;97H39[46;35H[?25h[?25l[53;98H8[45;35H[?25h[?25l[53;98H7[44;35H[?25h[?25l[53;98H6[43;35H[?25h[?25l[53;98H5[42;35H[?25h[?25l[53;98H4[41;35H[?25h[?25l[53;98H3[40;35H[?25h[?25l[53;98H2[39;35H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25ho[?25l[?25h[?25l[53;2H[K[53;2H[?25h [?25l[94C132,31[8CBot[39;35H[?25h[?25l[53;96H[K[53;1H:[?2004h[?25hs[?25l[?25hp[?25l[?25hl[?25l[?25h...[?25lit[53;7H[K[53;7H[?25h[?25l [?25hb[?25l[?25hu[?25l[?25hg[?25l[?25h-[?25l[?25hp[?25l[?25hr[?25l[?25ho[?25l[?25hg[?25l[?25hr[?25l[?25ha[?25l[?25hm[?25l[?25h.[?25l[?25hc[?25l[?25h[?25l"bug-program.c" [53;17H[K[53;17H76L, 2201C[1;2H[38;5;130m 1[m[1C[35m#include [m[31m<errno.h>[m[1;24H[K[2;2H[38;5;130m 2[m[1C[35m#include [m[31m<stdio.h>[m[2;23H[K[3;2H[38;5;130m 3[m[1C[35m#include [m[31m<stdlib.h>[m[3;24H[K[4;2H[38;5;130m 4[m[1C[35m#include [m[31m<string.h>[m[4;24H[K[5;2H[38;5;130m 5[m[5;5H[K[6;2H[38;5;130m 6[m[1C[34m/** A struct used to form a linear chain of key-value pairs. */[m
+[38;5;130m  7[m[1C[32mstruct[m KeyValue {[7;23H[K[8;1H[38;5;130m  8[m[1C  [32mconst[m [32mchar[m *key;       [34m/** string key */[m[8;47H[K[9;1H[38;5;130m  9[m[1C  [32mint[m value;             [34m/** integer value */[m
+[38;5;130m 10[m[1C  [32mstruct[m KeyValue *succ; [34m/** next key-value in chain */[m[10;60H[K[11;1H[38;5;130m 11[m[1C};[11;7H[K[12;1H[38;5;130m 12[m[12;5H[K[13;1H[38;5;130m 13[m[1C[34m/** Given some chain keyValues of key-value struct's, add the[m
+[38;5;130m 14[m[1C
