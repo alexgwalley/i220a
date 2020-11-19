@@ -7,9 +7,9 @@ init:
         halt               # terminate program 
 
 test:
-	irmovq $10, %rax
-	irmovq $11, %rbx
-	addq %rax, %rbx
+	irmovq $11, %rax
+	irmovq $10, %rbx
+	subq %rbx, %rax
 	ret
 
 #stack starts here and grows to lower addresses  

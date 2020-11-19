@@ -23,9 +23,9 @@ typedef enum {
 static inline bool read_cc_flag(Byte cc, unsigned flagBitIndex) {
   return !!(cc & (1 << flagBitIndex));
 }
-static inline bool get_zf(Byte cc) { return read_cc_flag(cc, ZF_CC); }
-static inline bool get_sf(Byte cc) { return read_cc_flag(cc, SF_CC); }
-static inline bool get_of(Byte cc) { return read_cc_flag(cc, OF_CC); }
+static inline bool get_zf(Byte cc) { return read_cc_flag(cc, (1<<ZF_CC)); }
+static inline bool get_sf(Byte cc) { return read_cc_flag(cc, (1<<SF_CC)); }
+static inline bool get_of(Byte cc) { return read_cc_flag(cc, (1<<OF_CC)); }
 
 /** Return true iff the condition specified in the least-significant
  *  nybble of op holds in y86.  Encoding of Figure 3.15 of Bryant's
@@ -80,17 +80,17 @@ isLt0(Word word) {
 static void
 set_add_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 {
-	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | ZF_CC);
-	else write_cc_y86(y86, read_cc_y86(y86) & ~ZF_CC);
+	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC));
+	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<ZF_CC));
 
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | SF_CC);
-	else write_cc_y86(y86, read_cc_y86(y86) & ~SF_CC);
+	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<SF_CC));
 	
 	// Set overflow if sign changed
 	if(((opA < 0 && opB < 0) || (opA > 0 && opB > 0)) && (result < 0 != opA < 0))
-		write_cc_y86(y86, read_cc_y86(y86) | OF_CC);
+		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC));
   else
-		write_cc_y86(y86, read_cc_y86(y86) & ~OF_CC);
+		write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
 }
 
 /** Set condition codes for subtraction operation with operands opA, opB
@@ -99,32 +99,32 @@ set_add_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 static void
 set_sub_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 {
-	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | ZF_CC);
-	else write_cc_y86(y86, read_cc_y86(y86) & ~ZF_CC);
+	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC));
+	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<ZF_CC));
 
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | SF_CC);
-	else write_cc_y86(y86, read_cc_y86(y86) & ~SF_CC);
+	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<SF_CC));
 	
 	// Set overflow if sign changed
 	if((opA < 0 != opB < 0) && (result < 0 != opA < 0))
-		write_cc_y86(y86, read_cc_y86(y86) | OF_CC);
+		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC));
   else
-		write_cc_y86(y86, read_cc_y86(y86) & ~OF_CC);
+		write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
 }
 
 static void
 set_logic_op_cc(Y86 *y86, Word result)
 {
 	// Set zero flag
-	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | ZF_CC); 
-	else write_cc_y86(y86, read_cc_y86(y86) & ~(ZF_CC));
+	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC)); 
+	else write_cc_y86(y86, read_cc_y86(y86) & ~((1<<ZF_CC)));
 
 	// Set sign flag
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | SF_CC);
-	else write_cc_y86(y86, read_cc_y86(y86) & ~(SF_CC));
+	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	else write_cc_y86(y86, read_cc_y86(y86) & ~((1<<SF_CC)));
 
 	// Clear overflow flag
-	write_cc_y86(y86, read_cc_y86(y86) & ~(OF_CC));
+	write_cc_y86(y86, read_cc_y86(y86) & ~((1<<OF_CC)));
 }
 
 /**************************** Operations *******************************/
@@ -152,7 +152,7 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 		  Word reg_a_val = read_register_y86(y86, regA);
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
-			Word result = reg_b_val - reg_a_val;
+			Word result = reg_a_val - reg_b_val;
 			write_register_y86(y86, regB, result);
 
 			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
