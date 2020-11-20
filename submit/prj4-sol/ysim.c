@@ -1,6 +1,7 @@
 #include "ysim.h"
 
 #include "errors.h"
+#include <stdlib.h>
 
 /************************** Utility Routines ****************************/
 
@@ -83,11 +84,11 @@ set_add_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<ZF_CC));
 
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	if(isLt0(result) < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<SF_CC));
 	
 	// Set overflow if sign changed
-	if(((opA < 0 && opB < 0) || (opA > 0 && opB > 0)) && (result < 0 != opA < 0))
+	if(((isLt0(opA) && isLt0(opB)) || (opA > 0 && opB > 0)) && (isLt0(result) != isLt0(opA)))
 		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC));
   else
 		write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
@@ -101,12 +102,12 @@ set_sub_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 {
 	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<ZF_CC));
-
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	
+	if(isLt0(result)) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<SF_CC));
 	
 	// Set overflow if sign changed
-	if((opA < 0 != opB < 0) && (result < 0 != opA < 0))
+	if((isLt0(opA) != isLt0(opB)) && (isLt0(result) != isLt0(opA)))
 		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC));
   else
 		write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
@@ -120,7 +121,7 @@ set_logic_op_cc(Y86 *y86, Word result)
 	else write_cc_y86(y86, read_cc_y86(y86) & ~((1<<ZF_CC)));
 
 	// Set sign flag
-	if(result < 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
+	if(isLt0(result)) write_cc_y86(y86, read_cc_y86(y86) | (1<<SF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~((1<<SF_CC)));
 
 	// Clear overflow flag
@@ -152,7 +153,7 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 		  Word reg_a_val = read_register_y86(y86, regA);
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
-			Word result = reg_a_val - reg_b_val;
+			Word result = reg_b_val - reg_a_val;
 			write_register_y86(y86, regB, result);
 
 			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
@@ -160,7 +161,7 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 	
 		case ANDL_FN:
 		{
- 	 		//Subtract the registers
+ 	 		//AND the registers
 		  Word reg_a_val = read_register_y86(y86, regA);
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
@@ -173,7 +174,7 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 
 		case XORL_FN:
 		{
- 	 		//Subtract the registers
+ 	 		//XOR the registers
 		  Word reg_a_val = read_register_y86(y86, regA);
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
@@ -250,10 +251,10 @@ step_ysim(Y86 *y86)
 			Word func_addr = read_memory_word_y86(y86, pc+sizeof(Byte));				
   		if(read_status_y86(y86) != STATUS_AOK) return;
 
-			// Push return PC to stack
-			Address stack_addr = read_register_y86(y86, REG_RSP) - sizeof(Address);
+			Word stack_addr = read_register_y86(y86, REG_RSP);
   		if(read_status_y86(y86) != STATUS_AOK) return;
 
+			stack_addr -= sizeof(Address);
 			write_register_y86(y86, REG_RSP, stack_addr);
   		if(read_status_y86(y86) != STATUS_AOK) return;
 
@@ -285,15 +286,13 @@ step_ysim(Y86 *y86)
 
 		case MRMOVQ_CODE:
 		{
-			Address pc_addr = read_pc_y86(y86);
-
-			Byte reg_byte = read_memory_byte_y86(y86, pc_addr + sizeof(Byte));
+			Byte reg_byte = read_memory_byte_y86(y86, pc + sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 			
 			Register reg_a = get_nybble(reg_byte, 1);	
 			Register reg_b = get_nybble(reg_byte, 0);	
 
-			Word offset = read_memory_word_y86(y86, pc_addr+2*sizeof(Byte));
+			Word offset = read_memory_word_y86(y86, pc+2*sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 	
 			Word reg_b_value = read_register_y86(y86, reg_b);	
@@ -302,21 +301,19 @@ step_ysim(Y86 *y86)
 
 			write_register_y86(y86, reg_a, data);
 
-			write_pc_y86(y86, pc_addr+2*sizeof(Byte)+sizeof(Word));
+			write_pc_y86(y86, pc+2*sizeof(Byte)+sizeof(Word));
 
 		} break;
 
 		case RMMOVQ_CODE: 
 		{
-			Address pc_addr = read_pc_y86(y86);
-
-			Byte reg_byte = read_memory_byte_y86(y86, pc_addr + sizeof(Byte));
+			Byte reg_byte = read_memory_byte_y86(y86, pc + sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 			
 			Register reg_a = get_nybble(reg_byte, 1);	
 			Register reg_b = get_nybble(reg_byte, 0);	
 
-			Word offset = read_memory_word_y86(y86, pc_addr+2*sizeof(Byte));
+			Word offset = read_memory_word_y86(y86, pc+2*sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 	
 			Word reg_b_value = read_register_y86(y86, reg_b);	
@@ -325,23 +322,21 @@ step_ysim(Y86 *y86)
 			write_memory_word_y86(y86, reg_b_value+offset, data);
   		if(read_status_y86(y86) != STATUS_AOK) return;
 
-			write_pc_y86(y86, pc_addr+2*sizeof(Byte)+sizeof(Word));
+			write_pc_y86(y86, pc+2*sizeof(Byte)+sizeof(Word));
 		} break;
 	
 		case CMOVxx_CODE:
 		{
-			Word pc_addr = read_pc_y86(y86);
-
 			Byte func = get_nybble(instr, 0);			
 
 			// Update the pc unconditionally	
-			write_pc_y86(y86, pc_addr+2*sizeof(Byte));
+			write_pc_y86(y86, pc+2*sizeof(Byte));
 
 			// If the compare fails, skip to next instruction	
-			if(func != ALWAYS_COND && !check_cc(y86, func)) break;		
+			if(!check_cc(y86, func)) break;		
 
 			// Mov value from one register to another
-			Byte reg_byte = read_memory_byte_y86(y86, pc_addr+sizeof(Byte));
+			Byte reg_byte = read_memory_byte_y86(y86, pc+sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 			
 			Register reg_a = get_nybble(reg_byte, 1);
@@ -354,11 +349,8 @@ step_ysim(Y86 *y86)
 
 		case OP1_CODE:
 		{
-			Word pc_addr = read_pc_y86(y86);
-		
-	
 			// Mov value from one register to another
-			Byte reg_byte = read_memory_byte_y86(y86, pc_addr+sizeof(Byte));
+			Byte reg_byte = read_memory_byte_y86(y86, pc+sizeof(Byte));
   		if(read_status_y86(y86) != STATUS_AOK) return;
 			
 			Register reg_a = get_nybble(reg_byte, 1);
@@ -369,6 +361,60 @@ step_ysim(Y86 *y86)
 			write_pc_y86(y86, pc + 2*sizeof(Byte));
 		} break;
 
+		case PUSHQ_CODE:
+		{
+			Byte reg_byte = read_memory_byte_y86(y86, pc+sizeof(Byte));
+  		if(read_status_y86(y86) != STATUS_AOK) return;
+
+			Register reg = get_nybble(reg_byte, 1);
+
+			Address stack_addr = read_register_y86(y86, REG_RSP);
+			// Make space on the stack
+			stack_addr -= sizeof(Address);
+
+			// Push the register value onto the stack
+			Word reg_value = read_register_y86(y86, reg);
+  		if(read_status_y86(y86) != STATUS_AOK) return;
+
+			write_memory_word_y86(y86, stack_addr, reg_value);
+  		if(read_status_y86(y86) != STATUS_AOK) return;
+
+			write_register_y86(y86, REG_RSP, stack_addr);
+
+			write_pc_y86(y86, pc + 2*sizeof(Byte));
+		} break;
+
+		case POPQ_CODE:
+		{
+
+			Byte reg_byte = read_memory_byte_y86(y86, pc+sizeof(Byte));
+  		if(read_status_y86(y86) != STATUS_AOK) return;
+
+			Register reg = get_nybble(reg_byte, 1);
+
+			Address stack_addr = read_register_y86(y86, REG_RSP);
+
+			// Pop the stack into the register
+			Word stack_value = read_memory_word_y86(y86, stack_addr);
+  		if(read_status_y86(y86) != STATUS_AOK) return;
+			write_register_y86(y86, reg, stack_value);
+
+			stack_addr += sizeof(Address);
+			write_register_y86(y86, REG_RSP, stack_addr);
+
+			write_pc_y86(y86, pc + 2*sizeof(Byte));
+
+		} break;
+
+		case Jxx_CODE:
+		{
+			Condition type = get_nybble(instr, 0);
+			printf("Condition Type: %d\n", type);
+			Word dest = read_memory_word_y86(y86, pc+sizeof(Byte));	
+			if(check_cc(y86, type))	write_pc_y86(y86, dest);		
+			else write_pc_y86(y86, pc+sizeof(Byte)+sizeof(Word));
+		} break;
+	
     default: 
     {
       write_status_y86(y86, STATUS_INS);

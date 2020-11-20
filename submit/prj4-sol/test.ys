@@ -7,10 +7,15 @@ init:
         halt               # terminate program 
 
 test:
-	irmovq $11, %rax
-	irmovq $10, %rbx
+	irmovq $10, %rax
+	irmovq $20, %rbx
 	subq %rbx, %rax
+	jle done
+	irmovq $2, %rcx
+done:
+	irmovq $3, %rdx
 	ret
+
 
 #stack starts here and grows to lower addresses  
        .pos   0x200
