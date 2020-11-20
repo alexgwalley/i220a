@@ -8,8 +8,11 @@ init:
 
 test:
 	irmovq $10, %rax
-	irmovq $10, %rbx
+	irmovq $11, %rbx
+	irmovq -200, %rcx
 	subq %rax, %rbx
+	jge done
+	irmovq 0xffffffff, %rdx	
 done:
 	ret
 

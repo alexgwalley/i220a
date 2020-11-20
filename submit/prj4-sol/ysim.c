@@ -24,9 +24,13 @@ typedef enum {
 static inline bool read_cc_flag(Byte cc, unsigned flagBitIndex) {
   return !!(cc & (1 << flagBitIndex));
 }
-static inline bool get_zf(Byte cc) { return read_cc_flag(cc, (1<<ZF_CC)); }
+/*static inline bool get_zf(Byte cc) { return read_cc_flag(cc, (1<<ZF_CC)); }
 static inline bool get_sf(Byte cc) { return read_cc_flag(cc, (1<<SF_CC)); }
 static inline bool get_of(Byte cc) { return read_cc_flag(cc, (1<<OF_CC)); }
+*/
+static inline bool get_zf(Byte cc) { return (cc & (1<<ZF_CC)) > 0; }
+static inline bool get_sf(Byte cc) { return (cc & (1<<SF_CC)) > 0; }
+static inline bool get_of(Byte cc) { return (cc & (1<<OF_CC)) > 0; }
 
 /** Return true iff the condition specified in the least-significant
  *  nybble of op holds in y86.  Encoding of Figure 3.15 of Bryant's
@@ -49,16 +53,16 @@ check_cc(const Y86 *y86, Byte op)
 		ret = get_sf(cc) ^ get_of(cc);	
 		break;
 	case EQ_COND:
-		ret = ~get_zf(cc);
-		break;
-	case NE_COND:
 		ret = get_zf(cc);
 		break;
+	case NE_COND:
+		ret = !get_zf(cc);
+		break;
   case GE_COND:
-		ret = ~(~(get_sf(cc)^get_of(cc)));
+		ret = !(get_sf(cc)^get_of(cc));
 		break;
 	case GT_COND:
-		ret = ~(~(get_sf(cc)^get_of(cc)) & ~get_zf(cc));
+		ret = !(get_sf(cc)^get_of(cc)) & !get_zf(cc);
 		break;	
   default: {
     Address pc = read_pc_y86(y86);
@@ -100,7 +104,6 @@ set_add_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 static void
 set_sub_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 {
-	printf("SUB RESULT: %d\n", result);
 	if(result == 0) write_cc_y86(y86, read_cc_y86(y86) | (1<<ZF_CC));
 	else write_cc_y86(y86, read_cc_y86(y86) & ~(1<<ZF_CC));
 	
@@ -143,9 +146,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 
 			Word result = reg_a_val + reg_b_val;
+			write_register_y86(y86, regB, result);
 
 			set_add_arith_cc(y86, reg_a_val, reg_b_val, result);
-			write_register_y86(y86, regB, result);
 		} break;
 	
 		case SUBL_FN:
@@ -155,9 +158,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
 			Word result = reg_b_val - reg_a_val;
-			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
-
 			write_register_y86(y86, regB, result);
+
+			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
 		} break;
 	
 		case ANDL_FN:
@@ -167,9 +170,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
 			Word result = reg_a_val & reg_b_val;
+			write_register_y86(y86, regB, result);
 
 			set_logic_op_cc(y86, result);
-			write_register_y86(y86, regB, result);
 		} break;
 
 		case XORL_FN:
@@ -355,7 +358,7 @@ step_ysim(Y86 *y86)
 			Register reg_a = get_nybble(reg_byte, 1);
 			Register reg_b = get_nybble(reg_byte, 0);
 				
-			op1(y86, instr, reg_a, reg_b);			
+			op1(y86, get_nybble(instr, 0), reg_a, reg_b);			
 			
 			write_pc_y86(y86, pc + 2*sizeof(Byte));
 		} break;
@@ -410,10 +413,13 @@ step_ysim(Y86 *y86)
 		case Jxx_CODE:
 		{
 
-			printf("Checking Jump\n");
 			Word dest = read_memory_word_y86(y86, pc+sizeof(Byte));	
-			if(check_cc(y86, instr)) write_pc_y86(y86, dest);		
-			else write_pc_y86(y86, pc+sizeof(Byte)+sizeof(Word));
+			if(check_cc(y86, instr)) {
+				write_pc_y86(y86, dest);		
+			}
+			else {
+				write_pc_y86(y86, pc+sizeof(Byte)+sizeof(Word));
+			}
 
 		} break;
 	
