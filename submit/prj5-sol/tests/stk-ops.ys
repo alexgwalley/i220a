@@ -1,0 +1,12 @@
+main:
+		 irmovq	    stack, %rsp
+		 irmovq	    $0xdeadbeef, %rax
+                 pushq      %rax
+                 popq       %rbx
+		 pushq	    %rsp
+		 popq	    %rax
+		 halt
+		 
+		 .pos	    0x200
+stack:
+

@@ -1,0 +1,13 @@
+		irmovq		stack, %rsp
+		call		main
+		halt
+
+main:
+		call		sub
+		ret
+
+sub:
+		ret
+
+.pos		0x200
+stack:

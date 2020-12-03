@@ -1,0 +1,10 @@
+#Fig 4.43, pg. 430 of text
+prog1:
+	irmovq	$10, %rdx
+	irmovq  $3, %rax
+	nop
+	nop
+	nop
+	addq	%rdx, %rax
+	halt
+

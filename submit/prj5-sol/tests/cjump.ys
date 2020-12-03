@@ -1,0 +1,5 @@
+main:
+		xorq	%rax, %rax
+		jne	main 
+		halt
+		
