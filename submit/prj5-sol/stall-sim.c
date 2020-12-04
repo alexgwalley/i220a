@@ -15,7 +15,10 @@ enum {
 };
 
 struct StallSimStruct {
-  //@TODO
+	Y86* y86;
+	int numBubbles;
+	bool stalling;
+	Byte regs[MAX_DATA_BUBBLES];
 };
 
 
@@ -25,15 +28,51 @@ struct StallSimStruct {
 StallSim *
 new_stall_sim(Y86 *y86)
 {
-  //@TODO
-  return NULL;
+	StallSim* stallSim = malloc(sizeof(StallSim));
+	stallSim->y86 = y86;
+	stallSim->numBubbles = 4;
+	stallSim->stalling = false;
+	for(int i = 0; i < MAX_DATA_BUBBLES; i++){
+		stallSim->regs[i] = 0xee;
+  } 
+  return stallSim;
 }
 
 /** Free all resources allocated by new_pipe_sim() in stallSim. */
 void
 free_stall_sim(StallSim *stallSim)
 {
-  //@TODO
+	free(stallSim);
+}
+
+void print_regs(StallSim* stallSim) {
+	printf("\nregs[0]: %x\n", stallSim->regs[0]);
+	printf("regs[1]: %x\n", stallSim->regs[1]);
+	printf("regs[2]: %x\n", stallSim->regs[2]);
+}
+
+Byte swap_nybbles(Byte b){
+	Byte res = 0;
+	res |= get_nybble(b, 1)>>4;
+	res |= get_nybble(b, 0)<<4;	
+	return res;
+}
+
+/**
+ * Returns the number of bubbles needed to wait until pipeline catches up
+ * so that there are no memory issues	
+ */
+int
+num_bubbles_from_prev_regs(Byte regs, StallSim* stallSim) {
+	for(int i = 0; i < MAX_DATA_BUBBLES; i++) {
+
+		if(get_nybble(regs, 1) == get_nybble(stallSim->regs[i], 0) ||
+				get_nybble(regs, 0) == get_nybble(stallSim->regs[i], 0)){
+				return MAX_DATA_BUBBLES - i;
+		}
+	}	
+
+	return 0;	
 }
 
 
@@ -54,6 +93,80 @@ free_stall_sim(StallSim *stallSim)
 bool
 clock_stall_sim(StallSim *stallSim)
 {
-  //@TODO
+	Address pc_addr = read_pc_y86(stallSim->y86);
+	Byte instr = read_memory_byte_y86(stallSim->y86, pc_addr);
+  Byte opCode = get_nybble(instr, 1);	
+
+	if(!stallSim->stalling && stallSim->numBubbles <= 0) {
+		Byte regs = 0xee;
+		int num_bubbles_to_add = 0;
+		switch (opCode) {
+			case Jxx_CODE:
+			{
+				num_bubbles_to_add += JUMP_BUBBLES;
+			} break;	
+			case RET_CODE:
+			{
+				num_bubbles_to_add += RET_BUBBLES;
+			} break;
+			case NOP_CODE:
+			{
+			}	break;
+			case IRMOVQ_CODE:
+			{
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+			} break;
+			case RMMOVQ_CODE:
+			{
+			} break;
+			case CMOVxx_CODE:
+			{
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+			} break;
+			case MRMOVQ_CODE:
+			{
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
+				regs = swap_nybbles(regs);
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+			} break;
+			case OP1_CODE:
+			{
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+			} break;
+			case PUSHQ_CODE:
+			{
+			} break;
+			case POPQ_CODE:
+			{
+
+			} break;
+			default:
+			  break;
+		}
+
+
+		if(num_bubbles_to_add > 0){
+			stallSim->numBubbles += num_bubbles_to_add;
+			stallSim->stalling = true;
+		}
+		// Update registers
+		stallSim->regs[2] = stallSim->regs[1];
+		stallSim->regs[1] = stallSim->regs[0];
+		stallSim->regs[0] = regs;
+	}
+
+	if(stallSim->numBubbles > 0){
+		stallSim->numBubbles--;	
+		return false;
+	}
+
+	stallSim->stalling = false;
+
   return true;
 }
+
+
+

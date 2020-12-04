@@ -261,7 +261,7 @@ simulate(const Args *args, Y86 *y86, FILE *out)
   setup_params(args, y86);
   bool isRunning = true;
   bool isVeryVerbose = (args->verbosity == VERY_VERBOSE);
-  int clockN = 0;
+  int clockN = 0; 
   //fprintf(out, "%10s \t%6s\t  %s\n", "CLOCK #", "PC", "OP");
   while (isRunning) {
     fprintf(out, "%4d:\t%04lx\t", clockN++, read_pc_y86(y86));
@@ -301,7 +301,7 @@ usage(const char *prog)
           "usage: %s [-s] [-v] [-V] YAS_FILE_NAMES... INT_INPUTS...\n", prog);
   fprintf(stderr,
           "          -l:  produce assembler listing only\n"
-          "          -s:  single-step program\n"
+         "          -s:  single-step program\n"
           "          -v:  verbose: dump state at completion\n"
           "          -V:  very verbose: dump changes after each "
           "instruction\n");
