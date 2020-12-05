@@ -7,6 +7,9 @@ LDFLAGS = -L $$HOME/$(COURSE)/lib -l cs220 -l y86
 $(TARGET): main.o stall-sim.o
 	$(CC) $(LDFLAGS) main.o stall-sim.o -o $(TARGET)
 
+debug: main.o stall-sim.o
+	$(CC) $(LDFLAGS) main.o stall-sim.o -o $(TARGET) -D DEBUG
+
 %.o: %.c
 	$(CC) -c $< $(IFLAGS)
 

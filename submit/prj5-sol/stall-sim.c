@@ -18,6 +18,7 @@ struct StallSimStruct {
 	Y86* y86;
 	int numBubbles;
 	bool stalling;
+	Byte regsToInsert;
 	Byte regs[MAX_DATA_BUBBLES];
 };
 
@@ -35,6 +36,7 @@ new_stall_sim(Y86 *y86)
 	for(int i = 0; i < MAX_DATA_BUBBLES; i++){
 		stallSim->regs[i] = 0xee;
   } 
+	stallSim->regsToInsert = 0xee;
   return stallSim;
 }
 
@@ -53,7 +55,7 @@ void print_regs(StallSim* stallSim) {
 
 Byte swap_nybbles(Byte b){
 	Byte res = 0;
-	res |= get_nybble(b, 1)>>4;
+	res |= get_nybble(b, 1);
 	res |= get_nybble(b, 0)<<4;	
 	return res;
 }
@@ -63,11 +65,16 @@ Byte swap_nybbles(Byte b){
  * so that there are no memory issues	
  */
 int
-num_bubbles_from_prev_regs(Byte regs, StallSim* stallSim) {
+num_bubbles_from_prev_regs(Byte regs, StallSim* stallSim, bool testBoth) {
 	for(int i = 0; i < MAX_DATA_BUBBLES; i++) {
-
+		
 		if(get_nybble(regs, 1) == get_nybble(stallSim->regs[i], 0) ||
 				get_nybble(regs, 0) == get_nybble(stallSim->regs[i], 0)){
+				return MAX_DATA_BUBBLES - i;
+		}
+		if(testBoth && 
+				get_nybble(regs, 0) == get_nybble(stallSim->regs[i], 1)) {
+
 				return MAX_DATA_BUBBLES - i;
 		}
 	}	
@@ -75,6 +82,12 @@ num_bubbles_from_prev_regs(Byte regs, StallSim* stallSim) {
 	return 0;	
 }
 
+void
+shift_regs(StallSim* stallSim, Byte regs) {
+		stallSim->regs[2] = stallSim->regs[1];
+		stallSim->regs[1] = stallSim->regs[0];
+		stallSim->regs[0] = regs;
+}
 
 /** Apply next pipeline clock to stallSim.  Return true if
  *  processor can proceed, false if pipeline is stalled.
@@ -97,13 +110,16 @@ clock_stall_sim(StallSim *stallSim)
 	Byte instr = read_memory_byte_y86(stallSim->y86, pc_addr);
   Byte opCode = get_nybble(instr, 1);	
 
+	Byte regs = 0xee;
 	if(!stallSim->stalling && stallSim->numBubbles <= 0) {
-		Byte regs = 0xee;
 		int num_bubbles_to_add = 0;
 		switch (opCode) {
 			case Jxx_CODE:
 			{
-				num_bubbles_to_add += JUMP_BUBBLES;
+				
+				Byte type = read_memory_byte_y86(stallSim->y86, pc_addr) & 0xf;
+				if(type != 0)
+					num_bubbles_to_add += JUMP_BUBBLES;
 			} break;	
 			case RET_CODE:
 			{
@@ -115,7 +131,7 @@ clock_stall_sim(StallSim *stallSim)
 			case IRMOVQ_CODE:
 			{
 				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
-				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, false);					  	
 			} break;
 			case RMMOVQ_CODE:
 			{
@@ -123,25 +139,35 @@ clock_stall_sim(StallSim *stallSim)
 			case CMOVxx_CODE:
 			{
 				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
-				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, false);					  	
 			} break;
 			case MRMOVQ_CODE:
 			{
 				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
 				regs = swap_nybbles(regs);
-				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, true);					  	
 			} break;
 			case OP1_CODE:
 			{
 				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte));
-				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim);					  	
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, true);					  	
 			} break;
 			case PUSHQ_CODE:
 			{
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte)) & 0xf0;
+				regs |= 4; // rsp
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, false);					  	
 			} break;
 			case POPQ_CODE:
 			{
-
+				regs = read_memory_byte_y86(stallSim->y86, pc_addr+sizeof(Byte)) & 0xf0;
+				regs |= 4; // rsp
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, false);					  	
+			} break;
+			case CALL_CODE:
+			{
+				regs = 0xf4;	
+				num_bubbles_to_add += num_bubbles_from_prev_regs(regs, stallSim, false);					  	
 			} break;
 			default:
 			  break;
@@ -150,16 +176,22 @@ clock_stall_sim(StallSim *stallSim)
 
 		if(num_bubbles_to_add > 0){
 			stallSim->numBubbles += num_bubbles_to_add;
+			stallSim->regsToInsert = regs;
 			stallSim->stalling = true;
 		}
-		// Update registers
-		stallSim->regs[2] = stallSim->regs[1];
-		stallSim->regs[1] = stallSim->regs[0];
-		stallSim->regs[0] = regs;
+		shift_regs(stallSim, regs);
+#if DEBUG
+		print_regs(stallSim);
+#endif
 	}
 
 	if(stallSim->numBubbles > 0){
 		stallSim->numBubbles--;	
+		if(stallSim->numBubbles == 0) {
+			shift_regs(stallSim, stallSim->regsToInsert);
+			stallSim->regsToInsert = 0xee;
+		}
+		else shift_regs(stallSim, 0xee);
 		return false;
 	}
 
