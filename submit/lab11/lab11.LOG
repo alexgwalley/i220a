@@ -1,0 +1,377 @@
+Script started on 2020-11-15 17:15:45-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="131" LINES="53"]
+awalley1@remote00:~/i220a/submit/lab11$ time ls -[K~/cs220/labs/lab11[K1/exercises/
+coverage  int-search  matmul-cache  parity
+
+real	0m0.006s
+user	0m0.001s
+sys	0m0.002s
+awalley1@remote00:~/i220a/submit/lab11$ time se[Kleep 5
+
+real	0m5.004s
+user	0m0.002s
+sys	0m0.000s
+awalley1@remote00:~/i220a/submit/lab11$ time e[Kwc -l '[K`find /etc/[K -type f 2>de[K[K/dev/null` 2/[K>/de/[Kv/null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  254458 total
+
+real	0m2.056s
+user	0m0.037s
+sys	0m0.396s
+awalley1@remote00:~/i220a/submit/lab11$ time wc -l `find /etc -type f 2>/dev/null` 2>/dev/null | tail
+      21 /etc/xattr.conf
+      23 /etc/sysfs.conf
+      25 /etc/e2scrub.conf
+       0 /etc/netgroup
+      98 /etc/rsyslog-haproxy.conf
+      92 /etc/rsyslog-normal.conf
+       1 /etc/login.warn
+      45 /etc/ethertypes
+      14 /etc/xinetd.conf
+  254458 total
+
+real	0m0.985s
+user	0m0.064s
+sys	0m0.197s
+awalley1@remote00:~/i220a/submit/lab11$ cd par[K[K[K[K[K[Kcd exercises/
+awalley1@remote00:~/i220a/submit/lab11/exercises$ cd parity/
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ ak[K[Kmake
+cc -g -Wall -std=c11 -O1   -c -o parity-c.o parity-c.c
+cc -g -Wall -std=c11 -O1   -c -o main.o main.c
+cc   parity-c.o main.o   -o parity-c
+cc -g -Wall -std=c11 -O1   -c -o parity-s.o parity-s.c
+cc   parity-s.o main.o   -o parity-s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ ./parity-c -d 10
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ ./parity-s -d 10
+67: 0
+c6: 1
+69: 1
+73: 0
+51: 0
+ff: 1
+4a: 0
+ec: 0
+29: 0
+cd: 0
+3
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time a[K[ar[K[K[Kpart[Kity-c -d 10[K[K[K[K[K10
+bash: parity-c: command not found
+
+real	0m0.003s
+user	0m0.001s
+sys	0m0.000s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time parity-c 10 && time[K[K[K[K[K[K[K& time parity-s 10
+[1] 1198667
+bash: line 11: parity-c: command not found
+
+real	0m0.002s
+user	0m0.001s
+sys	0m0.001s
+bash: parity-s: command not found
+[1]+  Exit 127                time parity-c 10
+
+real	0m0.004s
+user	0m0.002s
+sys	0m0.001s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time parity-c 10 & time parity-s 10[C00[Ktime parity-c 10 & time parity-s 1000[1@0[1@0
+[1] 1198760
+bash: line 12: parity-c: command not found
+bash: parity-s: command not found
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time parity-c 1000 & time parity-s 1000[C0000[1@0[1@0[1@0[1@0
+[2] 1198797
+bash: line 13: parity-c: command not found
+bash: parity-s: command not found
+[1]   Exit 127                time parity-c 1000
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.001s
+
+real	0m0.001s
+user	0m0.001s
+sys	0m0.000s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time parity-c 10000000 & time parity-s 10000000[C[C[C[1@.[1@/[1@.[1@/
+[3] 1198850
+5000131
+[2]   Exit 127                time parity-c 10000000
+
+real	0m0.170s
+user	0m0.165s
+sys	0m0.004s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ 5000346
+
+real	0m0.347s
+user	0m0.341s
+sys	0m0.004s
+
+[3]+  Done                    time ./parity-c 10000000
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ vim parity-c.[K[K[K[K[K[K[K[K[K[K[K[K[Kls
+main.c	main.o	Makefile  parity-c  parity-c.c	parity-c.o  parity-s  parity-s.c  parity-s.o
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ vim part[Kity-c.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"parity-c.c" 24L, 485C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  3 
+  4 [m[32mint[m
+[38;5;130m  5 [mparity_tests([32mint[m nTests, [32mint[m doDebug)
+[38;5;130m  6 [m{
+[38;5;130m  7 [m  [32mint[m sum = [31m0[m;
+[38;5;130m  8 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < nTests; i++) {
+[38;5;130m  9 [m    [32mint[m value = rand() & (doDebug ? [31m0xFF[m : ~[31m0[m);
+[38;5;130m 10 [m    [34m//open code count-1s routine[m
+[38;5;130m 11 [m    [32mint[m v = value;
+[38;5;130m 12 [m    [32mint[m nOnes = [31m0[m;
+[38;5;130m 13 [m    [38;5;130mwhile[m (v != [31m0[m) {
+[38;5;130m 14 [m      v &= (v - [31m1[m);
+[38;5;130m 15 [m      nOnes++;
+[38;5;130m 16 [m    }
+[38;5;130m 17 [m    [32mint[m isEvenParity = (nOnes & [31m1[m) == [31m0[m;
+[38;5;130m 18 [m    [38;5;130mif[m (doDebug) {
+[38;5;130m 19 [m      fprintf([31mstderr[m, [31m"[m[35m%x[m[31m: [m[35m%d\n[m[31m"[m, value, isEvenParity);
+[38;5;130m 20 [m    }
+[38;5;130m 21 [m    sum += isEvenParity;
+[38;5;130m 22 [m  }
+[38;5;130m 23 [m  [38;5;130mreturn[m sum;
+[38;5;130m 24 [m}
+[94m~                                                                                                                                  [26;1H~                                                                                                                                  [27;1H~                                                                                                                                  [28;1H~                                                                                                                                  [29;1H~                                                                                                                                  [30;1H~                                                                                                                                  [31;1H~                                                                                                                                  [32;1H~                                                                                                                                  [33;1H~                                                                                                                                  [34;1H~                                                                                                                                  [35;1H~                                                                                                                                  [36;1H~                                                                                                                                  [37;1H~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"parity-c.c" 24L, 485C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/parity$ vim parity-c.cls[Kvim parity-c.cls[Ktime ./parity-c 10000000 & time ./parity-s 10000000ls[Kvim parity-c.c[K[K[Ks.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"parity-s.c" 19L, 445C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  2 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  3 
+  4 [m[32mint[m
+[38;5;130m  5 [mparity_tests([32mint[m nTests, [32mint[m doDebug)
+[38;5;130m  6 [m{
+[38;5;130m  7 [m  [32mint[m sum = [31m0[m;
+[38;5;130m  8 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < nTests; i++) {
+[38;5;130m  9 [m    [32mint[m value = rand() & (doDebug ? [31m0xFF[m : ~[31m0[m);
+[38;5;130m 10 [m    [32mint[m isEvenParity = [31m0[m;
+[38;5;130m 11 [m    __asm__([31m"testl %1, %1; jpo 1f; movl $1, %0; 1:"[m:
+[38;5;130m 12 [m[12C[31m"=r"[m(isEvenParity):[31m"r"[m(value),[31m"0"[m(isEvenParity));
+[38;5;130m 13 [m    [38;5;130mif[m (doDebug) {
+[38;5;130m 14 [m      fprintf([31mstderr[m, [31m"[m[35m%x[m[31m: [m[35m%d\n[m[31m"[m, value, isEvenParity);
+[38;5;130m 15 [m    }
+[38;5;130m 16 [m    sum += isEvenParity;
+[38;5;130m 17 [m  }
+[38;5;130m 18 [m  [38;5;130mreturn[m sum;
+[38;5;130m 19 [m}
+[94m~                                                                                                                                  [21;1H~                                                                                                                                  [22;1H~                                                                                                                                  [23;1H~                                                                                                                                  [24;1H~                                                                                                                                  [25;1H~                                                                                                                                  [26;1H~                                                                                                                                  [27;1H~                                                                                                                                  [28;1H~                                                                                                                                  [29;1H~                                                                                                                                  [30;1H~                                                                                                                                  [31;1H~                                                                                                                                  [32;1H~                                                                                                                                  [33;1H~                                                                                                                                  [34;1H~                                                                                                                                  [35;1H~                                                                                                                                  [36;1H~                                                                                                                                  [37;1H~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"parity-s.c" 19L, 445C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time ./parity-s 1000000
+499757
+
+real	0m0.020s
+user	0m0.015s
+sys	0m0.004s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ time ./parity-s 1000000[1P 1000000c 1000000
+500043
+
+real	0m0.037s
+user	0m0.036s
+sys	0m0.000s
+awalley1@remote00:~/i220a/submit/lab11/exercises/parity$ cd ../matmul-cache/
+awalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ make
+cc -g -Wall -std=c11 -O1   -c -o main.o main.c
+cc -g -Wall -std=c11 -O1   -c -o simple-matmul.o simple-matmul.c
+cc main.o simple-matmul.o  -o simple-matmul
+cc -g -Wall -std=c11 -O1   -c -o transpose-matmul.o transpose-matmul.c
+cc main.o transpose-matmul.o  -o transpose-matmul
+awalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ vim simple-matmul.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"simple-matmul.c" 15L, 267C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m"matmul.h"[m
+[38;5;130m  2 
+  3 [m[32mvoid[m
+[38;5;130m  4 [mmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])
+[38;5;130m  5 [m{
+[38;5;130m  6 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {
+[38;5;130m  7 [m    [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {
+[38;5;130m  8 [m      c[i][j] = [31m0[m;
+[38;5;130m  9 [m      [38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {
+[38;5;130m 10 [m[8Cc[i][j] += a[i][k]*b[k][j];
+[38;5;130m 11 [m      }
+[38;5;130m 12 [m    }
+[38;5;130m 13 [m  }
+[38;5;130m 14 [m}
+[38;5;130m 15 [m
+[94m~                                                                                                                                  [17;1H~                                                                                                                                  [18;1H~                                                                                                                                  [19;1H~                                                                                                                                  [20;1H~                                                                                                                                  [21;1H~                                                                                                                                  [22;1H~                                                                                                                                  [23;1H~                                                                                                                                  [24;1H~                                                                                                                                  [25;1H~                                                                                                                                  [26;1H~                                                                                                                                  [27;1H~                                                                                                                                  [28;1H~                                                                                                                                  [29;1H~                                                                                                                                  [30;1H~                                                                                                                                  [31;1H~                                                                                                                                  [32;1H~                                                                                                                                  [33;1H~                                                                                                                                  [34;1H~                                                                                                                                  [35;1H~                                                                                                                                  [36;1H~                                                                                                                                  [37;1H~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;114H2,0-1[2;5H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"simple-matmul.c" 15L, 267C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ vim transpose-matmul.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"transpose-matmul.c" 36L, 779C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m"matmul.h"[m
+[38;5;130m  2 
+  3 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  5 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  6 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  7 
+  8 [m[34m/** Fill in matrix t[n][n] as the transpose of matrix a[n][n].  That is,[m
+[38;5;130m  9 [m[34m *  for all i, j set t[i][j] to a[j][i].[m
+[38;5;130m 10 [m[34m */[m
+[38;5;130m 11 [m[32mstatic[m [32mvoid[m
+[38;5;130m 12 [mmatrix_transpose([32mint[m n, [32mdouble[m a[][n], [32mdouble[m t[][n])
+[38;5;130m 13 [m{
+[38;5;130m 14 [m  [34m//@[m[30m[103mTODO[m[34m add your code here[m
+[38;5;130m 15 [m}
+[38;5;130m 16 
+ 17 
+ 18 [m[32mvoid[m
+[38;5;130m 19 [mmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])
+[38;5;130m 20 [m{
+[38;5;130m 21 [m  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));
+[38;5;130m 22 [m  [38;5;130mif[m (!tmp) {
+[38;5;130m 23 [m    fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,
+[38;5;130m 24 [m[12Cstrerror(errno));
+[38;5;130m 25 [m    exit([31m1[m);
+[38;5;130m 26 [m  }
+[38;5;130m 27 [m  matrix_transpose(n, b, tmp);
+[38;5;130m 28 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {
+[38;5;130m 29 [m    [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {
+[38;5;130m 30 [m      c[i][j] = [31m0[m;
+[38;5;130m 31 [m      [38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {
+[38;5;130m 32 [m[8Cc[i][j] += a[i][k]*tmp[j][k];
+[38;5;130m 33 [m      }
+[38;5;130m 34 [m    }
+[38;5;130m 35 [m  }
+[38;5;130m 36 [m}
+[94m~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"transpose-matmul.c" 36L, 779C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ vim transpose-matmul.c[3Psimple-matmul.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"simple-matmul.c" 15L, 267C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m"matmul.h"[m
+[38;5;130m  2 
+  3 [m[32mvoid[m
+[38;5;130m  4 [mmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])
+[38;5;130m  5 [m{
+[38;5;130m  6 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {
+[38;5;130m  7 [m    [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {
+[38;5;130m  8 [m      c[i][j] = [31m0[m;
+[38;5;130m  9 [m      [38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {
+[38;5;130m 10 [m[8Cc[i][j] += a[i][k]*b[k][j];
+[38;5;130m 11 [m      }
+[38;5;130m 12 [m    }
+[38;5;130m 13 [m  }
+[38;5;130m 14 [m}
+[38;5;130m 15 [m
+[94m~                                                                                                                                  [17;1H~                                                                                                                                  [18;1H~                                                                                                                                  [19;1H~                                                                                                                                  [20;1H~                                                                                                                                  [21;1H~                                                                                                                                  [22;1H~                                                                                                                                  [23;1H~                                                                                                                                  [24;1H~                                                                                                                                  [25;1H~                                                                                                                                  [26;1H~                                                                                                                                  [27;1H~                                                                                                                                  [28;1H~                                                                                                                                  [29;1H~                                                                                                                                  [30;1H~                                                                                                                                  [31;1H~                                                                                                                                  [32;1H~                                                                                                                                  [33;1H~                                                                                                                                  [34;1H~                                                                                                                                  [35;1H~                                                                                                                                  [36;1H~                                                                                                                                  [37;1H~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"simple-matmul.c" 15L, 267C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ vim simple-matmul.ctranspose-matmul.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"transpose-matmul.c" 36L, 779C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m"matmul.h"[m
+[38;5;130m  2 
+  3 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  5 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  6 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  7 
+  8 [m[34m/** Fill in matrix t[n][n] as the transpose of matrix a[n][n].  That is,[m
+[38;5;130m  9 [m[34m *  for all i, j set t[i][j] to a[j][i].[m
+[38;5;130m 10 [m[34m */[m
+[38;5;130m 11 [m[32mstatic[m [32mvoid[m
+[38;5;130m 12 [mmatrix_transpose([32mint[m n, [32mdouble[m a[][n], [32mdouble[m t[][n])
+[38;5;130m 13 [m{
+[38;5;130m 14 [m  [34m//@[m[30m[103mTODO[m[34m add your code here[m
+[38;5;130m 15 [m}
+[38;5;130m 16 
+ 17 
+ 18 [m[32mvoid[m
+[38;5;130m 19 [mmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])
+[38;5;130m 20 [m{
+[38;5;130m 21 [m  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));
+[38;5;130m 22 [m  [38;5;130mif[m (!tmp) {
+[38;5;130m 23 [m    fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,
+[38;5;130m 24 [m[12Cstrerror(errno));
+[38;5;130m 25 [m    exit([31m1[m);
+[38;5;130m 26 [m  }
+[38;5;130m 27 [m  matrix_transpose(n, b, tmp);
+[38;5;130m 28 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {
+[38;5;130m 29 [m    [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {
+[38;5;130m 30 [m      c[i][j] = [31m0[m;
+[38;5;130m 31 [m      [38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {
+[38;5;130m 32 [m[8Cc[i][j] += a[i][k]*tmp[j][k];
+[38;5;130m 33 [m      }
+[38;5;130m 34 [m    }
+[38;5;130m 35 [m  }
+[38;5;130m 36 [m}
+[94m~                                                                                                                                  [38;1H~                                                                                                                                  [39;1H~                                                                                                                                  [40;1H~                                                                                                                                  [41;1H~                                                                                                                                  [42;1H~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;114H2,0-1[2;5H[?25h[?25l[53;114H1,1  [1;5H[?25h[?25l[53;114H2,0-1[2;5H[?25h[?25l[53;114H3,1  [3;5H[?25h[?25l[53;114H4[4;5H[?25h[?25l[53;114H5[5;5H[?25h[?25l[53;114H6[6;5H[?25h[?25l[53;114H7,0-1[7;5H[?25h[?25l[53;114H8,1  [8;5H[?25h[?25l[53;114H9[9;5H[?25h[?25l[53;114H10,1[10;5H[?25h[?25l[53;115H1[11;5H[?25h[?25l[53;115H2[12;5H[?25h[?25l[13;5H[106m{[15;5H}[m[53;115H3[13;5H[?25h[?25l{[15;5H}[53;115H2[12;5H[?25h[?25l[13;5H[106m{[15;5H}[m[53;115H3[13;5H[?25h[?25l{[15;5H}[53;115H4[14;5H[?25h[?25l[53;1H[1m-- INSERT --[m[53;13H[K[53;114H15,1[10CTop[15;5H[K[16;5H}[18;5H[K[19;5H[32mvoid[m[19;9H[K[20;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[21;5H{[21;7H[K[22;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[23;7H[38;5;130mif[m (!tmp) {[23;18H[K[24;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[25;9H        strerror(errno));[26;7H  exit([31m1[m);[27;7H}[27;8H[K[28;7Hmatrix_transpose(n, b, tmp);[28;35H[K[29;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[29;37H[K[30;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[31;11Hc[i][j] = [31m0[m;[31;24H[K[32;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[32;40H[K[33;11H  c[i][j] += a[i][k]*tmp[j][k];[34;9H  }[35;7H  }[36;5H  }
+[38;5;130m 37 [m}[37;6H[K[15;5H[?25h[?25l[53;117H2-9[8CAll[15;13H[?25h[?25l[53;117H1  [15;5H[?25h[?25li[53;117H2[15;6H[?25h[?25l[53;117H3[15;7H[?25h[?25l[53;117H2[15;6H[?25h[?25l[15;5H[K[53;117H1[15;5H[?25h[?25l[53;117H2[15;6H[?25h[?25l[53;117H3[15;7H[?25h[?25li[53;117H4[15;8H[?25h[?25l[38;5;130mif[m[53;117H5[15;9H[?25h[?25lifo[53;117H6[15;10H[?25h[?25l[38;5;130mif[m[15;9H[K[53;117H5[15;9H[?25h[?25li[15;8H[K[53;117H4[15;8H[?25h[?25l[15;7H[K[53;117H3[15;7H[?25h[?25lf[53;117H4[15;8H[?25h[?25lo[53;117H5[15;9H[?25h[?25l[38;5;130mfor[m[53;117H6[15;10H[?25h[?25l([53;117H7[15;11H[?25h[?25li[53;117H8[15;12H[?25h[?25ln[53;117H9[15;13H[?25h[?25l[32mint[m[53;117H10[15;14H[?25h[?25l[53;118H1[15;15H[?25h[?25li[53;118H2[15;16H[?25h[?25l[53;118H3[15;17H[?25h[?25l=[53;118H4[15;18H[?25h[?25l [31m0[m[53;118H6[15;20H[?25h[?25l;[53;118H7[15;21H[?25h[?25l[53;118H8[15;22H[?25h[?25li[53;118H9[15;23H[?25h[?25l[53;117H20[15;24H[?25h[?25l<[53;118H1[15;25H[?25h[?25l[53;118H2[15;26H[?25h[?25ln[53;118H3[15;27H[?25h[?25ll[53;118H4[15;28H[?25h[?25l[53;118H5[15;29H[?25h[?25li[53;118H6[15;30H[?25h[?25l[15;29H[K[53;118H5[15;29H[?25h[?25l[53;118H4[15;28H[?25h[?25l[15;27H[K[53;118H3[15;27H[?25h[?25l[15;26H[K[53;118H2[15;26H[?25h[?25l[53;118H1[15;25H[?25h[?25l[15;24H[K[53;118H0[15;24H[?25h[?25l[53;117H19[15;23H[?25h[?25l[15;22H[K[53;118H8[15;22H[?25hj [?25lj[53;117H20[15;24H[?25h[?25l<[53;118H1[15;25H[?25h[?25l[53;118H2[15;26H[?25h[?25ln[53;118H3[15;27H[?25h[?25l[53;118H4[15;28H[?25h[?25l[53;118H3[15;27H[?25h[?25l;[53;118H4[15;28H[?25h[?25l[53;118H5[15;29H[?25hj [?25lj+[53;118H7[15;31H[?25h[?25l+[53;118H8[15;32H[?25h[?25l)[15;10H[106m([21C)[m[53;118H9[15;33H[?25h[?25l{[15;10H([21C)[106m{[16;5H}[m[53;117H30[15;34H[?25h[?25l[16;5H[K[17;5H}[19;5H[K[20;5H[32mvoid[m[20;9H[K[21;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[22;5H{[22;7H[K[23;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[24;7H[38;5;130mif[m (!tmp) {[24;18H[K[25;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[26;9H        strerror(errno));[27;7H  exit([31m1[m);[28;7H}[28;8H[K[29;7Hmatrix_transpose(n, b, tmp);[29;35H[K[30;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[30;37H[K[31;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[32;11Hc[i][j] = [31m0[m;[32;24H[K[33;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[33;40H[K[34;11H  c[i][j] += a[i][k]*tmp[j][k];[35;9H  }[36;7H  }[37;5H  }
+[38;5;130m 38 [m}[38;6H[K[15;33H{[53;115H6,1 [16;5H[?25h[?25l[17;5H[K[18;5H}[20;5H[K[21;5H[32mvoid[m[21;9H[K[22;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[23;5H{[23;7H[K[24;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[25;7H[38;5;130mif[m (!tmp) {[25;18H[K[26;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[27;9H        strerror(errno));[28;7H  exit([31m1[m);[29;7H}[29;8H[K[30;7Hmatrix_transpose(n, b, tmp);[30;35H[K[31;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[31;37H[K[32;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[33;11Hc[i][j] = [31m0[m;[33;24H[K[34;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[34;40H[K[35;11H  c[i][j] += a[i][k]*tmp[j][k];[36;9H  }[37;7H  }[38;5H  }
+[38;5;130m 39 [m}[39;6H[K[53;115H7[17;5H[?25h[?25l}[15;33H[106m{[17;5H}[m[53;117H2[17;6H[?25h[?25l[53;117H1[17;5H[?25h[?25l[106m        [m}[17;5H        [106m}[m[53;117H2-9[17;13H[?25h[?25l[17;5H}[17;13H[K[17;5H[106m}[m[53;117H1  [17;5H[?25h[?25l[16;5H}[18;5H[K[20;5H[32mvoid[m[21;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[22;5H{[22;6H[K[23;5H  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[24;7H[38;5;130mif[m (!tmp) {[24;18H[K[25;7H  fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[26;9H        strerror(errno));[26;34H[K[27;9Hexit([31m1[m);[27;17H[K[28;7H}[28;9H[K[29;7Hmatrix_transpose(n, b, tmp);[30;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[31;7H  [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[32;9H  c[i][j] = [31m0[m;[32;23H[K[33;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[34;11H  c[i][j] += a[i][k]*tmp[j][k];[35;11H}[35;13H[K[36;9H}[36;11H[K[37;7H}[37;9H[K[38;5H}[38;7H[K[39;1H[94m~                                                                                                                                  [m[16;5H[106m}[m[17;5H}[53;115H6[16;5H[?25h[?25l[15;34H}[17;5H[K[19;5H[32mvoid[m[20;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[21;5H{[21;6H[K[22;5H  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[23;7H[38;5;130mif[m (!tmp) {[23;18H[K[24;7H  fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[25;9H        strerror(errno));[25;34H[K[26;9Hexit([31m1[m);[26;17H[K[27;7H}[27;9H[K[28;7Hmatrix_transpose(n, b, tmp);[29;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[30;7H  [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[31;9H  c[i][j] = [31m0[m;[31;23H[K[32;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[33;11H  c[i][j] += a[i][k]*tmp[j][k];[34;11H}[34;13H[K[35;9H}[35;11H[K[36;7H}[36;9H[K[37;5H}[37;7H[K[38;1H[94m~                                                                                                                                  [m[15;34H[106m}[m[16;5H}[53;115H5,30[15;34H[?25h[?25l[106m [m} [106m}[m[53;118H1[15;35H[?25h[?25l}[15;35H[K[15;34H[106m}[m[53;118H0[15;34H[?25h[?25l[15;34H[K[17;5H}[19;5H[K[20;5H[32mvoid[m[20;9H[K[21;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[22;5H{[22;7H[K[23;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[24;7H[38;5;130mif[m (!tmp) {[24;18H[K[25;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[26;9H        strerror(errno));[27;7H  exit([31m1[m);[28;7H}[28;8H[K[29;7Hmatrix_transpose(n, b, tmp);[29;35H[K[30;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[30;37H[K[31;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[32;11Hc[i][j] = [31m0[m;[32;24H[K[33;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[33;40H[K[34;11H  c[i][j] += a[i][k]*tmp[j][k];[35;9H  }[36;7H  }[37;5H  }
+[38;5;130m 38 [m}[38;6H[K[16;5H[106m}[m[53;115H6,1 [16;5H[?25h[?25l[106m [m} [106m}[m[53;117H2[16;6H[?25h[?25l[106m [m} [106m}[m[53;117H3[16;7H[?25h[?25l[16;7H[K[18;5H}[20;5H[K[21;5H[32mvoid[m[21;9H[K[22;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[23;5H{[23;7H[K[24;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[25;7H[38;5;130mif[m (!tmp) {[25;18H[K[26;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[27;9H        strerror(errno));[28;7H  exit([31m1[m);[29;7H}[29;8H[K[30;7Hmatrix_transpose(n, b, tmp);[30;35H[K[31;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[31;37H[K[32;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[33;11Hc[i][j] = [31m0[m;[33;24H[K[34;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[34;40H[K[35;11H  c[i][j] += a[i][k]*tmp[j][k];[36;9H  }[37;7H  }[38;5H  }
+[38;5;130m 39 [m}[39;6H[K[17;5H[106m}[m[53;115H7,1[17;5H[?25h[?25l[106m [m} [106m}[m[53;117H2[17;6H[?25h[?25l[106m [m} [106m}[m[53;117H3[17;7H[?25h[?25l[15;33H{[17;7H}[53;115H6[16;7H[?25h[?25l[53;117H4-9[16;13H[?25h[?25lf[53;117H5-10[16;14H[?25h[?25lo[53;117H6-11[16;15H[?25h[?25l[38;5;130mfor[m[53;117H7-12[16;16H[?25h[?25lfo[16;15H[K[53;117H6-11[16;15H[?25h[?25l[16;14H[K[53;117H5-10[16;14H[?25h[?25l[16;13H[K[53;117H4-9 [16;13H[?25h[?25l[53;117H3  [16;7H[?25h[?25l[53;117H2[16;6H[?25h[?25l[53;117H3-9[16;13H[?25h[?25l[53;117H2  [16;6H[?25h[?25l[53;117H3[16;7H[?25h[?25l[53;117H4[16;8H[?25h[?25l[53;117H3[16;7H[?25h[?25l[53;117H4[16;8H[?25h[?25l[53;117H5[16;9H[?25h[?25lf[53;117H6[16;10H[?25h[?25lo[53;117H7[16;11H[?25h[?25l[38;5;130mfor[m[53;117H8[16;12H[?25h[?25l([53;117H9[16;13H[?25h[?25l[53;117H10[16;14H[?25h[?25l[53;117H9 [16;13H[?25h[?25l[53;117H10[16;14H[?25h[?25l[53;117H9 [16;13H[?25h[?25li[53;117H10[16;14H[?25h[?25ln[53;118H1[16;15H[?25h[?25l[32mint[m[53;118H2[16;16H[?25h[?25l[53;118H3[16;17H[?25hj [?25lj[53;118H5[16;19H[?25h[?25l=[53;118H6[16;20H[?25h[?25l[53;118H7[16;21H[?25h[?25l[31m0[m[53;118H8[16;22H[?25h[?25l;[53;118H9[16;23H[?25h[?25l[53;117H20[16;24H[?25h[?25li[53;118H1[16;25H[?25h[?25l[53;118H2[16;26H[?25h[?25l[17;7H[K[18;5H  }[19;5H}[21;5H[K[22;5H[32mvoid[m[22;9H[K[23;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[24;5H{[24;7H[K[25;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[26;7H[38;5;130mif[m (!tmp) {[26;18H[K[27;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[28;9H        strerror(errno));[29;7H  exit([31m1[m);[30;7H}[30;8H[K[31;7Hmatrix_transpose(n, b, tmp);[31;35H[K[32;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[32;37H[K[33;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[34;11Hc[i][j] = [31m0[m;[34;24H[K[35;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[35;40H[K[36;11H  c[i][j] += a[i][k]*tmp[j][k];[37;9H  }[38;7H  }[39;5H  }
+[38;5;130m 40 [m}[40;6H[K[53;115H7,1 [17;5H[?25h[?25l  }[18;5H}[18;7H[K[19;5H[K[21;5H[32mvoid[m[22;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[23;5H{[23;6H[K[24;5H  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[25;7H[38;5;130mif[m (!tmp) {[25;18H[K[26;7H  fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[27;9H        strerror(errno));[27;34H[K[28;9Hexit([31m1[m);[28;17H[K[29;7H}[29;9H[K[30;7Hmatrix_transpose(n, b, tmp);[31;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[32;7H  [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[33;9H  c[i][j] = [31m0[m;[33;23H[K[34;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[35;11H  c[i][j] += a[i][k]*tmp[j][k];[36;11H}[36;13H[K[37;9H}[37;11H[K[38;7H}[38;9H[K[39;5H}[39;7H[K[40;1H[94m~                                                                                                                                  [m[53;115H6,22[16;26H[?25h[?25l[53;118H1[16;25H[?25h[?25l[16;24H[K[53;118H0[16;24H[?25hj [?25lj[53;118H2[16;26H[?25h[?25l<[53;118H3[16;27H[?25h[?25l[53;118H4[16;28H[?25h[?25ls[53;118H5[16;29H[?25h[?25li[53;118H6[16;30H[?25h[?25lz[53;118H7[16;31H[?25h[?25le[53;118H8[16;32H[?25h[?25lo[53;118H9[16;33H[?25h[?25l[38;5;130msizeof[m[53;117H30[16;34H[?25h[?25l([53;118H1[16;35H[?25h[?25la[53;118H2[16;36H[?25h[?25l)[106m([ma[106m)[m[53;118H3[16;37H[?25h[?25l/(a)[53;118H4[16;38H[?25h[?25ls[53;118H5[16;39H[?25h[?25li[53;118H6[16;40H[?25h[?25lz[53;118H7[16;41H[?25h[?25le[53;118H8[16;42H[?25h[?25lo[53;118H9[16;43H[?25h[?25l[38;5;130msizeof[m[53;117H40[16;44H[?25h[?25l([53;118H1[16;45H[?25h[?25la[53;118H2[16;46H[?25h[?25l[[53;118H3[16;47H[?25h[?25l[31m0[m[53;118H4[16;48H[?25h[?25l][106m[[1C][m[53;118H5[16;49H[?25h[?25l)[106m([ma[[1C][106m)[m[53;118H6[16;50H[?25h[?25l;[16;44H([4C)[53;118H7[16;51H[?25h[?25l[53;118H8[16;52H[?25h[?25li[53;118H9[16;53H[?25h[?25l+[53;117H50[16;54H[?25h[?25l+[53;118H1[16;55H[?25h[?25l)[16;12H[106m([42C)[m[53;118H2[16;56H[?25h[?25l{[16;12H([42C)[106m{[17;7H}[m[53;118H3[16;57H[?25h[?25l[17;7H[K[18;5H  }[19;5H}[21;5H[K[22;5H[32mvoid[m[22;9H[K[23;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[24;5H{[24;7H[K[25;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[26;7H[38;5;130mif[m (!tmp) {[26;18H[K[27;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[28;9H        strerror(errno));[29;7H  exit([31m1[m);[30;7H}[30;8H[K[31;7Hmatrix_transpose(n, b, tmp);[31;35H[K[32;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[32;37H[K[33;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[34;11Hc[i][j] = [31m0[m;[34;24H[K[35;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[35;40H[K[36;11H  c[i][j] += a[i][k]*tmp[j][k];[37;9H  }[38;7H  }[39;5H  }
+[38;5;130m 40 [m}[40;6H[K[16;56H{[53;115H7,1 [17;5H[?25h[?25l[18;7H[K[19;5H  }[20;5H}[22;5H[K[23;5H[32mvoid[m[23;9H[K[24;5Hmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])[25;5H{[25;7H[K[26;7H[32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));[27;7H[38;5;130mif[m (!tmp) {[27;18H[K[28;9Hfprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,[29;9H        strerror(errno));[30;7H  exit([31m1[m);[31;7H}[31;8H[K[32;7Hmatrix_transpose(n, b, tmp);[32;35H[K[33;7H[38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {[33;37H[K[34;9H[38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {[35;11Hc[i][j] = [31m0[m;[35;24H[K[36;11H[38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {[36;40H[K[37;11H  c[i][j] += a[i][k]*tmp[j][k];[38;9H  }[39;7H  }[40;5H  }
+[38;5;130m 41 [m}[41;6H[K[53;115H8[18;5H[?25h[?25l[53;117H2-9[18;13H[?25h[?25l}[16;56H[106m{[18;13H}[m[53;117H3-10[18;14H[?25h[?25l[53;117H2-9 [18;13H[?25h[?25l[18;5H}[18;13H[K[18;5H[106m}[m[53;117H1  [18;5H[?25h[?25l[106m [m} [106m}[m[53;117H2[18;6H[?25h[?25l[106m [m} [106m}[m[53;117H3[18;7H[?25h[?25l[106m [m} [106m}[m[53;117H4[18;8H[?25h[?25l[106m [m} [106m}[m[53;117H5[18;9H[?25h[?25l[106mk[m}k[106m}[m[53;117H6[18;10H[?25h[?25l}[18;10H[K[18;9H[106m}[m[53;117H5[18;9H[?25hj[106m}[m[53;1H[K[?25l[16;56H{[18;9H}[53;114H18,4[10CAll[18;8H[?25h[?25l[53;115H7,0-1[17;5H[?25h[?25l[53;115H6,4  [16;8H[?25h[?25l[53;115H5[15;8H[?25h[?25l[2C[106m([21C)[m[53;117H6[15;10H[?25h[?25l([21C)[53;117H7[15;11H[?25h[?25l[53;117H8[15;12H[?25h[?25l[53;117H9[15;13H[?25h[?25l[53;117H10[15;14H[?25h[?25l[53;118H1[15;15H[?25h[?25l[?25h[?25l[53;115H6[16;15H[?25h[?25l[53;118H2[16;16H[?25h[?25l[53;118H3[16;17H[?25h[?25l[53;115H5[15;17H[?25h[?25l[53;118H2[15;16H[?25h[?25l[53;118H1[15;15H[?25h[?25lj[?25h[?25l[53;115H6[16;15H[?25h[?25l[53;115H5[15;15H[?25h[?25l[53;115H6[16;15H[?25h[?25l[53;118H2[16;16H[?25h[?25l[53;118H3[16;17H[?25h[?25li[?25h[?25l[53;1H/error[53;114H[K[53;1H[113C29,16[9CAll[29;20H[?25h[?25l[53;118H3[29;17H[?25h[?25l[53;115H8[28;17H[?25h[?25l[27;17H[106m{[31;7H}[m[53;115H7[27;17H[?25h[?25l{[31;7H}[53;115H6[26;17H[?25h[?25l[25;5H[106m{[41;5H}[m[53;115H5,1 [25;5H[?25h[?25l{[41;5H}[53;115H4,13[24;17H[?25h[?25l[53;115H3,4 [23;8H[?25h[?25l[53;115H2,0-1[22;5H[?25h[?25l[53;115H1[21;5H[?25h[?25l[13;5H[106m{[20;5H}[m[53;115H0,1  [20;5H[?25h[?25l[13;5H{[15;33H[106m{[19;7H}[m[20;5H}[53;114H19,3[19;7H[?25h[?25l[15;33H{[16;56H[106m{[18;9H}[m[19;7H}[53;115H8,5[18;9H[?25h[?25l[16;56H{[18;9H}[53;115H7,0-1[17;5H[?25h[?25l[53;115H6,13 [16;17H[?25h[?25l[53;115H5[15;17H[?25h[?25l[53;115H6[16;17H[?25h[?25l[53;118H4[16;18H[?25h[?25l[53;118H5[16;19H[?25h[?25l[53;118H6[16;20H[?25h[?25l[53;118H7[16;21H[?25h[?25l[53;118H8[16;22H[?25h[?25l[53;118H9[16;23H[?25h[?25l[53;117H20[16;24H[?25h[?25li[?25h[?25l[53;118H2[16;26H[?25h[?25l[53;118H4[16;28H[?25h[?25l[6C[106m([ma[106m)[m[53;117H30[16;34H[?25h[?25l(a)[53;118H1[16;35H[?25h[?25l[106m([ma[106m)[m[53;118H2[16;36H[?25h[?25l(a)[53;118H4[16;38H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25h[?25l"transpose-matmul.c" 41L, 873C written[75C16,34[9CAll[53;114H[K[53;114H16,34[9CAll[16;38H[?25h[?25l[53;115H7,0-1[17;5H[?25h[?25l[16;56H[106m{[18;9H}[m[53;115H8,5  [18;9H[?25h[?25l[16;56H{[18;9H}[53;115H7,0-1[17;5H[?25h[?25l[53;1H[1m-- INSERT --[m[53;13H[K[53;114H17,1[10CAll[17;5H[?25h[?25l[53;117H2-9[17;13H[?25h[?25lt[53;117H3-10[17;14H[?25h[?25l[[53;117H4-11[17;15H[?25h[?25li[53;117H5-12[17;16H[?25h[?25l][106m[[mi[106m][m[53;117H6-13[17;17H[?25h[?25l[[i][53;117H7-14[17;18H[?25hj [?25lj][106m[[mj[106m][m[53;117H9-16[17;20H[?25h[?25l[j][53;117H10-17[17;21H[?25h[?25l=[53;118H1-18[17;22H[?25h[?25l[53;118H2-19[17;23H[?25h[?25la[53;118H3-20[17;24H[?25h[?25l[[53;118H4-21[17;25H[?25hj [?25lj][106m[[mj[106m][m[53;118H6-23[17;27H[?25h[?25li[j][53;118H7-24[17;28H[?25h[?25l[17;27H[K[17;24H[106m[[mj[106m][m[53;118H6-23[17;27H[?25h[?25l[[j][53;118H7-24[17;28H[?25h[?25li[53;118H8-25[17;29H[?25h[?25l][106m[[mi[106m][m[53;118H9-26[17;30H[?25h[?25l;[i][53;117H20-27[17;31H[?25hj [53;1H[K[?25l[53;114H17,19-26      All[17;30H[?25h[?25l[53;114H[K[53;1H:[?2004h[?25hw[?25l[?25h[?25l"transpose-matmul.c" 41L, 892C written[75C17,19-26      All[53;114H[K[53;114H17,19-26      All[17;30H[?25h[?25l[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"transpose-matmul.c" 41L, 892C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ make
+cc -g -Wall -std=c11 -O1   -c -o simple-matmul.o simple-matmul.c
+cc main.o simple-matmul.o  -o simple-matmul
+cc -g -Wall -std=c11 -O1   -c -o transpose-matmul.o transpose-matmul.c
+[01m[Ktranspose-matmul.c:[m[K In function ‘[01m[Kmatrix_transpose[m[K’:
+[01m[Ktranspose-matmul.c:16:30:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksizeof[m[K’ on array function parameter ‘[01m[Ka[m[K’ will return size of ‘[01m[Kdouble (*)[(sizetype)(n)][m[K’ [[01;35m[K-Wsizeof-array-argument[m[K]
+     for(int i = 0; i < sizeof[01;35m[K([m[Ka)/sizeof(a[0]); i++){
+                              [01;35m[K^[m[K
+[01m[Ktranspose-matmul.c:12:32:[m[K [01;36m[Knote: [m[Kdeclared here
+ matrix_transpose(int n, [01;36m[Kdouble a[][n][m[K, double t[][n])
+                         [01;36m[K~~~~~~~^~~~~~[m[K
+cc main.o transpose-matmul.o  -o transpose-matmul
+awalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ makevim transpose-matmul.c[3Psimple-matmul.ctranspose-matmul.c
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;53r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[53;1H"transpose-matmul.c" 41L, 892C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130m  1 [m[35m#include [m[31m"matmul.h"[m
+[38;5;130m  2 
+  3 [m[35m#include [m[31m<errno.h>[m
+[38;5;130m  4 [m[35m#include [m[31m<stdio.h>[m
+[38;5;130m  5 [m[35m#include [m[31m<stdlib.h>[m
+[38;5;130m  6 [m[35m#include [m[31m<string.h>[m
+[38;5;130m  7 
+  8 [m[34m/** Fill in matrix t[n][n] as the transpose of matrix a[n][n].  That is,[m
+[38;5;130m  9 [m[34m *  for all i, j set t[i][j] to a[j][i].[m
+[38;5;130m 10 [m[34m */[m
+[38;5;130m 11 [m[32mstatic[m [32mvoid[m
+[38;5;130m 12 [mmatrix_transpose([32mint[m n, [32mdouble[m a[][n], [32mdouble[m t[][n])
+[38;5;130m 13 [m{
+[38;5;130m 14 [m  [34m//@[m[30m[103mTODO[m[34m add your code here[m
+[38;5;130m 15 [m  [38;5;130mfor[m([32mint[m j = [31m0[m; j < n; j++){
+[38;5;130m 16 [m    [38;5;130mfor[m([32mint[m i = [31m0[m; i < [38;5;130msizeof[m(a)/[38;5;130msizeof[m(a[[31m0[m]); i++){
+[38;5;130m 17 [m[8Ct[i][j] = a[j][i];
+[38;5;130m 18 [m    }
+[38;5;130m 19 [m  }
+[38;5;130m 20 [m}
+[38;5;130m 21 
+ 22 
+ 23 [m[32mvoid[m
+[38;5;130m 24 [mmatrix_multiply([32mint[m n, [32mdouble[m a[][n], [32mdouble[m b[][n], [32mdouble[m c[][n])
+[38;5;130m 25 [m{
+[38;5;130m 26 [m  [32mdouble[m (*tmp)[n] = malloc([38;5;130msizeof[m([32mdouble[m[n][n]));
+[38;5;130m 27 [m  [38;5;130mif[m (!tmp) {
+[38;5;130m 28 [m    fprintf([31mstderr[m, [31m"could not malloc transpose matrix: [m[35m%s\n[m[31m"[m,
+[38;5;130m 29 [m[12Cstrerror(errno));
+[38;5;130m 30 [m    exit([31m1[m);
+[38;5;130m 31 [m  }
+[38;5;130m 32 [m  matrix_transpose(n, b, tmp);
+[38;5;130m 33 [m  [38;5;130mfor[m ([32mint[m i = [31m0[m; i < n; i++) {
+[38;5;130m 34 [m    [38;5;130mfor[m ([32mint[m j = [31m0[m; j < n; j++) {
+[38;5;130m 35 [m      c[i][j] = [31m0[m;
+[38;5;130m 36 [m      [38;5;130mfor[m ([32mint[m k = [31m0[m; k < n; k++) {
+[38;5;130m 37 [m[8Cc[i][j] += a[i][k]*tmp[j][k];
+[38;5;130m 38 [m      }
+[38;5;130m 39 [m    }
+[38;5;130m 40 [m  }
+[38;5;130m 41 [m}
+[94m~                                                                                                                                  [43;1H~                                                                                                                                  [44;1H~                                                                                                                                  [45;1H~                                                                                                                                  [46;1H~                                                                                                                                  [47;1H~                                                                                                                                  [48;1H~                                                                                                                                  [49;1H~                                                                                                                                  [50;1H~                                                                                                                                  [51;1H~                                                                                                                                  [52;1H~                                                                                                                                  [m[53;114H1,1[11CAll[1;5H[?25h[?12$p[?25l[53;114H2,0-1[2;5H[?25h[?25l[53;1H[K[53;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"transpose-matmul.c" 41L, 892C written[23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote00:~/i220a/submit/lab11/exercises/matmul-cache$ exit
+
+Script done on 2020-11-15 17:26:39-05:00 [COMMAND_EXIT_CODE="0"]

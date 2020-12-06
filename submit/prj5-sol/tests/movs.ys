@@ -1,0 +1,14 @@
+main:
+                 irmovq     $8, %rbx
+                 addq       %rax, %rbx
+		 irmovq	    stack, %rsi
+                 mrmovq     4(%rsi), %rcx
+                 subq       %rax, %rcx 
+                 irmovq     $10, %rdi
+                 addq       %rax, %rdi
+                 subq       %rsi, %rdx
+		 halt
+		 
+		 .pos	    0x200
+stack:
+

@@ -40,7 +40,6 @@ main4:
 		call    putchar         #output inChar to console
 		call    delay           #delay for time proportional to DELAY
                 dec	%cx             #decrement loop counter
-		
 		jnz     main2           #loop if output counter nonzero
 		jmp     main1           #back to read next char
 main3:		call	exit
