@@ -1,0 +1,274 @@
+Script started on 2020-12-06 12:22:38-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it add .
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ c d ..
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13$ git add .
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13$ git commit  -m 'starting aa[Kgia[K[Kain'
+[master 125fbe9] starting again
+ Committer: alexgwalley <awalley1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 6 files changed, 363 insertions(+)
+ create mode 100644 submit/lab13/exercises/.gitignore
+ create mode 100644 submit/lab13/exercises/Makefile
+ create mode 100644 submit/lab13/exercises/block.s
+ create mode 100644 submit/lab13/exercises/key-int.s
+ create mode 100644 submit/lab13/exercises/poll.s
+ create mode 100644 submit/lab13/exercises/typescript
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13$ git push
+Username for 'https://github.com': alexgwalley
+Password for 'https://alexgwalley@github.com': 
+Enumerating objects: 13, done.
+Counting objects:   7% (1/13)Counting objects:  15% (2/13)Counting objects:  23% (3/13)Counting objects:  30% (4/13)Counting objects:  38% (5/13)Counting objects:  46% (6/13)Counting objects:  53% (7/13)Counting objects:  61% (8/13)Counting objects:  69% (9/13)Counting objects:  76% (10/13)Counting objects:  84% (11/13)Counting objects:  92% (12/13)Counting objects: 100% (13/13)Counting objects: 100% (13/13), done.
+Delta compression using up to 8 threads
+Compressing objects:  12% (1/8)Compressing objects:  25% (2/8)Compressing objects:  37% (3/8)Compressing objects:  50% (4/8)Compressing objects:  62% (5/8)Compressing objects:  75% (6/8)Compressing objects:  87% (7/8)Compressing objects: 100% (8/8)Compressing objects: 100% (8/8), done.
+Writing objects:   9% (1/11)Writing objects:  18% (2/11)Writing objects:  27% (3/11)Writing objects:  36% (4/11)Writing objects:  45% (5/11)Writing objects:  54% (6/11)Writing objects:  63% (7/11)Writing objects:  90% (10/11)Writing objects: 100% (11/11)Writing objects: 100% (11/11), 2.84 KiB | 484.00 KiB/s, done.
+Total 11 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/4)[Kremote: Resolving deltas:  50% (2/4)[Kremote: Resolving deltas:  75% (3/4)[Kremote: Resolving deltas: 100% (4/4)[Kremote: Resolving deltas: 100% (4/4), completed with 2 local objects.[K
+To https://github.com/alexgwalley/i220a.git
+   d629ca0..125fbe9  master -> master
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13$ make[K[K[K[Kcd exercises/
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ a ke[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cm ake block.com
+as --32 -a=block.lst block.s -o block.o
+objcopy -O binary block.o block.bin
+rm block.o
+dd if=block.bin of=block.com bs=256 skip=1
+0+1 records in
+0+1 records out
+81 bytes copied, 0.00152382 s, 53.2 kB/s
+rm block.bin
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ d  [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co d -x block.com
+0000000 01eb e800 0018 02a0 3c01 7471 b90e 0032
+0000020 15e8 e800 0023 7549 ebf7 e8e8 0015 b450
+0000040 cd08 a221 0102 c358 b450 8a02 0216 cd01
+0000060 5821 b4c3 b04c cd00 5021 5153 02bb b900
+0000100 0000 a0b8 f6f0 49e9 f875 754b 59f2 585b
+0000120 00c3
+0000121
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ v im block.s
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"block.s" 76L, 1751C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[33m  1 [m    [36m#dos starts all .com programs at this offset[m
+[33m  2 [m    [33m.org[m  [38;5;130m0x100[m
+[33m  3 
+  4 [m[10C[33m.code16[m
+[33m  5 
+  6 [m[36m#Define constants[m
+[33m  7 [m[1m[36mDOS_INT[m   =[7C[38;5;130m0x21[m
+[33m  8 [m[1m[36mCOUNT[m     =[7C[38;5;130m50[m
+[33m  9 [m[1m[36mQUIT[m      =   '[1m[36mq[m'
+[33m 10 [m[1m[36mDELAY_LO[m  = [38;5;130m0x0[m
+[33m 11 [m[1m[36mDELAY_HI[m  = [38;5;130m0x2[m
+[33m 12 
+ 13 [m[36m#Entered at program startup.[m
+[33m 14 [m    [1m[36mjmp[m [1m[36mmain[m
+[33m 15 
+ 16 
+ 17 [m[36m#data area  [m
+[33m 18 [m[1m[36minChar[m:   [33m.byte[m [38;5;130m0[m
+[33m 19 
+ 20 [m[1m[36mmain[m:
+[33m 21 [m[1m[36mmain1[m:
+[33m 22 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m
+[33m 23 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m [36m#al set to char read[m[24;63H1,3-5[9CTop]2;block.s (~/projects/i220a/submit/lab13/exercises) - VIM]1;block.s[1;9H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[24;63H2[2;9H[?25h[?25l[24;63H3,0-1[3;5H[?25h[?25l[24;63H4,4-5[4;9H[?25h[?25l[24;63H5,0-1[5;5H[?25h[?25l[24;63H6,5  [6;9H[?25h[?25l[24;63H7[7;9H[?25h[?25l[24;63H8[8;9H[?25h[?25l[24;63H9[9;9H[?25h[?25l[24;63H8[8;9H[?25h[?25l[24;65H18-19[8;23H[?25h[?25l[24;1H[38;5;130m-- INSERT --[m[24;13H[K[24;63H8,18-19[7CTop[8;23H[K]2;block.s + (~/projects/i220a/submit/lab13/exercises) - VIM]1;block.s[8;23H[?25h[?25l[38;5;130m2[m[24;66H9-20[8;24H[?25h[?25l[38;5;130m5[m[24;65H20-21[8;25H[?25hj [?25l[1m[36mj[mj[?25h [24;1H[K[?25l[24;63H8,20-21[7CTop[8;25H[?25h[?25l[8;25H[K[24;65H19-20[8;24H[?25h[?25l[24;63H9,15-17[9;21H[?25h[?25l[24;63H10,15  [10;19H[?25h[?25l[24;64H1[11;19H[?25h[?25l[38;5;130m1[?25h[?25l[m[24;63H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"block.s" 76L, 1751C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ m ake
+as --32 -a=block.lst block.s -o block.o
+objcopy -O binary block.o block.bin
+rm block.o
+dd if=block.bin of=block.com bs=256 skip=1
+0+1 records in
+0+1 records out
+81 bytes copied, 0.00154379 s, 52.5 kB/s
+rm block.bin
+as --32 -a=key-int.lst key-int.s -o key-int.o
+objcopy -O binary key-int.o key-int.bin
+rm key-int.o
+dd if=key-int.bin of=key-int.com bs=256 skip=1
+0+1 records in
+0+1 records out
+209 bytes copied, 0.0015755 s, 133 kB/s
+rm key-int.bin
+as --32 -a=poll.lst poll.s -o poll.o
+objcopy -O binary poll.o poll.bin
+rm poll.o
+dd if=poll.bin of=poll.com bs=256 skip=1
+0+1 records in
+0+1 records out
+110 bytes copied, 0.00182788 s, 60.2 kB/s
+rm poll.bin
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ v im poll.s
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"poll.s" 96L, 2295C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[33m  1 [m    [36m#dos starts all .com programs at this offset[m
+[33m  2 [m    [33m.org[m  [38;5;130m0x100[m
+[33m  3 
+  4 [m[10C[33m.code16[m
+[33m  5 
+  6 [m[36m#Define constants[m
+[33m  7 [m[1m[36mDOS_INT[m   =[7C[38;5;130m0x21[m
+[33m  8 [m[1m[36mCOUNT[m     =[8C[38;5;130m50[m
+[33m  9 [m[1m[36mQUIT[m      =   '[1m[36mq[m'
+[33m 10 [m[1m[36mDELAY_LO[m  = [38;5;130m0x0[m
+[33m 11 [m[1m[36mDELAY_HI[m  = [38;5;130m0x2[m
+[33m 12 
+ 13 [m[36m#Entered at program startup.[m
+[33m 14 [m    [1m[36mjmp[m [1m[36mmain[m
+[33m 15 
+ 16 
+ 17 [m[36m#data area  [m
+[33m 18 [m[1m[36minChar[m:   [33m.byte[m [38;5;130m0[m
+[33m 19 [m[1m[36mhasKey[m:   [33m.byte[m   [38;5;130m1[m
+[33m 20 
+ 21 [m[1m[36mmain[m:
+[33m 22 [m[1m[36mmain1[m:
+[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H1,3-5[9CTop]2;poll.s (~/projects/i220a/submit/lab13/exercises) - VIM]1;poll.s[1;9H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[27m[23m[29m[m[H[2J[1;1H[33m 74 [m    [1m[36mmov[m $[38;5;130m0x4c[m,%[1m[36mah[m[7C[36m#specify fn: program exit[m
+[33m 75 [m    [1m[36mmov[m $[38;5;130m0x0[m,%[1m[36mal[m[8C[36m#setup exit status[m
+[33m 76 [m    [1m[36mint[m $[1m[36mDOS_INT[m[8C[36m#exit program[m
+[33m 77 
+ 78 
+ 79 
+ 80 [m[36m#spin loop for delay time proportional to value in DELAY_HI_DELAY_LO[m
+[33m 81 [m[1m[36mdelay[m:    [1m[36mpush[m  %[1m[36max[m
+[33m 82 [m    [1m[36mpush[m  %[1m[36mbx[m
+[33m 83 [m    [1m[36mpush[m  %[1m[36mcx[m
+[33m 84 [m    [1m[36mmov[m $[1m[36mDELAY_HI[m, %[1m[36mbx[m
+[33m 85 [m[1m[36mdelay1[m:   [1m[36mmov[m     $[1m[36mDELAY_LO[m, %[1m[36mcx[m
+[33m 86 [m[1m[36mdelay2[m:   [1m[36mmov[m     $[38;5;130m0x0f0a0[m, %[1m[36max[m
+[33m 87 [m[10C[1m[36mimul[m    %[1m[36mcl[m
+[33m 88 [m[10C[1m[36mdec[m     %[1m[36mcx[m
+[33m 89 [m[10C[1m[36mjnz[m     [1m[36mdelay2[m
+[33m 90 [m[10C[1m[36mdec[m     %[1m[36mbx[m
+[33m 91 [m[10C[1m[36mjnz[m [1m[36mdelay1[m
+[33m 92 [m[10C[1m[36mpop[m %[1m[36mcx[m
+[33m 93 [m    [1m[36mpop[m %[1m[36mbx[m
+[33m 94 [m    [1m[36mpop[m %[1m[36max[m
+[33m 95 [m    [1m[36mret[m
+[33m 96 [m[24;63H96,0-1[8CBot[23;5H[?25h[?25l[24;64H5,1-2[22;6H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[33m  1 [m    [36m#dos starts all .com programs at this offset[m
+[33m  2 [m    [33m.org[m  [38;5;130m0x100[m
+[33m  3 
+  4 [m[10C[33m.code16[m
+[33m  5 
+  6 [m[36m#Define constants[m
+[33m  7 [m[1m[36mDOS_INT[m   =[7C[38;5;130m0x21[m
+[33m  8 [m[1m[36mCOUNT[m     =[8C[38;5;130m50[m
+[33m  9 [m[1m[36mQUIT[m      =   '[1m[36mq[m'
+[33m 10 [m[1m[36mDELAY_LO[m  = [38;5;130m0x0[m
+[33m 11 [m[1m[36mDELAY_HI[m  = [38;5;130m0x2[m
+[33m 12 
+ 13 [m[36m#Entered at program startup.[m
+[33m 14 [m    [1m[36mjmp[m [1m[36mmain[m
+[33m 15 
+ 16 
+ 17 [m[36m#data area  [m
+[33m 18 [m[1m[36minChar[m:   [33m.byte[m [38;5;130m0[m
+[33m 19 [m[1m[36mhasKey[m:   [33m.byte[m   [38;5;130m1[m
+[33m 20 
+ 21 [m[1m[36mmain[m:
+[33m 22 [m[1m[36mmain1[m:
+[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H1,3-5[9CTop[1;9H[?25h[?25l[24;63H3,0-1[3;5H[?25h[?25l[24;63H5[5;5H[?25h[?25l[24;63H12,0-1[12;5H[?25h[?25l[24;64H5[15;5H[?25h[?25l[24;63H20[20;5H[?25h[?25l[27m[23m[29m[m[H[2J[1;1H[33m 32 [m[10C[1m[36mjz[m  [1m[36mmain4[m[11C[36m#no key press[m
+[33m 33 [m[10C[1m[36mxor[m %[1m[36mal[m, %[1m[36mal[m
+[33m 34 [m    [1m[36mmov[m %[1m[36mal[m, [1m[36mhasKey[m     [36m#reset hasKey flag[m
+[33m 35 [m    [1m[36mcall[m  [1m[36mgetchar[m[9C[36m#read new input key[m
+[33m 36 [m[1m[36mmain4[m:
+[33m 37 [m[10C[1m[36mcall[m    [1m[36mputchar[m[9C[36m#output inChar to console[m
+[33m 38 [m    [1m[36mcall[m    [1m[36mdelay[m[11C[36m#delay for time proportional to DELAY[m
+[33m 39 [m[16C[1m[36mdec[m %[1m[36mcx[m[13C[36m#decrement loop counter[m
+[33m 40 [m    [1m[36mjnz[m     [1m[36mmain2[m[11C[36m#loop if output counter nonzero[m
+[33m 41 [m    [1m[36mjmp[m     [1m[36mmain1[m[11C[36m#back to read next char[m
+[33m 42 [m[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m
+[33m 43 
+ 44 [m[36m#Set hasKey to non-zero if key has been pressed[m
+[33m 45 [m[1m[36mcheckKey[m:
+[33m 46 [m    [1m[36mpush[m    %[1m[36max[m
+[33m 47 [m    [1m[36mmovb[m    $[38;5;130m0xb[m, %[1m[36mah[m[7C[36m#specify fn: get stdin status[m
+[33m 48 [m    [1m[36mint[m     $[1m[36mDOS_INT[m
+[33m 49 [m    [1m[36mmov[m     %[1m[36mal[m, [1m[36mhasKey[m     [36m#0 iff no key pressed[m
+[33m 50 [m    [1m[36mpop[m     %[1m[36max[m
+[33m 51 [m    [1m[36mret[m
+[33m 52 
+ 53 
+ 54 [m[24;63H43,0-1[8C42%[12;5H[?25h[?25l[24;64H2,1  [11;5H[?25h[?25l[24;64H1,1-2[10;6H[?25h[?25l[24;64H0[9;6H[?25h[?25l[24;63H39,1  [8;5H[?25h[?25l[24;1H[38;5;130m-- INSERT --[m[24;63H[K[24;63H40,1[10C41%[9;9H[K[10;10H[1m[36mnz[m [8C[1m[36m2[m [11C[36mloop if output counter nonzero[m[11;5H    [1m[36mjmp[m     [1m[36mmain1[m    [7C[36m#back to read next char[m[12;5H[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m[13;5H[K[14;5H[36m#Set hasKey to non-zero if key has been pressed[m[15;5H[1m[36mcheckKey[m:[15;17H[K[16;9H[1m[36mpush[m    %[1m[36max[m[16;20H[K[17;9H[1m[36mmovb[m    $[38;5;130m0xb[m, %[1m[36mah[m[7C[36m#specify fn: get stdin status[m[18;9H[1m[36mint[m     $[1m[36mDOS_INT[m[18;25H[K[19;9H[1m[36mmov[m [6C[1m[36ml[m, [1m[36mhasKey[m     [36m#0 iff no key pressed[m[20;9H[1m[36mpop[m     %[1m[36max[21;9Hret]2;poll.s + (~/projects/i220a/submit/lab13/exercises) - VIM]1;poll.s[9;5H[?25h[?25l[m[24;66H2-3[9;7H[?25h[?25l[24;66H3-5[9;9H[?25hj [24;1H[K[?25l[24;63H40,2-4[8C41%[9;8H[?25h[?25l[24;63H39,4  [8;8H[?25h[?25l[24;64H8,2-4[7;8H[?25h[?25l[24;64H7,3[6;8H[?25h[?25l[24;64H6,4  [5;8H[?25h[?25l[24;1H[38;5;130m-- INSERT --[m[24;63H[K[24;63H37,1[10C41%[6;15H[K[7;9H      [1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[7;64H[K[8;9H[1m[36mcall[m    [1m[36mdelay[m           [36m#delay for time proportional to DELAY[m[9;21H[1m[36mdec[m %[1m[36mcx[m[13C[36m#decrement loop counter[m[10;9H[K[11;10H[1m[36mnz[m [8C[1m[36m2[m [11C[36mloop if output counter nonzero[m[12;5H    [1m[36mjmp[m     [1m[36mmain1[m    [7C[36m#back to read next char[m[13;5H[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m[14;5H[K[15;5H[36m#Set hasKey to non-zero if key has been pressed[m[16;5H[1m[36mcheckKey[m:[16;17H[K[17;9H[1m[36mpush[m    %[1m[36max[m[17;20H[K[18;9H[1m[36mmovb[m    $[38;5;130m0xb[m, %[1m[36mah[m[7C[36m#specify fn: get stdin status[m[19;9H[1m[36mint[m     $[1m[36mDOS_INT[m[19;25H[K[20;9H[1m[36mmov[m [6C[1m[36ml[m, [1m[36mhasKey[m     [36m#0 iff no key pressed[m[21;9H[1m[36mpop[m     %[1m[36max[22;9Hret[6;5H[?25h[?25l[m[24;66H2-3[6;7H[?25h[?25l[24;66H3-5[6;9H[?25h[?25l[24;66H4-7[6;11H[?25h[?25l[24;66H3-5[6;9H[?25h[?25l[1m[36mm[m[24;66H4-6[6;10H[?25h[?25l[1m[36mo[m[24;66H5-7[6;11H[?25h[?25l[1m[36mv[m[24;66H6-8[6;12H[?25h[?25l[1m[36mk[m[24;66H7-9[6;13H[?25h[?25l[1m[36mk[m[24;66H8-10[6;14H[?25h[?25l[6;13H[K[24;66H7-9 [6;13H[?25h[?25l[6;12H[K[24;66H6-8[6;12H[?25hj [24;1H[K[?25l[24;63H37,5-7[8C41%[6;11H[?25h[?25l[24;64H6,7-8[5;12H[?25h[?25l[24;64H5,5-7[4;11H[?25h[?25l[24;64H4[3;11H[?25h[?25l[24;64H3,6[2;11H[?25h[?25l[24;64H2[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 31 [m    [1m[36mtest[m  %[1m[36mal[m, %[1m[36mal[m  [36m#non-zero if keyboard has char[m[24;63H[K[24;63H31,5-7[8C40%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 30 [m    [1m[36mmov[m [1m[36mhasKey[m, %[1m[36mal[m [36m#put checkKey result into al[m[24;63H[K[24;63H30,5-7[8C38%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 29 [m[10C[1m[36mcall[m    [1m[36mcheckKey[m  [36m#check if key has been pressed[m[24;63H[K[24;63H29,6-7[8C37%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 28 [m[1m[36mmain2[m:[24;63H[K[24;63H28,6[10C36%[1;10H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 27 [m    [1m[36mmov[m     $[1m[36mCOUNT[m, %[1m[36mcx[m     [36m#set output counter[m[24;63H[K[24;63H27,5-7[8C34%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 26 [m    [1m[36mjz[m  [1m[36mmain3[m   [36m#quit if got QUIT character[m[24;63H[K[24;63H26,5-8[8C33%[1;12H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 25 [m    [1m[36mcmp[m $[1m[36mQUIT[m, %[1m[36mal[m  [36m#is it a QUIT character?[m[24;63H[K[24;63H25,5-7[8C32%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 24 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m [36m#al set to char read[m[24;63H[K[24;63H24,5-7[8C30%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H[K[24;63H23,5-7[8C29%[1;11H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 22 [m[1m[36mmain1[m:[24;63H[K[24;63H22,7-8[8C28%[1;12H[?25h[?25l[24;64H3,5-7[2;11H[?25h[?25l[24;64H4[3;11H[?25h[?25l[24;64H5[4;11H[?25h[?25l[24;64H6,5-8[5;12H[?25h[?25l[24;64H7,5-7[6;11H[?25h[?25l[24;64H8,6  [7;10H[?25h[?25l[24;64H9,6-7[8;11H[?25h[?25l[24;63H30,5[9;11H[?25h[?25l[24;64H1[10;11H[?25h[?25l[24;64H2,6[11;11H[?25h[?25l[24;64H3[12;11H[?25h[?25l[24;64H4,5[13;11H[?25h[?25l[24;64H5[14;11H[?25h[?25l[24;64H6,7-8[15;12H[?25h[?25l[24;64H7,5-7[16;11H[?25h[?25l[24;1H[38;5;130m-- INSERT --[m[24;63H[K[24;63H37,6-8[8C28%[16;12H[?25h[?25l[24;66H7-9[16;13H[?25h[?25l[24;66H6-8[16;12H[?25h[?25l[24;66H7-9[16;13H[?25h[?25l[1m[36mi[m[24;66H8-10[16;14H[?25h[?25l[1m[36mn[m[24;66H9-11[16;15H[?25h[?25l[1m[36mC[m[24;66H10-12[16;16H[?25h[?25l[1m[36mh[m[24;67H1-13[16;17H[?25h[?25l[1m[36ma[m[24;67H2-14[16;18H[?25h[?25l[1m[36mr[m[24;67H3-15[16;19H[?25h[?25l,[24;67H4-16[16;20H[?25h[?25l[24;67H5-17[16;21H[?25h[?25l%[24;67H6-18[16;22H[?25h[?25l[1m[36ma[m[24;67H7-19[16;23H[?25h[?25l[1m[36ml[m[24;67H8-20[16;24H[?25h[?25l[17;15H[K[18;9H      [1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[18;64H[K[19;9H[1m[36mcall[m    [1m[36mdelay[m           [36m#delay for time proportional to DELAY[m[20;21H[1m[36mdec[m %[1m[36mcx[m[13C[36m#decrement loop counter[m[21;9H[K[22;10H[1m[36mnz[m [8C[1m[36m2[m [11C[36mloop if output counter nonzero[m[23;5H    [1m[36mjmp[m     [1m[36mmain1[m    [7C[36m#back to read next char[m[24;64H8,1    [7C7[17;5H[?25h[?25l[24;66H2-3[17;7H[?25h[?25l[24;66H3-5[17;9H[?25h[?25l[1m[36mc[m[24;66H4-6[17;10H[?25h[?25l[1m[36mp[m[24;66H5-7[17;11H[?25h[?25l[17;10H[K[24;66H4-6[17;10H[?25h[?25l[1m[36mm[m[24;66H5-7[17;11H[?25h[?25l[1m[36mp[m[24;66H6-8[17;12H[?25h[?25l[24;66H7-9[17;13H[?25h[?25l$[24;66H8-10[17;14H[?25h[?25l[1m[36mQ[m[24;66H9-11[17;15H[?25h[?25l[1m[36mU[m[24;66H10-12[17;16H[?25h[?25l[1m[36mI[m[24;67H1-13[17;17H[?25h[?25l[1m[36mT[m[24;67H2-14[17;18H[?25h[?25l,[24;67H3-15[17;19H[?25h[?25l[24;67H4-16[17;20H[?25h[?25l%[24;67H5-17[17;21H[?25h[?25l[1m[36ma[m[24;67H6-18[17;22H[?25h[?25l[1m[36ml[m[24;67H7-19[17;23H[?25h[?25l[18;15H[K[19;9H      [1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[19;64H[K[20;9H[1m[36mcall[m    [1m[36mdelay[m           [36m#delay for time proportional to DELAY[m[21;21H[1m[36mdec[m %[1m[36mcx[m[13C[36m#decrement loop counter[m[22;9H[K[23;10H[1m[36mnz[m [8C[1m[36m2[m [11C[36mloop if output counter nonzero[m[24;64H9,1    [18;5H[?25h[?25l[24;66H2-3[18;7H[?25h[?25l[24;66H3-5[18;9H[?25hj [?25l[1m[36mjz[m[24;66H5-7[18;11H[?25h[?25l[24;66H6-8[18;12H[?25h[?25l[1m[36mm[m[24;66H7-9[18;13H[?25h[?25l[1m[36ma[m[24;66H8-10[18;14H[?25h[?25l[1m[36mi[m[24;66H9-11[18;15H[?25h[?25l[1m[36mn[m[24;66H10-12[18;16H[?25h[?25l[1m[36m3[m[24;67H1-13[18;17H[?25hj [24;1H[K[?25l[24;63H39,10-12      27%[18;16H[?25h[?25l[24;63H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"poll.s" 100L, 2344C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ m ake poll.com
+as --32 -a=poll.lst poll.s -o poll.o
+objcopy -O binary poll.o poll.bin
+rm poll.o
+dd if=poll.bin of=poll.com bs=256 skip=1
+0+1 records in
+0+1 records out
+117 bytes copied, 0.00121861 s, 96.0 kB/s
+rm poll.bin
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ m ake key-int.com
+make: 'key-int.com' is up to date.
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ k e[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd osbox &
+[1] 4010576
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/awalley1/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+v im pol[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kv
+bash: v: command not found
+[1]+  Done                    dosbox
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ v i [Km poll.s
+[?2004h[?1049h[22;0;0t[?1h=[?2004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H"poll.s" 100L, 2344C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[33m  1 [m    [36m#dos starts all .com programs at this offset[m
+[33m  2 [m    [33m.org[m  [38;5;130m0x100[m
+[33m  3 
+  4 [m[10C[33m.code16[m
+[33m  5 
+  6 [m[36m#Define constants[m
+[33m  7 [m[1m[36mDOS_INT[m   =[7C[38;5;130m0x21[m
+[33m  8 [m[1m[36mCOUNT[m     =[8C[38;5;130m50[m
+[33m  9 [m[1m[36mQUIT[m      =   '[1m[36mq[m'
+[33m 10 [m[1m[36mDELAY_LO[m  = [38;5;130m0x0[m
+[33m 11 [m[1m[36mDELAY_HI[m  = [38;5;130m0x2[m
+[33m 12 
+ 13 [m[36m#Entered at program startup.[m
+[33m 14 [m    [1m[36mjmp[m [1m[36mmain[m
+[33m 15 
+ 16 
+ 17 [m[36m#data area  [m
+[33m 18 [m[1m[36minChar[m:   [33m.byte[m [38;5;130m0[m
+[33m 19 [m[1m[36mhasKey[m:   [33m.byte[m   [38;5;130m1[m
+[33m 20 
+ 21 [m[1m[36mmain[m:
+[33m 22 [m[1m[36mmain1[m:
+[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H1,3-5[9CTop]2;poll.s (~/projects/i220a/submit/lab13/exercises) - VIM]1;poll.s[1;9H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[24;63H2[2;9H[?25h[?25l[24;63H3,0-1[3;5H[?25h[?25l[24;63H4,4-5[4;9H[?25h[?25l[24;63H5,0-1[5;5H[?25h[?25l[24;63H6,5  [6;9H[?25h[?25l[24;63H7[7;9H[?25h[?25l[24;63H8[8;9H[?25h[?25l[24;63H9[9;9H[?25h[?25l[24;63H10,5[10;9H[?25h[?25l[24;64H1[11;9H[?25h[?25l[24;64H2,0-1[12;5H[?25h[?25l[24;64H3,5  [13;9H[?25h[?25l[24;64H4,3-5[14;9H[?25h[?25l[24;64H5,0-1[15;5H[?25h[?25l[24;64H6[16;5H[?25h[?25l[24;64H7,5  [17;9H[?25h[?25l[24;64H8[18;9H[?25h[?25l[24;64H9[19;9H[?25h[?25l[24;63H20,0-1[20;5H[?25h[?25l[24;64H1,5  [21;9H[?25h[?25l[24;64H2[22;9H[?25h[?25l[24;64H3,3-5[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 24 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m [36m#al set to char read[m[24;1H[K[24;63H24,3-5[9C1%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 25 [m    [1m[36mcmp[m $[1m[36mQUIT[m, %[1m[36mal[m  [36m#is it a QUIT character?[m[24;63H[K[24;63H25,3-5[9C2%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 26 [m    [1m[36mjz[m  [1m[36mmain3[m   [36m#quit if got QUIT character[m[24;63H[K[24;63H26,3-5[9C3%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 27 [m    [1m[36mmov[m     $[1m[36mCOUNT[m, %[1m[36mcx[m     [36m#set output counter[m[24;63H[K[24;63H27,3-5[9C5%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 28 [m[1m[36mmain2[m:[24;63H[K[24;63H28,5[11C6%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 29 [m[10C[1m[36mcall[m    [1m[36mcheckKey[m  [36m#check if key has been pressed[m[24;63H[K[24;63H29,4-5[9C7%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 30 [m    [1m[36mmov[m [1m[36mhasKey[m, %[1m[36mal[m [36m#put checkKey result into al[m[24;63H[K[24;63H30,3-5[9C9%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 31 [m    [1m[36mtest[m  %[1m[36mal[m, %[1m[36mal[m  [36m#non-zero if keyboard has char[m[24;63H[K[24;63H31,3-5[8C10%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 32 [m[10C[1m[36mjz[m  [1m[36mmain4[m[11C[36m#no key press[m[24;63H[K[24;63H32,4-5[8C11%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 33 [m[10C[1m[36mxor[m %[1m[36mal[m, %[1m[36mal[m[24;63H[K[24;63H33,4-5[8C12%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 34 [m    [1m[36mmov[m %[1m[36mal[m, [1m[36mhasKey[m     [36m#reset hasKey flag[m[24;63H[K[24;63H34,3-5[8C14%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 35 [m    [1m[36mcall[m  [1m[36mgetchar[m[9C[36m#read new input key[m[24;63H[K[24;63H35,3-5[8C15%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 36 [m[1m[36mmain4[m:[24;63H[K[24;63H36,5[10C16%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 37 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m[24;63H[K[24;63H37,3-5[8C18%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 38 [m    [1m[36mcmp[m $[1m[36mQUIT[m, %[1m[36mal[m[24;63H[K[24;63H38,3-5[8C19%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 39 [m    [1m[36mjz[m [1m[36mmain3[m[24;63H[K[24;63H39,3-5[8C20%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 40 [m[10C[1m[36mcall[m    [1m[36mputchar[m[9C[36m#output inChar to console[m[24;63H[K[24;63H40,4-5[8C22%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 41 [m    [1m[36mcall[m    [1m[36mdelay[m[11C[36m#delay for time proportional to DELAY[m[24;63H[K[24;63H41,3-5[8C23%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 42 [m[16C[1m[36mdec[m %[1m[36mcx[m[13C[36m#decrement loop counter[m[24;63H[K[24;63H42,5[10C24%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 43 [m[24;63H[K[24;63H43,2-4[8C25%[23;8H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 44 [m    [1m[36mjnz[m     [1m[36mmain2[m[11C[36m#loop if output counter nonzero[m[24;63H[K[24;63H44,3-5[8C27%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 45 [m    [1m[36mjmp[m     [1m[36mmain1[m[11C[36m#back to read next char[m[24;63H[K[24;63H45,3-5[8C28%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 46 [m[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m[24;63H[K[24;63H46,5[10C29%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 47 [m[24;63H[K[24;63H47,0-1[8C31%[23;5H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 48 [m[36m#Set hasKey to non-zero if key has been pressed[m[24;63H[K[24;63H48,5[10C32%[23;9H[?25h[?25l[24;64H7,0-1[22;5H[?25h[?25l[24;64H6,5  [21;9H[?25h[?25l[24;64H5,3-5[20;9H[?25h[?25l[24;64H4[19;9H[?25h[?25l[24;64H3,2-4[18;8H[?25h[?25l[24;64H2,5  [17;9H[?25h[?25l[24;64H1,3-5[16;9H[?25h[?25l[24;64H0,4[15;9H[?25h[?25l[24;63H39,3[14;9H[?25h[?25l[24;64H8[13;9H[?25h[?25l[24;64H7[12;9H[?25h[?25l[24;64H6,5  [11;9H[?25h[?25l[24;64H5,3-5[10;9H[?25h[?25l[24;64H4[9;9H[?25h[?25l[24;64H3,4[8;9H[?25h[?25l[24;64H2[7;9H[?25h[?25l[24;64H1,3[6;9H[?25h[?25l[24;64H0[5;9H[?25h[?25l[24;63H29,4[4;9H[?25h[?25l[24;64H8,5  [3;9H[?25h[?25l[24;64H7,3-5[2;9H[?25h[?25l[24;64H6[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 25 [m    [1m[36mcmp[m $[1m[36mQUIT[m, %[1m[36mal[m  [36m#is it a QUIT character?[m[24;63H[K[24;63H25,3-5[8C31%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 24 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m [36m#al set to char read[m[24;63H[K[24;63H24,3-5[8C29%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H[K[24;63H23,3-5[8C28%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 22 [m[1m[36mmain1[m:[24;63H[K[24;63H22,5[10C27%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 21 [m[1m[36mmain[m:[24;63H[K[24;63H21,5[10C25%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 20 [m[24;63H[K[24;63H20,0-1[8C24%[1;5H[?25h[?25l[24;64H1,5  [2;9H[?25h[?25l[24;64H2[3;9H[?25h[?25l[24;64H3,3-5[4;9H[?25h[?25l[24;64H4[5;9H[?25h[?25l[24;64H5[6;9H[?25h[?25l[24;64H6[7;9H[?25h[?25l[24;64H7[8;9H[?25h[?25l[24;64H8,5  [9;9H[?25h[?25l[24;64H9,4-5[10;9H[?25h[?25l    [1m[36mcall[m    [1m[36mcheckKey[m  [36m#check if key has been pressed[m[10;61H[K]2;poll.s + (~/projects/i220a/submit/lab13/exercises) - VIM]1;poll.s[24;66H5-9[10;13H[?25h[?25l[1m[36mcall[m    [1m[36mcheckKey[m  [36m#check if key has been pressed[m[10;59H[K[24;66H4-7[10;11H[?25h[?25l[1m[36mcall[m    [1m[36mcheckKey[m  [36m#check if key has been pressed[m[10;57H[K[24;66H3-5[10;9H[?25h[?25l[24;63H30[11;9H[?25h[?25l[24;64H1[12;9H[?25h[?25l[24;64H2,4[13;9H[?25h[?25l[24;64H3[14;9H[?25h[?25l[24;64H4,3[15;9H[?25h[?25l[24;64H5[16;9H[?25h[?25l[24;64H6,5  [17;9H[?25h[?25l[24;64H7,3-5[18;9H[?25h[?25l[24;64H8[19;9H[?25h[?25l[24;64H9[20;9H[?25h[?25l[24;63H40,4[21;9H[?25h[?25l[24;64H1,3[22;9H[?25h[?25l[24;64H2,5  [23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 43 [m[24;63H[K[24;63H43,2-4[8C25%[23;8H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 44 [m    [1m[36mjnz[m     [1m[36mmain2[m[11C[36m#loop if output counter nonzero[m[24;63H[K[24;63H44,3-5[8C27%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 45 [m    [1m[36mjmp[m     [1m[36mmain1[m[11C[36m#back to read next char[m[24;63H[K[24;63H45,3-5[8C28%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 46 [m[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m[24;63H[K[24;63H46,5[10C29%[23;9H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[33m 47 [m[24;63H[K[24;63H47,0-1[8C31%[23;5H[?25h[?25l[24;64H6,5  [22;9H[?25h[?25l[24;64H5,3-5[21;9H[?25h[?25l[24;64H4[20;9H[?25h[?25l[24;64H3,2-4[19;8H[?25h[?25l[24;64H2,5  [18;9H[?25h[?25l[24;64H1,3-5[17;9H[?25h[?25l[24;64H0,4[16;9H[?25h[?25l    [1m[36mcall[m
