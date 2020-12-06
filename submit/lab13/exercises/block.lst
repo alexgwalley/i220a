@@ -1,0 +1,108 @@
+GAS LISTING block.s 			page 1
+
+
+   1              			#dos starts all .com programs at this offset
+   2 0000 00000000 			.org	0x100
+   2      00000000 
+   2      00000000 
+   2      00000000 
+   2      00000000 
+   3              	
+   4              		        .code16
+   5              	
+   6              	#Define constants
+   7              	DOS_INT 	=       0x21
+   8              	COUNT  		=       25
+   9              	QUIT   		= 	'q'
+  10              	DELAY_LO 	=	0x0
+  11              	DELAY_HI 	=	0x1
+  12              	
+  13              	#Entered at program startup.
+  14 0100 EB01     			jmp	main
+  15              	
+  16              	
+  17              	#data area	
+  18 0102 00       	inChar:		.byte	0
+  19              	
+  20              	main:
+  21              	main1:	
+  22 0103 E81800   			call    getchar         #read input char into inChar
+  23 0106 A00201   			mov	inChar, %al	#al set to char read
+  24 0109 3C71     			cmp	$QUIT, %al	#is it a QUIT character?
+  25 010b 740E     			jz	main3		#quit if got QUIT character
+  26 010d B91900   			mov     $COUNT, %cx     #set output counter
+  27              	main2:  
+  28 0110 E81500   		        call    putchar         #output inChar to console
+  29 0113 E82300   			call    delay           #delay for time proportional to DELAY
+  30 0116 49       	                dec	%cx             #decrement loop counter
+  31 0117 75F7     			jnz     main2           #loop if output counter nonzero
+  32 0119 EBE8     			jmp     main1           #back to read next char
+  33 011b E81500   	main3:		call	exit
+  34              	
+  35              	#Read next char from stdin into inChar.  Quit if ^C
+  36              	getchar:
+  37 011e 50       			push	%ax
+  38 011f B408     			mov     $0x08,%ah       #specify fn: read without echo into al
+  39 0121 CD21     			int     $DOS_INT        #read stdin into %al
+  40 0123 A20201   			mov     %al,inChar      #mov char read to inChar
+  41 0126 58       			pop	%ax
+  42 0127 C3       			ret
+  43              	
+  44              	#Write inChar to console	
+  45              	putchar:
+  46 0128 50       			push	%ax
+  47 0129 B402     			movb    $02,%ah         #specify fn: output dl to stdout
+  48 012b 8A160201 			movb    inChar,%dl      #char to output
+  49 012f CD21     			int     $DOS_INT        #output inChar
+  50 0131 58       			pop	%ax
+  51 0132 C3       			ret
+  52              	
+  53              	exit:
+GAS LISTING block.s 			page 2
+
+
+  54 0133 B44C     			mov	$0x4c,%ah      	#specify fn: program exit
+  55 0135 B000     			mov	$0x0,%al        #setup exit status
+  56 0137 CD21     			int	$DOS_INT        #exit program
+  57              		
+  58              		
+  59              	
+  60              	#spin loop for delay time proportional to value in DELAY_HI_DELAY_LO
+  61 0139 50       	delay:		push	%ax
+  62 013a 53       			push	%bx
+  63 013b 51       			push	%cx
+  64 013c BB0100   			mov	$DELAY_HI, %bx
+  65 013f B90000   	delay1:		mov     $DELAY_LO, %cx
+  66 0142 B8A0F0   	delay2:		mov     $0x0f0a0, %ax
+  67 0145 F6E9     		        imul    %cl
+  68 0147 49       		        dec     %cx
+  69 0148 75F8     		        jnz     delay2
+  70 014a 4B       		        dec     %bx
+  71 014b 75F2     		        jnz	delay1
+  72 014d 59       		        pop	%cx
+  73 014e 5B       			pop	%bx
+  74 014f 58       			pop	%ax
+  75 0150 C3       			ret
+  76              	
+GAS LISTING block.s 			page 3
+
+
+DEFINED SYMBOLS
+             block.s:7      *ABS*:0000000000000021 DOS_INT
+             block.s:8      *ABS*:0000000000000019 COUNT
+             block.s:9      *ABS*:0000000000000071 QUIT
+             block.s:10     *ABS*:0000000000000000 DELAY_LO
+             block.s:11     *ABS*:0000000000000001 DELAY_HI
+             block.s:20     .text:0000000000000103 main
+             block.s:18     .text:0000000000000102 inChar
+             block.s:21     .text:0000000000000103 main1
+             block.s:36     .text:000000000000011e getchar
+             block.s:33     .text:000000000000011b main3
+             block.s:27     .text:0000000000000110 main2
+             block.s:45     .text:0000000000000128 putchar
+             block.s:61     .text:0000000000000139 delay
+             block.s:53     .text:0000000000000133 exit
+             block.s:65     .text:000000000000013f delay1
+             block.s:66     .text:0000000000000142 delay2
+
+NO UNDEFINED SYMBOLS
