@@ -26,17 +26,20 @@ main1:
 		jz	main3		#quit if got QUIT character
 		mov     $COUNT, %cx     #set output counter
 main2:
-	        call    checkKey	#check if key has been pressed
+	  call    checkKey	#check if key has been pressed
 		mov	hasKey, %al	#put checkKey result into al
 		test	%al, %al	#non-zero if keyboard has char
-	        jz	main4           #no key press
-	        xor	%al, %al
+			jz	main4           #no key press
+			xor	%al, %al
 		mov	%al, hasKey     #reset hasKey flag
 		call	getchar         #read new input key
 main4:	
-	        call    putchar         #output inChar to console
+		dec	%cx             #decrement loop counter
+		mov inChar, %al
+		cmp $QUIT, %al
+		call    putchar         #output inChar to console
 		call    delay           #delay for time proportional to DELAY
-                dec	%cx             #decrement loop counter
+				jz main3
 		jnz     main2           #loop if output counter nonzero
 		jmp     main1           #back to read next char
 main3:		call	exit

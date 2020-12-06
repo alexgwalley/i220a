@@ -5,10 +5,10 @@
 
 #Define constants
 DOS_INT 	=       0x21
-COUNT  		=       50
+COUNT  		=       25
 QUIT   		= 	'q'
 DELAY_LO 	=	0x0
-DELAY_HI 	=	0x2
+DELAY_HI 	=	0x1
 
 #Entered at program startup.
 		jmp	main
