@@ -271,4 +271,113 @@ awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ v
 [1;24r[23;1H[33m 44 [m    [1m[36mjnz[m     [1m[36mmain2[m[11C[36m#loop if output counter nonzero[m[24;63H[K[24;63H44,3-5[8C27%[23;9H[?25h[?25l[1;23r[23;1H
 [1;24r[23;1H[33m 45 [m    [1m[36mjmp[m     [1m[36mmain1[m[11C[36m#back to read next char[m[24;63H[K[24;63H45,3-5[8C28%[23;9H[?25h[?25l[1;23r[23;1H
 [1;24r[23;1H[33m 46 [m[1m[36mmain3[m:    [1m[36mcall[m  [1m[36mexit[m[24;63H[K[24;63H46,5[10C29%[23;9H[?25h[?25l[1;23r[23;1H
-[1;24r[23;1H[33m 47 [m[24;63H[K[24;63H47,0-1[8C31%[23;5H[?25h[?25l[24;64H6,5  [22;9H[?25h[?25l[24;64H5,3-5[21;9H[?25h[?25l[24;64H4[20;9H[?25h[?25l[24;64H3,2-4[19;8H[?25h[?25l[24;64H2,5  [18;9H[?25h[?25l[24;64H1,3-5[17;9H[?25h[?25l[24;64H0,4[16;9H[?25h[?25l    [1m[36mcall[m
+[1;24r[23;1H[33m 47 [m[24;63H[K[24;63H47,0-1[8C31%[23;5H[?25h[?25l[24;64H6,5  [22;9H[?25h[?25l[24;64H5,3-5[21;9H[?25h[?25l[24;64H4[20;9H[?25h[?25l[24;64H3,2-4[19;8H[?25h[?25l[24;64H2,5  [18;9H[?25h[?25l[24;64H1,3-5[17;9H[?25h[?25l[24;64H0,4[16;9H[?25h[?25l    [1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[16;62H[K[24;66H5-9[16;13H[?25h[?25l[1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[16;60H[K[24;66H4-7[16;11H[?25h[?25l[1m[36mcall[m    [1m[36mputchar[m         [36m#output inChar to console[m[16;58H[K[24;66H3-5[16;9H[?25h[?25l[24;63H39[15;9H[?25h[?25l[24;63H40[16;9H[?25h[?25l[24;63H39[15;9H[?25h[?25l[24;64H8[14;9H[?25h[?25l[24;64H7[13;9H[?25h[?25l[24;64H6,5  [12;9H[?25h[?25l[24;64H5,3-5[11;9H[?25h[?25l[24;64H4[10;9H[?25h[?25l[24;64H3,4[9;9H[?25h[?25l[24;64H2[8;9H[?25h[?25l[24;64H1,3[7;9H[?25h[?25l[24;64H0[6;9H[?25h[?25l[24;63H29[5;9H[?25h[?25l[24;64H8,5  [4;9H[?25h[?25l[24;64H7,3-5[3;9H[?25h[?25l[24;64H6[2;9H[?25h[?25l[24;64H5[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 24 [m    [1m[36mmov[m [1m[36minChar[m, %[1m[36mal[m [36m#al set to char read[m[24;63H[K[24;63H24,3-5[8C29%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 23 [m    [1m[36mcall[m    [1m[36mgetchar[m[9C[36m#read input char into inChar[m[24;63H[K[24;63H23,3-5[8C28%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 22 [m[1m[36mmain1[m:[24;63H[K[24;63H22,5[10C27%[1;9H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[33m 21 [m[1m[36mmain[m:[24;63H[K[24;63H21,5[10C25%[1;9H[?25h[?25l[24;64H2[2;9H[?25h[?25l[24;64H3,3-5[3;9H[?25h[?25l[24;64H4[4;9H[?25h[?25l[24;64H5[5;9H[?25h[?25l[24;64H6[6;9H[?25h[?25l[24;64H7[7;9H[?25h[?25l[24;64H8,5  [8;9H[?25h[?25l[24;64H9,3-5[9;9H[?25h[?25l[24;63H30[10;9H[?25h[?25l[24;64H1[11;9H[?25h[?25l[24;64H2,4[12;9H[?25h[?25l[24;64H3[13;9H[?25h[?25l[24;64H4,3[14;9H[?25h[?25l[24;64H5[15;9H[?25h[?25l[24;64H6,5  [16;9H[?25h[?25l[24;64H7,3-5[17;9H[?25h[?25l[24;63H[K[24;1H:[?2004h[?25hw[?25l[?25hq[?25l[?25h[?25l[?2004l"poll.s" 100L, 2330C written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?2004l[?1l>[?25h[?1049l[23;0;0tawalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ m ake
+as --32 -a=poll.lst poll.s -o poll.o
+objcopy -O binary poll.o poll.bin
+rm poll.o
+dd if=poll.bin of=poll.com bs=256 skip=1
+0+1 records in
+0+1 records out
+117 bytes copied, 0.00151257 s, 77.4 kB/s
+rm poll.bin
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ d osbox &
+[1] 4011380
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ DOSBox version 0.74-2
+Copyright 2002-2018 DOSBox Team, published under GNU GPL.
+---
+CONFIG:Loading primary settings from config file /home/awalley1/.dosbox/dosbox-0.74-2.conf
+MIXER:Got different values from SDL: freq 44100, blocksize 512
+ALSA:Can't subscribe to MIDI port (65:0) nor (17:0)
+MIDI:Opened device:none
+
+[1]+  Done                    dosbox
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it add .
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it com[K[K[Kbranch -l
+[?1h=  checkout[m[m
+  lab0[m[m
+  lab1[m[m
+  lab10[m[m
+  lab11[m[m
+  lab13[m[m
+  lab2[m[m
+  lab3[m[m
+  lab4[m[m
+  lab5[m[m
+  lab6[m[m
+  lab7[m[m
+  lab8[m[m
+  lab9[m[m
+* [32mmaster[m[m
+  prj1[m[m
+  prj2[m[m
+  prj4[m[m
+  prj5[m[m
+  status[m[m
+[K[?1l>awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it checkut[K[Kout -b lab13
+fatal: A branch named 'lab13' already exists.
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it[Kt branch -l
+[?1h=  checkout[m[m
+  lab0[m[m
+  lab1[m[m
+  lab10[m[m
+  lab11[m[m
+  lab13[m[m
+  lab2[m[m
+  lab3[m[m
+  lab4[m[m
+  lab5[m[m
+  lab6[m[m
+  lab7[m[m
+  lab8[m[m
+  lab9[m[m
+* [32mmaster[m[m
+  prj1[m[m
+  prj2[m[m
+  prj4[m[m
+  prj5[m[m
+  status[m[m
+[K[?1l>awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it checkout lab13
+error: Your local changes to the following files would be overwritten by checkout:
+	submit/lab13/exercises/poll.s
+	submit/lab13/exercises/typescript
+Please commit your changes or stash them before you switch branches.
+Aborting
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it add [K[K[K[K[K[K[Kgit add .
+bash: ggit: command not found
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it commit -m 'l[Kdone lab 13'
+[master 956b657] done lab 13
+ Committer: alexgwalley <awalley1@cs.binghamton.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 282 insertions(+), 4 deletions(-)
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ g it push
+Username for 'https://github.com': alexgwlaley     alley
+Password for 'https://alexgwalley@github.com': 
+Enumerating objects: 15, done.
+Counting objects:   6% (1/15)Counting objects:  13% (2/15)Counting objects:  20% (3/15)Counting objects:  26% (4/15)Counting objects:  33% (5/15)Counting objects:  40% (6/15)Counting objects:  46% (7/15)Counting objects:  53% (8/15)Counting objects:  60% (9/15)Counting objects:  66% (10/15)Counting objects:  73% (11/15)Counting objects:  80% (12/15)Counting objects:  86% (13/15)Counting objects:  93% (14/15)Counting objects: 100% (15/15)Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects:  14% (1/7)Compressing objects:  28% (2/7)Compressing objects:  42% (3/7)Compressing objects:  57% (4/7)Compressing objects:  71% (5/7)Compressing objects:  85% (6/7)Compressing objects: 100% (7/7)Compressing objects: 100% (7/7), done.
+Writing objects:  12% (1/8)Writing objects:  25% (2/8)Writing objects:  37% (3/8)Writing objects:  50% (4/8)Writing objects:  62% (5/8)Writing objects:  75% (6/8)Writing objects:  87% (7/8)Writing objects: 100% (8/8)Writing objects: 100% (8/8), 6.07 KiB | 1.21 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
+To https://github.com/alexgwalley/i220a.git
+   125fbe9..956b657  master -> master
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ s [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ks
+bash: s: command not found
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ l s
+block.com  block.s	key-int.lst  Makefile  poll.lst  typescript
+block.lst  key-int.com	key-int.s    poll.com  poll.s
+awalley1@remote-n17:/import/linux/home1/awalley1/i220a/submit/lab13/exercises$ e xit
+exit
+
+Script done on 2020-12-06 12:28:28-05:00 [COMMAND_EXIT_CODE="0"]
