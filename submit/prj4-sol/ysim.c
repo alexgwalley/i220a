@@ -1,7 +1,5 @@
-#include "ysim.h"
-
+# "ysim.h"
 #include "errors.h"
-#include <stdio.h>
 
 /************************** Utility Routines ****************************/
 
@@ -28,6 +26,7 @@ static inline bool read_cc_flag(Byte cc, unsigned flagBitIndex) {
 static inline bool get_sf(Byte cc) { return read_cc_flag(cc, (1<<SF_CC)); }
 static inline bool get_of(Byte cc) { return read_cc_flag(cc, (1<<OF_CC)); }
 */
+
 static inline bool get_zf(Byte cc) { return (cc & (1<<ZF_CC)) > 0; }
 static inline bool get_sf(Byte cc) { return (cc & (1<<SF_CC)) > 0; }
 static inline bool get_of(Byte cc) { return (cc & (1<<OF_CC)) > 0; }
@@ -42,6 +41,7 @@ check_cc(const Y86 *y86, Byte op)
   bool ret = false;
   Condition condition = get_nybble(op, 0);
   Byte cc = read_cc_y86(y86);
+
   switch (condition) {
   case ALWAYS_COND:
     ret = true;
@@ -93,8 +93,7 @@ set_add_arith_cc(Y86 *y86, Word opA, Word opB, Word result)
 	
 	// Set overflow if sign changed
 	if((isLt0(opA) == isLt0(opB)) && (isLt0(result) != isLt0(opA)))
-		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC));
-  else
+		write_cc_y86(y86, read_cc_y86(y86) | (1<<OF_CC)); else
 		write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
 }
 
@@ -129,7 +128,7 @@ set_logic_op_cc(Y86 *y86, Word result)
 	else write_cc_y86(y86, read_cc_y86(y86) & ~((1<<SF_CC)));
 
 	// Clear overflow flag
-	write_cc_y86(y86, read_cc_y86(y86) & ~((1<<OF_CC)));
+	write_cc_y86(y86, read_cc_y86(y86) & ~(1<<OF_CC));
 }
 
 /**************************** Operations *******************************/
@@ -146,9 +145,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 
 			Word result = reg_a_val + reg_b_val;
+			set_add_arith_cc(y86, reg_a_val, reg_b_val, result);
 			write_register_y86(y86, regB, result);
 
-			set_add_arith_cc(y86, reg_a_val, reg_b_val, result);
 		} break;
 	
 		case SUBL_FN:
@@ -158,9 +157,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
 			Word result = reg_b_val - reg_a_val;
+			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
 			write_register_y86(y86, regB, result);
 
-			set_sub_arith_cc(y86, reg_a_val, reg_b_val, result);
 		} break;
 	
 		case ANDL_FN:
@@ -170,9 +169,9 @@ op1(Y86 *y86, Byte op, Register regA, Register regB)
 			Word reg_b_val = read_register_y86(y86, regB); 	
 			
 			Word result = reg_a_val & reg_b_val;
+			set_logic_op_cc(y86, result);
 			write_register_y86(y86, regB, result);
 
-			set_logic_op_cc(y86, result);
 		} break;
 
 		case XORL_FN:
@@ -204,7 +203,6 @@ typedef enum {
 void
 step_ysim(Y86 *y86)
 {
-  //@TODO 
 
   if(read_status_y86(y86) != STATUS_AOK) return;
 
@@ -414,12 +412,8 @@ step_ysim(Y86 *y86)
 		{
 
 			Word dest = read_memory_word_y86(y86, pc+sizeof(Byte));	
-			if(check_cc(y86, instr)) {
-				write_pc_y86(y86, dest);		
-			}
-			else {
-				write_pc_y86(y86, pc+sizeof(Byte)+sizeof(Word));
-			}
+			if(check_cc(y86, instr)) write_pc_y86(y86, dest);		
+			else write_pc_y86(y86, pc+sizeof(Byte)+sizeof(Word));
 
 		} break;
 	

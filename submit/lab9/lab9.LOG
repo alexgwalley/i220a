@@ -1,0 +1,887 @@
+Script started on 2020-11-01 21:36:32-05:00 [TERM="ansi" TTY="/dev/pts/13" COLUMNS="111" LINES="50"]
+awalley1@remote04:~/i220a/submit/lab9$ cd exercises/
+awalley1@remote04:~/i220a/submit/lab9/exercises$ l
+bash: l: command not found
+awalley1@remote04:~/i220a/submit/lab9/exercises$ ls
+1  2  3  4  5  6  cpuid1  cpuid2  parity  rip  rotate  rsp
+awalley1@remote04:~/i220a/submit/lab9/exercises$ cd rotate/
+awalley1@remote04:~/i220a/submit/lab9/exercises/rotate$ vim rotate.c 
+[m[m[0m[H[2J[50;1H"rotate.c" 19L, 326C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<limits.h>[0m
+[33m  2 
+  3 [0m[32minline[0m [32munsigned[0m
+[33m  4 [0mrotl([32munsigned[0m x, [32mint[0m shift)
+[33m  5 [0m{
+[33m  6 [0m  [33mreturn[0m (x << shift) | (x >> ([33msizeof[0m(x)*[31mCHAR_BIT[0m - shift));
+[33m  7 [0m}
+[33m  8 
+  9 [0m[32minline[0m [32munsigned[0m
+[33m 10 [0mrotr([32munsigned[0m x, [32mint[0m shift)
+[33m 11 [0m{
+[33m 12 [0m  [33mreturn[0m (x >> shift) | (x << ([33msizeof[0m(x)*[31mCHAR_BIT[0m - shift));
+[33m 13 [0m}
+[33m 14 
+ 15 [0m[32munsigned[0m
+[33m 16 [0mf([32munsigned[0m a, [32munsigned[0m b, [32munsigned[0m n)
+[33m 17 [0m{
+[33m 18 [0m  [33mreturn[0m rotl(a, n) + rotr(b, n);
+[33m 19 [0m}
+[1m[34m~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [39;1H~                                                                                                              [40;1H~                                                                                                              [41;1H~                                                                                                              [42;1H~                                                                                                              [43;1H~                                                                                                              [44;1H~                                                                                                              [45;1H~                                                                                                              [46;1H~                                                                                                              [47;1H~                                                                                                              [48;1H~                                                                                                              [49;1H~                                                                                                              [0m[50;94H1,1[11CAll[1;5H[50;1H[K[50;1H:wq"rotate.c" 19L, 326C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rotate$ make
+cc -S -Wall -Og -std=c11 rotate.c
+awalley1@remote04:~/i220a/submit/lab9/exercises/rotate$ ls
+Makefile  rotate.c  rotate.s
+awalley1@remote04:~/i220a/submit/lab9/exercises/rotate$ vim rotate.s
+[m[m[0m[H[2J[50;1H"rotate.s" 17L, 271C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [8C.file[0m   "[36mrotate[0m[33m.c[0m"
+[33m  2 [8C.text
+  3 [8C.globl[0m  [36mf[0m
+[33m  4 [8C.type[0m   [36mf[0m, @[36mfunction[0m
+[33m  5 [0m[36mf[0m:
+[33m  6 .LFB2[0m:
+[33m  7 [8C.cfi_startproc
+  8 [0m[8C[36mmovl[0m    %[36medx[0m, %[36mecx[0m
+[33m  9 [0m[8C[36mroll[0m    %[36mcl[0m, %[36medi[0m
+[33m 10 [0m[8C[36mrorl[0m    %[36mcl[0m, %[36mesi[0m
+[33m 11 [0m[8C[36mleal[0m    (%[36mrdi[0m,%[36mrsi[0m), %[36meax[0m
+[33m 12 [0m[8C[36mret[0m
+[33m 13 [8C.cfi_endproc
+ 14 .LFE2[0m:
+[33m 15 [8C.size[0m   [36mf[0m, .-[36mf[0m
+[33m 16 [8C.ident[0m  "[36mGCC[0m: ([36mDebian[0m [31m8[0m.[31m3[0m.0-[31m6[0m) [31m8[0m.[31m3[0m.0"
+[33m 17 [8C.section[8C.note.GNU-stack[0m,"",@[36mprogbits[0m
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [39;1H~                                                                                                              [40;1H~                                                                                                              [41;1H~                                                                                                              [42;1H~                                                                                                              [43;1H~                                                                                                              [44;1H~                                                                                                              [45;1H~                                                                                                              [46;1H~                                                                                                              [47;1H~                                                                                                              [48;1H~                                                                                                              [49;1H~                                                                                                              [0m[50;94H1,2-9[9CAll[1;13H[50;94H2[2;13H[50;94H3[3;13H[50;94H4[4;13H[50;94H5,2  [5;6H[50;94H6,6[6;10H[50;94H7,2-9[7;13H[50;94H8[8;13H[50;94H9[9;13H[50;94H10,2-9[10;13H[50;1H[K[50;1H:q[50;1H[K[50;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/rotate$ cd ../cpuid1
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ ls
+cpuid.s  main.c  Makefile
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ vim cu[D[Kpuid.s p[D[K[D[K
+[m[m[0m[H[2J[50;1H"cpuid.s" 19L, 546C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#get_cpuid(int *eaxP, int *ebxP, int *ecxP, int *edxP).[0m
+[33m  2 [0m[34m#rdi = eaxP, rsi = ebxP, rdx = edxP, rcx = ecxP[0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [39;1H~                                                                                                              [40;1H~                                                                                                              [41;1H~                                                                                                              [42;1H~                                                                                                              [43;1H~                                                                                                              [44;1H~                                                                                                              [45;1H~                                                                                                              [46;1H~                                                                                                              [47;1H~                                                                                                              [48;1H~                                                                                                              [49;1H~                                                                                                              [0m[50;94H1,1[11CAll[1;5H[50;94H2[2;5H[50;94H3,1-8[3;12H[50;94H4[4;12H[50;94H5,1  [5;5H[50;94H6,1-8[6;12H[50;94H7[7;12H[50;94H8[8;12H[50;94H9[9;12H[50;94H10,1-8[10;12H[50;95H1[11;12H[50;95H2[12;12H[50;95H3[13;12H[50;95H4[14;12H[50;95H5[15;12H[50;97H2-9[15;13H[m[m[0m[H[2J[1;1H[33m  2 [0m[34m#rdi = eaxP, rsi = ebxP, rdx = edxP, rcx = ecxP[0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [39;1H~                                                                                                              [40;1H~                                                                                                              [41;1H~                                                                                                              [42;1H~                                                                                                              [43;1H~                                                                                                              [44;1H~                                                                                                              [0m[45;94H15,2-9[8CBot[14;13H[m[m[0m[H[2J[1;1H[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [39;1H~                                                                                                              [40;1H~                                                                                                              [41;1H~                                                                                                              [42;1H~                                                                                                              [0m[43;94H15,2-9[8CBot[13;13H[m[m[0m[H[2J[1;1H[33m  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H15,2-9[8CBot[12;13H[39;94H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ make
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ ./cu[D[Kpuid 
+cpuid: eax = 0x14; ebx = 0x756e6547; edx = 0x49656e69; ecx = 0x6c65746e
+vendor: GenuineIntel
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ vim main.c
+[m[m[0m[H[2J[39;1H"main.c" 36L, 1063C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 [0m[35m#include [0m[31m<stdlib.h>[0m
+[33m  3 
+  4 [0m[34m/** External routine which returns cpuid info in *eax, *ebx, *ecx, *edx[0m
+[33m  5 [0m[34m *  (corresponding to values returned in like-named registers by x86[0m
+[33m  6 [0m[34m *  cpuid instruction).[0m
+[33m  7 [0m[34m */[0m
+[33m  8 [0m[32mvoid[0m get_cpuid([32mint[0m *eax, [32mint[0m *ebx, [32mint[0m *ecx, [32mint[0m *edx);
+[33m  9 
+ 10 [0m[34m/** Decode vendor string in ebx:edx:ecx into vendor_string (which[0m
+[33m 11 [0m[34m *  is assumed to be large enough.[0m
+[33m 12 [0m[34m */[0m
+[33m 13 [0m[32mstatic[0m [32mvoid[0m
+[33m 14 [0mdecode_vendor_string([32mint[0m ebx, [32mint[0m ecx, [32mint[0m edx, [32mchar[0m *vendor_string)
+[33m 15 [0m{
+[33m 16 [0m  *( (([32mint[0m *)vendor_string) + [31m0[0m ) = ebx;
+[33m 17 [0m  *( (([32mint[0m *)vendor_string) + [31m1[0m ) = edx;
+[33m 18 [0m  *( (([32mint[0m *)vendor_string) + [31m2[0m ) = ecx;
+[33m 19 [0m  *([32mchar[0m *)((([32mint[0m *)vendor_string + [31m3[0m)) = [35m'\0'[0m;
+[33m 20 [0m}
+[33m 21 
+ 22 [0m[34m/** Output cpuid for cpuid-op set to 0 on stdout. Decode and output[0m
+[33m 23 [0m[34m *  vendor info too.[0m
+[33m 24 [0m[34m */[0m
+[33m 25 [0m[32mint[0m
+[33m 26 [0mmain([32mint[0m argc, [32mconst[0m [32mchar[0m *argv[])
+[33m 27 [0m{
+[33m 28 [0m  [32mint[0m eax, ebx, edx, ecx;
+[33m 29 [0m  get_cpuid(&eax, &ebx, &edx, &ecx);
+[33m 30 [0m  printf([31m"cpuid: eax = 0x[0m[35m%x[0m[31m; ebx = 0x[0m[35m%x[0m[31m; edx = 0x[0m[35m%x[0m[31m; ecx = 0x[0m[35m%x\n[0m[31m"[0m,
+[33m 31 [0m[9Ceax, ebx, edx, ecx);
+[33m 32 [0m  [32mchar[0m vendor_string[[31m3[0m*[31m4[0m + [31m1[0m];
+[33m 33 [0m  decode_vendor_string(ebx, ecx, edx, vendor_string);
+[33m 34 [0m  printf([31m"vendor: [0m[35m%s\n[0m[31m"[0m, vendor_string);
+[33m 35 [0m  [33mreturn[0m [31m0[0m;
+[33m 36 [0m}
+[1m[34m~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,0-1[3;5H[39;94H4,1  [4;5H[39;94H5[5;5H[39;94H6[6;5H[39;94H7[7;5H[39;94H8[8;5H[39;94H9,0-1[9;5H[39;94H10,1 [10;5H[39;95H1[11;5H[39;95H2[12;5H[39;95H3[13;5H[39;95H4[14;5H[15;5H[46m{[20;5H}[0m[39;95H5[15;5H{[20;5H}[39;95H6[16;5H[15;5H[46m{[20;5H}[0m[39;95H5[15;5H{[20;5H}[39;95H4[14;5H[39;95H3[13;5H[39;95H2[12;5H[39;95H1[11;5H[39;95H0[10;5H[39;94H9,0-1[9;5H[39;94H8,1  [8;5H[39;1H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ vim 
+cpuid       cpuid.o     cpuid.s     .gitignore  main.c      main.o      Makefile    
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ vim cpuids.[D[K[D[K.s
+[m[m[0m[H[2J[39;1H"cpuid.s" 19L, 546C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#get_cpuid(int *eaxP, int *ebxP, int *ecxP, int *edxP).[0m
+[33m  2 [0m[34m#rdi = eaxP, rsi = ebxP, rdx = edxP, rcx = ecxP[0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;95H1[11;12H[39;95H2[12;12H[39;95H3[13;12H[39;95H4[14;12H[39;95H5[15;12H[39;95H6[16;12H[39;1H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/cpuid1$ cd ../cpuid2
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim 
+cpuid.s     .gitignore  main.c      Makefile    
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim main.c
+[m[m[0m[H[2J[39;1H"main.c" 43L, 1271C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 [0m[35m#include [0m[31m<stdlib.h>[0m
+[33m  3 
+  4 [0m[34m/** External routine which returns cpuid info for op in *eax, *ebx,[0m
+[33m  5 [0m[34m *  *ecx, *edx (corresponding to values returned in like-named[0m
+[33m  6 [0m[34m *  registers by x86 cpuid instruction).[0m
+[33m  7 [0m[34m */[0m
+[33m  8 [0m[32mvoid[0m get_cpuid([32mint[0m op, [32mint[0m *eax, [32mint[0m *ebx, [32mint[0m *ecx, [32mint[0m *edx);
+[33m  9 
+ 10 [0m[34m/** Decode vendor string in ebx:edx:ecx into vendor_string (which[0m
+[33m 11 [0m[34m *  is assumed to be large enough.[0m
+[33m 12 [0m[34m */[0m
+[33m 13 [0m[32mstatic[0m [32mvoid[0m
+[33m 14 [0mdecode_vendor_string([32mint[0m ebx, [32mint[0m ecx, [32mint[0m edx, [32mchar[0m *vendor_string)
+[33m 15 [0m{
+[33m 16 [0m  *( (([32mint[0m *)vendor_string) + [31m0[0m ) = ebx;
+[33m 17 [0m  *( (([32mint[0m *)vendor_string) + [31m1[0m ) = edx;
+[33m 18 [0m  *( (([32mint[0m *)vendor_string) + [31m2[0m ) = ecx;
+[33m 19 [0m  *([32mchar[0m *)((([32mint[0m *)vendor_string + [31m3[0m)) = [35m'\0'[0m;
+[33m 20 [0m}
+[33m 21 
+ 22 [0m[34m/** Output cpuid for op specified by first command-line argument on[0m
+[33m 23 [0m[34m *  stdout. If op is 0, decode and output vendor info too.[0m
+[33m 24 [0m[34m */[0m
+[33m 25 [0m[32mint[0m
+[33m 26 [0mmain([32mint[0m argc, [32mconst[0m [32mchar[0m *argv[])
+[33m 27 [0m{
+[33m 28 [0m  [33mif[0m (argc != [31m2[0m) {
+[33m 29 [0m    fprintf([31mstderr[0m, [31m"usage: [0m[35m%s[0m[31m CPUID_OP[0m[35m\n[0m[31m"[0m, argv[[31m0[0m]);
+[33m 30 [0m    exit([31m1[0m);
+[33m 31 [0m  }
+[33m 32 [0m  [32mint[0m op = atoi(argv[[31m1[0m]);
+[33m 33 [0m  [32mint[0m eax, ebx, ecx, edx;
+[33m 34 [0m  get_cpuid(op, &eax, &ebx, &ecx, &edx);
+[33m 35 [0m  printf([31m"cpuid([0m[35m%d[0m[31m): eax = 0x[0m[35m%x[0m[31m; ebx = 0x[0m[35m%x[0m[31m; edx = 0x[0m[35m%x[0m[31m; ecx = 0x[0m[35m%x\n[0m[31m"[0m,
+[33m 36 [0m[9Cop, eax, ebx, edx, ecx);
+[33m 37 [0m  [33mif[0m (op == [31m0[0m) {
+[33m 38 [0m    [32mchar[0m vendor_string[[31m3[0m*[31m4[0m + [31m1[0m];[39;94H1,1[11CTop[1;5H[39;94H2[2;5H[39;94H3,0-1[3;5H[39;94H4,1  [4;5H[39;94H5[5;5H[39;94H6[6;5H[39;94H7[7;5H[39;94H8[8;5H[39;94H9,0-1[9;5H[39;94H10,1 [10;5H[39;95H1[11;5H[39;95H2[12;5H[39;95H3[13;5H[39;95H4[14;5H[15;5H[46m{[20;5H}[0m[39;95H5[15;5H{[20;5H}[39;95H6[16;5H[39;95H7[17;5H[39;95H8[18;5H[39;94H21,0-1[21;5H[1;1H[5M[22;5H[46m{[0m[34;1H[33m 39 [0m    decode_vendor_string(ebx, ecx, edx, vendor_string);[34;94H[K[35;1H[33m 40 [0m    printf([31m"vendor: [0m[35m%s\n[0m[31m"[0m, vendor_string);
+[33m 41 [0m  }
+[33m 42 [0m  [33mreturn[0m [31m0[0m;
+[33m 43 [0m[46m}[0m[39;94H43,1[10CBot[38;5H[22;5H{[38;5H}[39;94H21,0-1[16;5H[22;5H[46m{[38;5H}[0m[39;94H43,1  [38;5H[39;94H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s 
+[m[m[0m[H[2J[39;1H"cpuid.s" 19L, 581C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mcpuid[0m
+[33m 10 [0m[8C[34m#largest param in %eax[0m
+[33m 11 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 12 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 14 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 15 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 16 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 17 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 18 [0m[8C[36mret[0m
+[33m 19 [0m
+[1m[34m~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H1[1;5H[39;95H9,1-8[19;12H[39;95H,1   [1;5H[39;95H9,1-8[19;12H[39;95H8[18;12H[39;95H7[17;12H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H18,1[10CTop[18;13H[K[19;13H[36mret[0m
+[33m 20 [0m        [20;13H[K[18;5H[39;97H2-9[8CAll[18;13Hj [39;1H[K[39;94H18,1-8[8CAll[18;12H[39;95H7[17;12H[39;95H6[16;12H[39;95H5[15;12H[39;95H4[14;12H[39;95H3[13;12H[39;95H2[12;12H[39;95H1[11;12H[39;95H0[10;12H[39;94H9,1-8 [9;12H[39;94H8[8;12H[39;94H7[7;12H[39;94H6[6;12H[39;94H5,8  [5;12H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,1[11CTop[9;13H[K[10;13H[36mcpuid[0m[10;18H[K[11;14H[34mlargest param in %eax[0m[11;35H[K[12;13H[34m#12-char manufacturer string in ebx, edx, ecx.[0m[12;59H[K[13;23H[36ma[6Cd[0m[14C[34ma[0m[14;13H[36mmovl[0m    %[36meb[0m[1C, (%[36mrsi[0m)[5C[34mstore ebx cpuid result[0m[15;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[15;58H[K[16;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[17;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[17;58H[K[18;13H[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m[19;13H[K[20;13H[36mret[0m
+[33m 21 [0m        [21;13H[K[9;5H[39;96H2-9[9CAll[9;13H[36mo[0m[39;96H3-10[9;14H[9;13H[K[39;96H2-9 [9;13H[36mp[0m[39;96H3-10[9;14H[36mo[0m[39;96H4-11[9;15H[36mp[0m[39;96H5-12[9;16H[36mq[0m[39;96H6-13[9;17H[39;96H7-17[9;21H%[39;96H8-18[9;22H[36mr[0m[39;96H9-19[9;23H[36ma[0m[39;96H10-20[9;24H[36mx[0m[39;97H1-21[9;25Hj [39;1H[K[39;94H9,10-20[7CAll[9;24H[39;94H[K[39;1H:wq"cpuid.s" 21L, 594C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ make
+cc -g -Wall -std=c11    -c -o main.o main.c
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cpuid 1
+Segmentation fault
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ j[D./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[Dvim cpuid.s 
+[m[m[0m[H[2J[39;1H"cpuid.s" 21L, 594C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mpopq[0m    %[36mrax[0m
+[33m 10 [0m[8C[36mcpuid[0m
+[33m 11 [0m[8C[34m#largest param in %eax[0m
+[33m 12 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 19 
+ 20 [0m[8C[36mret[0m
+[33m 21 [0m
+[1m[34m~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;94H9,1-8 [9;12H[39;96H2-9[9;13H[39;96H7-17[9;21H[39;96H8-18[9;22H[39;96H9-19[9;23H[39;96H10-20[9;24H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H9,10-20[7CAll[9;24H[36mx[0m[9;24H[K[39;96H9-19 [9;23H[36mx[0m[9;23H[K[39;96H8-18[9;22Hj[36mx[0m[39;1H[K[39;94H9,7-17[8CAll[9;21H[39;96H8-18[9;22H[9;22H[K[39;96H7-17[9;21H[39;94H10,2-9[10;13H[39;95H1[11;13H[39;95H0[10;13H[39;94H9,2-9 [9;13H[39;96H3-10[9;14H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;96H6-16[9;20H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,8-18[8CAll[9;22H[36mr[0m[39;96H9-19[9;23H[36m8[0m[39;96H10-20[9;24H,[39;97H1-21[9;25H[39;97H2-22[9;26H%[39;97H3-23[9;27H[36mr[0m[39;97H4-24[9;28H[36ma[0m[39;97H5-25[9;29H[36mx[0m[39;97H6-26[9;30Hj [39;1H[K[39;94H9,15-25[7CAll[9;29H[39;94H[K[39;1H:wq"cpuid.s" 21L, 599C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s [D[D[D[D[D[D[D[D[D[D[D[D[3P./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cpuid.s: Assembler messages:
+cpuid.s:9: Error: number of operands mismatch for `pop'
+make: *** [Makefile:11: cpuid.o] Error 1
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ make[D[D[D[Dvim cpuid.s 
+[m[m[0m[H[2J[39;1H"cpuid.s" 21L, 599C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mpopq[0m    %[36mr8[0m, %[36mrax[0m
+[33m 10 [0m[8C[36mcpuid[0m
+[33m 11 [0m[8C[34m#largest param in %eax[0m
+[33m 12 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 19 
+ 20 [0m[8C[36mret[0m
+[33m 21 [0m
+[1m[34m~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H1[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;96H2-9[9;13H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H9,2-9[9CAll[9;13H    [36mm[0m[39;96H3-10[9;14H[36mo[0m[39;96H4-11[9;15H[36mc[0m[39;96H5-12[9;16H [39;96H4-11[9;15H[36mv[0m[39;96H5-12[9;16H[36ml[0m[39;96H6-13[9;17Hj [39;1H[K[39;94H9,5-12[8CAll[9;16H[39;96H6-16[9;20H[39;96H7-17[9;21H[39;96H8-18[9;22H[39;96H7-17[9;21H[39;96H6-16[9;20H[39;96H5-12[9;16H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;1H[1mrecording @j[0m[39;94H[K[39;94H9,5-12[8CAll[9;16H[39;94H8[8;16H[39;96H6-13[8;17H[39;94H9,6-16[9;20H[39;96H5-12[9;16H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;96H7-17[9;21H[39;1H[K[39;94H9,7-17[8CAll[9;21H[39;96H2-9 [9;13H[39;96H3-10[9;14H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,6-13[8CAll[9;17H [39;96H5-12[9;16H[36mq[0m[39;96H6-13[9;17Hj [39;1H[K[39;94H9,5-12[8CAll[9;16H[39;94H[K[39;1H:wq"cpuid.s" 21L, 599C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s [D[D[D[D[D[D[D[D[D[D[D[D[8Pmake
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ make[D[D[D[Dvim cpuid.s [D[D[D[D[D[D[D[D[D[D[D[D[8Pmake[D[D[D[Dvim cpuid.s [D[D[D[D[D[D[D[D[D[D[D[D[3P./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[D./cpuid 1
+Segmentation fault
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[D./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[Dvim cpuid.s 
+[m[m[0m[H[2J[39;1H"cpuid.s" 21L, 599C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mmovq[0m    %[36mr8[0m, %[36mrax[0m
+[33m 10 [0m[8C[36mcpuid[0m
+[33m 11 [0m[8C[34m#largest param in %eax[0m
+[33m 12 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 19 
+ 20 [0m[8C[36mret[0m
+[33m 21 [0m
+[1m[34m~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H1[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;94H9,1-8 [9;12H[39;94H8[8;12H[39;94H9[9;12H[39;96H2-9[9;13H[39;96H7-17[9;21H[39;96H8-18[9;22H[39;96H10-20[9;24H[39;97H1-21[9;25H[39;97H2-22[9;26H[39;97H3-23[9;27H[39;97H4-24[9;28H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H9,14-24[7CAll[9;28H[36max[0m[9;29H[K[39;97H3-23[9;27H[36meax[0m[39;97H4-24[9;28Hj[36ma[0m[39;1H[K[39;94H9,13-23[7CAll[9;27H[39;97H2-22[9;26H[39;97H0-20[9;24H[39;96H8-18 [9;22H[39;96H7-17[9;21H[39;96H2-9 [9;13H[39;96H3-10[9;14H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;96H6-16[9;20H[39;96H5-12[9;16H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,5-12[8CAll[9;16H[36mlq[0m[39;96H6-13[9;17H[36mq[0m [39;96H5-12[9;16Hj[36mq[0m[39;1H[K[39;94H9,4-11[8CAll[9;15H[39;96H5-12[9;16H[39;96H6-16[9;20H[39;96H2-9 [9;13H[39;96H3-10[9;14H[39;96H4-11[9;15H[39;96H5-12[9;16H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,5-12[8CAll[9;16H[36mzq[0m[39;96H6-13[9;17Hj[36mq[0m[39;1H[K[39;94H9,5-12[8CAll[9;16H[39;96H6-13[9;17H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,7-14[8CAll[9;18H[36ml[0m[39;96H8-15[9;19Hj [39;1H[K[39;94H9,7-14[8CAll[9;18H[39;94H[K[39;1H:w"cpuid.s" 21L, 601C written[66C9,7-14[8CAll[39;94H[K[39;94H9,7-14[8CAll[9;18H[39;96H8-16[9;20H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H9,8-15[8CAll[9;19H [39;96H7-14[9;18H [39;96H6-13[9;17H [39;96H5-12[9;16Hj [39;1H[K[39;94H9,4-11[8CAll[9;15H[39;96H5-16[9;20H[39;96H4-11[9;15H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,5-12[8CAll[9;16H[36ml[0m[39;96H6-13[9;17Hj [39;1H[K[39;94H9,5-12[8CAll[9;16H[39;96H6-16[9;20H[39;96H7-17[9;21H[39;96H8-18[9;22H[39;96H9-19[9;23H[39;96H10-20[9;24H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,10-20[7CAll[9;24H[36md[0m, %[36meax[0m[39;97H1-21[9;25Hj,[39;1H[K[39;94H9,10-20[7CAll[9;24H[39;97H1-21[9;25H[39;94H[K[39;1H:wq"cpuid.s" 21L, 600C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s [D[D[D[D[D[D[D[D[D[D[D[D[3P./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cpuid
+usage: ./cpuid CPUID_OP
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cpuid 0
+Segmentation fault
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ gdb cpuid 1[D[K[D[K
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from cpuid...done.
+(gdb) set b[D[K[D[K[D[K[D[K[D[Kb get_cpuid
+Breakpoint 1 at 0x127c: file cpuid.s, line 6.
+(gdb) c[D[Kr [D[K[D[Ks 1
+The program is not being run.
+(gdb) r 1
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab9/exercises/cpuid2/cpuid 1
+
+Breakpoint 1, get_cpuid () at cpuid.s:6
+6		pushq   %rcx
+(gdb) info registers
+rax            0x1                 1
+rbx            0x0                 0
+rcx            0x7fffffffe770      140737488349040
+rdx            0x7fffffffe774      140737488349044
+rsi            0x7fffffffe778      140737488349048
+rdi            0x1                 1
+rbp            0x7fffffffe780      0x7fffffffe780
+rsp            0x7fffffffe738      0x7fffffffe738
+r8             0x7fffffffe76c      140737488349036
+r9             0x0                 0
+r10            0x7ffff7f3dae0      140737353341664
+r11            0x7ffff7f3e3e0      140737353343968
+r12            0x555555555080      93824992235648
+r13            0x7fffffffe860      140737488349280
+r14            0x0                 0
+r15            0x0                 0
+rip            0x55555555527c      0x55555555527c <get_cpuid>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 262624] will be killed.
+
+Quit anyway? (y or n) y
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ gdb cpuid
+GNU gdb (Debian 8.2.1-2+b3) 8.2.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from cpuid...done.
+(gdb) b get_cpuid
+Breakpoint 1 at 0x127c: file cpuid.s, line 6.
+(gdb) r 7
+Starting program: /import/linux/home1/awalley1/projects/i220a/submit/lab9/exercises/cpuid2/cpuid 7
+
+Breakpoint 1, get_cpuid () at cpuid.s:6
+6		pushq   %rcx
+(gdb) info regise[D[Kters
+rax            0x7                 7
+rbx            0x0                 0
+rcx            0x7fffffffe770      140737488349040
+rdx            0x7fffffffe774      140737488349044
+rsi            0x7fffffffe778      140737488349048
+rdi            0x7                 7
+rbp            0x7fffffffe780      0x7fffffffe780
+rsp            0x7fffffffe738      0x7fffffffe738
+r8             0x7fffffffe76c      140737488349036
+r9             0x0                 0
+r10            0x7ffff7f3dae0      140737353341664
+r11            0x7ffff7f3e3e0      140737353343968
+r12            0x555555555080      93824992235648
+r13            0x7fffffffe860      140737488349280
+r14            0x0                 0
+r15            0x0                 0
+rip            0x55555555527c      0x55555555527c <get_cpuid>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) x/ 0[D[K[D[K20i
+Argument required (starting display address).
+(gdb) d x/20i
+warning: bad breakpoint number at or near '0'
+(gdb) x/i0[D[K20
+   0x14:	Cannot access memory at address 0x14
+(gdb) /xi[D[K[D[K[D[Kx/i
+   0x15:	Cannot access memory at address 0x15
+(gdb) /xi
+Undefined command: "".  Try "help".
+(gdb) x/
+0x16:	Cannot access memory at address 0x16
+(gdb) disas
+Dump of assembler code for function get_cpuid:
+=> 0x000055555555527c <+0>:	push   %rcx
+   0x000055555555527d <+1>:	push   %rdx
+   0x000055555555527e <+2>:	xor    %eax,%eax
+   0x0000555555555280 <+4>:	mov    %r8d,%eax
+   0x0000555555555283 <+7>:	cpuid  
+   0x0000555555555285 <+9>:	mov    %eax,(%rdi)
+   0x0000555555555287 <+11>:	mov    %ebx,(%rsi)
+   0x0000555555555289 <+13>:	pop    %rax
+   0x000055555555528a <+14>:	mov    %edx,(%rax)
+   0x000055555555528c <+16>:	pop    %rax
+   0x000055555555528d <+17>:	mov    %ecx,(%rax)
+   0x000055555555528f <+19>:	retq   
+End of assembler dump.
+(gdb) info registers
+rax            0x7                 7
+rbx            0x0                 0
+rcx            0x7fffffffe770      140737488349040
+rdx            0x7fffffffe774      140737488349044
+rsi            0x7fffffffe778      140737488349048
+rdi            0x7                 7
+rbp            0x7fffffffe780      0x7fffffffe780
+rsp            0x7fffffffe738      0x7fffffffe738
+r8             0x7fffffffe76c      140737488349036
+r9             0x0                 0
+r10            0x7ffff7f3dae0      140737353341664
+r11            0x7ffff7f3e3e0      140737353343968
+r12            0x555555555080      93824992235648
+r13            0x7fffffffe860      140737488349280
+r14            0x0                 0
+r15            0x0                 0
+rip            0x55555555527c      0x55555555527c <get_cpuid>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) 
+rax            0x7                 7
+rbx            0x0                 0
+rcx            0x7fffffffe770      140737488349040
+rdx            0x7fffffffe774      140737488349044
+rsi            0x7fffffffe778      140737488349048
+rdi            0x7                 7
+rbp            0x7fffffffe780      0x7fffffffe780
+rsp            0x7fffffffe738      0x7fffffffe738
+r8             0x7fffffffe76c      140737488349036
+r9             0x0                 0
+r10            0x7ffff7f3dae0      140737353341664
+r11            0x7ffff7f3e3e0      140737353343968
+r12            0x555555555080      93824992235648
+r13            0x7fffffffe860      140737488349280
+r14            0x0                 0
+r15            0x0                 0
+rip            0x55555555527c      0x55555555527c <get_cpuid>
+eflags         0x202               [ IF ]
+cs             0x33                51
+ss             0x2b                43
+ds             0x0                 0
+es             0x0                 0
+fs             0x0                 0
+gs             0x0                 0
+(gdb) qq[D[K
+A debugging session is active.
+
+	Inferior 1 [process 262964] will be killed.
+
+Quit anyway? (y or n) y
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid
+[m[m[0m[H[2J[39;1H"cpuid" [noeol][converted] 14L, 20519C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m^?[0mELF[34m^B^A^A^@^@^@^@^@^@^@^@^@^C^@[0m>[34m^@^A^@^@^@<80>^P^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mÈD[34m^@^@^@^@^@^@^@^@^@^@[0m@[34m^@[0m8[34m^@^K[0m[2;1H[33m    [0m[34m^@[0m@[34m^@[0m#[34m^@[0m"[34m^@^F^@^@^@^D^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0m@[34m^@^@^@^@^@^@^@[0mh[34m^B^@^@^@^@^@^@[0mh[34m^B^@^@^@^@^@^@^H^@^[0m[3;1H[33m    [0m[34m@^@^@^@^@^@^C^@^@^@^D^@^@^@[0m¨[3;33H[34m^B^@^@^@^@^@^@[0m¨[3;48H[34m^B^@^@^@^@^@^@[0m¨[3;63H[34m^B^@^@^@^@^@^@^\^@^@^@^@^@^@^@^\^@^@^@^@^@^@^@^A^[0m[4;1H[33m    [0m[34m@^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m@[34m^F^@^@^@^@^@^@[0m@[34m^F^@^@^@^@^@^@[0m[5;1H[33m    [0m[34m^@^P^@^@^@^@^@^@^A^@^@^@^E^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@^@^P^@^@^@^@^@^@[0mý[34m^B^@^@^@^@^@^@[0mý[34m^B^@^@^@^@^[0m[6;1H[33m    [0m[34m@^@^@^P^@^@^@^@^@^@^A^@^@^@^D^@^@^@^@[0m [34m^@^@^@^@^@^@^@[0m [34m^@^@^@^@^@^@^@[0m [34m^@^@^@^@^@^@[0mØ[6;86H[34m^A^@^@^@^@^@^@[0mØ[6;101H[34m^A^@^@^@^@^[0m[7;1H[33m    [0m[34m@^@^@^P^@^@^@^@^@^@^A^@^@^@^F^@^@^@[0mè[7;41H-[34m^@^@^@^@^@^@[0mè[7;55H=[34m^@^@^@^@^@^@[0mè[7;69H=[34m^@^@^@^@^@^@[0m`[34m^B^@^@^@^@^@^@<88>^B^@^@^@^@^[0m[8;1H[33m    [0m[34m@^@^@^P^@^@^@^@^@^@^B^@^@^@^F^@^@^@[0mø[8;41H-[34m^@^@^@^@^@^@[0mø[8;55H=[34m^@^@^@^@^@^@[0mø[8;69H=[34m^@^@^@^@^@^@[0mà[8;83H[34m^A^@^@^@^@^@^@[0mà[8;98H[34m^A^@^@^@^@^@^@[0m[9;1H[33m    [0m[34m^H^@^@^@^@^@^@^@^D^@^@^@^D^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mÄ[34m^B^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@[0m[10;1H[33m    [0m[34m^D^@^@^@^@^@^@^@[0mPåtd[34m^D^@^@^@[0mh [34m^@^@^@^@^@^@[0mh [34m^@^@^@^@^@^@[0mh [34m^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@[0mD[34m^@^@^@^@^@^@^@^D^@^@^[0m[11;1H[33m    [0m[34m@^@^@^@^@[0mQåtd[34m^G^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@[0m[12;1H[33m    [0m[34m^@^@^@^@^@[0mRåtd[34m^D^@^@^@[0mè[12;28H-[34m^@^@^@^@^@^@[0mè[12;42H=[34m^@^@^@^@^@^@[0mè[12;56H=[34m^@^@^@^@^@^@^X^B^@^@^@^@^@^@^X^B^@^@^@^@^@^@^A^@^@^@^@^[0m[13;1H[33m    [0m[34m@^@^@[0m/lib64/ld-linux-x86-64.so.2[34m^@^D^@^@^@^P^@^@^@^A^@^@^@[0mGNU[34m^@^@^@^@^@^C^@^@^@^B^@^@^@^@^@^@^@^D^@^@^@^T^@[0m[14;1H[33m    [0m[34m^@^@^C^@^@^@[0mGNU[34m^@[0m~[34m<8c>[0mv?{³[14;31H[34m<9d>[0m9Z[34m<9e>[0ms÷[14;43H^\ -¾[14;48H[34m<93>[0m¹[14;53H[34m<83>^B^@^@^@[0m     [34m^@^@^@^A^@^@^@^F^@^@^@^@^A<81>^@^@^@^@^B[0m
+[33m    [0m      [34m^@^@^@[0m
+[33m  2 [0m[34m^@^@^@[0mÑeÎm9ò[16;17H[34m<8b>^\^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0mQ[34m^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[17;1H[33m    [0m[34m@^@^@^]^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m3[34m^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^\^@^@^[0m[18;1H[33m    [0m[34m@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0mm[34m^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^W^@^@^@^R^@^@^@^@^@[0m[19;1H[33m    [0m[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^K^@^@^@^R^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m|[34m^@^@^@[0m [34m^@^@^@^@^@^@^@^@^@^@^@^[0m[20;1H[33m    [0m[34m@^@^@^@^@^@^@^@[0m$[34m^@^@^@[0m"[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^P^@^@^@^Q^@^Y^@[0m`@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0m[21;1H[33m    [0m[34m^@[0mlibc.so.6[34m^@[0mexit[34m^@[0mstderr[34m^@[0matoi[34m^@[0mfprintf[34m^@[0m__cxa_finalize[34m^@[0m__libc_start_main[34m^@[0mGLIBC_2.2.5[34m^@[0m_ITM_deregisterTM[22;1H[33m    [0mCloneTable[34m^@[0m__gmon_start__[34m^@[0m_ITM_registerTMCloneTable[34m^@^@^@^@^@^B^@^B^@^B^@^@^@^B^@^B^@^@^@^B^@^B^@^@^@^@^@[0m[23;1H[33m    [0m[34m^A^@^A^@^A^@^@^@^P^@^@^@^@^@^@^@[0mu[34m^Z[0mi[7C[34m^@^@^B^@[0mE[34m^@^@^@^@^@^@^@[0mè[23;72H=[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0m`[34m^Q^@^@^@^@[0m[24;1H[33m    [0m[34m^@^@[0mð[24;10H=[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0m [34m^Q^@^@^@^@^@^@[0m@@[34m^@^@^@^@^@^@^H^@^@^@^@^@^@^@[0m@@[34m^@^@^@^@^@^@[0mØ[24;99H?[34m^@^@^@^@^@^@[0m[25;1H[33m    [0m[34m^F^@^@^@^A^@^@^@^@^@^@^@^@^@^@^@[0mà[25;38H?[34m^@^@^@^@^@^@^F^@^@^@^C^@^@^@^@^@^@^@^@^@^@^@[0mè[25;84H?[34m^@^@^@^@^@^@^F^@^@^@^E^@^@^[0m[26;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@[0mð[26;23H?[34m^@^@^@^@^@^@^F^@^@^@^H^@^@^@^@^@^@^@^@^@^@^@[0mø[26;69H?[34m^@^@^@^@^@^@^F^@^@^@[0m     [34m^@^@^@^@^@^@^@^@^[0m[27;1H[33m    [0m[34m@^@^@[0m`@[34m^@^@^@^@^@^@^E^@^@^@[0m
+[33m  3 [0m[34m^@^@^@^@^@^@^@^@^@^@^@^X[0m@[34m^@^@^@^@^@^@^G^@^@^@^B^@^@^@^@^@^@^@^@^@^@^@[0m @[34m^@^@^@^@^@^@^G^@^@^@^D^@^@^@^@^@^@^@[0m[29;1H[33m    [0m[34m^@^@^@^@[0m(@[34m^@^@^@^@^@^@^G^@^@^@^F^@^@^@^@^@^@^@^@^@^@^@[0m0@[34m^@^@^@^@^@^@^G^@^@^@^G^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[30;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[31;1H[33m    [0m[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[32;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[33;1H[33m    [0m[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[34;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[35;1H[33m    [0m[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[36;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[37;1H[33m    [0m[34m^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^[0m[38;1H[33m    [0m[34m@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@[0m[28;1H[1m[34m@                                                                                                              [29;1H@                                                                                                              [30;1H@                                                                                                              [31;1H@                                                                                                              [32;1H@                                                                                                              [33;1H@                                                                                                              [34;1H@                                                                                                              [35;1H@                                                                                                              [36;1H@                                                                                                              [37;1H@                                                                                                              [38;1H@                                                                                                              [0m[39;94H1,1[11CTop[1;5H[39;1H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s
+[m[m[0m[H[2J[39;1H"cpuid.s" 21L, 600C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  8 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m  9 [0m[8C[36mmovl[0m    %[36mr8d[0m, %[36meax[0m
+[33m 10 [0m[8C[36mcpuid[0m
+[33m 11 [0m[8C[34m#largest param in %eax[0m
+[33m 12 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 13 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 19 
+ 20 [0m[8C[36mret[0m
+[33m 21 [0m
+[1m[34m~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;94H9,1-8 [9;12H [36mcpuid[0m[9;21H[K[10;13H[34m#largest param in %eax[11;14H12-char manufacturer string in ebx, edx, ecx.[0m[12;13H[36mmovl[0m    %[36meax[0m, (%[36mrdi[0m)    [34m#store eax cpuid result[0m[13;23H[36mb[6Cs[0m[14C[34mb[0m[14;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[14;58H[K[15;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[16;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[16;58H[K[17;13H[36mmovl[0m    %[36mec[0m[1C, (%[36mrax[0m)[5C[34mstore ecx cpuid result[0m[18;13H[K[19;13H[36mret[0m[20;13H[K[21;1H[1m[34m~                                                                                                              [0m[39;96H2-9[9;13H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H9,1[11CTop[9;13H[K[10;13H[36mcpuid[0m[10;18H[K[11;14H[34mlargest param in %eax[0m[11;35H[K[12;13H[34m#12-char manufacturer string in ebx, edx, ecx.[0m[12;59H[K[13;23H[36ma[6Cd[0m[14C[34ma[0m[14;13H[36mmovl[0m    %[36meb[0m[1C, (%[36mrsi[0m)[5C[34mstore ebx cpuid result[0m[15;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[15;58H[K[16;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[17;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[17;58H[K[18;13H[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m[19;13H[K[20;13H[36mret[0m
+[33m 21 [0m        [21;13H[K[9;5H[39;96H2-9[9CAll[9;13H[36mm[0m[39;96H3-10[9;14H[36mo[0m[39;96H4-11[9;15H[36mv[0m[39;96H5-12[9;16H[36ml[0m[39;96H6-13[9;17H[9;16H[K[39;96H5-12[9;16H[36mq[0m[39;96H6-13[9;17H[39;96H7-14[9;18H[39;96H8-17[9;21H$[39;96H9-18[9;22H[9;21H[K[39;96H8-17[9;21H[34m#[0m[39;96H9-18[9;22H[9;21H[K[39;96H8-17[9;21H%[39;96H9-18[9;22H[36mr[0m[39;96H10-19[9;23H[36md[0m[39;97H1-20[9;24H[36mi[0m[39;97H2-21[9;25H,[39;97H3-22[9;26H[39;97H4-23[9;27H%[39;97H5-24[9;28H[36mr[0m[39;97H6-25[9;29H[36ma[0m[39;97H7-26[9;30H[36mx[0m[39;97H8-27[9;31Hj [39;1H[K[39;94H9,17-26[7CAll[9;30H[39;94H[K[39;1H:w"cpuid.s" 21L, 601C written[66C9,17-26[7CAll[39;94H[K[39;94H9,17-26[7CAll[9;30H[39;94H21,1-8 [21;12H[39;95H0[20;12H[39;94H19[19;12H[39;95H8[18;12H[39;95H7[17;12H[39;95H6[16;12H[39;95H5[15;12H[39;95H4[14;12H[39;95H3[13;12H[39;97H2-9[13;13H[39;97H7-17[13;21H[39;97H8-18[13;22H[39;97H11-21[13;25H, [46m([4C)[0m[39;98H3-23[13;27H([4C)[39;98H5-25[13;29H[39;98H6-26[13;30H[39;98H7-27[13;31H[39;98H6-26[13;30H[36ms[0m[39;95H4[14;30H[39;95H3[13;30H[39;95H2,19[12;30H[39;95H1[11;30H[39;95H0,6-13 [10;17H[39;94H9,17-26[9;30H[39;94H8[8;30H[39;94H7,13-20[7;24H[39;94H6[6;24H[39;94H7[7;24H[39;94H6[6;24H[39;94H5,10   [5;14H[39;94H4,17-24[4;28H[39;94H5,10   [5;14H[39;94H6,13-20[6;24H[39;94H5,10   [5;14H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H6,1[11CTop[6;13H[K[7;23H[36mc[8;13Hpushq[0m   %[36mrd[0m[8;25H[K[9;13H[36mxorl[0m    %[36meax[0m, %[36me[0m[8C[34m#setup cpuid opcode to 0[0m[10;13H[36mmovq[0m    %[36mrdi[0m, %[36mrax[11;13Hcpuid[0m[11;18H[K[12;14H[34mlargest param in %eax[0m[12;35H[K[13;13H[34m#12-char manufacturer string in ebx, edx, ecx.[0m[13;59H[K[14;23H[36ma[0m[21C[34ma[0m[15;13H[36mmovl[0m    %[36meb[0m[1C, (%[36mrsi[0m)[5C[34mstore ebx cpuid result[0m[16;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[16;58H[K[17;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[18;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[18;58H[K[19;13H[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m[20;13H[K[21;13H[36mret[0m
+[33m 22 [0m        [22;13H[K[6;5H[39;96H2-9[9CAll[6;13H[36mp[0m[39;96H3-10[6;14H[36mu[0m[39;96H4-11[6;15H[36ms[0m[39;96H5-12[6;16H[36mh[0m[39;96H6-13[6;17H[36m1[0m[39;96H7-14[6;18H[39;96H8-17[6;21H%[39;96H9-18[6;22H[36mr[0m[39;96H10-19[6;23H[36m8[0m[39;97H1-20[6;24Hj [39;1H[K[39;94H6,10-19[7CAll[6;23H[39;94H7,12[7;23H[39;94H8[8;23H[39;94H9,10[9;23H[39;94H10,10-19[10;23H[39;95H1,6-13 [11;17H[39;95H2,12-19[12;23H[39;95H3[13;23H[39;95H4,9-19 [14;23H[39;95H5[15;23H[39;97H11-21[15;25H, [46m([4C)[0m[39;98H3-23[15;27H([4C)[39;98H5-25[15;29H[39;98H6-26[15;30H[39;98H7-27[15;31H[39;95H4[14;31H[15;22H[36mr8d[0m, %[36meax[0m[15;31H[K[16;13H[36mmovl[0m    %[36meb[0m[1C, (%[36mrsi[0m)[5C[34mstore ebx cpuid result[0m[17;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[17;58H[K[18;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[19;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[19;58H[K[20;13H[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m[21;13H[K[22;13H[36mret[0m
+[33m 23 [0m        [23;13H[K[39;95H5,2-9  [15;13H[39;1H1 line less; before #5  1 second ago[39;94H[K[15;22H[36mebx[0m, (%[36mrsi[0m)    [34m#store ebx cpuid result[0m[16;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[16;58H[K[17;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[18;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[18;58H[K[19;13H[36mmovl[0m    %[36mec[0m[1C, (%[36mrax[0m)[5C[34mstore ecx cpuid result[0m[20;13H[K[21;13H[36mret[0m[22;13H[K[23;1H[1m[34m~                                                                                                              [0m[39;94H14,17-27      All[39;94H[K[39;94H14,17-27      All[14;31H[39;1H[1m-- INSERT --[0m[39;14H[K[39;94H15,1[10CTop[15;13H[K[16;13H[36mmovl[0m    %[36meb[0m[1C, (%[36mrsi[0m)[5C[34mstore ebx cpuid result[0m[17;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for edxP[0m[17;58H[K[18;13H[36mmovl[0m    %[36med[0m[1C, (%[36mrax[0m)[5C[34mstore edx cpuid result[0m[19;13H[36mpopq[0m    %[36mra[0m[1C        [5C[34mpop address for ecxP[0m[19;58H[K[20;13H[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m[21;13H[K[22;13H[36mret[0m
+[33m 23 [0m        [23;13H[K[15;5H[39;97H2-9[8CAll[15;13H[36mp[0m[39;97H3-10[15;14H[36mo[0m[39;97H4-11[15;15H[36mp[0m[39;97H5-12[15;16H[36mq[0m[39;97H6-13[15;17H[39;97H7-17[15;21H%[39;97H8-18[15;22H[36mr[0m[39;97H9-19[15;23H[36ma[0m[39;97H10-20[15;24H[36mx[0m[39;98H1-21[15;25Hj [39;1H[K[39;94H15,10-20      All[15;24H[39;95H6[16;24H[39;98H1-21[16;25H, [46m([4C)[0m[39;98H3-23[16;27H([4C)[39;98H5-25[16;29H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H16,15-25      All[16;29H)   [46m([0m%[46m)[0m[36m[46mr[0m)[36mr[0m[46m)[0m[39;98H6-26[16;30H[36m[46ma[0m)[36ma[0m[46m)[0m[39;98H7-27[16;31H[36m[46mx[0m)[36mx[0m[46m)[0m[39;98H8-28[16;32Hj[46m)[0m[39;1H[K[16;27H([4C)[39;94H16,17-27      All[16;31H[39;94H[K[39;1H:w"cpuid.s" 23L, 623C written[66C16,17-27      All[39;94H[K[39;94H16,17-27      All[16;31H[39;1H[K[39;1H:wq"cpuid.s" 23L, 623C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s[D[D[K[D[D[D[D[D[D[D[D[Dgdb[C[C[C[C[C[C[D[D[D[D[D[D[D[D[D./cpuid 0[D[D[K[D[D[D[D[D[D[D[3Pmake
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cpuid.s: Assembler messages:
+cpuid.s:6: Error: no such instruction: `push1 %r8'
+make: *** [Makefile:11: cpuid.o] Error 1
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ make[D[D[D[Dvim cpuid.s
+[m[m[0m[H[2J[39;1H"cpuid.s" 23L, 623C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpush1[0m   %[36mr8[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  8 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  9 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m 10 [0m[8C[36mmovq[0m    %[36mrdi[0m, %[36mrax[0m
+[33m 11 [0m[8C[36mcpuid[0m
+[33m 12 [0m[8C[34m#largest param in %eax[0m
+[33m 13 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrsi[0m)    [34m#store eax cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrax[0m)    [34m#store ebx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 19 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 20 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 21 
+ 22 [0m[8C[36mret[0m
+[33m 23 [0m
+[1m[34m~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;95H1[11;12H[39;95H2[12;12H[39;95H3[13;12H[39;95H4[14;12H[39;95H5[15;12H[39;95H6[16;12H[39;95H7[17;12H[39;95H8[18;12H[39;95H9[19;12H[39;95H8[18;12H[39;95H7[17;12H[39;95H6[16;12H[39;95H5[15;12H[39;95H4[14;12H[39;95H3[13;12H[39;95H2[12;12H[39;95H1[11;12H[39;95H0[10;12H[39;94H9,1-8 [9;12H[39;94H8[8;12H[39;94H7[7;12H[39;94H6[6;12H[39;96H2-9[6;13H[39;96H3-10[6;14H[39;96H4-11[6;15H[39;96H5-12[6;16H[39;96H6-13[6;17H[36mq[0m[39;1H[K[39;1H:wq"cpuid.s" 23L, 623C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ vim cpuid.s[D[D[D[D[D[D[D[D[D[D[D[7Pmake
+cc -c -g -Wall -std=c11  cpuid.s -o cpuid.o
+cc main.o cpuid.o -o cpuid
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cu[D[Kpuid 1
+cpuid(1): eax = 0x406f1; ebx = 0x5040800; edx = 0xfffa3223; ecx = 0x1f8bfbff
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ ./cpuid 1[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[Dvim cpuid.s
+[m[m[0m[H[2J[39;1H"cpuid.s" 23L, 623C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[34m#Currently get_cpuid(int *eax, int *ebx, int *ecx, int *edx).[0m
+[33m  2 [0m[34m#Modify to get_cpuid(int cpuid_op, int *eax, int *ebx, int *ecx, int *edx).     [0m
+[33m  3 [8C.text
+  4 [8C.globl[0m [36mget_cpuid[0m
+[33m  5 [0m[36mget_cpuid[0m:
+[33m  6 [0m[8C[36mpushq[0m   %[36mr8[0m
+[33m  7 [0m[8C[36mpushq[0m   %[36mrcx[0m
+[33m  8 [0m[8C[36mpushq[0m   %[36mrdx[0m
+[33m  9 [0m[8C[36mxorl[0m    %[36meax[0m, %[36meax[0m      [34m#setup cpuid opcode to 0[0m
+[33m 10 [0m[8C[36mmovq[0m    %[36mrdi[0m, %[36mrax[0m
+[33m 11 [0m[8C[36mcpuid[0m
+[33m 12 [0m[8C[34m#largest param in %eax[0m
+[33m 13 [0m[8C[34m#12-char manufacturer string in ebx, edx, ecx.[0m
+[33m 14 [0m[8C[36mmovl[0m    %[36meax[0m, (%[36mrsi[0m)    [34m#store eax cpuid result[0m
+[33m 15 [0m[8C[36mpopq[0m    %[36mrax[0m
+[33m 16 [0m[8C[36mmovl[0m    %[36mebx[0m, (%[36mrax[0m)    [34m#store ebx cpuid result[0m
+[33m 17 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for edxP[0m
+[33m 18 [0m[8C[36mmovl[0m    %[36medx[0m, (%[36mrax[0m)    [34m#store edx cpuid result[0m
+[33m 19 [0m[8C[36mpopq[0m    %[36mrax[0m[12C[34m#pop address for ecxP[0m
+[33m 20 [0m[8C[36mmovl[0m    %[36mecx[0m, (%[36mrax[0m)    [34m#store ecx cpuid result[0m
+[33m 21 
+ 22 [0m[8C[36mret[0m
+[33m 23 [0m
+[1m[34m~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2[2;5H[39;94H3,1-8[3;12H[39;94H4[4;12H[39;94H5,1  [5;5H[39;94H6,1-8[6;12H[39;94H7[7;12H[39;94H8[8;12H[39;94H9[9;12H[39;94H10,1-8[10;12H[39;95H1[11;12H[39;95H2[12;12H[39;95H3[13;12H[39;95H4[14;12H[39;95H5[15;12H[39;95H6[16;12H[39;95H7[17;12H[39;95H6[16;12H[39;97H2-9[16;13H[39;97H7-17[16;21H[39;97H8-18[16;22H[39;97H11-21[16;25H, [46m([4C)[0m[39;98H3-23[16;27H([4C)[39;98H5-25[16;29H[46m([4C)[0m[39;98H8-28[16;32H([4C)[39;97H20-33[16;37H[39;98H1-34[16;38H[39;98H7-40[16;44H[39;95H7,20[17;44H[39;95H8,33[18;44H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H18,33-40      All[18;44H[34m cpuid result[0m[18;57H[K[18;44H[34me cpuid result[0m[39;98H4-41[18;45H[34mc cpuid result[0m[39;98H5-42[18;46H[34mx cpuid result[0m[39;98H6-43[18;47Hj[34m [0m[39;1H[K[39;94H18,35-42      All[18;46H[39;1H1 change; before #1  4 seconds ago[39;94H[K[18;45H[34md[0m[39;94H18,33-40      All[39;94H[K[39;94H18,33-40      All[18;44H[39;1HAlready at oldest change[39;25H[K[39;94H18,33-40      All[18;44H[39;95H7,20[17;44H[39;95H6,27[16;44H[39;95H5,10-2[15;24H[39;95H4,27-4[14;44H[39;95H3,33[13;44H[39;95H2,23-3[12;34H[39;95H1,6-13 [11;17H[39;95H0,17-26[10;30H[39;94H9,26-40 [9;44H[39;94H8,13-2[8;24H[39;94H7[7;24H[39;94H6,10-19[6;23H[39;94H5,10   [5;14H[39;94H6,10-19[6;23H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H6,11-20[7CAll[6;24H[39;97H2-25[6;29H[39;97H3-33[6;37H[34m#[0m[39;97H4-34[6;38H[34mP[0m[39;97H5-35[6;39H[6;38H[K[39;97H4-34[6;38H[34mp[0m[39;97H5-35[6;39H[34mu[0m[39;97H6-36[6;40H[34ms[0m[39;97H7-37[6;41H[34mh[0m[39;97H8-38[6;42H[34m [0m[39;97H9-39[6;43H[34ma[0m[39;96H20-40[6;44H[34md[0m[39;97H1-41[6;45H[34md[0m[39;97H2-42[6;46H[34mr[0m[39;97H3-43[6;47H[34me[0m[39;97H4-44[6;48H[34ms[0m[39;97H5-45[6;49H[34ms[0m[39;97H6-46[6;50H[34m [0m[39;97H7-47[6;51H[34mf[0m[39;97H8-48[6;52H[34mo[0m[39;97H9-49[6;53H[34m [0m[39;96H30-50[6;54H[6;53H[K[39;96H29-49[6;53H[6;52H[K[39;97H8-48[6;52H[34mo[0m[39;97H9-49[6;53H[34mf[0m[39;96H30-50[6;54H[34m [0m[39;97H1-51[6;55H[6;54H[K[39;97H0-50[6;54H[6;53H[K[39;96H29-49[6;53H[6;52H[K[39;97H8-48[6;52H[6;51H[K[39;97H7-47[6;51H[34mo[0m[39;97H8-48[6;52H[34mf[0m[39;97H9-49[6;53H[34m [0m[39;96H30-50[6;54H[34me[0m[39;97H1-51[6;55H[34md[0m[39;97H2-52[6;56H[34mx[0m[39;97H3-53[6;57H[34m [0m[39;97H4-54[6;58H[34mr[0m[39;97H5-55[6;59H[34me[0m[39;97H6-56[6;60H[34mt[0m[39;97H7-57[6;61H[34mu[0m[39;97H8-58[6;62H[34mr[0m[39;97H9-59[6;63H[34mn[0m[39;96H40-60[6;64Hj [39;1H[K[39;94H6,39-59[7CAll[6;63H[39;94H7,13-20[7;24H[39;1H[1mrecording @w[0m[39;94H[K[39;94H7,13-20[7CAll[7;24H[39;1H[1m-- INSERT --recording @w[0m[39;94H[K[39;94H7,14-21[7CAll[7;25H[39;97H5-25[7;29H[39;97H6-33[7;37H[39;97H7-41[7;45H[39;97H6-33[7;37H[34m#[0m[39;97H7-34[7;38H[34mp[0m[39;97H8-35[7;39H[34mu[0m[39;97H9-36[7;40H[34ms[0m[39;96H20-37[7;41H[34mh[0m[39;97H1-38[7;42H[34m [0m[39;97H2-39[7;43H[34ma[0m[39;97H3-40[7;44H[34md[0m[39;97H4-41[7;45H[34md[0m[39;97H5-42[7;46H[34mr[0m[39;97H6-43[7;47H[34me[0m[39;97H7-44[7;48H[34ms[0m[39;97H8-45[7;49H[34ms[0m[39;97H9-46[7;50H[34m [0m[39;96H30-47[7;51H[34mo[0m[39;97H1-48[7;52H[34mf[0m[39;97H2-49[7;53H[34m [0m[39;97H3-50[7;54H[34me[0m[39;97H4-51[7;55H[34mc[0m[39;97H5-52[7;56H[34mc[0m[39;97H6-53[7;57H[34mx[0m[39;97H7-54[7;58H[7;57H[K[39;97H6-53[7;57H[7;56H[K[39;97H5-52[7;56H[34mx[0m[39;97H6-53[7;57H[34m [0m[39;97H7-54[7;58H[34mr[0m[39;97H8-55[7;59H[34me[0m[39;97H9-56[7;60H[34mt[0m[39;96H40-57[7;61H[34mu[0m[39;97H1-58[7;62H[34mn[0m[39;97H2-59[7;63H[34mr[0m[39;97H3-60[7;64H[7;63H[K[39;97H2-59[7;63H[7;62H[K[39;97H1-58[7;62H[34mr[0m[39;97H2-59[7;63H[34mn[0m[39;97H3-60[7;64Hj [39;1H[1mrecording @w[0m[39;13H[K[39;94H7,42-59[7CAll[7;63H[39;94H8,13-20[8;24H[39;1H[1m-- INSERT --recording @w[0m[39;94H[K[39;94H8,14-21[7CAll[8;25H[39;97H5-25[8;29H[39;97H6-33[8;37H[34m#[0m[39;97H7-34[8;38H[34mp[0m[39;97H8-35[8;39H[34mu[0m[39;97H9-36[8;40H[34ms[0m[39;96H20-37[8;41H[34mh[0m[39;97H1-38[8;42H[34m [0m[39;97H2-39[8;43H[34ma[0m[39;97H3-40[8;44H[34md[0m[39;97H4-41[8;45H[34md[0m[39;97H5-42[8;46H[34mr[0m[39;97H6-43[8;47H[34ms[0m[39;97H7-44[8;48H[8;47H[K[39;97H6-43[8;47H[34me[0m[39;97H7-44[8;48H[34ms[0m[39;97H8-45[8;49H[34ms[0m[39;97H9-46[8;50H[34m [0m[39;96H30-47[8;51H[34mo[0m[39;97H1-48[8;52H[34mf[0m[39;97H2-49[8;53H[34m [0m[39;97H3-50[8;54H[34me[0m[39;97H4-51[8;55H[34mb[0m[39;97H5-52[8;56H[34mc[0m[39;97H6-53[8;57H[8;56H[K[39;97H5-52[8;56H[34mx[0m[39;97H6-53[8;57H[34m [0m[39;97H7-54[8;58H[34mr[0m[39;97H8-55[8;59H[34me[0m[39;97H9-56[8;60H[34mt[0m[39;96H40-57[8;61H[34mu[0m[39;97H1-58[8;62H[34mr[0m[39;97H2-59[8;63H[34mn[0m[39;97H3-60[8;64Hj [39;1H[1mrecording @w[0m[39;13H[K[39;94H8,42-59[7CAll[8;63H[39;94H9,42-56[9;60H[39;94H10,17-26[10;30H[39;95H1,6-13 [11;17H[39;95H2,23-30[12;34H[39;95H3,47-54[13;58H[39;95H4,42-55[14;59H[39;95H5,10-20[15;24H[39;95H6,42-55[16;59H[39;95H7,33-53[17;57H[39;95H8,48-55[18;59H[39;98H3-50[18;54H[39;97H37-44[18;48H[39;98H3-40[18;44H[39;95H9,2[19;44H[39;95H8,3[18;44H[39;1H[1m-- INSERT --recording @w[0m[39;94H[K[39;94H18,33-40      All[18;44H[34m cpuid result[0m[18;57H[K[18;44H[34me cpuid result[0m[39;98H4-41[18;45H[34mc cpuid result[0m[39;98H5-42[18;46Hj[34m jx cpuid result[0m[39;98H7-44[18;48H[34m cpuid result[0m[18;60H[K[39;98H6-43[18;47H[34m cpuid result[0m[18;59H[K[39;98H5-42[18;46H[34mx cpuid result[0m[39;98H6-43[18;47Hj[34m [0m[39;1H[1mrecording @w[0m[39;13H[K[39;94H18,35-42      All[18;46H[39;95H9,2[19;46H[39;94H20,29[20;46H[39;1H[1m-- INSERT --recording @w[0m[39;94H[K[39;94H20,29-42      All[20;46H[34m cpuid result[0m[20;59H[K[20;46H[34m cpuid result[0m[20;58H[K[39;98H8-41[20;45H[34md cpuid result[0m[39;98H9-42[20;46H[34mx cpuid result[0m[39;97H30-43[20;47Hj[34m [0m[39;1H[1mrecording @w[0m[39;13H[K[39;94H20,29-42      All[20;46H[39;1H[K[39;1H:w"cpuid.s" 23L, 710C written[1mrecording @w[0m[39;13H[K[39;94H20,29-42      All"cpuid.s" 23L, 710C written[39;94H[K[39;94H20,29-42      All[20;46H[39;1H[1mrecording @w[0m[39;13H[K[39;94H21,1-8[8CAll[21;12H[39;95H0,29-42[20;46H[39;94H19,25[19;46H[39;94H20,29[20;46H[39;94H19,25[19;46H[39;95H8,3[18;46H[39;95H7,22[17;46H[39;95H6,29[16;46H[39;95H5,10-20[15;24H[39;95H4,29-42[14;46H[39;95H3,35[13;46H[39;95H4,29[14;46H[39;95H5,10-20[15;24H[39;95H6,29-42[16;46H[39;95H7,22[17;46H[39;95H8,35[18;46H[39;95H9,2[19;46H[39;94H20,29[20;46H[39;95H1,1-8  [21;12H[39;95H2,4-11[22;15H[39;95H3,1-8 [23;12H[39;1H[K[39;1H:wq"cpuid.s" 23L, 710C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/cpuid2$ cd ../parity/
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ ls
+main.c	Makefile  parity.s
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ vim parity.s [D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[K[D[Kamke[D[K[D[K[D[K[D[Kam[D[K[D[Kmake
+cc -g -Wall -std=c11 -Og   -c -o main.o main.c
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+cc main.o parity.o -o parity
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ ./parity 
+usage: ./parity INT1...
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ ./parity 1 2 3 4 4 5[D[K[D[K[D[K5 6 7 15 21
+parity(1) = 1
+parity(2) = 2
+parity(3) = 3
+parity(4) = 4
+parity(5) = 5
+parity(6) = 6
+parity(7) = 7
+parity(15) = 15
+parity(21) = 21
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ vim paritys[D[K.s
+[m[m[0m[H[2J[39;1H"parity.s" 8L, 126C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [8C.text
+  2 [8C.globl[0m [36mget_parity[0m
+[33m  3 [0m[34m#edi contains n [0m
+[33m  4 [0m[36mget_parity[0m:
+[33m  5 
+  6 [0m[8C[34m#@[0m[30m[43mTODO[0m[34m: add code here to set eax to 1 iff edi has even parity[0m
+[33m  7 [0m[8C[36mret[0m
+[33m  8 [0m
+[1m[34m~                                                                                                              [10;1H~                                                                                                              [11;1H~                                                                                                              [12;1H~                                                                                                              [13;1H~                                                                                                              [14;1H~                                                                                                              [15;1H~                                                                                                              [16;1H~                                                                                                              [17;1H~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,2-9[9CAll[1;13H[39;94H2[2;13H[39;94H1[1;13H[39;94H2[2;13H[39;94H3,9  [3;13H[39;94H4[4;13H[39;94H5,0-1[5;5H[39;94H6,2-9[6;13H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H7,1[11CTop[7;13H[K[8;13H[36mret[0m
+[33m  9 [0m        [9;13H[K[7;5H[39;96H2-9[9CAll[7;13H[36mt[0m[39;96H3-10[7;14H[36me[0m[39;96H4-11[7;15H[36ms[0m[39;96H5-12[7;16H[36mt[0m[39;96H6-13[7;17H[36ml[0m[39;96H7-14[7;18H[39;96H8-15[7;19H$[39;96H9-16[7;20H[36me[0m[39;96H10-17[7;21H[36mi[0m[39;97H1-18[7;22H[7;21H[K[39;97H0-17[7;21H[7;20H[K[39;96H9-16 [7;20H[7;19H[K[39;96H8-15[7;19H[36me[0m[39;96H9-16[7;20H[36md[0m[39;96H10-17[7;21H[36mi[0m[39;97H1-18[7;22H[7;21H[K[39;97H0-17[7;21H[7;20H[K[39;96H9-16 [7;20H%[39;96H10-17[7;21H[7;20H[K[39;96H9-16 [7;20H%[39;96H10-17[7;21H[7;20H[K[39;96H9-16 [7;20H[7;19H[K[39;96H8-15[7;19H%[39;96H9-16[7;20H[36me[0m[39;96H10-17[7;21H[36md[0m[39;97H1-18[7;22H[36mi[0m[39;97H2-19[7;23H[8;13H[K[9;13H[36mret[0m
+[33m 10 [0m        [10;13H[K[39;94H8,1    [8;5H[39;96H2-9[8;13Hj [36mj[0m[39;96H3-10[8;14H[36mp[0m[39;96H4-11[8;15H[36me[0m[39;96H5-12[8;16H[8;15H[K[39;96H4-11[8;15H[8;14H[K[39;96H3-10[8;14H[36mp[0m[39;96H4-11[8;15H[36me[0m[39;96H5-12[8;16H[39;96H6-13[8;17H[36mp[0m[39;96H7-14[8;18H[36ma[0m[39;96H8-15[8;19H[8;18H[K[39;96H7-14[8;18H[8;17H[K[39;96H6-13[8;17H.[39;96H7-14[8;18H[33m.p[0m[39;96H8-15[8;19H[33ma[0m[39;96H9-16[8;20H[33mr[0m[39;96H10-17[8;21H[33mi[0m[39;97H1-18[8;22H[33mt[0m[39;97H2-19[8;23H[33my[0m[39;97H3-20[8;24H[33m_[0m[39;97H4-21[8;25H[33me[0m[39;97H5-22[8;26H[33mv[0m[39;97H6-23[8;27H[33me[0m[39;97H7-24[8;28H[33mmn[0m[39;97H9-26[8;30H[8;29H[K[39;97H8-25[8;29H[8;28H[K[39;97H7-24[8;28H[33mn[0m[39;97H8-25[8;29H[9;13H[K[10;13H[36mret[0m
+[33m 11 [0m        [11;13H[K[39;94H9,1    [9;5H[10;13H[K[11;13H[36mret[0m
+[33m 12 [0m        [12;13H[K[39;94H10,1[10;5H.[39;97H2[10;6H[33m.p[0m[39;97H3[10;7H[33ma[0m[39;97H4[10;8H[33mr[0m[39;97H5[10;9H[33mi[0m[39;97H6[10;10H[33mt[0m[39;97H7[10;11H[33my[0m[39;97H8[10;12H[33m_[0m[39;97H9[10;13H[33me[0m[39;97H10[10;14H[33mv[0m[39;98H1[10;15H[33me[0m[39;98H2[10;16H[33mn[0m[39;98H3[10;17H:[39;98H4[10;18H[11;13H[K[12;13H[36mret[0m
+[33m 13 [0m        [13;13H[K[39;95H1,1 [11;5H[39;97H2-9[11;13H[36me[0m[39;97H3-10[11;14H[36ma[0m[39;97H4-11[11;15H[36mx[0m[39;97H5-12[11;16H[39;97H6-13[11;17H[39;97H5-12[11;16H[11;15H[K[39;97H4-11[11;15H[11;14H[K[39;97H3-10[11;14H[11;13H[K[39;97H2-9 [11;13H[36mm[0m[39;97H3-10[11;14H[36mo[0m[39;97H4-11[11;15H[36mv[0m[39;97H5-12[11;16H[39;97H6-13[11;17H[36me[0m[39;97H7-14[11;18H[36ma[0m[39;97H8-15[11;19H[36mx[0m[39;97H9-16[11;20H[39;97H10-17[11;21H[31m1[0m[39;98H1-18[11;22H[11;21H[K[39;98H0-17[11;21H[39;97H9-16 [11;20H[11;19H[K[39;97H8-15[11;19H[11;18H[K[39;97H7-14[11;18H[11;17H[K[39;97H6-13[11;17H[39;97H5-12[11;16H[36ml[0m[39;97H6-13[11;17H[39;97H7-14[11;18H[36me[0m[39;97H8-15[11;19H[36ma[0m[39;97H9-16[11;20H[36mx[0m[39;97H10-17[11;21H,[39;98H1-18[11;22H[39;98H2-19[11;23H[31m1[0m[39;98H3-20[11;24H[11;23H[K[39;98H2-19[11;23H[39;98H1-18[11;22H[11;21H[K[39;98H0-17[11;21H[11;20H[K[39;97H9-16 [11;20H[11;19H[K[39;97H8-15[11;19H[11;18H[K[39;97H7-14[11;18H$[39;97H8-15[11;19H[31m1[0m[39;97H9-16[11;20H,[39;97H10-17[11;21H[39;98H1-18[11;22H%[39;98H2-19[11;23H[36me[0m[39;98H3-20[11;24H[36ma[0m[39;98H4-21[11;25H[36mx[0m[39;98H5-22[11;26Hj [39;1H[K[39;94H11,14-21      All[11;25H[39;95H0,13   [10;17H[39;94H9,0-1[9;5H[39;94H8,14-21[8;25H[39;94H9,0-1  [9;5H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,1[11CAll[9;5H[39;96H2-9[9;13H[36mm[0m[39;96H3-10[9;14H[36mo[0m[39;96H4-11[9;15H[36mv[0m[39;96H5-12[9;16H[36ml[0m[39;96H6-13[9;17H[39;96H7-14[9;18H$[39;96H8-15[9;19H[31m0[0m[39;96H9-16[9;20H[31m,[0m[39;96H10-17[9;21H[39;97H1-18[9;22H%[39;97H2-19[9;23H[36me[0m[39;97H3-20[9;24H[36ma[0m[39;97H4-21[9;25H[36mx[0m[39;97H5-22[9;26H[36mk[0m[39;97H6-23[9;27H[36ml[0m[39;97H7-24[9;28H[9;27H[K[39;97H6-23[9;27H[9;26H[K[39;97H5-22[9;26Hj [39;1H[K[39;94H9,14-21[7CAll[9;25H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H10,1[10CTop[10;5H[K[11;5H[33m.parity_even[0m:[11;18H[K[12;13H[36mmovl[0m $[31m1[0m, %[36meax[13;13Hret[0m
+[33m 14 [0m        [14;13H[K[10;5H[39;97H2-9[8CAll[10;13Hj [36mjm[0m[39;97H4-11[10;15H[36mp[0m[39;97H5-12[10;16H[39;97H6-13[10;17H.[39;97H7-14[10;18H[33m.e[0m[39;97H8-15[10;19H[33mn[0m[39;97H9-16[10;20H[33md[0m[39;97H10-17[10;21Hj [39;1H[K[39;94H10,9-16[7CAll[10;20H[39;95H1,13  [11;17H[39;95H2,9-16[12;20H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H13,1[10CTop[13;13H[K[14;13H[36mret[0m
+[33m 15 [0m        [15;13H[K[13;5H.[39;97H2[10CAll[13;6H[33m.e[0m[39;97H3[13;7H[33mn[0m[39;97H4[13;8H[33md[0m[39;97H5[13;9H:[39;97H6[13;10Hj [39;1H[K[39;94H13,5[10CAll[13;9H[39;94H[K[39;1H:w"parity.s" 15L, 216C written[65C13,5[10CAll[39;94H[K[39;94H13,5[10CAll[13;9H[39;1H[K[39;1H:wq"parity.s" 15L, 216C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ make
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+parity.s: Assembler messages:
+parity.s:7: Error: number of operands mismatch for `test'
+make: *** [Makefile:9: parity.o] Error 1
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ make[D[D[D[Dvim parity.s
+[m[m[0m[H[2J[39;1H"parity.s" 15L, 216C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [8C.text
+  2 [8C.globl[0m [36mget_parity[0m
+[33m  3 [0m[34m#edi contains n [0m
+[33m  4 [0m[36mget_parity[0m:
+[33m  5 
+  6 [0m[8C[34m#@[0m[30m[43mTODO[0m[34m: add code here to set eax to 1 iff edi has even parity[0m
+[33m  7 [0m[8C[36mtestl[0m %[36medi[0m
+[33m  8 [0m[8C[36mjpe[0m [33m.parity_even
+  9 [0m[8C[36mmovl[0m $[31m0,[0m %[36meax[0m
+[33m 10 [0m[8C[36mjmp[0m [33m.end
+ 11 .parity_even[0m:
+[33m 12 [0m[8C[36mmovl[0m $[31m1[0m, %[36meax[0m
+[33m 13 .end[0m:
+[33m 14 [0m[8C[36mret[0m
+[33m 15 [0m
+[1m[34m~                                                                                                              [17;1H~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,2-9[9CAll[1;13H[39;94H2[2;13H[39;94H1[1;13H[39;94H2[2;13H[39;94H3,9  [3;13H[39;94H4[4;13H[39;94H5,0-1[5;5H[39;94H6,2-9[6;13H[39;94H7[7;13H[39;1H[1m-- INSERT --[0m[39;13H[K[39;94H7,12-19[7CAll[7;23H,[39;97H3-20[7;24H[39;97H4-21[7;25H%[39;97H5-22[7;26H[36me[0m[39;97H6-23[7;27H[36md[0m[39;97H7-24[7;28H[36mi[0m[39;97H8-25[7;29Hj [39;1H[K[39;94H7,17-24[7CAll[7;28H[39;94H[K[39;1H:wq"parity.s" 15L, 222C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ vim parity.s[D[D[D[D[D[D[D[D[D[D[D[D[8Pmake
+cc -c -g -Wall -std=c11 -Og parity.s -o parity.o
+cc main.o parity.o -o parity
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ make[D[D[D[Dvim parity.s[D[D[D[D[D[D[D[D[D[D[D[D[8Pmake[D[D[D[Dvim parity.s[D[D[D[D[D[D[D[D[D[D[D[D./parity 1 2 3 4 5 6 7 15 21
+parity(1) = 0
+parity(2) = 0
+parity(3) = 1
+parity(4) = 0
+parity(5) = 1
+parity(6) = 1
+parity(7) = 0
+parity(15) = 1
+parity(21) = 0
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ ./parity 1 2 3 4 5 6 7 15 21[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[K./parity 1 2 3 4 5 6 7 15 21[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[K./parity -1 0 -2
+parity(-1) = 1
+parity(0) = 1
+parity(-2) = 0
+awalley1@remote04:~/i220a/submit/lab9/exercises/parity$ cd ../rp[D[Kp[D[Kip
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ ls
+Makefile  rip.c
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ vim rip.c 
+[m[m[0m[H[2J[39;1H"rip.c" 15L, 255C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return instruction pointer for return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rip([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rip;
+[33m  8 [0m  __asm__([31m"leaq ([0m[35m%%[0m[31mrip), %0"[0m: [31m"=r"[0m(rip));
+[33m  9 [0m  [33mreturn[0m rip;
+[33m 10 [0m}
+[33m 11 
+ 12 [0m[32mint[0m main() {
+[33m 13 [0m  printf([31m"&get_rip() = [0m[35m%p[0m[31m; rip = [0m[35m%p\n[0m[31m"[0m, get_rip, get_rip());
+[33m 14 [0m  [33mreturn[0m [31m0[0m;
+[33m 15 [0m}
+[1m[34m~                                                                                                              [17;1H~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[10;5H}[0m[39;94H6[6;5H{[10;5H}[39;94H7[7;5H[39;94H8[8;5H[39;94H9[9;5H[6;5H[46m{[10;5H}[0m[39;94H10,1[10;5H[6;5H{[10;5H}[39;95H1,0-1[11;5H[39;1H[K[39;1H:q[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/rip$ make
+cc -Wall -Og -std=c11 -S rip.c
+cc -Wall -Og -std=c11    rip.c   -o rip
+objdump -d rip > rip.dump
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ ./rip
+&get_rip() = 0x55b928f46135; rip = 0x55b928f4613c
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ cd ../rsp
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ ls
+Makefile  rsp.c
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rsp.c
+[m[m[0m[H[2J[39;1H"rsp.c" 16L, 305C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return value of %rsp register just before return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rsp([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rsp;
+[33m  8 [0m  [34m//@[0m[30m[43mTODO[0m[34m: inline assembly to set rsp C var to value of %rsp register[0m
+[33m  9 [0m  [33mreturn[0m rsp;
+[33m 10 [0m}
+[33m 11 
+ 12 [0m[32mint[0m main() {
+[33m 13 [0m  [32mint[0m stkVar;
+[33m 14 [0m  printf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());
+[33m 15 [0m  [33mreturn[0m [31m0[0m;
+[33m 16 [0m}
+[1m[34m~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[10;5H}[0m[39;94H6[6;5H{[10;5H}[39;94H7[7;5H[39;94H8[8;5H[39;1H[1m-- INSERT --[0m[39;14H[K[39;94H9,1[11CTop[9;7H[K[10;5H  [33mreturn[0m rsp;[11;5H}[12;5H[K[13;5H[32mint[0m main() {[13;17H[K[14;7H[32mint[0m stkVar;[14;18H[K[15;7Hprintf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());[16;5H  [33mreturn[0m [31m0[0m;
+[33m 17 [0m}[17;6H[K[9;5H[39;96H2-9[9CAll[9;13H[39;96H1  [9;5H[39;96H2[9;6H[39;96H3[9;7H_[39;96H4[9;8H_[39;96H5[9;9Ha[39;96H6[9;10Hs[39;96H7[9;11Hm[39;96H8[9;12H_[39;96H9[9;13H_[39;96H10[9;14H([39;97H1[9;15H[31m"[10;5H  return rsp;[11;5H}[13;5Hint main() {[14;5H  int stkVar;[15;5H  printf([0m[1C&stkVar = %p; rsp = %p\n[1C[31m, &stkVar, get_rsp());[16;5H  return 0;[17;5H}[0m[39;97H2[9;16H[31m"[0m[10;5H  [33mreturn[0m rsp;[11;5H}[13;5H[32mint[0m main() {[14;5H  [32mint[0m stkVar;[15;5H  printf([1C[31m&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[1C, &stkVar, get_rsp());[16;5H  [33mreturn[0m [1C;[17;5H}[39;97H3[9;17H:[39;97H4[9;18H=[39;97H5[9;19Hr[39;97H6[9;20H([39;97H7[9;21Hr[39;97H8[9;22Hs[39;97H9[9;23Hp[39;96H20[9;24H)[46m([0mrsp[46m)[0m[39;97H1[9;25H)[9;14H[46m([0m[5C(rsp)[46m)[0m[39;97H2[9;26H;[9;14H([10C)[39;97H3[9;27Hj [39;1H[K[39;94H9,22[10CAll[9;26H[9;14H[46m([10C)[0m[39;97H1[9;25H[9;14H([5C[46m([0mrsp[46m)[0m)[39;97H0[9;24H(rsp)[39;96H19[9;23H[39;97H8[9;22H[39;97H7[9;21H[39;94H10,13[10;17H[6;5H[46m{[11;5H}[0m[39;95H1,1 [11;5H[6;5H{[11;5H}[39;95H0,13[10;17H[39;94H9,17 [9;21H[46m([0mrsp[46m)[0m[39;97H6[9;20H(rsp)[39;97H5[9;19H[39;97H4[9;18H[39;97H5[9;19H[39;97H4[9;18H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,14[10CAll[9;18H =r(rsp));[39;97H5[9;19Hj=[39;1H[K[39;94H9,14[10CAll[9;18H[39;97H3[9;17H[39;97H2[9;16H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,12[10CAll[9;16H[31ml"[0m: =r(rsp));[39;97H3[9;17H[31mw"[0m: =r(rsp));[39;97H4[9;18H[31m"[0m: =r(rsp));[9;29H[K[39;97H3[9;17H[31me"[0m: =r(rsp));[39;97H4[9;18H[31ma"[0m: =r(rsp));[39;97H5[9;19H[31mq"[0m: =r(rsp));[39;97H6[9;20H[31m("[0m: =r(rsp));[9;20H[31m[46m([0m[10C[46m)[0m[39;97H7[9;21H[31m%"[0m: =r(rsp[1C);[9;20H[31m([0m[10C)[39;97H8[9;22H[35m%%[0m[31m"[0m: =r(rsp));[39;97H9[9;23H[31mr"[0m: =r(rsp));[39;96H20[9;24H[31ms"[0m: =r(rsp));[39;97H1[9;25H[31mp"[0m: =r(rsp));[39;97H2[9;26H[31m)"[0m: =r(rsp));[9;20H[31m[46m([5C)[0m[39;97H3[9;27Hj[31m"[0m[39;1H[K[39;94H9,22[10CAll[9;26H[39;94H[K[39;1H:w"rsp.c" 17L, 340C written[68C9,22[10CAll[39;94H[K[39;94H9,22[10CAll[9;26H[39;1H[K[39;1H:w"rsp.c" 17L, 340C written[68C9,22[10CAll[39;94H[K[39;94H9,22[10CAll[9;26H[31m([5C)[0m[39;97H3[9;27H[39;1H[1m-- INSERT --[0m[39;14H[K[39;94H9,23[10CAll[9;27H[31m,"[0m: =r(rsp));[39;97H4[9;28H[31m "[0m: =r(rsp));[39;97H5[9;29H[31m%"[0m: =r(rsp));[39;97H6[9;30H[31m0"[0m: =r(rsp));[39;97H7[9;31Hj[31m"[0m[39;1H[K[39;94H9,26[10CAll[9;30H[39;94H[K[39;1H:w"rsp.c" 17L, 344C written[68C9,26[10CAll[39;94H[K[39;94H9,26[10CAll[9;30H[39;1H[K[39;1H:wq"rsp.c" 17L, 344C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rsp.c[D[D[D[D[D[D[D[D[Dls[K[D[Dvim rsp.c[D[D[D[D[D[D[D[D[D[Kmake
+cc -Wall -Og -std=c11 -S rsp.c
+[01m[Krsp.c:[m[K In function ‘[01m[Kget_rsp[m[K’:
+[01m[Krsp.c:9:30:[m[K [01;31m[Kerror: [m[Kexpected string literal before ‘[01m[K=[m[K’ token
+   __asm__("leaq(%%rsp), %0": [01;31m[K=[m[Kr(rsp));
+                              [01;31m[K^[m[K
+make: *** [Makefile:15: rsp.s] Error 1
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ make[D[D[D[Dvim rsp.c
+[m[m[0m[H[2J[39;1H"rsp.c" 17L, 344C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return value of %rsp register just before return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rsp([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rsp;
+[33m  8 [0m  [34m//@[0m[30m[43mTODO[0m[34m: inline assembly to set rsp C var to value of %rsp register[0m
+[33m  9 [0m  __asm__([31m"leaq([0m[35m%%[0m[31mrsp), %0"[0m: =r(rsp));
+[33m 10 [0m  [33mreturn[0m rsp;
+[33m 11 [0m}
+[33m 12 
+ 13 [0m[32mint[0m main() {
+[33m 14 [0m  [32mint[0m stkVar;
+[33m 15 [0m  printf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());
+[33m 16 [0m  [33mreturn[0m [31m0[0m;
+[33m 17 [0m}
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;1H[K[39;1H:wq"rsp.c" 17L, 344C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ cd ../s[D[Ki[D[Krip
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ vim rip.c
+[m[m[0m[H[2J[39;1H"rip.c" 15L, 255C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return instruction pointer for return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rip([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rip;
+[33m  8 [0m  __asm__([31m"leaq ([0m[35m%%[0m[31mrip), %0"[0m: [31m"=r"[0m(rip));
+[33m  9 [0m  [33mreturn[0m rip;
+[33m 10 [0m}
+[33m 11 
+ 12 [0m[32mint[0m main() {
+[33m 13 [0m  printf([31m"&get_rip() = [0m[35m%p[0m[31m; rip = [0m[35m%p\n[0m[31m"[0m, get_rip, get_rip());
+[33m 14 [0m  [33mreturn[0m [31m0[0m;
+[33m 15 [0m}
+[1m[34m~                                                                                                              [17;1H~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[10;5H}[0m[39;94H6[6;5H[39;1H[K[39;1H:wq"rip.c" 15L, 255C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ vim rip.c[D[D[D[D[D[D[D[D[Dcd ../rip[D[D[D[D[D[D[D[D[Dvim rsp.c[D[D[D[D[D[D[D[D[Dcd ../rip[D[K[D[Ksp
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rspc[D[K.c
+[m[m[0m[H[2J[39;1H"rsp.c" 17L, 344C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return value of %rsp register just before return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rsp([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rsp;
+[33m  8 [0m  [34m//@[0m[30m[43mTODO[0m[34m: inline assembly to set rsp C var to value of %rsp register[0m
+[33m  9 [0m  __asm__([31m"leaq([0m[35m%%[0m[31mrsp), %0"[0m: =r(rsp));
+[33m 10 [0m  [33mreturn[0m rsp;
+[33m 11 [0m}
+[33m 12 
+ 13 [0m[32mint[0m main() {
+[33m 14 [0m  [32mint[0m stkVar;
+[33m 15 [0m  printf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());
+[33m 16 [0m  [33mreturn[0m [31m0[0m;
+[33m 17 [0m}
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H1,1  [1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[11;5H}[0m[39;94H6[6;5H{[11;5H}[39;94H7[7;5H[39;94H8[8;5H[39;96H3[8;7H[39;94H9[9;7H[7C[46m([26C)[0m[39;96H10[9;14H([26C)[39;97H2[9;16H[4C[31m[46m([5C)[0m[39;97H6[9;20H[31m([5C)[0m[39;97H9[9;23H[31m[46m([5C)[0m[39;96H22[9;26H[31m([5C)[0m[39;97H5[9;29H[39;97H6[9;30H[39;97H7[9;31H[39;96H30[9;34H[39;1H[1m-- INSERT --[0m[39;14H[K[39;94H9,30[10CAll[9;34H[31m"=r(rsp));[10;5H  return rsp;[11;5H}[13;5Hint main() {[14;5H  int stkVar;[15;5H  printf([0m[1C&stkVar = %p; rsp = %p\n[1C[31m, &stkVar, get_rsp());[16;5H  return 0;[17;5H}[0m[39;97H1[9;35Hj[31m=[0m[39;1H[K[39;94H9,30[10CAll[9;34H[39;97H1[9;35H[39;97H2[9;36H[1C[31m[46m([3C)[0m[39;97H3[9;37H[39;1H[1m-- INSERT --[0m[39;94H[K[39;94H9,33[10CAll[9;37H[31m[46m"[0m(rs[46mp[0m));[10;5H  [33mreturn[0m rsp;[11;5H}[13;5H[32mint[0m main() {[14;5H  [32mint[0m stkVar;[15;5H  printf([1C[31m&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[1C, &stkVar, get_rsp());[16;5H  [33mreturn[0m [1C;[17;5H}[9;37H[31m"[0m[46m([0mrsp[46m)[0m[39;97H4[9;38Hj[46m([0m[39;1H[K[9;38H(rsp)[39;94H9,33[10CAll[9;37H[39;94H[K[39;1H:wq"rsp.c" 17L, 346C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rsp.c[D[D[D[D[D[D[D[D[Dcd ../rsp[D[D[D[D[D[D[D[D[Dvim rip.c[D[D[D[D[D[D[D[D[Dcd ../rsp[D[D[D[D[D[D[D[D[Dvim rsp.c[D[D[D[D[D[D[D[D[D[Kmake
+cc -Wall -Og -std=c11 -S rsp.c
+cc -Wall -Og -std=c11    rsp.c   -o rsp
+rsp.c: Assembler messages:
+rsp.c:9: Error: invalid character '(' in mnemonic
+make: *** [<builtin>: rsp] Error 1
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ cd ../rip
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ vim rip.c
+[m[m[0m[H[2J[39;1H"rip.c" 15L, 255C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return instruction pointer for return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rip([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rip;
+[33m  8 [0m  __asm__([31m"leaq ([0m[35m%%[0m[31mrip), %0"[0m: [31m"=r"[0m(rip));
+[33m  9 [0m  [33mreturn[0m rip;
+[33m 10 [0m}
+[33m 11 
+ 12 [0m[32mint[0m main() {
+[33m 13 [0m  printf([31m"&get_rip() = [0m[35m%p[0m[31m; rip = [0m[35m%p\n[0m[31m"[0m, get_rip, get_rip());
+[33m 14 [0m  [33mreturn[0m [31m0[0m;
+[33m 15 [0m}
+[1m[34m~                                                                                                              [17;1H~                                                                                                              [18;1H~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H1,1  [1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[10;5H}[0m[39;94H6[6;5H{[10;5H}[39;94H7[7;5H[39;94H8[8;5H[39;1H[K[39;1H:wq"rip.c" 15L, 255C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rip$ vim rip.c[D[D[D[D[D[D[D[D[Dcd ../rip[D[D[D[D[D[D[D[D[D[5Pmake[D[D[D[Dvim rsp.c[D[D[D[D[D[D[D[D[Dcd ../rsp
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rsp.c
+[m[m[0m[H[2J[39;1H"rsp.c" 17L, 346C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return value of %rsp register just before return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rsp([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rsp;
+[33m  8 [0m  [34m//@[0m[30m[43mTODO[0m[34m: inline assembly to set rsp C var to value of %rsp register[0m
+[33m  9 [0m  __asm__([31m"leaq([0m[35m%%[0m[31mrsp), %0"[0m: [31m"=r"[0m(rsp));
+[33m 10 [0m  [33mreturn[0m rsp;
+[33m 11 [0m}
+[33m 12 
+ 13 [0m[32mint[0m main() {
+[33m 14 [0m  [32mint[0m stkVar;
+[33m 15 [0m  printf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());
+[33m 16 [0m  [33mreturn[0m [31m0[0m;
+[33m 17 [0m}
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;94H2,0-1[2;5H[39;94H1,1  [1;5H[39;94H2,0-1[2;5H[39;94H3,1  [3;5H[39;94H4[4;5H[39;94H5[5;5H[6;5H[46m{[11;5H}[0m[39;94H6[6;5H{[11;5H}[39;94H7[7;5H[39;94H8[8;5H[39;94H9[9;5H[39;94H10,1[10;5H[39;94H9,1 [9;5H[39;96H3[9;7H[7C[46m([28C)[0m[39;96H10[9;14H([28C)[39;97H2[9;16H[4C[31m[46m([5C)[0m[39;97H6[9;20H[39;1H[1m-- INSERT --[0m[39;14H[K[39;94H9,16[10CAll[9;20H[31m[46m [0m[31m([0m[1C[35m%[0m[31mrs[0m[31m[46mp[0m[31m), %0"[0m: [31m"=r"[0m(rsp));[9;20H[31m [0m[31m[46m([0m[4C[31mp[0m[31m[46m)[0m[39;97H7[9;21Hj[31m[46m([0m[39;1H[K[9;21H[31m([5C)[0m[39;94H9,16[10CAll[9;20H[39;94H[K[39;1H:wq"rsp.c" 17L, 347C written
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ vim rsp.c[D[D[D[D[D[D[D[D[Dcd ../rsp[D[D[D[D[D[D[D[D[Dvim rsp.c[D[D[D[D[D[D[D[D[D[Kmake
+cc -Wall -Og -std=c11 -S rsp.c
+cc -Wall -Og -std=c11    rsp.c   -o rsp
+objdump -d rsp > rsp.dump
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ ./rsp
+&stkVar = 0x7fffe9aa531c; rsp = 0x7fffe9aa5308
+awalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ :wq[D[K[D[K[D[Kvim rspc[D[K.c
+[m[m[0m[H[2J[39;1H"rsp.c" 17L, 347C[2;1H▽[6n[2;1H  [1;1H[1;1H[33m  1 [0m[35m#include [0m[31m<stdio.h>[0m
+[33m  2 
+  3 [0m[34m/** Return value of %rsp register just before return */[0m
+[33m  4 [0m[32mstatic[0m [32mvoid[0m *
+[33m  5 [0mget_rsp([32mvoid[0m)
+[33m  6 [0m{
+[33m  7 [0m  [32mvoid[0m *rsp;
+[33m  8 [0m  [34m//@[0m[30m[43mTODO[0m[34m: inline assembly to set rsp C var to value of %rsp register[0m
+[33m  9 [0m  __asm__([31m"leaq ([0m[35m%%[0m[31mrsp), %0"[0m: [31m"=r"[0m(rsp));
+[33m 10 [0m  [33mreturn[0m rsp;
+[33m 11 [0m}
+[33m 12 
+ 13 [0m[32mint[0m main() {
+[33m 14 [0m  [32mint[0m stkVar;
+[33m 15 [0m  printf([31m"&stkVar = [0m[35m%p[0m[31m; rsp = [0m[35m%p\n[0m[31m"[0m, &stkVar, get_rsp());
+[33m 16 [0m  [33mreturn[0m [31m0[0m;
+[33m 17 [0m}
+[1m[34m~                                                                                                              [19;1H~                                                                                                              [20;1H~                                                                                                              [21;1H~                                                                                                              [22;1H~                                                                                                              [23;1H~                                                                                                              [24;1H~                                                                                                              [25;1H~                                                                                                              [26;1H~                                                                                                              [27;1H~                                                                                                              [28;1H~                                                                                                              [29;1H~                                                                                                              [30;1H~                                                                                                              [31;1H~                                                                                                              [32;1H~                                                                                                              [33;1H~                                                                                                              [34;1H~                                                                                                              [35;1H~                                                                                                              [36;1H~                                                                                                              [37;1H~                                                                                                              [38;1H~                                                                                                              [0m[39;94H1,1[11CAll[1;5H[39;1H[K[39;1H:wq[39;3H[K[39;3H[39;2H[K[39;2Hq[39;1H[K[39;1Hawalley1@remote04:~/i220a/submit/lab9/exercises/rsp$ e[D[Kexit
+exit
+
+Script done on 2020-11-01 22:16:10-05:00 [COMMAND_EXIT_CODE="0"]

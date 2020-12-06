@@ -13,8 +13,8 @@ matrix_transpose(int n, double a[][n], double t[][n])
 {
   //@TODO add your code here
   for(int j = 0; j < n; j++){
-    for(int i = 0; i < sizeof(a)/sizeof(a[0]); i++){
-	t[i][j] = a[j][i];
+    for(int i = 0; i < n; i++){
+	t[i][i] = a[i][j];
     }
   }
 }
